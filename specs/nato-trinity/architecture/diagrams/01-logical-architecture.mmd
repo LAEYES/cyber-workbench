@@ -1,0 +1,49 @@
+flowchart TB
+  subgraph External[External Systems]
+    IdP[IdP (OIDC/SAML)]
+    SIEM[SIEM]
+    CICD[CI/CD]
+    ITSM[ITSM/Case Mgmt]
+    REG[Artifact Registry]
+    KMS[KMS/HSM]
+  end
+
+  subgraph Trinity[NATO Trinity]
+    APIGW[API Gateway]
+    AuthZ[RBAC/SoD]
+    Risk[Risk Service]
+    Policy[Policy Service]
+    Orch[Orchestrator]
+    Evid[Evidence Service]
+    Coll[Collectors]
+    CaseConn[Case Connector]
+
+    DB[(DB)]
+    Obj[(Object Storage)]
+    WORM[(WORM Storage)]
+    Search[(Search Index)]
+  end
+
+  IdP --> APIGW --> AuthZ
+  AuthZ --> Risk
+  AuthZ --> Policy
+  AuthZ --> Orch
+  AuthZ --> Evid
+
+  CICD --> Coll --> Evid
+  SIEM --> Coll --> Evid
+  REG --> Coll --> Evid
+  ITSM --> CaseConn --> Risk
+
+  Risk --> DB
+  Policy --> DB
+  Orch --> DB
+  Evid --> DB
+
+  Evid --> Obj
+  Evid --> WORM
+  Evid --> Search
+  DB --> Search
+
+  KMS --> Evid
+  KMS --> Orch

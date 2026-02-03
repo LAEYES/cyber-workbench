@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/nato-trinity/schemas/risk.schema.json",
+  "title": "Risk",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "version",
+    "createdAt",
+    "createdBy",
+    "riskId",
+    "title",
+    "owner",
+    "likelihood",
+    "impact",
+    "score",
+    "status",
+    "dueDate"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "const": "risk" },
+    "version": { "type": "integer", "minimum": 1 },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "type": "string" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+
+    "riskId": { "type": "string" },
+    "title": { "type": "string", "minLength": 3 },
+    "description": { "type": "string" },
+    "owner": { "type": "string" },
+
+    "likelihood": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "impact": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "score": { "type": "integer", "minimum": 1, "maximum": 25 },
+
+    "status": {
+      "type": "string",
+      "enum": ["new", "open", "accepted", "mitigated", "closed"]
+    },
+    "dueDate": { "type": "string", "format": "date" },
+
+    "controlRefs": { "type": "array", "items": { "type": "string" } },
+    "evidenceRefs": { "type": "array", "items": { "type": "string" } },
+    "caseRefs": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": true
+}
