@@ -1,6 +1,6 @@
-# NATO Trinity Spec v1.0 (FR + EN)
+# NATO Trinity Spec v1.0.1 (FR + EN)
 
-**Status:** Draft v1.0  
+**Status:** Draft v1.0.1  
 **Owner:** {{org}} (programme)  
 **Date:** {{today}}  
 
@@ -9,6 +9,12 @@
 # FR — Spécification
 
 ## 0. Meta
+### 0.0 Terminologie normative
+Les mots-clés **MUST / SHOULD / MAY** sont à interpréter selon RFC 2119.
+
+### 0.0.1 Identifiants d’exigences
+Les exigences normatives sont identifiées sous la forme `REQ-TRI-XXX`.
+
 ### 0.1 Objet (normatif)
 Ce document définit les exigences **normatives** de “NATO Trinity” : périmètre, définitions, exigences « en dur » (seuils/SLA, pass/fail), artefacts attendus, et règles de preuve (intégrité, rétention, export).
 
@@ -286,9 +292,56 @@ Obligatoire pour :
 
 ---
 
+## 13. Annexes (FR)
+### Annexe A — Exigences (liste REQ-TRI)
+- **REQ-TRI-001** : NATO Trinity MUST couvrir Risk Engine, Policy-as-Code Orchestrator, Evidence Engine.
+- **REQ-TRI-002** : Toute exception MUST être time-boxed et approuvée.
+- **REQ-TRI-003** : Toute acceptation de risque MUST avoir une date d’expiration.
+- **REQ-TRI-004** : Les preuves critiques MUST être exportables avec manifeste (hash).
+- **REQ-TRI-005** : En mode régulé, les preuves critiques MUST être immuables (WORM) ou équivalent.
+- **REQ-TRI-006** : Les actions sensibles MUST être journalisées (actor, action, objet, timestamp, résultat).
+- **REQ-TRI-007** : Un Risk Owner MUST NOT approuver sa propre acceptation de risque.
+- **REQ-TRI-008** : Tout GateResult=fail MUST créer ou lier un case/ticket ≤ 24h.
+
+### Annexe B — Valeurs par défaut (SLA & rétention)
+- **Triage incident critique** : ≤ 1h (baseline), ≤ 1h + containment initial ≤ 4h (régulé)
+- **Patch critique** : ≤ 7j (baseline), ≤ 72h (régulé)
+- **Vuln critique** : ≤ 7j (baseline), ≤ 72h (régulé)
+- **Logs critiques (SIEM/SOAR/IdP/ZTNA)** : ≥ 180j (baseline), ≥ 1 an (régulé)
+- **Preuves incidents/décisions** : ≥ 1 an (baseline), ≥ 3 ans (régulé)
+- **Releases/SBOM/attestations** : ≥ 1 an (baseline), ≥ 3 ans (régulé)
+- **Tests DR/restore** : ≥ 3 ans
+
+### Annexe C — Mapping capability → D01..D18
+- **Risk Engine** : D01, D15, D08
+- **Policy-as-Code Orchestrator** : D04, D06, D10, D13, D16, D18
+- **Evidence Engine** : D08, D10, D13, D14, D16, D12
+
+### Annexe D — Scénarios de test (Given/When/Then)
+- **TEST-TRI-01 (Risk acceptance expiry)**
+  - Given un risque en statut "accept"
+  - When une décision d’acceptation est créée
+  - Then `expiryDate` est obligatoire et `approvedBy` ≠ owner
+- **TEST-TRI-02 (Gate fail creates case)**
+  - Given un gate bloquant
+  - When le résultat est "fail"
+  - Then un case/ticket est créé/lien ≤ 24h et une preuve (GateResult) est liée
+- **TEST-TRI-03 (Audit package integrity)**
+  - Given un EvidencePackage exporté
+  - When le manifeste est vérifié
+  - Then les hashes correspondent et la liste des preuves est exhaustive
+
+---
+
 # EN — Specification
 
 ## 0. Meta
+### 0.0 Normative terminology
+The keywords **MUST / SHOULD / MAY** are to be interpreted per RFC 2119.
+
+### 0.0.1 Requirement identifiers
+Normative requirements are identified as `REQ-TRI-XXX`.
+
 ### 0.1 Purpose (normative)
 This document defines the **normative** requirements of “NATO Trinity”: scope, definitions, “hard” requirements (thresholds/SLAs, pass/fail), expected artifacts, and evidence rules (integrity, retention, exports).
 
@@ -563,4 +616,44 @@ Mandatory for:
 - A) Extended glossary
 - B) Default values (SLA/retention) — list format (no tables)
 - C) Capability → D01..D18 mapping
+- D) Minimal test scenarios (Given/When/Then)
+
+## 13. Annexes (EN)
+### Annex A — Requirements (REQ-TRI list)
+- **REQ-TRI-001**: NATO Trinity MUST cover Risk Engine, Policy-as-Code Orchestrator, Evidence Engine.
+- **REQ-TRI-002**: Every exception MUST be time-boxed and approved.
+- **REQ-TRI-003**: Every risk acceptance MUST include an expiry date.
+- **REQ-TRI-004**: Critical evidence MUST be exportable with a manifest (hash).
+- **REQ-TRI-005**: In regulated mode, critical evidence MUST be immutable (WORM) or equivalent.
+- **REQ-TRI-006**: Sensitive actions MUST be logged (actor, action, object, timestamp, outcome).
+- **REQ-TRI-007**: A Risk Owner MUST NOT approve their own risk acceptance.
+- **REQ-TRI-008**: Any GateResult=fail MUST create/link a case/ticket within ≤ 24h.
+
+### Annex B — Default values (SLA & retention)
+- **Critical incident triage**: ≤ 1h (baseline), ≤ 1h + initial containment ≤ 4h (regulated)
+- **Critical patch**: ≤ 7d (baseline), ≤ 72h (regulated)
+- **Critical vulnerability**: ≤ 7d (baseline), ≤ 72h (regulated)
+- **Critical logs (SIEM/SOAR/IdP/ZTNA)**: ≥ 180d (baseline), ≥ 1y (regulated)
+- **Incident/decision evidence**: ≥ 1y (baseline), ≥ 3y (regulated)
+- **Releases/SBOM/attestations**: ≥ 1y (baseline), ≥ 3y (regulated)
+- **DR/restore tests**: ≥ 3y
+
+### Annex C — Capability → D01..D18 mapping
+- **Risk Engine**: D01, D15, D08
+- **Policy-as-Code Orchestrator**: D04, D06, D10, D13, D16, D18
+- **Evidence Engine**: D08, D10, D13, D14, D16, D12
+
+### Annex D — Test scenarios (Given/When/Then)
+- **TEST-TRI-01 (Risk acceptance expiry)**
+  - Given a risk in "accept" status
+  - When an acceptance decision is created
+  - Then `expiryDate` is mandatory and `approvedBy` ≠ owner
+- **TEST-TRI-02 (Gate fail creates case)**
+  - Given a blocking gate
+  - When the result is "fail"
+  - Then a case/ticket is created/linked within ≤ 24h and GateResult evidence is linked
+- **TEST-TRI-03 (Audit package integrity)**
+  - Given an exported EvidencePackage
+  - When verifying the manifest
+  - Then hashes match and the evidence listing is exhaustive
 
