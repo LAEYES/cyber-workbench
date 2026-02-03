@@ -1,0 +1,34 @@
+# POL — D15 — Risk Engine (GRC / Scoring / AI-assisted)
+
+**Organization:** ACME  
+**Version:** 0.2 (hardened)  
+**Date:** 2026-02-03
+
+## 1. Mission
+Industrialize cyber risk management: risk inventory, scoring, decisions (treat/avoid/transfer/accept), links to controls and evidence, and continuous improvement.
+
+## 2. Baseline requirements
+- Defined scoring model (L×I) + thresholds.
+- Each risk has owner, due date, status, evidence.
+- Risk acceptance is time-boxed (max **90 days**) with re-approval.
+- Mandatory linkage: risk ↔ controls ↔ evidence ↔ incidents.
+
+## 3. AI assistance (guardrails)
+- AI **does not decide**: it proposes, humans approve.
+- Traceability: prompts/inputs/outputs retained (when allowed) + rationale.
+- Data protection: no sensitive data in uncontrolled prompts.
+
+## 4. Enhanced (regulated)
+- Monthly review for critical risks.
+- Acceptance max **60 days**.
+- Immutable exports for critical decisions.
+
+## 5. Audit criteria (pass/fail)
+- [ ] Scoring and thresholds defined.
+- [ ] Risk owners + due dates.
+- [ ] Acceptances time-boxed and reviewed.
+- [ ] Complete evidence linkage.
+- [ ] AI guardrails enforced.
+
+## 6. Evidence
+- Risk register, decisions, evidence links, exports.

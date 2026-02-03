@@ -1,0 +1,21 @@
+# STD — D15 — Modèle de Scoring Risque
+
+**Organisation :** ACME  
+**Version :** 0.2 (durci)  
+**Date :** 2026-02-03
+
+## 1. Score
+- Vraisemblance (1–5) × Impact (1–5) = Score (1–25)
+
+## 2. Seuils (exemple)
+- 1–5 : monitor
+- 6–10 : planifié
+- 11–15 : prioritaire
+- 16–25 : immédiat / Direction informée
+
+## 3. Règles
+- Justification obligatoire V et I.
+- Revue risques ≥ 16 : hebdomadaire.
+
+## 4. Preuves
+- Registre risques + historique des revues.

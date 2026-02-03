@@ -71,7 +71,12 @@ type DocKind =
   | "dashboards-kpis-standard"
   | "case-management-workflows-standard"
   | "access-control-ui-standard"
-  | "soc-interface-checklist";
+  | "soc-interface-checklist"
+  | "risk-engine-policy"
+  | "risk-scoring-model-standard"
+  | "control-evidence-linkage-standard"
+  | "ai-assist-guardrails-standard"
+  | "risk-engine-checklist";
 
 function normalizeDoc(doc: string): DocKind {
   const raw = doc.trim();
@@ -667,6 +672,64 @@ function normalizeDoc(doc: string): DocKind {
     v === "chk-d14-soc"
   )
     return "soc-interface-checklist";
+
+  // Domain D15
+  if (
+    v === "risk-engine-policy" ||
+    v === "pol_d15_risk" ||
+    v === "pol-d15-risk" ||
+    v === "pol_d15_riskengine" ||
+    v === "pol-d15-riskengine" ||
+    v === "pol_d15_risk_engine" ||
+    v === "pol-d15-risk-engine"
+  )
+    return "risk-engine-policy";
+
+  if (
+    v === "risk-scoring-model-standard" ||
+    v === "std_d15_risk_scoring" ||
+    v === "std-d15-risk-scoring" ||
+    v === "std_d15_riskscoringmodel" ||
+    v === "std-d15-riskscoringmodel" ||
+    v === "std_d15_risk_scoring_model" ||
+    v === "std-d15-risk-scoring-model" ||
+    v === "std_d15_scoring" ||
+    v === "std-d15-scoring"
+  )
+    return "risk-scoring-model-standard";
+
+  if (
+    v === "control-evidence-linkage-standard" ||
+    v === "std_d15_evidence_linkage" ||
+    v === "std-d15-evidence-linkage" ||
+    v === "std_d15_control_evidence_linkage" ||
+    v === "std-d15-control-evidence-linkage" ||
+    v === "std_d15_controls_evidence" ||
+    v === "std-d15-controls-evidence"
+  )
+    return "control-evidence-linkage-standard";
+
+  if (
+    v === "ai-assist-guardrails-standard" ||
+    v === "std_d15_ai_guardrails" ||
+    v === "std-d15-ai-guardrails" ||
+    v === "std_d15_ai_assist_guardrails" ||
+    v === "std-d15-ai-assist-guardrails" ||
+    v === "std_d15_ai" ||
+    v === "std-d15-ai"
+  )
+    return "ai-assist-guardrails-standard";
+
+  if (
+    v === "risk-engine-checklist" ||
+    v === "chk_d15_risk" ||
+    v === "chk-d15-risk" ||
+    v === "chk_d15_riskengine" ||
+    v === "chk-d15-riskengine" ||
+    v === "chk_d15_risk_engine" ||
+    v === "chk-d15-risk-engine"
+  )
+    return "risk-engine-checklist";
 
   throw new Error(`Doc inconnu: ${raw}`);
 }
@@ -1586,6 +1649,72 @@ export async function genDoc(params: { doc: string; org?: string; lang?: string;
       tasks.push({
         template: tplPath("14-soc-interface", "soc-interface-checklist.en.md.hbs"),
         out: path.join(outDir, "docs", "14-soc-interface", `CHK_D14_SOC_Interface_${org}_EN.md`)
+      });
+  }
+
+  // Domain D15
+  if (doc === "risk-engine-policy") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("15-risk-engine", "risk-engine-policy.fr.md.hbs"),
+        out: path.join(outDir, "docs", "15-risk-engine", `POL_D15_RiskEngine_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("15-risk-engine", "risk-engine-policy.en.md.hbs"),
+        out: path.join(outDir, "docs", "15-risk-engine", `POL_D15_RiskEngine_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "risk-scoring-model-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("15-risk-engine", "risk-scoring-model-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "15-risk-engine", `STD_D15_RiskScoringModel_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("15-risk-engine", "risk-scoring-model-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "15-risk-engine", `STD_D15_RiskScoringModel_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "control-evidence-linkage-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("15-risk-engine", "control-evidence-linkage-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "15-risk-engine", `STD_D15_Control_Evidence_Linkage_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("15-risk-engine", "control-evidence-linkage-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "15-risk-engine", `STD_D15_Control_Evidence_Linkage_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "ai-assist-guardrails-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("15-risk-engine", "ai-assist-guardrails-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "15-risk-engine", `STD_D15_AI_Assist_Guardrails_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("15-risk-engine", "ai-assist-guardrails-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "15-risk-engine", `STD_D15_AI_Assist_Guardrails_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "risk-engine-checklist") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("15-risk-engine", "risk-engine-checklist.fr.md.hbs"),
+        out: path.join(outDir, "docs", "15-risk-engine", `CHK_D15_RiskEngine_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("15-risk-engine", "risk-engine-checklist.en.md.hbs"),
+        out: path.join(outDir, "docs", "15-risk-engine", `CHK_D15_RiskEngine_${org}_EN.md`)
       });
   }
 

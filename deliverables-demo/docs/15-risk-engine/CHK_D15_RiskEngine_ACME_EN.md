@@ -1,0 +1,14 @@
+# CHK — D15 — Risk Engine Checklist
+
+**Organization:** ACME  
+**Version:** 0.2 (hardened)  
+**Date:** 2026-02-03
+
+- [ ] Scoring model and thresholds defined.
+- [ ] Risk register with owners + due dates.
+- [ ] Acceptances time-boxed (90d / 60d regulated).
+- [ ] Risk↔controls↔evidence↔incidents linkage.
+- [ ] AI guardrails (no auto-decision, traceability, data protection).
+
+---
+*Checklist: complete with evidence (exports, tickets, AI logs).*

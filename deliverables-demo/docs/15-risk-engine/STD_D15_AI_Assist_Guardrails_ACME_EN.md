@@ -1,0 +1,17 @@
+# STD — D15 — AI Assistance: Guardrails & Security
+
+**Organization:** ACME  
+**Version:** 0.2 (hardened)  
+**Date:** 2026-02-03
+
+## 1. Rules (non-negotiable)
+- No auto-decision: AI proposes, humans approve.
+- Sensitive data: prohibited in uncontrolled prompts.
+- Traceability: retain context, sources and rationale.
+
+## 2. Quality
+- References required (evidence/links) for recommendations.
+- Hallucination mitigation: systematic human review.
+
+## 3. Evidence
+- AI usage logs, sample recommendations + approvals.
