@@ -123,7 +123,35 @@ public partial class Form1 : Form
             var (total, legacy, verified) = Store().VerifyEntityEvents(txtActor.Text);
             Log($"OK events verification: total={total} verified={verified} legacy={legacy}");
             if (legacy > 0)
-                Log("WARN legacy events detected (no hash/prevHash) - only new lines are cryptographically verified");
+                Log("WARN legacy events detected (no hash/prevHash) - use Migrate legacy to chain everything");
+        }
+        catch (Exception ex)
+        {
+            Log("ERROR " + ex.Message);
+        }
+    }
+
+    private void OnMigrateLegacyEvents()
+    {
+        try
+        {
+            Require(!string.IsNullOrWhiteSpace(txtActor.Text), "Actor is required");
+
+            var answer = MessageBox.Show(
+                this,
+                "This will rewrite riskEvents.jsonl and caseEvents.jsonl into a fully chained tamper-evident log.\n\nA .bak.<timestamp> backup will be created next to each file.\n\nContinue?",
+                "Migrate legacy events",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+            if (answer != DialogResult.Yes) return;
+
+            var (total, migrated) = Store().MigrateLegacyToChained(txtActor.Text);
+            Log($"OK migrated events to chained format: migrated={migrated} total={total}");
+
+            // Verify after migration
+            var (t2, legacy2, verified2) = Store().VerifyEntityEvents(txtActor.Text);
+            Log($"OK post-migration verify: total={t2} verified={verified2} legacy={legacy2}");
         }
         catch (Exception ex)
         {

@@ -134,6 +134,16 @@ public sealed partial class MvpStore
         return (r.total + c.total, r.legacy + c.legacy, r.verified + c.verified);
     }
 
+    public (int total, int migrated) MigrateLegacyToChained(string actor)
+    {
+        var r = MigrateToChained(RiskEventsPath);
+        var c = MigrateToChained(CaseEventsPath);
+
+        EmitAudit(actor, "human", "store.migrateLegacyToChained", $"store:{OrgId}", "success");
+
+        return (r.total + c.total, r.migrated + c.migrated);
+    }
+
     private static (bool ok, int total, int legacy, int verified, string? error) VerifyChainedEvents(string filePath)
     {
         if (!File.Exists(filePath)) return (true, 0, 0, 0, null);

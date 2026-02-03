@@ -197,6 +197,10 @@ partial class Form1
         StyleSecondary(btnVerifyEvents);
         btnVerifyEvents.Click += (_, _) => OnVerifyEvents();
 
+        var btnMigrateEvents = new Button { Text = "Migrate legacy" };
+        StyleSecondary(btnMigrateEvents);
+        btnMigrateEvents.Click += (_, _) => OnMigrateLegacyEvents();
+
         var baseButtons = new FlowLayoutPanel
         {
             Dock = DockStyle.Fill,
@@ -207,6 +211,7 @@ partial class Form1
         baseButtons.Controls.Add(btnPickBase);
         baseButtons.Controls.Add(btnOpenStore);
         baseButtons.Controls.Add(btnVerifyEvents);
+        baseButtons.Controls.Add(btnMigrateEvents);
         baseButtons.Controls.Add(btnRebuild);
 
         baseRow.Controls.Add(lblBase, 0, 0);
