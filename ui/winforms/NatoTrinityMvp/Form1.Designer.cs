@@ -18,6 +18,8 @@ partial class Form1
     private NumericUpDown numLikelihood = null!;
     private NumericUpDown numImpact = null!;
     private TextBox txtDue = null!;
+    private ComboBox cmbRiskStatus = null!;
+    private Label lblRiskScore = null!;
 
     private TextBox txtDecisionType = null!;
     private TextBox txtDecisionRationale = null!;
@@ -25,6 +27,7 @@ partial class Form1
     private TextBox txtDecisionExpiry = null!;
 
     private TextBox txtCaseId = null!;
+    private TextBox txtCaseRiskId = null!;
     private ComboBox cmbSeverity = null!;
     private ComboBox cmbCaseStatus = null!;
     private TextBox txtCaseOwner = null!;
@@ -369,6 +372,22 @@ partial class Form1
         StyleNumber(numImpact);
         txtDue = MakeTextBox("2026-03-01");
 
+        cmbRiskStatus = new ComboBox { DropDownStyle = ComboBoxStyle.DropDownList };
+        cmbRiskStatus.Items.AddRange(new object[] { "open", "mitigating", "accepted", "closed" });
+        cmbRiskStatus.SelectedIndex = 0;
+        StyleCombo(cmbRiskStatus);
+
+        lblRiskScore = new Label
+        {
+            AutoSize = true,
+            Text = "Score: 12",
+            ForeColor = subtleText,
+            Margin = new Padding(3, 8, 12, 4)
+        };
+
+        numLikelihood.ValueChanged += (_, _) => UpdateRiskScore();
+        numImpact.ValueChanged += (_, _) => UpdateRiskScore();
+
         riskFields.Controls.Add(MakeLabel("RiskId"), 0, 0);
         riskFields.Controls.Add(txtRiskId, 1, 0);
         riskFields.Controls.Add(MakeLabel("Title"), 2, 0);
@@ -382,6 +401,11 @@ partial class Form1
         riskFields.Controls.Add(numImpact, 3, 1);
         riskFields.Controls.Add(MakeLabel("Due"), 4, 1);
         riskFields.Controls.Add(txtDue, 5, 1);
+
+        riskFields.Controls.Add(MakeLabel("Status"), 0, 2);
+        riskFields.Controls.Add(cmbRiskStatus, 1, 2);
+        riskFields.Controls.Add(lblRiskScore, 2, 2);
+        riskFields.SetColumnSpan(lblRiskScore, 4);
 
         riskLayout.Controls.Add(riskActions, 0, 0);
         riskLayout.Controls.Add(riskFields, 0, 1);
@@ -469,11 +493,12 @@ partial class Form1
         StyleCombo(cmbSeverity);
 
         cmbCaseStatus = new ComboBox { DropDownStyle = ComboBoxStyle.DropDownList };
-        cmbCaseStatus.Items.AddRange(new object[] { "new", "triage", "investigate", "contain", "eradicate", "recover", "closed" });
-        cmbCaseStatus.SelectedIndex = 1;
+        cmbCaseStatus.Items.AddRange(new object[] { "triage", "in_progress", "resolved", "closed" });
+        cmbCaseStatus.SelectedIndex = 0;
         StyleCombo(cmbCaseStatus);
 
         txtCaseOwner = MakeTextBox("soclead");
+        txtCaseRiskId = MakeTextBox("R-TEST");
 
         caseFields.Controls.Add(MakeLabel("CaseId"), 0, 0);
         caseFields.Controls.Add(txtCaseId, 1, 0);
@@ -484,7 +509,10 @@ partial class Form1
 
         caseFields.Controls.Add(MakeLabel("Owner"), 0, 1);
         caseFields.Controls.Add(txtCaseOwner, 1, 1);
-        caseFields.SetColumnSpan(txtCaseOwner, 5);
+        caseFields.Controls.Add(MakeLabel("RiskId"), 2, 1);
+        caseFields.Controls.Add(txtCaseRiskId, 3, 1);
+        caseFields.SetColumnSpan(txtCaseOwner, 1);
+        caseFields.SetColumnSpan(txtCaseRiskId, 3);
 
         caseLayout.Controls.Add(caseActions, 0, 0);
         caseLayout.Controls.Add(caseFields, 0, 1);

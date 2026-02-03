@@ -4,7 +4,7 @@ using System.Text.Json;
 
 namespace NatoTrinityMvp;
 
-public sealed class MvpStore
+public sealed partial class MvpStore
 {
     private readonly JsonSerializerOptions _json = new() { WriteIndented = true };
 
@@ -62,7 +62,7 @@ public sealed class MvpStore
         return ev;
     }
 
-    public (MvpRisk risk, MvpAuditEvent audit) CreateRisk(string actor, string riskId, string title, string owner, int likelihood, int impact, string dueDate)
+    public (MvpRisk risk, MvpAuditEvent audit) CreateRisk(string actor, string riskId, string title, string owner, int likelihood, int impact, string dueDate, string status)
     {
         if (likelihood is < 1 or > 5) throw new ArgumentOutOfRangeException(nameof(likelihood));
         if (impact is < 1 or > 5) throw new ArgumentOutOfRangeException(nameof(impact));
@@ -70,6 +70,16 @@ public sealed class MvpStore
         var db = ReadDb<MvpRisk>(RisksPath);
         if (db.ContainsKey(riskId)) throw new InvalidOperationException($"Risk already exists: {riskId}");
 
+        var allowed = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+        {
+            "open",
+            "mitigating",
+            "accepted",
+            "closed"
+        };
+        if (!allowed.Contains(status)) throw new InvalidOperationException($"Invalid risk status: {status}");
+
+        var now = NowIso();
         var r = new MvpRisk(
             RiskId: riskId,
             Title: title,
@@ -77,10 +87,12 @@ public sealed class MvpStore
             Likelihood: likelihood,
             Impact: impact,
             Score: likelihood * impact,
-            Status: "open",
+            Status: status,
             DueDate: dueDate,
-            CreatedAt: NowIso(),
-            CreatedBy: actor
+            CreatedAt: now,
+            CreatedBy: actor,
+            UpdatedAt: now,
+            UpdatedBy: actor
         );
 
         db[riskId] = r;
@@ -108,14 +120,17 @@ public sealed class MvpStore
         var db = ReadDb<MvpDecision>(DecisionsPath);
         if (db.ContainsKey(decisionId)) throw new InvalidOperationException($"Decision already exists: {decisionId}");
 
+        var now = NowIso();
         var d = new MvpDecision(
             DecisionId: decisionId,
             RiskId: riskId,
             DecisionType: decisionType,
             Rationale: rationale,
             ApprovedBy: approvedBy,
-            ApprovedAt: NowIso(),
-            ExpiryDate: expiryDate
+            ApprovedAt: now,
+            ExpiryDate: expiryDate,
+            CreatedAt: now,
+            CreatedBy: actor
         );
 
         db[decisionId] = d;
@@ -130,18 +145,24 @@ public sealed class MvpStore
         return db.Values.Where(d => d.RiskId == riskId).ToList();
     }
 
-    public (MvpCase c, MvpAuditEvent audit) CreateCase(string actor, string caseId, string severity, string status, string owner)
+    public (MvpCase c, MvpAuditEvent audit) CreateCase(string actor, string caseId, string riskId, string severity, string status, string owner)
     {
+        var _ = GetRisk(riskId) ?? throw new InvalidOperationException($"Risk not found: {riskId}");
+
         var db = ReadDb<MvpCase>(CasesPath);
         if (db.ContainsKey(caseId)) throw new InvalidOperationException($"Case already exists: {caseId}");
 
+        var now = NowIso();
         var c = new MvpCase(
             CaseId: caseId,
+            RiskId: riskId,
             Severity: severity,
             Status: status,
             Owner: owner,
-            CreatedAt: NowIso(),
-            CreatedBy: actor
+            CreatedAt: now,
+            CreatedBy: actor,
+            UpdatedAt: now,
+            UpdatedBy: actor
         );
 
         db[caseId] = c;

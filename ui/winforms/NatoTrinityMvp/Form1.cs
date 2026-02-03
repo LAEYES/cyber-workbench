@@ -12,6 +12,13 @@ public partial class Form1 : Form
     public Form1()
     {
         InitializeComponent();
+        UpdateRiskScore();
+
+        txtRiskId.TextChanged += (_, _) =>
+        {
+            if (string.IsNullOrWhiteSpace(txtCaseRiskId.Text))
+                txtCaseRiskId.Text = txtRiskId.Text;
+        };
     }
 
     private MvpStore Store() => new(txtBaseDir.Text, txtOrg.Text);
@@ -39,6 +46,22 @@ public partial class Form1 : Form
                 break;
         }
     }
+
+    private void UpdateRiskScore()
+    {
+        var score = (int)numLikelihood.Value * (int)numImpact.Value;
+        lblRiskScore.Text = $"Score: {score}";
+    }
+
+    private static void Require(bool condition, string message)
+    {
+        if (!condition) throw new InvalidOperationException(message);
+    }
+
+    private static bool IsIsoDate(string s) => DateTime.TryParse(s, out _);
+
+    private static bool IsId(string id, string prefix) =>
+        !string.IsNullOrWhiteSpace(id) && id.StartsWith(prefix, StringComparison.OrdinalIgnoreCase);
 
     private void OnCopyText(TextBox tb)
     {
@@ -130,6 +153,12 @@ public partial class Form1 : Form
     {
         try
         {
+            Require(!string.IsNullOrWhiteSpace(txtActor.Text), "Actor is required");
+            Require(IsId(txtRiskId.Text, "R-"), "RiskId must start with R- (e.g., R-123)");
+            Require(!string.IsNullOrWhiteSpace(txtRiskTitle.Text), "Title is required");
+            Require(!string.IsNullOrWhiteSpace(txtRiskOwner.Text), "Owner is required");
+            Require(IsIsoDate(txtDue.Text), "Due date must be a valid date (ISO recommended: YYYY-MM-DD)");
+
             var (risk, ae) = Store().CreateRisk(
                 actor: txtActor.Text,
                 riskId: txtRiskId.Text,
@@ -137,7 +166,8 @@ public partial class Form1 : Form
                 owner: txtRiskOwner.Text,
                 likelihood: (int)numLikelihood.Value,
                 impact: (int)numImpact.Value,
-                dueDate: txtDue.Text
+                dueDate: txtDue.Text,
+                status: cmbRiskStatus.SelectedItem?.ToString() ?? "open"
             );
             Log($"OK risk created {risk.RiskId} score={risk.Score}");
             Log($"OK auditEvent {ae.EventId} requestId={ae.RequestId}");
@@ -155,6 +185,16 @@ public partial class Form1 : Form
         {
             var r = Store().GetRisk(txtRiskId.Text);
             if (r is null) { Log("Risk not found"); return; }
+
+            txtRiskTitle.Text = r.Title;
+            txtRiskOwner.Text = r.Owner;
+            numLikelihood.Value = r.Likelihood;
+            numImpact.Value = r.Impact;
+            txtDue.Text = r.DueDate;
+            var idx = cmbRiskStatus.Items.IndexOf(r.Status);
+            if (idx >= 0) cmbRiskStatus.SelectedIndex = idx;
+            UpdateRiskScore();
+
             Log(JsonSerializer.Serialize(r));
         }
         catch (Exception ex)
@@ -167,19 +207,54 @@ public partial class Form1 : Form
     {
         try
         {
+            Require(!string.IsNullOrWhiteSpace(txtActor.Text), "Actor is required");
+            Require(IsId(txtRiskId.Text, "R-"), "RiskId must start with R-");
+            var dt = txtDecisionType.Text.Trim();
+            Require(!string.IsNullOrWhiteSpace(dt), "Decision type is required");
+            Require(!string.IsNullOrWhiteSpace(txtDecisionApprovedBy.Text), "ApprovedBy is required");
+            Require(!string.IsNullOrWhiteSpace(txtDecisionRationale.Text), "Rationale is required");
+
+            string? expiry = string.IsNullOrWhiteSpace(txtDecisionExpiry.Text) ? null : txtDecisionExpiry.Text.Trim();
+            if (string.Equals(dt, "accept", StringComparison.OrdinalIgnoreCase))
+            {
+                Require(expiry is not null, "Expiry is required for accept");
+                Require(DateTime.TryParse(expiry, out var exp), "Expiry must be a valid date");
+                Require(exp.Date > DateTime.Today, "Expiry must be > today");
+            }
+            else if (expiry is not null)
+            {
+                Require(IsIsoDate(expiry), "Expiry must be a valid date");
+            }
+
             var decisionId = $"D-{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}";
             var (d, ae) = Store().CreateDecision(
                 actor: txtActor.Text,
                 decisionId: decisionId,
                 riskId: txtRiskId.Text,
-                decisionType: txtDecisionType.Text.Trim(),
+                decisionType: dt,
                 rationale: txtDecisionRationale.Text,
                 approvedBy: txtDecisionApprovedBy.Text,
-                expiryDate: string.IsNullOrWhiteSpace(txtDecisionExpiry.Text) ? null : txtDecisionExpiry.Text
+                expiryDate: expiry
             );
             Log($"OK decision created {d.DecisionId} type={d.DecisionType} risk={d.RiskId}");
             Log($"OK auditEvent {ae.EventId} requestId={ae.RequestId}");
             SetLastRequestId("decision", ae.RequestId);
+
+            // Best-effort status propagation
+            var normalized = dt.ToLowerInvariant();
+            var status = normalized switch
+            {
+                "accept" => "accepted",
+                "mitigate" => "mitigating",
+                "close" => "closed",
+                _ => null
+            };
+            if (status is not null)
+            {
+                var (r2, ae2) = Store().UpdateRiskStatus(txtActor.Text, txtRiskId.Text, status);
+                Log($"OK risk status -> {r2.Status} (audit requestId={ae2.RequestId})");
+                SetLastRequestId("risk", ae2.RequestId);
+            }
         }
         catch (Exception ex)
         {
@@ -191,11 +266,17 @@ public partial class Form1 : Form
     {
         try
         {
+            Require(!string.IsNullOrWhiteSpace(txtActor.Text), "Actor is required");
+            Require(IsId(txtCaseId.Text, "C-"), "CaseId must start with C- (e.g., C-123)");
+            Require(IsId(txtCaseRiskId.Text, "R-"), "Case RiskId must start with R-");
+            Require(!string.IsNullOrWhiteSpace(txtCaseOwner.Text), "Owner is required");
+
             var (c, ae) = Store().CreateCase(
                 actor: txtActor.Text,
                 caseId: txtCaseId.Text,
+                riskId: txtCaseRiskId.Text,
                 severity: cmbSeverity.SelectedItem?.ToString() ?? "high",
-                status: cmbCaseStatus.SelectedItem?.ToString() ?? "new",
+                status: cmbCaseStatus.SelectedItem?.ToString() ?? "triage",
                 owner: txtCaseOwner.Text
             );
             Log($"OK case created {c.CaseId}");

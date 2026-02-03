@@ -11,8 +11,10 @@ public sealed record MvpRisk(
   [property: JsonPropertyName("score")] int Score,
   [property: JsonPropertyName("status")] string Status,
   [property: JsonPropertyName("dueDate")] string DueDate,
-  [property: JsonPropertyName("createdAt")] string CreatedAt,
-  [property: JsonPropertyName("createdBy")] string CreatedBy
+  [property: JsonPropertyName("createdAt")] string CreatedAt = "",
+  [property: JsonPropertyName("createdBy")] string CreatedBy = "",
+  [property: JsonPropertyName("updatedAt")] string UpdatedAt = "",
+  [property: JsonPropertyName("updatedBy")] string UpdatedBy = ""
 );
 
 public sealed record MvpDecision(
@@ -22,16 +24,21 @@ public sealed record MvpDecision(
   [property: JsonPropertyName("rationale")] string Rationale,
   [property: JsonPropertyName("approvedBy")] string ApprovedBy,
   [property: JsonPropertyName("approvedAt")] string ApprovedAt,
-  [property: JsonPropertyName("expiryDate")] string? ExpiryDate
+  [property: JsonPropertyName("expiryDate")] string? ExpiryDate,
+  [property: JsonPropertyName("createdAt")] string CreatedAt = "",
+  [property: JsonPropertyName("createdBy")] string CreatedBy = ""
 );
 
 public sealed record MvpCase(
   [property: JsonPropertyName("caseId")] string CaseId,
-  [property: JsonPropertyName("severity")] string Severity,
-  [property: JsonPropertyName("status")] string Status,
-  [property: JsonPropertyName("owner")] string Owner,
-  [property: JsonPropertyName("createdAt")] string CreatedAt,
-  [property: JsonPropertyName("createdBy")] string CreatedBy
+  [property: JsonPropertyName("riskId")] string RiskId = "",
+  [property: JsonPropertyName("severity")] string Severity = "",
+  [property: JsonPropertyName("status")] string Status = "",
+  [property: JsonPropertyName("owner")] string Owner = "",
+  [property: JsonPropertyName("createdAt")] string CreatedAt = "",
+  [property: JsonPropertyName("createdBy")] string CreatedBy = "",
+  [property: JsonPropertyName("updatedAt")] string UpdatedAt = "",
+  [property: JsonPropertyName("updatedBy")] string UpdatedBy = ""
 );
 
 public sealed record MvpAuditEvent(
