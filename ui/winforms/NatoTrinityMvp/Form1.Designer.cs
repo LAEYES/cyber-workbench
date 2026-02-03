@@ -43,6 +43,7 @@ partial class Form1
 
     private TabControl tabsMain = null!;
     private TabPage tabVerifyPage = null!;
+    private SplitContainer splitMain = null!;
 
     private TextBox txtLastRiskReq = null!;
     private TextBox txtLastDecisionReq = null!;
@@ -878,20 +879,17 @@ partial class Form1
         grpTools.Controls.Add(toolsLayout);
         toolsPanel.Controls.Add(grpTools);
 
-        var mainSplit = new SplitContainer
+        splitMain = new SplitContainer
         {
             Dock = DockStyle.Fill,
-            Orientation = Orientation.Vertical,
-            SplitterDistance = 260,
-            Panel1MinSize = 230,
-            Panel2MinSize = 600
+            Orientation = Orientation.Vertical
         };
-        mainSplit.Panel1.Padding = new Padding(0, 0, 12, 0);
-        mainSplit.Panel1.Controls.Add(toolsPanel);
-        mainSplit.Panel2.Controls.Add(tabsMain);
+        splitMain.Panel1.Padding = new Padding(0, 0, 12, 0);
+        splitMain.Panel1.Controls.Add(toolsPanel);
+        splitMain.Panel2.Controls.Add(tabsMain);
 
         var root = new Panel { Dock = DockStyle.Fill, BackColor = this.BackColor, Padding = new Padding(10) };
-        root.Controls.Add(mainSplit);
+        root.Controls.Add(splitMain);
         root.Controls.Add(logCard);
         root.Controls.Add(headerCard);
 

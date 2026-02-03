@@ -16,6 +16,26 @@ public partial class Form1 : Form
     public Form1()
     {
         InitializeComponent();
+
+        // SplitContainer: set SplitterDistance only once form has a real size.
+        this.Shown += (_, _) =>
+        {
+            try
+            {
+                splitMain.Panel1MinSize = 230;
+                splitMain.Panel2MinSize = 600;
+
+                var desired = 260;
+                var min = splitMain.Panel1MinSize;
+                var max = Math.Max(min, this.ClientSize.Width - splitMain.Panel2MinSize);
+                splitMain.SplitterDistance = Math.Clamp(desired, min, max);
+            }
+            catch
+            {
+                // best-effort
+            }
+        };
+
         UpdateRiskScore();
         RefreshEventHeads();
         SetToolStatus("UNKNOWN", null);
