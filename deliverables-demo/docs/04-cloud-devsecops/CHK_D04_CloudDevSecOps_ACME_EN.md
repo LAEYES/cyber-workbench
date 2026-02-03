@@ -1,41 +1,32 @@
 # Cloud & DevSecOps Checklist (D04)
 
 **Organization:** ACME  
+**Version:** 0.2 (hardened)  
 **Date:** 2026-02-03
 
-## 1. Governance & scope
-- [ ] Inventory of cloud accounts/projects/tenants and owners.
-- [ ] Approved services catalog (allow-list) + review process.
-- [ ] Dev/test/prod separation (at least logical, ideally separate accounts).
+## 1. Landing zone
+- [ ] Dev/test/prod separation.
+- [ ] Guardrails (no unapproved public storage, no internet admin).
 
 ## 2. Cloud IAM
-- [ ] SSO/federation enabled; no long-lived local users on critical scope.
-- [ ] MFA required (admins + interactive access).
-- [ ] Standard RBAC roles; JIT elevation.
-- [ ] Access reviews performed and recorded.
+- [ ] 100% admin MFA.
+- [ ] No long-lived user keys.
+- [ ] Monthly access reviews for critical scope.
 
-## 3. Configuration security (CSPM / guardrails)
-- [ ] Policies block unapproved public storage.
-- [ ] Encryption at rest enabled for sensitive data.
-- [ ] Audit logging enabled and centralized.
+## 3. Logs
+- [ ] Audit logs centralized; retention ≥ 90d/180d.
 
-## 4. DevSecOps / CI-CD
-- [ ] Branch protection + PR required.
-- [ ] IaC scans (misconfig/secrets) in CI.
-- [ ] Dependency/container scans with blocking thresholds.
-- [ ] Traceability PR → build → deployment.
+## 4. IaC
+- [ ] PR required + IaC/secret scans.
+- [ ] Encrypted state + locking.
 
 ## 5. Secrets
-- [ ] Secrets vault in place + RBAC.
-- [ ] No secrets in code; secret scanning enabled.
-- [ ] Rotation documented; revoke on incident.
+- [ ] Vault mandatory; rotation ≤ 90d.
+- [ ] Secret scanning blocks CI.
 
 ## 6. Enhanced (regulated)
-- [ ] Strict prod/non-prod account separation.
-- [ ] Phishing-resistant MFA for admins.
-- [ ] Immutable logs + integrity + increased retention.
-- [ ] Two-person rule for critical changes/secrets.
-- [ ] Cloud incident response exercises performed.
+- [ ] Immutable logs + integrity.
+- [ ] Two-person rule for critical changes.
 
 ---
-*Template checklist: complete with evidence and links to policies/standards.*
+*Checklist: complete with evidence.*

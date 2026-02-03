@@ -1,53 +1,20 @@
 # Standard IAM Cloud
 
 **Organisation :** {{org}}  
-**Version :** 0.1 (draft)  
+**Version :** 0.2 (durci)  
 **Date :** {{today}}
 
-## 1. Objet
-Définir les règles de gestion des identités et des accès dans les environnements cloud (console, API, workloads), afin de réduire le risque de compromission et de limiter l’impact.
+## 1. Exigences minimales (baseline)
+- SSO/fédération recommandé ; utilisateurs locaux permanents interdits sur périmètre critique.
+- MFA : **100% admins**.
+- Clés long-lived utilisateurs : interdites ; préférer STS/OIDC.
+- Revues accès : périmètre critique **mensuel**.
+- Logs IAM centralisés ; rétention **≥ 90 jours**.
 
-## 2. Principes
-- **Comptes nominaux** pour les utilisateurs ; interdiction des comptes partagés (sauf exception).
-- **MFA obligatoire** sur les accès interactifs.
-- **Moindre privilège** : droits via rôles/groupes, durée limitée, séparation des rôles.
-- **Break-glass** : comptes d’urgence contrôlés, surveillés, testés.
+## 2. Renforcé (régulé)
+- MFA phishing-resistant pour admins.
+- Break-glass : double-contrôle + test trimestriel + rotation après usage.
+- Rétention logs **≥ 180 jours** + intégrité.
 
-## 3. Exigences minimales (baseline)
-### 3.1 Organisation des identités
-- Utiliser un IdP central (SSO) quand possible ; fédération recommandée.
-- Interdire les utilisateurs locaux permanents dans les comptes/projets critiques.
-
-### 3.2 Authentification
-- MFA obligatoire pour console et opérations sensibles.
-- Désactiver les mécanismes hérités/à risque (protocoles non-MFA, access keys longues non gérées).
-
-### 3.3 Autorisation
-- RBAC : rôles standardisés (reader/operator/admin) et séparation prod/non-prod.
-- Élévation temporaire (JIT) pour tâches admin.
-- Politique « deny-by-default » et suppression des permissions inutiles.
-
-### 3.4 Clés API & identités machine
-- Interdire les clés longues pour utilisateurs ; préférer rôles temporaires (STS/OIDC).
-- Rotation des secrets et tokens ; stockage dans un coffre.
-- Principes de least privilege pour workloads (ex. workload identity).
-
-### 3.5 Journalisation & alerting
-- Journaliser : authentifications, changements IAM, créations de clés, attachements de politiques.
-- Alertes sur : ajout admin, désactivation MFA, création de clés, modification policies, usage anormal.
-
-## 4. Exigences renforcées (secteurs régulés)
-- MFA **résistant au phishing** (FIDO2/WebAuthn) pour administrateurs.
-- Contrôles conditionnels (contexte, posture, géolocalisation) et restrictions réseau.
-- Revue des accès : mensuelle sur périmètre critique + recertification formelle.
-- Comptes break-glass : accès offline, double-contrôle, preuves d’usage et rotation immédiate après utilisation.
-- Politiques de séparation forte (SoD) : admin IAM ≠ admin réseau ≠ admin données.
-
-## 5. Preuves attendues (exemples)
-- Schéma SSO/fédération.
-- Extraits IAM : rôles, policies, groupes.
-- Historique de rotation (tokens/credentials) + coffre.
-- Rapport de revue d’accès.
-
----
-*Document modèle : à adapter selon le fournisseur cloud et l’architecture IAM/PAM.*
+## 3. Preuves
+- Export IAM, dashboard MFA, rapports revues.
