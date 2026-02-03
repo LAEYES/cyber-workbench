@@ -204,6 +204,10 @@ partial class Form1
         StyleSecondary(btnMigrateEvents);
         btnMigrateEvents.Click += (_, _) => OnMigrateLegacyEvents();
 
+        var btnExportAnchor = new Button { Text = "Export anchor" };
+        StyleSecondary(btnExportAnchor);
+        btnExportAnchor.Click += (_, _) => OnExportAuditAnchor();
+
         var baseButtons = new FlowLayoutPanel
         {
             Dock = DockStyle.Fill,
@@ -216,6 +220,7 @@ partial class Form1
         baseButtons.Controls.Add(btnVerifyEvents);
         baseButtons.Controls.Add(btnMigrateEvents);
         baseButtons.Controls.Add(btnRebuild);
+        baseButtons.Controls.Add(btnExportAnchor);
 
         baseRow.Controls.Add(lblBase, 0, 0);
         baseRow.Controls.Add(txtBaseDir, 1, 0);

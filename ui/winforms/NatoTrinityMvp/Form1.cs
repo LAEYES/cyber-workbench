@@ -179,6 +179,27 @@ public partial class Form1 : Form
         }
     }
 
+    private void OnExportAuditAnchor()
+    {
+        try
+        {
+            Require(!string.IsNullOrWhiteSpace(txtActor.Text), "Actor is required");
+
+            // Reuse bundle signing key fields (if provided)
+            var keyId = string.IsNullOrWhiteSpace(txtKeyId.Text) ? "ui" : txtKeyId.Text.Trim();
+            var priv = string.IsNullOrWhiteSpace(txtPrivKey.Text) ? null : txtPrivKey.Text.Trim();
+
+            var path = Store().ExportAuditAnchor(txtActor.Text, priv, keyId);
+            Log($"OK audit anchor exported: {path}");
+
+            RefreshEventHeads();
+        }
+        catch (Exception ex)
+        {
+            Log("ERROR " + ex.Message);
+        }
+    }
+
     private void OnPickBaseDir()
     {
         using var dlg = new FolderBrowserDialog();

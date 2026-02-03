@@ -1,3 +1,4 @@
+using NSec.Cryptography;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
@@ -139,6 +140,52 @@ public sealed partial class MvpStore
         var r = GetLastHashOrGenesis(RiskEventsPath);
         var c = GetLastHashOrGenesis(CaseEventsPath);
         return (r, c);
+    }
+
+    public string ExportAuditAnchor(string actor, string? privateKeyPath, string keyId)
+    {
+        EnsureDir(RootDir);
+
+        var (riskHead, caseHead) = GetEventHeadHashes();
+        var auditEventsPath = Path.Combine(RootDir, "auditEvents.jsonl");
+        var auditEventsHash = File.Exists(auditEventsPath) ? Sha256File(auditEventsPath) : "MISSING";
+
+        var anchor = new JsonObject
+        {
+            ["anchorVersion"] = "1.0",
+            ["orgId"] = OrgId,
+            ["generatedAt"] = NowIso(),
+            ["generatedBy"] = "WinForms NATO MVP",
+            ["riskHeadHash"] = riskHead,
+            ["caseHeadHash"] = caseHead,
+            ["auditEventsHash"] = auditEventsHash
+        };
+
+        // compute hash over canonical payload (without signature)
+        var canonical = CanonicalJson(anchor);
+        var anchorHash = Sha256Hex(canonical);
+        anchor["anchorHash"] = anchorHash;
+
+        if (!string.IsNullOrWhiteSpace(privateKeyPath))
+        {
+            var privBytes = Convert.FromBase64String(File.ReadAllText(privateKeyPath, Encoding.UTF8));
+            var algorithm = SignatureAlgorithm.Ed25519;
+            using var key = Key.Import(algorithm, privBytes, KeyBlobFormat.RawPrivateKey);
+
+            var sig = algorithm.Sign(key, Encoding.UTF8.GetBytes(canonical));
+            anchor["signature"] = new JsonObject
+            {
+                ["keyId"] = keyId,
+                ["alg"] = "ed25519",
+                ["value"] = Convert.ToBase64String(sig)
+            };
+        }
+
+        var outPath = Path.Combine(RootDir, $"audit-anchor_{DateTime.UtcNow:yyyyMMdd_HHmmss}.json");
+        File.WriteAllText(outPath, anchor.ToJsonString(new JsonSerializerOptions { WriteIndented = true }) + "\n", Encoding.UTF8);
+
+        EmitAudit(actor, "human", "store.exportAuditAnchor", $"anchor:{Path.GetFileName(outPath)}", "success");
+        return outPath;
     }
 
     public (int total, int migrated) MigrateLegacyToChained(string actor)
