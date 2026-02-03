@@ -12,7 +12,8 @@
     "lint": "eslint .",
     "format": "prettier -w .",
     "nato:validate": "node scripts/validate-nato-trinity.mjs",
-    "nato:bundle-check": "node scripts/validate-nato-manifest.mjs"
+    "nato:bundle-check": "node scripts/validate-nato-manifest.mjs",
+    "ui:winforms": "dotnet run --project ui/winforms/NatoTrinityMvp/NatoTrinityMvp.csproj"
   },
   "dependencies": {
     "commander": "^12.1.0",
