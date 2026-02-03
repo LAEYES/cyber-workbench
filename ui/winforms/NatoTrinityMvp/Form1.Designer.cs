@@ -48,6 +48,7 @@ partial class Form1
     {
         this.Text = "NATO Trinity MVP (WinForms)";
         this.ClientSize = new System.Drawing.Size(1100, 700);
+        this.MinimumSize = new System.Drawing.Size(900, 600);
 
         var tabs = new TabControl { Dock = DockStyle.Fill };
         var tabStore = new TabPage("Store") { Padding = new Padding(10) };
@@ -61,8 +62,8 @@ partial class Form1
         // Common top panel
         var top = new Panel { Dock = DockStyle.Top, Height = 70 };
         var lblBase = new Label { Left = 10, Top = 10, Width = 90, Text = "Base dir" };
-        txtBaseDir = new TextBox { Left = 100, Top = 8, Width = 720, Text = "..\\..\\..\\..\\deliverables-demo" };
-        var btnPickBase = new Button { Left = 830, Top = 6, Width = 90, Text = "Browse" };
+        txtBaseDir = new TextBox { Left = 100, Top = 8, Width = 720, Text = "..\\..\\..\\..\\deliverables-demo", Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right };
+        var btnPickBase = new Button { Left = 830, Top = 6, Width = 90, Text = "Browse", Anchor = AnchorStyles.Top | AnchorStyles.Right };
         btnPickBase.Click += (_, _) => OnPickBaseDir();
 
         var lblOrg = new Label { Left = 10, Top = 40, Width = 90, Text = "OrgId" };
@@ -73,7 +74,7 @@ partial class Form1
         top.Controls.AddRange([lblBase, txtBaseDir, btnPickBase, lblOrg, txtOrg, lblActor, txtActor]);
 
         // Log panel
-        txtLog = new TextBox { Dock = DockStyle.Bottom, Height = 180, Multiline = true, ScrollBars = ScrollBars.Both, ReadOnly = true };
+        txtLog = new TextBox { Dock = DockStyle.Bottom, Height = 180, Multiline = true, ScrollBars = ScrollBars.Both, ReadOnly = true, WordWrap = false };
 
         // STORE TAB
         var y = 10;
@@ -91,7 +92,7 @@ partial class Form1
         tabStore.Controls.Add(txtRiskId);
 
         tabStore.Controls.Add(new Label { Left = 280, Top = y, Width = 90, Text = "Title" });
-        txtRiskTitle = new TextBox { Left = 330, Top = y - 2, Width = 300, Text = "Test risk" };
+        txtRiskTitle = new TextBox { Left = 330, Top = y - 2, Width = 300, Text = "Test risk", Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right };
         tabStore.Controls.Add(txtRiskTitle);
 
         tabStore.Controls.Add(new Label { Left = 650, Top = y, Width = 90, Text = "Owner" });
@@ -130,7 +131,7 @@ partial class Form1
 
         y += 35;
         tabStore.Controls.Add(new Label { Left = 180, Top = y + 5, Width = 90, Text = "Rationale" });
-        txtDecisionRationale = new TextBox { Left = 250, Top = y + 3, Width = 620, Text = "Business need" };
+        txtDecisionRationale = new TextBox { Left = 250, Top = y + 3, Width = 620, Text = "Business need", Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right };
         tabStore.Controls.Add(txtDecisionRationale);
 
         y += 55;
@@ -174,7 +175,7 @@ partial class Form1
 
         yb += 35;
         tabBundle.Controls.Add(new Label { Left = 10, Top = yb, Width = 90, Text = "Files" });
-        txtEvidenceFiles = new TextBox { Left = 100, Top = yb - 2, Width = 780, Text = "..\\..\\..\\..\\tmp\\evidence1.txt;..\\..\\..\\..\\tmp\\evidence2.txt" };
+        txtEvidenceFiles = new TextBox { Left = 100, Top = yb - 2, Width = 780, Text = "..\\..\\..\\..\\tmp\\evidence1.txt;..\\..\\..\\..\\tmp\\evidence2.txt", Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right };
         tabBundle.Controls.Add(txtEvidenceFiles);
 
         yb += 35;
@@ -191,29 +192,29 @@ partial class Form1
 
         yb += 35;
         tabBundle.Controls.Add(new Label { Left = 10, Top = yb, Width = 90, Text = "Priv key" });
-        txtPrivKey = new TextBox { Left = 100, Top = yb - 2, Width = 520, Text = "" };
+        txtPrivKey = new TextBox { Left = 100, Top = yb - 2, Width = 520, Text = "", Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right };
         tabBundle.Controls.Add(txtPrivKey);
 
-        var btnPickPriv = new Button { Left = 630, Top = yb - 4, Width = 90, Text = "Browse" };
+        var btnPickPriv = new Button { Left = 630, Top = yb - 4, Width = 90, Text = "Browse", Anchor = AnchorStyles.Top | AnchorStyles.Right };
         btnPickPriv.Click += (_, _) => OnPickFile(txtPrivKey);
         tabBundle.Controls.Add(btnPickPriv);
 
         yb += 35;
         tabBundle.Controls.Add(new Label { Left = 10, Top = yb, Width = 90, Text = "Pub key" });
-        txtPubKey = new TextBox { Left = 100, Top = yb - 2, Width = 520, Text = "" };
+        txtPubKey = new TextBox { Left = 100, Top = yb - 2, Width = 520, Text = "", Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right };
         tabBundle.Controls.Add(txtPubKey);
 
-        var btnPickPub = new Button { Left = 630, Top = yb - 4, Width = 90, Text = "Browse" };
+        var btnPickPub = new Button { Left = 630, Top = yb - 4, Width = 90, Text = "Browse", Anchor = AnchorStyles.Top | AnchorStyles.Right };
         btnPickPub.Click += (_, _) => OnPickFile(txtPubKey);
         tabBundle.Controls.Add(btnPickPub);
 
         // VERIFY TAB
         var yv = 10;
         tabVerify.Controls.Add(new Label { Left = 10, Top = yv, Width = 120, Text = "Bundle dir" });
-        txtVerifyBundle = new TextBox { Left = 130, Top = yv - 2, Width = 750, Text = "" };
+        txtVerifyBundle = new TextBox { Left = 130, Top = yv - 2, Width = 750, Text = "", Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right };
         tabVerify.Controls.Add(txtVerifyBundle);
 
-        var btnPickBundle = new Button { Left = 890, Top = yv - 4, Width = 90, Text = "Browse" };
+        var btnPickBundle = new Button { Left = 890, Top = yv - 4, Width = 90, Text = "Browse", Anchor = AnchorStyles.Top | AnchorStyles.Right };
         btnPickBundle.Click += (_, _) => OnPickBundleDir();
         tabVerify.Controls.Add(btnPickBundle);
 
