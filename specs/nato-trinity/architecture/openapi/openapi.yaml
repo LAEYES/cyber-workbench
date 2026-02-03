@@ -264,7 +264,51 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/EvidencePackage'
+        '400':
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+    get:
+      summary: List evidence packages
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EvidencePackage'
+  /api/v1/evidence-packages/{packageId}:
+    get:
+      summary: Get evidence package
+      parameters:
+        - name: packageId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EvidencePackage'
+        '404':
+          description: Not Found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
   /api/v1/legal-holds:
+    get:
+      summary: List legal holds
+      responses:
+        '200':
+          description: OK
     post:
       summary: Create legal hold
       requestBody:
@@ -303,3 +347,9 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AuditEvent'
+        '401':
+          description: Unauthorized
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
