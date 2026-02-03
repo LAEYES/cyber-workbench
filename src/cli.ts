@@ -17,6 +17,7 @@ import { exportMappingCsv } from "./commands/export_mapping_csv.js";
 import { scoreAttackCsf } from "./commands/score_attack_csf.js";
 import { catalogStats } from "./commands/stats.js";
 import { catalogRefresh } from "./commands/refresh.js";
+import { natoMvpExport } from "./commands/nato_mvp_export.js";
 
 const program = new Command();
 
@@ -55,6 +56,32 @@ program
   .option("--root <dir>", "Racine du catalog", "./catalog")
   .action(async (opts) => {
     await validateCatalog({ rootDir: opts.root });
+  });
+
+program
+  .command("nato:mvp-export")
+  .description("MVP: génère un EvidencePackage bundle + manifest.json (NATO Trinity)")
+  .requiredOption("--scope <ref>", "ScopeRef (riskId/caseId/etc)")
+  .requiredOption("--in <file...>", "Fichiers preuves à inclure (paths locaux)")
+  .option("--out <dir>", "Dossier de sortie", "./deliverables")
+  .option("--org <id>", "OrgId (optionnel)")
+  .option("--classification <c>", "public|internal|sensitive", "internal")
+  .option("--retention <r>", "short|standard|long|legal", "standard")
+  .option(
+    "--evidence-type <t>",
+    "logExport|configSnapshot|ticket|report|sbom|vex|attestation|signature|screenshot",
+    "report"
+  )
+  .action(async (opts) => {
+    await natoMvpExport({
+      scopeRef: opts.scope,
+      inputs: opts.in,
+      outDir: opts.out,
+      orgId: opts.org,
+      classification: opts.classification,
+      retentionClass: opts.retention,
+      evidenceType: opts.evidenceType
+    });
   });
 
 program

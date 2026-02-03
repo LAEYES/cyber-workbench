@@ -10,3 +10,5 @@ inputs/*.xlsx
 inputs/*.xls
 inputs/*.json
 inputs/*.pdf
+
+tmp/
