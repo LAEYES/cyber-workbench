@@ -19,6 +19,8 @@ import { catalogStats } from "./commands/stats.js";
 import { catalogRefresh } from "./commands/refresh.js";
 import { natoMvpExport } from "./commands/nato_mvp_export.js";
 import { natoMvpVerifyBundle } from "./commands/nato_mvp_verify.js";
+import { natoMvpVerifyManifest } from "./commands/nato_mvp_verify_manifest.js";
+import { natoMvpGenerateSigningKey } from "./commands/nato_mvp_keys.js";
 
 const program = new Command();
 
@@ -73,6 +75,9 @@ program
     "logExport|configSnapshot|ticket|report|sbom|vex|attestation|signature|screenshot",
     "report"
   )
+  .option("--sign", "Signe le manifest.json (MVP local)", false)
+  .option("--signing-key <pem>", "Chemin vers la clé privée PEM (ed25519)")
+  .option("--key-id <id>", "KeyId à inclure dans signature", "mvp-local-1")
   .action(async (opts) => {
     await natoMvpExport({
       scopeRef: opts.scope,
@@ -81,7 +86,10 @@ program
       orgId: opts.org,
       classification: opts.classification,
       retentionClass: opts.retention,
-      evidenceType: opts.evidenceType
+      evidenceType: opts.evidenceType,
+      sign: Boolean(opts.sign),
+      signingKey: opts.signingKey,
+      keyId: opts.keyId
     });
   });
 
@@ -91,6 +99,24 @@ program
   .requiredOption("--manifest <file>", "Chemin vers manifest.json")
   .action(async (opts) => {
     await natoMvpVerifyBundle({ manifest: opts.manifest });
+  });
+
+program
+  .command("nato:mvp-verify-manifest")
+  .description("MVP: vérifie manifestHash (evidence-package.json) + signature optionnelle")
+  .requiredOption("--bundle <dir>", "Dossier bundle (contient manifest.json + evidence-package.json)")
+  .option("--verify-key <pem>", "Chemin vers clé publique PEM (ed25519)")
+  .action(async (opts) => {
+    await natoMvpVerifyManifest({ bundleDir: opts.bundle, verifyKey: opts.verifyKey });
+  });
+
+program
+  .command("nato:mvp-gen-keys")
+  .description("MVP: génère une paire ed25519 PEM (public/private)")
+  .option("--out <dir>", "Dossier de sortie", "./deliverables")
+  .option("--name <name>", "Nom de base des fichiers", "nato-mvp-ed25519")
+  .action(async (opts) => {
+    await natoMvpGenerateSigningKey({ outDir: opts.out, name: opts.name });
   });
 
 program

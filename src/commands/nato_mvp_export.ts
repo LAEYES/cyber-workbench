@@ -45,6 +45,9 @@ export async function natoMvpExport(opts: {
   classification: Classification;
   retentionClass: RetentionClass;
   evidenceType: EvidenceType;
+  sign?: boolean;
+  signingKey?: string; // path to private key PEM
+  keyId?: string;
 }) {
   if (!opts.scopeRef?.trim()) throw new Error("scopeRef is required");
   if (!opts.inputs?.length) throw new Error("at least one --in file is required");
@@ -81,7 +84,7 @@ export async function natoMvpExport(opts: {
 
   const packageId = `pkg_${safeBasename(opts.scopeRef)}_${Date.now()}`;
 
-  const manifest = {
+  const manifestBase = {
     manifestVersion: "1.0",
     packageId,
     generatedAt: nowIso(),
@@ -96,6 +99,25 @@ export async function natoMvpExport(opts: {
       collectedAt: e.collectedAt
     }))
   };
+
+  // Optionally sign the manifest payload (local MVP signing; production uses KMS/HSM per ADR-0009)
+  let signature: { keyId: string; alg: string; value: string } | undefined;
+  if (opts.sign) {
+    if (!opts.signingKey) throw new Error("--signing-key is required when --sign is set");
+    const privPem = fs.readFileSync(path.resolve(opts.signingKey), "utf8");
+    const privKey = crypto.createPrivateKey(privPem);
+
+    // Sign the canonical JSON (without signature field)
+    const payload = JSON.stringify(manifestBase);
+    const sig = crypto.sign(null, Buffer.from(payload, "utf8"), privKey);
+    signature = {
+      keyId: opts.keyId || "mvp-local-1",
+      alg: "ed25519",
+      value: sig.toString("base64")
+    };
+  }
+
+  const manifest = signature ? { ...manifestBase, signature } : manifestBase;
 
   const manifestJson = JSON.stringify(manifest, null, 2) + "\n";
   fs.writeFileSync(path.join(bundleDir, "manifest.json"), manifestJson, "utf8");

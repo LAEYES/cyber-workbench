@@ -1,0 +1,30 @@
+{
+  "manifestVersion": "1.0",
+  "packageId": "pkg_risk_R-002_1770154685825",
+  "generatedAt": "2026-02-03T21:38:05.825Z",
+  "generatedBy": "cyberwb nato:mvp-export",
+  "hashAlg": "sha256",
+  "items": [
+    {
+      "evidenceId": "ev_1",
+      "hash": "5b9d5d65c3f35211f987bf503a38085558347f7040ceb11375918f4ae90fa9e3",
+      "storageRef": "evidence/ev_1_evidence1.txt",
+      "evidenceType": "report",
+      "sourceSystem": "mvp-local",
+      "collectedAt": "2026-02-03T21:38:05.822Z"
+    },
+    {
+      "evidenceId": "ev_2",
+      "hash": "33d1b7bbc8caa4d87afb296949be15c0d90a52c72cce8ebe0f613fbfc489d78f",
+      "storageRef": "evidence/ev_2_evidence2.txt",
+      "evidenceType": "report",
+      "sourceSystem": "mvp-local",
+      "collectedAt": "2026-02-03T21:38:05.825Z"
+    }
+  ],
+  "signature": {
+    "keyId": "demo-signer",
+    "alg": "ed25519",
+    "value": "E0Px0Y3G+M8ohJwRBik5e9aSi0Vvu6Jll6HiW4bD2l5r+80yok5pkQQrEtv952mBrMVvM707R2bjPRmgY6VmAQ=="
+  }
+}

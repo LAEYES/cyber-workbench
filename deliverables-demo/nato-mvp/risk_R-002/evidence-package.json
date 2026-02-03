@@ -1,0 +1,13 @@
+{
+  "packageId": "pkg_risk_R-002_1770154685825",
+  "scopeRef": "risk:R-002",
+  "evidenceRefs": [
+    "ev_1",
+    "ev_2"
+  ],
+  "manifestHash": "df7a8a137beaeb9d3b8e5bd0e528f0e3def378c58947807d630a7b9c2e823a90",
+  "exportedAt": "2026-02-03T21:38:05.828Z",
+  "exportedBy": "mvp-local",
+  "bundleRef": "C:\\Users\\Aymeric\\.openclaw\\workspace\\cyber-workbench\\deliverables-demo\\nato-mvp\\risk_R-002",
+  "orgId": "ORG"
+}

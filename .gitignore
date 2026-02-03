@@ -12,3 +12,6 @@ inputs/*.json
 inputs/*.pdf
 
 tmp/
+
+# NATO MVP demo keys (never commit private keys)
+*.private.pem
