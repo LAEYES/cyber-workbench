@@ -5,24 +5,21 @@ import { ControlCatalogSchema, MappingSchema } from "../catalog/schemas.js";
 export async function validateCatalog(params: { rootDir: string }) {
   const root = path.resolve(params.rootDir);
 
-  const controlFiles = [
-    path.join(root, "controls", "iso27002-2022.controls.yml"),
-    path.join(root, "controls", "nist-csf-2.0.outcomes.yml"),
-    path.join(root, "controls", "cis-v8.safeguards.yml")
-  ];
+  const controlsDir = path.join(root, "controls");
+  const mappingsDir = path.join(root, "mappings");
 
-  const mappingFiles = [
-    path.join(root, "mappings", "iso27002_to_nist-csf.yml"),
-    path.join(root, "mappings", "cis_to_iso_nist.yml")
-  ];
+  const controlFiles = (await (await import("node:fs/promises")).readdir(controlsDir)).filter((f) => f.endsWith(".yml"));
+  const mappingFiles = (await (await import("node:fs/promises")).readdir(mappingsDir)).filter((f) => f.endsWith(".yml"));
 
   for (const f of controlFiles) {
-    await loadYamlFile(f, ControlCatalogSchema);
-    console.log(`OK controls: ${f}`);
+    const full = path.join(controlsDir, f);
+    await loadYamlFile(full, ControlCatalogSchema);
+    console.log(`OK controls: ${full}`);
   }
 
   for (const f of mappingFiles) {
-    await loadYamlFile(f, MappingSchema);
-    console.log(`OK mapping: ${f}`);
+    const full = path.join(mappingsDir, f);
+    await loadYamlFile(full, MappingSchema);
+    console.log(`OK mapping: ${full}`);
   }
 }

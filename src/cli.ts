@@ -6,6 +6,8 @@ import { validateCatalog } from "./commands/catalog.js";
 import { importNistCsfFromCsv } from "./commands/import_nist_csv.js";
 import { importIso27002 } from "./commands/import_iso.js";
 import { importCisV8 } from "./commands/import_cis.js";
+import { importNist80053 } from "./commands/import_80053.js";
+import { importMitreAttack } from "./commands/import_attack.js";
 
 const program = new Command();
 
@@ -73,6 +75,23 @@ program
   .option("--version <v>", "Version", "8")
   .action(async (opts) => {
     await importCisV8({ inFile: opts.in, outFile: opts.out, version: opts.version });
+  });
+
+program
+  .command("catalog:import-80053")
+  .description("Importe NIST SP 800-53 Rev.5 (OSCAL JSON) — public")
+  .option("--url <url>", "URL OSCAL JSON (optionnel)")
+  .option("--out <file>", "Fichier de sortie", "./catalog/controls/nist-800-53-r5.controls.yml")
+  .action(async (opts) => {
+    await importNist80053({ outFile: opts.out, url: opts.url });
+  });
+
+program
+  .command("catalog:import-attack")
+  .description("Importe MITRE ATT&CK (Enterprise + Cloud + ICS) via STIX — public")
+  .option("--out <file>", "Fichier de sortie", "./catalog/controls/mitre-attack.techniques.yml")
+  .action(async (opts) => {
+    await importMitreAttack({ outFile: opts.out, include: ["enterprise", "ics"] });
   });
 
 program.parseAsync(process.argv);

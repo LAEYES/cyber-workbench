@@ -1,0 +1,6914 @@
+id: mitre-attack.techniques
+framework: mitre-attack
+version: stix
+controls:
+  - id: T1001
+    framework: mitre-attack-enterprise
+    title: Data Obfuscation
+    notes: platforms=ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1001.001
+    framework: mitre-attack-enterprise
+    title: Junk Data
+    notes: platforms=ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1001.002
+    framework: mitre-attack-enterprise
+    title: Steganography
+    notes: platforms=Linux|macOS|Windows|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1001.003
+    framework: mitre-attack-enterprise
+    title: Protocol or Service Impersonation
+    notes: platforms=ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1003
+    framework: mitre-attack-enterprise
+    title: OS Credential Dumping
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1003.001
+    framework: mitre-attack-enterprise
+    title: LSASS Memory
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1003.002
+    framework: mitre-attack-enterprise
+    title: Security Account Manager
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1003.003
+    framework: mitre-attack-enterprise
+    title: NTDS
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1003.004
+    framework: mitre-attack-enterprise
+    title: LSA Secrets
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1003.005
+    framework: mitre-attack-enterprise
+    title: Cached Domain Credentials
+    notes: platforms=Windows|Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1003.006
+    framework: mitre-attack-enterprise
+    title: DCSync
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1003.007
+    framework: mitre-attack-enterprise
+    title: Proc Filesystem
+    notes: platforms=Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1003.008
+    framework: mitre-attack-enterprise
+    title: /etc/passwd and /etc/shadow
+    notes: platforms=Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1005
+    framework: mitre-attack-enterprise
+    title: Data from Local System
+    notes: platforms=ESXi|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1006
+    framework: mitre-attack-enterprise
+    title: Direct Volume Access
+    notes: platforms=Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1007
+    framework: mitre-attack-enterprise
+    title: System Service Discovery
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1008
+    framework: mitre-attack-enterprise
+    title: Fallback Channels
+    notes: platforms=Linux|Windows|macOS|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1010
+    framework: mitre-attack-enterprise
+    title: Application Window Discovery
+    notes: platforms=Linux|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1011
+    framework: mitre-attack-enterprise
+    title: Exfiltration Over Other Network Medium
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1011.001
+    framework: mitre-attack-enterprise
+    title: Exfiltration Over Bluetooth
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1012
+    framework: mitre-attack-enterprise
+    title: Query Registry
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1014
+    framework: mitre-attack-enterprise
+    title: Rootkit
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1016
+    framework: mitre-attack-enterprise
+    title: System Network Configuration Discovery
+    notes: platforms=ESXi|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1016.001
+    framework: mitre-attack-enterprise
+    title: Internet Connection Discovery
+    notes: platforms=Windows|Linux|macOS|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1016.002
+    framework: mitre-attack-enterprise
+    title: Wi-Fi Discovery
+    notes: platforms=Linux|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1018
+    framework: mitre-attack-enterprise
+    title: Remote System Discovery
+    notes: platforms=ESXi|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1020
+    framework: mitre-attack-enterprise
+    title: Automated Exfiltration
+    notes: platforms=Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1020.001
+    framework: mitre-attack-enterprise
+    title: Traffic Duplication
+    notes: platforms=Network Devices|IaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1021
+    framework: mitre-attack-enterprise
+    title: Remote Services
+    notes: platforms=Linux|macOS|Windows|IaaS|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1021.001
+    framework: mitre-attack-enterprise
+    title: Remote Desktop Protocol
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1021.002
+    framework: mitre-attack-enterprise
+    title: SMB/Windows Admin Shares
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1021.003
+    framework: mitre-attack-enterprise
+    title: Distributed Component Object Model
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1021.004
+    framework: mitre-attack-enterprise
+    title: SSH
+    notes: platforms=ESXi|Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1021.005
+    framework: mitre-attack-enterprise
+    title: VNC
+    notes: platforms=Linux|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1021.006
+    framework: mitre-attack-enterprise
+    title: Windows Remote Management
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1021.007
+    framework: mitre-attack-enterprise
+    title: Cloud Services
+    notes: platforms=IaaS|Identity Provider|Office Suite|SaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1021.008
+    framework: mitre-attack-enterprise
+    title: Direct Cloud VM Connections
+    notes: platforms=IaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1025
+    framework: mitre-attack-enterprise
+    title: Data from Removable Media
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1027
+    framework: mitre-attack-enterprise
+    title: Obfuscated Files or Information
+    notes: platforms=ESXi|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1027.001
+    framework: mitre-attack-enterprise
+    title: Binary Padding
+    notes: platforms=Linux|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1027.002
+    framework: mitre-attack-enterprise
+    title: Software Packing
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1027.003
+    framework: mitre-attack-enterprise
+    title: Steganography
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1027.004
+    framework: mitre-attack-enterprise
+    title: Compile After Delivery
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1027.005
+    framework: mitre-attack-enterprise
+    title: Indicator Removal from Tools
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1027.006
+    framework: mitre-attack-enterprise
+    title: HTML Smuggling
+    notes: platforms=Windows|Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1027.007
+    framework: mitre-attack-enterprise
+    title: Dynamic API Resolution
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1027.008
+    framework: mitre-attack-enterprise
+    title: Stripped Payloads
+    notes: platforms=macOS|Linux|Windows|Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1027.009
+    framework: mitre-attack-enterprise
+    title: Embedded Payloads
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1027.010
+    framework: mitre-attack-enterprise
+    title: Command Obfuscation
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1027.011
+    framework: mitre-attack-enterprise
+    title: Fileless Storage
+    notes: platforms=Windows|Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1027.012
+    framework: mitre-attack-enterprise
+    title: LNK Icon Smuggling
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1027.013
+    framework: mitre-attack-enterprise
+    title: Encrypted/Encoded File
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1027.014
+    framework: mitre-attack-enterprise
+    title: Polymorphic Code
+    notes: platforms=Windows|macOS|Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1027.015
+    framework: mitre-attack-enterprise
+    title: Compression
+    notes: platforms=Linux|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1027.016
+    framework: mitre-attack-enterprise
+    title: Junk Code Insertion
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1027.017
+    framework: mitre-attack-enterprise
+    title: SVG Smuggling
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1029
+    framework: mitre-attack-enterprise
+    title: Scheduled Transfer
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1030
+    framework: mitre-attack-enterprise
+    title: Data Transfer Size Limits
+    notes: platforms=Linux|macOS|Windows|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1033
+    framework: mitre-attack-enterprise
+    title: System Owner/User Discovery
+    notes: platforms=Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1036
+    framework: mitre-attack-enterprise
+    title: Masquerading
+    notes: platforms=Containers|ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1036.001
+    framework: mitre-attack-enterprise
+    title: Invalid Code Signature
+    notes: platforms=Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1036.002
+    framework: mitre-attack-enterprise
+    title: Right-to-Left Override
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1036.003
+    framework: mitre-attack-enterprise
+    title: Rename Legitimate Utilities
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1036.004
+    framework: mitre-attack-enterprise
+    title: Masquerade Task or Service
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1036.005
+    framework: mitre-attack-enterprise
+    title: Match Legitimate Resource Name or Location
+    notes: platforms=Containers|ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1036.006
+    framework: mitre-attack-enterprise
+    title: Space after Filename
+    notes: platforms=Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1036.007
+    framework: mitre-attack-enterprise
+    title: Double File Extension
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1036.008
+    framework: mitre-attack-enterprise
+    title: Masquerade File Type
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1036.009
+    framework: mitre-attack-enterprise
+    title: Break Process Trees
+    notes: platforms=Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1036.010
+    framework: mitre-attack-enterprise
+    title: Masquerade Account Name
+    notes: platforms=Linux|macOS|Windows|SaaS|IaaS|Containers|Office Suite|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1036.011
+    framework: mitre-attack-enterprise
+    title: Overwrite Process Arguments
+    notes: platforms=Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1036.012
+    framework: mitre-attack-enterprise
+    title: Browser Fingerprint
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1037
+    framework: mitre-attack-enterprise
+    title: Boot or Logon Initialization Scripts
+    notes: platforms=macOS|Windows|Linux|Network Devices|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1037.001
+    framework: mitre-attack-enterprise
+    title: Logon Script (Windows)
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1037.002
+    framework: mitre-attack-enterprise
+    title: Login Hook
+    notes: platforms=macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1037.003
+    framework: mitre-attack-enterprise
+    title: Network Logon Script
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1037.004
+    framework: mitre-attack-enterprise
+    title: RC Scripts
+    notes: platforms=macOS|Linux|Network Devices|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1037.005
+    framework: mitre-attack-enterprise
+    title: Startup Items
+    notes: platforms=macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1039
+    framework: mitre-attack-enterprise
+    title: Data from Network Shared Drive
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1040
+    framework: mitre-attack-enterprise
+    title: Network Sniffing
+    notes: platforms=Linux|macOS|Windows|Network Devices|IaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1041
+    framework: mitre-attack-enterprise
+    title: Exfiltration Over C2 Channel
+    notes: platforms=ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1046
+    framework: mitre-attack-enterprise
+    title: Network Service Discovery
+    notes: platforms=Containers|IaaS|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1047
+    framework: mitre-attack-enterprise
+    title: Windows Management Instrumentation
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1048
+    framework: mitre-attack-enterprise
+    title: Exfiltration Over Alternative Protocol
+    notes: platforms=ESXi|IaaS|Linux|macOS|Network Devices|Office Suite|SaaS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1048.001
+    framework: mitre-attack-enterprise
+    title: Exfiltration Over Symmetric Encrypted Non-C2 Protocol
+    notes: platforms=Linux|macOS|Windows|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1048.002
+    framework: mitre-attack-enterprise
+    title: Exfiltration Over Asymmetric Encrypted Non-C2 Protocol
+    notes: platforms=Linux|macOS|Windows|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1048.003
+    framework: mitre-attack-enterprise
+    title: Exfiltration Over Unencrypted Non-C2 Protocol
+    notes: platforms=ESXi|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1049
+    framework: mitre-attack-enterprise
+    title: System Network Connections Discovery
+    notes: platforms=Windows|IaaS|Linux|macOS|Network Devices|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1052
+    framework: mitre-attack-enterprise
+    title: Exfiltration Over Physical Medium
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1052.001
+    framework: mitre-attack-enterprise
+    title: Exfiltration over USB
+    notes: platforms=Linux|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1053
+    framework: mitre-attack-enterprise
+    title: Scheduled Task/Job
+    notes: platforms=Windows|Linux|macOS|Containers|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1053.002
+    framework: mitre-attack-enterprise
+    title: At
+    notes: platforms=Windows|Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1053.003
+    framework: mitre-attack-enterprise
+    title: Cron
+    notes: platforms=Linux|macOS|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1053.005
+    framework: mitre-attack-enterprise
+    title: Scheduled Task
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1053.006
+    framework: mitre-attack-enterprise
+    title: Systemd Timers
+    notes: platforms=Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1053.007
+    framework: mitre-attack-enterprise
+    title: Container Orchestration Job
+    notes: platforms=Containers; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1055
+    framework: mitre-attack-enterprise
+    title: Process Injection
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1055.001
+    framework: mitre-attack-enterprise
+    title: Dynamic-link Library Injection
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1055.002
+    framework: mitre-attack-enterprise
+    title: Portable Executable Injection
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1055.003
+    framework: mitre-attack-enterprise
+    title: Thread Execution Hijacking
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1055.004
+    framework: mitre-attack-enterprise
+    title: Asynchronous Procedure Call
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1055.005
+    framework: mitre-attack-enterprise
+    title: Thread Local Storage
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1055.008
+    framework: mitre-attack-enterprise
+    title: Ptrace System Calls
+    notes: platforms=Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1055.009
+    framework: mitre-attack-enterprise
+    title: Proc Memory
+    notes: platforms=Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1055.011
+    framework: mitre-attack-enterprise
+    title: Extra Window Memory Injection
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1055.012
+    framework: mitre-attack-enterprise
+    title: Process Hollowing
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1055.013
+    framework: mitre-attack-enterprise
+    title: Process Doppelgänging
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1055.014
+    framework: mitre-attack-enterprise
+    title: VDSO Hijacking
+    notes: platforms=Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1055.015
+    framework: mitre-attack-enterprise
+    title: ListPlanting
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1056
+    framework: mitre-attack-enterprise
+    title: Input Capture
+    notes: platforms=Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1056.001
+    framework: mitre-attack-enterprise
+    title: Keylogging
+    notes: platforms=Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1056.002
+    framework: mitre-attack-enterprise
+    title: GUI Input Capture
+    notes: platforms=macOS|Windows|Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1056.003
+    framework: mitre-attack-enterprise
+    title: Web Portal Capture
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1056.004
+    framework: mitre-attack-enterprise
+    title: Credential API Hooking
+    notes: platforms=Windows|Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1057
+    framework: mitre-attack-enterprise
+    title: Process Discovery
+    notes: platforms=ESXi|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1059
+    framework: mitre-attack-enterprise
+    title: Command and Scripting Interpreter
+    notes: platforms=ESXi|IaaS|Identity Provider|Linux|macOS|Network Devices|Office Suite|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1059.001
+    framework: mitre-attack-enterprise
+    title: PowerShell
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1059.002
+    framework: mitre-attack-enterprise
+    title: AppleScript
+    notes: platforms=macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1059.003
+    framework: mitre-attack-enterprise
+    title: Windows Command Shell
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1059.004
+    framework: mitre-attack-enterprise
+    title: Unix Shell
+    notes: platforms=ESXi|Linux|macOS|Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1059.005
+    framework: mitre-attack-enterprise
+    title: Visual Basic
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1059.006
+    framework: mitre-attack-enterprise
+    title: Python
+    notes: platforms=ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1059.007
+    framework: mitre-attack-enterprise
+    title: JavaScript
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1059.008
+    framework: mitre-attack-enterprise
+    title: Network Device CLI
+    notes: platforms=Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1059.009
+    framework: mitre-attack-enterprise
+    title: Cloud API
+    notes: platforms=IaaS|Identity Provider|Office Suite|SaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1059.010
+    framework: mitre-attack-enterprise
+    title: AutoHotKey & AutoIT
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1059.011
+    framework: mitre-attack-enterprise
+    title: Lua
+    notes: platforms=Linux|Network Devices|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1059.012
+    framework: mitre-attack-enterprise
+    title: Hypervisor CLI
+    notes: platforms=ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1059.013
+    framework: mitre-attack-enterprise
+    title: Container CLI/API
+    notes: platforms=Containers; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1068
+    framework: mitre-attack-enterprise
+    title: Exploitation for Privilege Escalation
+    notes: platforms=Containers|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1069
+    framework: mitre-attack-enterprise
+    title: Permission Groups Discovery
+    notes: platforms=Containers|IaaS|Identity Provider|Linux|macOS|Office Suite|SaaS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1069.001
+    framework: mitre-attack-enterprise
+    title: Local Groups
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1069.002
+    framework: mitre-attack-enterprise
+    title: Domain Groups
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1069.003
+    framework: mitre-attack-enterprise
+    title: Cloud Groups
+    notes: platforms=SaaS|IaaS|Office Suite|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1070
+    framework: mitre-attack-enterprise
+    title: Indicator Removal
+    notes: platforms=Containers|ESXi|Linux|macOS|Network Devices|Office Suite|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1070.001
+    framework: mitre-attack-enterprise
+    title: Clear Windows Event Logs
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1070.002
+    framework: mitre-attack-enterprise
+    title: Clear Linux or Mac System Logs
+    notes: platforms=Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1070.003
+    framework: mitre-attack-enterprise
+    title: Clear Command History
+    notes: platforms=ESXi|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1070.004
+    framework: mitre-attack-enterprise
+    title: File Deletion
+    notes: platforms=ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1070.005
+    framework: mitre-attack-enterprise
+    title: Network Share Connection Removal
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1070.006
+    framework: mitre-attack-enterprise
+    title: Timestomp
+    notes: platforms=ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1070.007
+    framework: mitre-attack-enterprise
+    title: Clear Network Connection History and Configurations
+    notes: platforms=Linux|macOS|Windows|Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1070.008
+    framework: mitre-attack-enterprise
+    title: Clear Mailbox Data
+    notes: platforms=Linux|macOS|Office Suite|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1070.009
+    framework: mitre-attack-enterprise
+    title: Clear Persistence
+    notes: platforms=ESXi|Linux|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1070.010
+    framework: mitre-attack-enterprise
+    title: Relocate Malware
+    notes: platforms=Linux|macOS|Windows|Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1071
+    framework: mitre-attack-enterprise
+    title: Application Layer Protocol
+    notes: platforms=Linux|macOS|Windows|Network Devices|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1071.001
+    framework: mitre-attack-enterprise
+    title: Web Protocols
+    notes: platforms=ESXi|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1071.002
+    framework: mitre-attack-enterprise
+    title: File Transfer Protocols
+    notes: platforms=ESXi|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1071.003
+    framework: mitre-attack-enterprise
+    title: Mail Protocols
+    notes: platforms=Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1071.004
+    framework: mitre-attack-enterprise
+    title: DNS
+    notes: platforms=Linux|macOS|Windows|Network Devices|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1071.005
+    framework: mitre-attack-enterprise
+    title: Publish/Subscribe Protocols
+    notes: platforms=macOS|Linux|Windows|Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1072
+    framework: mitre-attack-enterprise
+    title: Software Deployment Tools
+    notes: platforms=Linux|macOS|Network Devices|SaaS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1074
+    framework: mitre-attack-enterprise
+    title: Data Staged
+    notes: platforms=Windows|IaaS|Linux|macOS|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1074.001
+    framework: mitre-attack-enterprise
+    title: Local Data Staging
+    notes: platforms=ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1074.002
+    framework: mitre-attack-enterprise
+    title: Remote Data Staging
+    notes: platforms=Windows|IaaS|Linux|macOS|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1078
+    framework: mitre-attack-enterprise
+    title: Valid Accounts
+    notes: platforms=Containers|ESXi|IaaS|Identity Provider|Linux|macOS|Network Devices|Office Suite|SaaS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1078.001
+    framework: mitre-attack-enterprise
+    title: Default Accounts
+    notes: platforms=Windows|SaaS|IaaS|Linux|macOS|Containers|Network Devices|Office Suite|Identity Provider|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1078.002
+    framework: mitre-attack-enterprise
+    title: Domain Accounts
+    notes: platforms=ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1078.003
+    framework: mitre-attack-enterprise
+    title: Local Accounts
+    notes: platforms=Linux|macOS|Windows|Containers|Network Devices|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1078.004
+    framework: mitre-attack-enterprise
+    title: Cloud Accounts
+    notes: platforms=IaaS|Identity Provider|Office Suite|SaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1080
+    framework: mitre-attack-enterprise
+    title: Taint Shared Content
+    notes: platforms=Windows|SaaS|Linux|macOS|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1082
+    framework: mitre-attack-enterprise
+    title: System Information Discovery
+    notes: platforms=ESXi|IaaS|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1083
+    framework: mitre-attack-enterprise
+    title: File and Directory Discovery
+    notes: platforms=ESXi|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1087
+    framework: mitre-attack-enterprise
+    title: Account Discovery
+    notes: platforms=ESXi|IaaS|Identity Provider|Linux|macOS|Office Suite|SaaS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1087.001
+    framework: mitre-attack-enterprise
+    title: Local Account
+    notes: platforms=ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1087.002
+    framework: mitre-attack-enterprise
+    title: Domain Account
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1087.003
+    framework: mitre-attack-enterprise
+    title: Email Account
+    notes: platforms=Windows|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1087.004
+    framework: mitre-attack-enterprise
+    title: Cloud Account
+    notes: platforms=IaaS|Identity Provider|Office Suite|SaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1090
+    framework: mitre-attack-enterprise
+    title: Proxy
+    notes: platforms=ESXi|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1090.001
+    framework: mitre-attack-enterprise
+    title: Internal Proxy
+    notes: platforms=Linux|Network Devices|Windows|macOS|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1090.002
+    framework: mitre-attack-enterprise
+    title: External Proxy
+    notes: platforms=ESXi|Linux|Network Devices|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1090.003
+    framework: mitre-attack-enterprise
+    title: Multi-hop Proxy
+    notes: platforms=ESXi|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1090.004
+    framework: mitre-attack-enterprise
+    title: Domain Fronting
+    notes: platforms=Linux|macOS|Windows|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1091
+    framework: mitre-attack-enterprise
+    title: Replication Through Removable Media
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1092
+    framework: mitre-attack-enterprise
+    title: Communication Through Removable Media
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1095
+    framework: mitre-attack-enterprise
+    title: Non-Application Layer Protocol
+    notes: platforms=ESXi|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1098
+    framework: mitre-attack-enterprise
+    title: Account Manipulation
+    notes: platforms=Containers|ESXi|IaaS|Identity Provider|Linux|macOS|Network Devices|Office Suite|SaaS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1098.001
+    framework: mitre-attack-enterprise
+    title: Additional Cloud Credentials
+    notes: platforms=IaaS|Identity Provider|SaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1098.002
+    framework: mitre-attack-enterprise
+    title: Additional Email Delegate Permissions
+    notes: platforms=Windows|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1098.003
+    framework: mitre-attack-enterprise
+    title: Additional Cloud Roles
+    notes: platforms=IaaS|Identity Provider|Office Suite|SaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1098.004
+    framework: mitre-attack-enterprise
+    title: SSH Authorized Keys
+    notes: platforms=Linux|macOS|IaaS|Network Devices|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1098.005
+    framework: mitre-attack-enterprise
+    title: Device Registration
+    notes: platforms=Windows|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1098.006
+    framework: mitre-attack-enterprise
+    title: Additional Container Cluster Roles
+    notes: platforms=Containers; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1098.007
+    framework: mitre-attack-enterprise
+    title: Additional Local or Domain Groups
+    notes: platforms=Windows|macOS|Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1102
+    framework: mitre-attack-enterprise
+    title: Web Service
+    notes: platforms=ESXi|Linux|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1102.001
+    framework: mitre-attack-enterprise
+    title: Dead Drop Resolver
+    notes: platforms=ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1102.002
+    framework: mitre-attack-enterprise
+    title: Bidirectional Communication
+    notes: platforms=Linux|macOS|Windows|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1102.003
+    framework: mitre-attack-enterprise
+    title: One-Way Communication
+    notes: platforms=Linux|macOS|Windows|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1104
+    framework: mitre-attack-enterprise
+    title: Multi-Stage Channels
+    notes: platforms=Linux|macOS|Windows|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1105
+    framework: mitre-attack-enterprise
+    title: Ingress Tool Transfer
+    notes: platforms=ESXi|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1106
+    framework: mitre-attack-enterprise
+    title: Native API
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1110
+    framework: mitre-attack-enterprise
+    title: Brute Force
+    notes: platforms=Containers|ESXi|IaaS|Identity Provider|Linux|macOS|Network Devices|Office Suite|SaaS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1110.001
+    framework: mitre-attack-enterprise
+    title: Password Guessing
+    notes: platforms=Windows|SaaS|IaaS|Linux|macOS|Containers|Network Devices|Office Suite|Identity Provider|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1110.002
+    framework: mitre-attack-enterprise
+    title: Password Cracking
+    notes: platforms=Linux|macOS|Windows|Network Devices|Office Suite|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1110.003
+    framework: mitre-attack-enterprise
+    title: Password Spraying
+    notes: platforms=Containers|ESXi|IaaS|Identity Provider|Linux|Network Devices|Office Suite|SaaS|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1110.004
+    framework: mitre-attack-enterprise
+    title: Credential Stuffing
+    notes: platforms=Windows|SaaS|IaaS|Linux|macOS|Containers|Network Devices|Office Suite|Identity Provider|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1111
+    framework: mitre-attack-enterprise
+    title: Multi-Factor Authentication Interception
+    notes: platforms=Linux|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1112
+    framework: mitre-attack-enterprise
+    title: Modify Registry
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1113
+    framework: mitre-attack-enterprise
+    title: Screen Capture
+    notes: platforms=Linux|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1114
+    framework: mitre-attack-enterprise
+    title: Email Collection
+    notes: platforms=Windows|macOS|Linux|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1114.001
+    framework: mitre-attack-enterprise
+    title: Local Email Collection
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1114.002
+    framework: mitre-attack-enterprise
+    title: Remote Email Collection
+    notes: platforms=Windows|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1114.003
+    framework: mitre-attack-enterprise
+    title: Email Forwarding Rule
+    notes: platforms=Linux|macOS|Office Suite|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1115
+    framework: mitre-attack-enterprise
+    title: Clipboard Data
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1119
+    framework: mitre-attack-enterprise
+    title: Automated Collection
+    notes: platforms=IaaS|Linux|macOS|Office Suite|SaaS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1120
+    framework: mitre-attack-enterprise
+    title: Peripheral Device Discovery
+    notes: platforms=Linux|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1123
+    framework: mitre-attack-enterprise
+    title: Audio Capture
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1124
+    framework: mitre-attack-enterprise
+    title: System Time Discovery
+    notes: platforms=ESXi|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1125
+    framework: mitre-attack-enterprise
+    title: Video Capture
+    notes: platforms=Windows|macOS|Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1127
+    framework: mitre-attack-enterprise
+    title: Trusted Developer Utilities Proxy Execution
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1127.001
+    framework: mitre-attack-enterprise
+    title: MSBuild
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1127.002
+    framework: mitre-attack-enterprise
+    title: ClickOnce
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1127.003
+    framework: mitre-attack-enterprise
+    title: JamPlus
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1129
+    framework: mitre-attack-enterprise
+    title: Shared Modules
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1132
+    framework: mitre-attack-enterprise
+    title: Data Encoding
+    notes: platforms=Linux|macOS|Windows|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1132.001
+    framework: mitre-attack-enterprise
+    title: Standard Encoding
+    notes: platforms=ESXi|Linux|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1132.002
+    framework: mitre-attack-enterprise
+    title: Non-Standard Encoding
+    notes: platforms=ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1133
+    framework: mitre-attack-enterprise
+    title: External Remote Services
+    notes: platforms=Containers|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1134
+    framework: mitre-attack-enterprise
+    title: Access Token Manipulation
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1134.001
+    framework: mitre-attack-enterprise
+    title: Token Impersonation/Theft
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1134.002
+    framework: mitre-attack-enterprise
+    title: Create Process with Token
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1134.003
+    framework: mitre-attack-enterprise
+    title: Make and Impersonate Token
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1134.004
+    framework: mitre-attack-enterprise
+    title: Parent PID Spoofing
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1134.005
+    framework: mitre-attack-enterprise
+    title: SID-History Injection
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1135
+    framework: mitre-attack-enterprise
+    title: Network Share Discovery
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1136
+    framework: mitre-attack-enterprise
+    title: Create Account
+    notes: platforms=Windows|IaaS|Linux|macOS|Network Devices|Containers|SaaS|Office Suite|Identity Provider|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1136.001
+    framework: mitre-attack-enterprise
+    title: Local Account
+    notes: platforms=Linux|macOS|Windows|Network Devices|Containers|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1136.002
+    framework: mitre-attack-enterprise
+    title: Domain Account
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1136.003
+    framework: mitre-attack-enterprise
+    title: Cloud Account
+    notes: platforms=IaaS|SaaS|Office Suite|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1137
+    framework: mitre-attack-enterprise
+    title: Office Application Startup
+    notes: platforms=Windows|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1137.001
+    framework: mitre-attack-enterprise
+    title: Office Template Macros
+    notes: platforms=Windows|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1137.002
+    framework: mitre-attack-enterprise
+    title: Office Test
+    notes: platforms=Windows|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1137.003
+    framework: mitre-attack-enterprise
+    title: Outlook Forms
+    notes: platforms=Windows|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1137.004
+    framework: mitre-attack-enterprise
+    title: Outlook Home Page
+    notes: platforms=Windows|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1137.005
+    framework: mitre-attack-enterprise
+    title: Outlook Rules
+    notes: platforms=Windows|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1137.006
+    framework: mitre-attack-enterprise
+    title: Add-ins
+    notes: platforms=Windows|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1140
+    framework: mitre-attack-enterprise
+    title: Deobfuscate/Decode Files or Information
+    notes: platforms=ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1176
+    framework: mitre-attack-enterprise
+    title: Software Extensions
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1176.001
+    framework: mitre-attack-enterprise
+    title: Browser Extensions
+    notes: platforms=Linux|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1176.002
+    framework: mitre-attack-enterprise
+    title: IDE Extensions
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1185
+    framework: mitre-attack-enterprise
+    title: Browser Session Hijacking
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1187
+    framework: mitre-attack-enterprise
+    title: Forced Authentication
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1189
+    framework: mitre-attack-enterprise
+    title: Drive-by Compromise
+    notes: platforms=Identity Provider|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1190
+    framework: mitre-attack-enterprise
+    title: Exploit Public-Facing Application
+    notes: platforms=Containers|ESXi|IaaS|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1195
+    framework: mitre-attack-enterprise
+    title: Supply Chain Compromise
+    notes: platforms=Linux|Windows|macOS|SaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1195.001
+    framework: mitre-attack-enterprise
+    title: Compromise Software Dependencies and Development Tools
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1195.002
+    framework: mitre-attack-enterprise
+    title: Compromise Software Supply Chain
+    notes: platforms=Linux|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1195.003
+    framework: mitre-attack-enterprise
+    title: Compromise Hardware Supply Chain
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1197
+    framework: mitre-attack-enterprise
+    title: BITS Jobs
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1199
+    framework: mitre-attack-enterprise
+    title: Trusted Relationship
+    notes: platforms=Windows|SaaS|IaaS|Linux|macOS|Identity Provider|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1200
+    framework: mitre-attack-enterprise
+    title: Hardware Additions
+    notes: platforms=Windows|Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1201
+    framework: mitre-attack-enterprise
+    title: Password Policy Discovery
+    notes: platforms=Windows|Linux|macOS|IaaS|Network Devices|Identity Provider|SaaS|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1202
+    framework: mitre-attack-enterprise
+    title: Indirect Command Execution
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1203
+    framework: mitre-attack-enterprise
+    title: Exploitation for Client Execution
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1204
+    framework: mitre-attack-enterprise
+    title: User Execution
+    notes: platforms=Linux|Windows|macOS|IaaS|Containers; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1204.001
+    framework: mitre-attack-enterprise
+    title: Malicious Link
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1204.002
+    framework: mitre-attack-enterprise
+    title: Malicious File
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1204.003
+    framework: mitre-attack-enterprise
+    title: Malicious Image
+    notes: platforms=IaaS|Containers; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1204.004
+    framework: mitre-attack-enterprise
+    title: Malicious Copy and Paste
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1204.005
+    framework: mitre-attack-enterprise
+    title: Malicious Library
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1205
+    framework: mitre-attack-enterprise
+    title: Traffic Signaling
+    notes: platforms=Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1205.001
+    framework: mitre-attack-enterprise
+    title: Port Knocking
+    notes: platforms=Linux|macOS|Windows|Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1205.002
+    framework: mitre-attack-enterprise
+    title: Socket Filters
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1207
+    framework: mitre-attack-enterprise
+    title: Rogue Domain Controller
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1210
+    framework: mitre-attack-enterprise
+    title: Exploitation of Remote Services
+    notes: platforms=Linux|Windows|macOS|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1211
+    framework: mitre-attack-enterprise
+    title: Exploitation for Defense Evasion
+    notes: platforms=Linux|Windows|macOS|SaaS|IaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1212
+    framework: mitre-attack-enterprise
+    title: Exploitation for Credential Access
+    notes: platforms=Linux|Windows|macOS|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1213
+    framework: mitre-attack-enterprise
+    title: Data from Information Repositories
+    notes: platforms=Linux|Windows|macOS|SaaS|IaaS|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1213.001
+    framework: mitre-attack-enterprise
+    title: Confluence
+    notes: platforms=SaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1213.002
+    framework: mitre-attack-enterprise
+    title: Sharepoint
+    notes: platforms=Windows|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1213.003
+    framework: mitre-attack-enterprise
+    title: Code Repositories
+    notes: platforms=SaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1213.004
+    framework: mitre-attack-enterprise
+    title: Customer Relationship Management Software
+    notes: platforms=SaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1213.005
+    framework: mitre-attack-enterprise
+    title: Messaging Applications
+    notes: platforms=SaaS|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1213.006
+    framework: mitre-attack-enterprise
+    title: Databases
+    notes: platforms=Linux|Windows|macOS|IaaS|SaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1216
+    framework: mitre-attack-enterprise
+    title: System Script Proxy Execution
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1216.001
+    framework: mitre-attack-enterprise
+    title: PubPrn
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1216.002
+    framework: mitre-attack-enterprise
+    title: SyncAppvPublishingServer
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1217
+    framework: mitre-attack-enterprise
+    title: Browser Information Discovery
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1218
+    framework: mitre-attack-enterprise
+    title: System Binary Proxy Execution
+    notes: platforms=Windows|Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1218.001
+    framework: mitre-attack-enterprise
+    title: Compiled HTML File
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1218.002
+    framework: mitre-attack-enterprise
+    title: Control Panel
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1218.003
+    framework: mitre-attack-enterprise
+    title: CMSTP
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1218.004
+    framework: mitre-attack-enterprise
+    title: InstallUtil
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1218.005
+    framework: mitre-attack-enterprise
+    title: Mshta
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1218.007
+    framework: mitre-attack-enterprise
+    title: Msiexec
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1218.008
+    framework: mitre-attack-enterprise
+    title: Odbcconf
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1218.009
+    framework: mitre-attack-enterprise
+    title: Regsvcs/Regasm
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1218.010
+    framework: mitre-attack-enterprise
+    title: Regsvr32
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1218.011
+    framework: mitre-attack-enterprise
+    title: Rundll32
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1218.012
+    framework: mitre-attack-enterprise
+    title: Verclsid
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1218.013
+    framework: mitre-attack-enterprise
+    title: Mavinject
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1218.014
+    framework: mitre-attack-enterprise
+    title: MMC
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1218.015
+    framework: mitre-attack-enterprise
+    title: Electron Applications
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1219
+    framework: mitre-attack-enterprise
+    title: Remote Access Tools
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1219.001
+    framework: mitre-attack-enterprise
+    title: IDE Tunneling
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1219.002
+    framework: mitre-attack-enterprise
+    title: Remote Desktop Software
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1219.003
+    framework: mitre-attack-enterprise
+    title: Remote Access Hardware
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1220
+    framework: mitre-attack-enterprise
+    title: XSL Script Processing
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1221
+    framework: mitre-attack-enterprise
+    title: Template Injection
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1222
+    framework: mitre-attack-enterprise
+    title: File and Directory Permissions Modification
+    notes: platforms=ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1222.001
+    framework: mitre-attack-enterprise
+    title: Windows File and Directory Permissions Modification
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1222.002
+    framework: mitre-attack-enterprise
+    title: Linux and Mac File and Directory Permissions Modification
+    notes: platforms=macOS|Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1480
+    framework: mitre-attack-enterprise
+    title: Execution Guardrails
+    notes: platforms=ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1480.001
+    framework: mitre-attack-enterprise
+    title: Environmental Keying
+    notes: platforms=Linux|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1480.002
+    framework: mitre-attack-enterprise
+    title: Mutual Exclusion
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1482
+    framework: mitre-attack-enterprise
+    title: Domain Trust Discovery
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1484
+    framework: mitre-attack-enterprise
+    title: Domain or Tenant Policy Modification
+    notes: platforms=Windows|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1484.001
+    framework: mitre-attack-enterprise
+    title: Group Policy Modification
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1484.002
+    framework: mitre-attack-enterprise
+    title: Trust Modification
+    notes: platforms=Identity Provider|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1485
+    framework: mitre-attack-enterprise
+    title: Data Destruction
+    notes: platforms=Containers|ESXi|IaaS|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1485.001
+    framework: mitre-attack-enterprise
+    title: Lifecycle-Triggered Deletion
+    notes: platforms=IaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1486
+    framework: mitre-attack-enterprise
+    title: Data Encrypted for Impact
+    notes: platforms=ESXi|IaaS|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1489
+    framework: mitre-attack-enterprise
+    title: Service Stop
+    notes: platforms=ESXi|IaaS|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1490
+    framework: mitre-attack-enterprise
+    title: Inhibit System Recovery
+    notes: platforms=Containers|ESXi|IaaS|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1491
+    framework: mitre-attack-enterprise
+    title: Defacement
+    notes: platforms=Windows|IaaS|Linux|macOS|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1491.001
+    framework: mitre-attack-enterprise
+    title: Internal Defacement
+    notes: platforms=ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1491.002
+    framework: mitre-attack-enterprise
+    title: External Defacement
+    notes: platforms=Windows|IaaS|Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1495
+    framework: mitre-attack-enterprise
+    title: Firmware Corruption
+    notes: platforms=Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1496
+    framework: mitre-attack-enterprise
+    title: Resource Hijacking
+    notes: platforms=Windows|IaaS|Linux|macOS|Containers|SaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1496.001
+    framework: mitre-attack-enterprise
+    title: Compute Hijacking
+    notes: platforms=Windows|IaaS|Linux|macOS|Containers; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1496.002
+    framework: mitre-attack-enterprise
+    title: Bandwidth Hijacking
+    notes: platforms=Linux|Windows|macOS|IaaS|Containers; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1496.003
+    framework: mitre-attack-enterprise
+    title: SMS Pumping
+    notes: platforms=SaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1496.004
+    framework: mitre-attack-enterprise
+    title: Cloud Service Hijacking
+    notes: platforms=SaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1497
+    framework: mitre-attack-enterprise
+    title: Virtualization/Sandbox Evasion
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1497.001
+    framework: mitre-attack-enterprise
+    title: System Checks
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1497.002
+    framework: mitre-attack-enterprise
+    title: User Activity Based Checks
+    notes: platforms=Linux|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1497.003
+    framework: mitre-attack-enterprise
+    title: Time Based Checks
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1498
+    framework: mitre-attack-enterprise
+    title: Network Denial of Service
+    notes: platforms=Windows|IaaS|Linux|macOS|Containers; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1498.001
+    framework: mitre-attack-enterprise
+    title: Direct Network Flood
+    notes: platforms=Windows|IaaS|Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1498.002
+    framework: mitre-attack-enterprise
+    title: Reflection Amplification
+    notes: platforms=Windows|IaaS|Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1499
+    framework: mitre-attack-enterprise
+    title: Endpoint Denial of Service
+    notes: platforms=Windows|Linux|macOS|Containers|IaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1499.001
+    framework: mitre-attack-enterprise
+    title: OS Exhaustion Flood
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1499.002
+    framework: mitre-attack-enterprise
+    title: Service Exhaustion Flood
+    notes: platforms=Windows|IaaS|Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1499.003
+    framework: mitre-attack-enterprise
+    title: Application Exhaustion Flood
+    notes: platforms=Windows|IaaS|Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1499.004
+    framework: mitre-attack-enterprise
+    title: Application or System Exploitation
+    notes: platforms=Windows|IaaS|Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1505
+    framework: mitre-attack-enterprise
+    title: Server Software Component
+    notes: platforms=Windows|Linux|macOS|Network Devices|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1505.001
+    framework: mitre-attack-enterprise
+    title: SQL Stored Procedures
+    notes: platforms=Windows|Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1505.002
+    framework: mitre-attack-enterprise
+    title: Transport Agent
+    notes: platforms=Linux|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1505.003
+    framework: mitre-attack-enterprise
+    title: Web Shell
+    notes: platforms=Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1505.004
+    framework: mitre-attack-enterprise
+    title: IIS Components
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1505.005
+    framework: mitre-attack-enterprise
+    title: Terminal Services DLL
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1505.006
+    framework: mitre-attack-enterprise
+    title: vSphere Installation Bundles
+    notes: platforms=ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1518
+    framework: mitre-attack-enterprise
+    title: Software Discovery
+    notes: platforms=ESXi|IaaS|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1518.001
+    framework: mitre-attack-enterprise
+    title: Security Software Discovery
+    notes: platforms=IaaS|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1518.002
+    framework: mitre-attack-enterprise
+    title: Backup Software Discovery
+    notes: platforms=Windows|macOS|Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1525
+    framework: mitre-attack-enterprise
+    title: Implant Internal Image
+    notes: platforms=IaaS|Containers; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1526
+    framework: mitre-attack-enterprise
+    title: Cloud Service Discovery
+    notes: platforms=IaaS|Identity Provider|Office Suite|SaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1528
+    framework: mitre-attack-enterprise
+    title: Steal Application Access Token
+    notes: platforms=SaaS|Containers|IaaS|Office Suite|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1529
+    framework: mitre-attack-enterprise
+    title: System Shutdown/Reboot
+    notes: platforms=ESXi|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1530
+    framework: mitre-attack-enterprise
+    title: Data from Cloud Storage
+    notes: platforms=IaaS|Office Suite|SaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1531
+    framework: mitre-attack-enterprise
+    title: Account Access Removal
+    notes: platforms=Linux|macOS|Windows|SaaS|IaaS|Office Suite|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1534
+    framework: mitre-attack-enterprise
+    title: Internal Spearphishing
+    notes: platforms=Windows|macOS|Linux|SaaS|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1535
+    framework: mitre-attack-enterprise
+    title: Unused/Unsupported Cloud Regions
+    notes: platforms=IaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1537
+    framework: mitre-attack-enterprise
+    title: Transfer Data to Cloud Account
+    notes: platforms=IaaS|Office Suite|SaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1538
+    framework: mitre-attack-enterprise
+    title: Cloud Service Dashboard
+    notes: platforms=IaaS|SaaS|Office Suite|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1539
+    framework: mitre-attack-enterprise
+    title: Steal Web Session Cookie
+    notes: platforms=Linux|Office Suite|SaaS|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1542
+    framework: mitre-attack-enterprise
+    title: Pre-OS Boot
+    notes: platforms=Linux|Network Devices|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1542.001
+    framework: mitre-attack-enterprise
+    title: System Firmware
+    notes: platforms=Windows|Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1542.002
+    framework: mitre-attack-enterprise
+    title: Component Firmware
+    notes: platforms=Windows|Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1542.003
+    framework: mitre-attack-enterprise
+    title: Bootkit
+    notes: platforms=Linux|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1542.004
+    framework: mitre-attack-enterprise
+    title: ROMMONkit
+    notes: platforms=Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1542.005
+    framework: mitre-attack-enterprise
+    title: TFTP Boot
+    notes: platforms=Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1543
+    framework: mitre-attack-enterprise
+    title: Create or Modify System Process
+    notes: platforms=Windows|macOS|Linux|Containers; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1543.001
+    framework: mitre-attack-enterprise
+    title: Launch Agent
+    notes: platforms=macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1543.002
+    framework: mitre-attack-enterprise
+    title: Systemd Service
+    notes: platforms=Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1543.003
+    framework: mitre-attack-enterprise
+    title: Windows Service
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1543.004
+    framework: mitre-attack-enterprise
+    title: Launch Daemon
+    notes: platforms=macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1543.005
+    framework: mitre-attack-enterprise
+    title: Container Service
+    notes: platforms=Containers; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1546
+    framework: mitre-attack-enterprise
+    title: Event Triggered Execution
+    notes: platforms=Linux|macOS|Windows|SaaS|IaaS|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1546.001
+    framework: mitre-attack-enterprise
+    title: Change Default File Association
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1546.002
+    framework: mitre-attack-enterprise
+    title: Screensaver
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1546.003
+    framework: mitre-attack-enterprise
+    title: Windows Management Instrumentation Event Subscription
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1546.004
+    framework: mitre-attack-enterprise
+    title: Unix Shell Configuration Modification
+    notes: platforms=Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1546.005
+    framework: mitre-attack-enterprise
+    title: Trap
+    notes: platforms=macOS|Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1546.006
+    framework: mitre-attack-enterprise
+    title: LC_LOAD_DYLIB Addition
+    notes: platforms=macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1546.007
+    framework: mitre-attack-enterprise
+    title: Netsh Helper DLL
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1546.008
+    framework: mitre-attack-enterprise
+    title: Accessibility Features
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1546.009
+    framework: mitre-attack-enterprise
+    title: AppCert DLLs
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1546.010
+    framework: mitre-attack-enterprise
+    title: AppInit DLLs
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1546.011
+    framework: mitre-attack-enterprise
+    title: Application Shimming
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1546.012
+    framework: mitre-attack-enterprise
+    title: Image File Execution Options Injection
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1546.013
+    framework: mitre-attack-enterprise
+    title: PowerShell Profile
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1546.014
+    framework: mitre-attack-enterprise
+    title: Emond
+    notes: platforms=macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1546.015
+    framework: mitre-attack-enterprise
+    title: Component Object Model Hijacking
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1546.016
+    framework: mitre-attack-enterprise
+    title: Installer Packages
+    notes: platforms=Linux|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1546.017
+    framework: mitre-attack-enterprise
+    title: Udev Rules
+    notes: platforms=Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1546.018
+    framework: mitre-attack-enterprise
+    title: Python Startup Hooks
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1547
+    framework: mitre-attack-enterprise
+    title: Boot or Logon Autostart Execution
+    notes: platforms=Linux|macOS|Windows|Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1547.001
+    framework: mitre-attack-enterprise
+    title: Registry Run Keys / Startup Folder
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1547.002
+    framework: mitre-attack-enterprise
+    title: Authentication Package
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1547.003
+    framework: mitre-attack-enterprise
+    title: Time Providers
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1547.004
+    framework: mitre-attack-enterprise
+    title: Winlogon Helper DLL
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1547.005
+    framework: mitre-attack-enterprise
+    title: Security Support Provider
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1547.006
+    framework: mitre-attack-enterprise
+    title: Kernel Modules and Extensions
+    notes: platforms=macOS|Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1547.007
+    framework: mitre-attack-enterprise
+    title: Re-opened Applications
+    notes: platforms=macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1547.008
+    framework: mitre-attack-enterprise
+    title: LSASS Driver
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1547.009
+    framework: mitre-attack-enterprise
+    title: Shortcut Modification
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1547.010
+    framework: mitre-attack-enterprise
+    title: Port Monitors
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1547.012
+    framework: mitre-attack-enterprise
+    title: Print Processors
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1547.013
+    framework: mitre-attack-enterprise
+    title: XDG Autostart Entries
+    notes: platforms=Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1547.014
+    framework: mitre-attack-enterprise
+    title: Active Setup
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1547.015
+    framework: mitre-attack-enterprise
+    title: Login Items
+    notes: platforms=macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1548
+    framework: mitre-attack-enterprise
+    title: Abuse Elevation Control Mechanism
+    notes: platforms=Linux|macOS|Windows|IaaS|Office Suite|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1548.001
+    framework: mitre-attack-enterprise
+    title: Setuid and Setgid
+    notes: platforms=Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1548.002
+    framework: mitre-attack-enterprise
+    title: Bypass User Account Control
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1548.003
+    framework: mitre-attack-enterprise
+    title: Sudo and Sudo Caching
+    notes: platforms=Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1548.004
+    framework: mitre-attack-enterprise
+    title: Elevated Execution with Prompt
+    notes: platforms=macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1548.005
+    framework: mitre-attack-enterprise
+    title: Temporary Elevated Cloud Access
+    notes: platforms=IaaS|Office Suite|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1548.006
+    framework: mitre-attack-enterprise
+    title: TCC Manipulation
+    notes: platforms=macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1550
+    framework: mitre-attack-enterprise
+    title: Use Alternate Authentication Material
+    notes: platforms=Windows|SaaS|IaaS|Containers|Identity Provider|Office Suite|Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1550.001
+    framework: mitre-attack-enterprise
+    title: Application Access Token
+    notes: platforms=SaaS|Containers|IaaS|Office Suite|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1550.002
+    framework: mitre-attack-enterprise
+    title: Pass the Hash
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1550.003
+    framework: mitre-attack-enterprise
+    title: Pass the Ticket
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1550.004
+    framework: mitre-attack-enterprise
+    title: Web Session Cookie
+    notes: platforms=SaaS|IaaS|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1552
+    framework: mitre-attack-enterprise
+    title: Unsecured Credentials
+    notes: platforms=Windows|SaaS|IaaS|Linux|macOS|Containers|Network Devices|Office Suite|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1552.001
+    framework: mitre-attack-enterprise
+    title: Credentials In Files
+    notes: platforms=Containers|IaaS|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1552.002
+    framework: mitre-attack-enterprise
+    title: Credentials in Registry
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1552.003
+    framework: mitre-attack-enterprise
+    title: Shell History
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1552.004
+    framework: mitre-attack-enterprise
+    title: Private Keys
+    notes: platforms=Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1552.005
+    framework: mitre-attack-enterprise
+    title: Cloud Instance Metadata API
+    notes: platforms=IaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1552.006
+    framework: mitre-attack-enterprise
+    title: Group Policy Preferences
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1552.007
+    framework: mitre-attack-enterprise
+    title: Container API
+    notes: platforms=Containers; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1552.008
+    framework: mitre-attack-enterprise
+    title: Chat Messages
+    notes: platforms=SaaS|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1553
+    framework: mitre-attack-enterprise
+    title: Subvert Trust Controls
+    notes: platforms=Windows|macOS|Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1553.001
+    framework: mitre-attack-enterprise
+    title: Gatekeeper Bypass
+    notes: platforms=macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1553.002
+    framework: mitre-attack-enterprise
+    title: Code Signing
+    notes: platforms=macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1553.003
+    framework: mitre-attack-enterprise
+    title: SIP and Trust Provider Hijacking
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1553.004
+    framework: mitre-attack-enterprise
+    title: Install Root Certificate
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1553.005
+    framework: mitre-attack-enterprise
+    title: Mark-of-the-Web Bypass
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1553.006
+    framework: mitre-attack-enterprise
+    title: Code Signing Policy Modification
+    notes: platforms=Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1554
+    framework: mitre-attack-enterprise
+    title: Compromise Host Software Binary
+    notes: platforms=Linux|macOS|Windows|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1555
+    framework: mitre-attack-enterprise
+    title: Credentials from Password Stores
+    notes: platforms=IaaS|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1555.001
+    framework: mitre-attack-enterprise
+    title: Keychain
+    notes: platforms=macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1555.002
+    framework: mitre-attack-enterprise
+    title: Securityd Memory
+    notes: platforms=Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1555.003
+    framework: mitre-attack-enterprise
+    title: Credentials from Web Browsers
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1555.004
+    framework: mitre-attack-enterprise
+    title: Windows Credential Manager
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1555.005
+    framework: mitre-attack-enterprise
+    title: Password Managers
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1555.006
+    framework: mitre-attack-enterprise
+    title: Cloud Secrets Management Stores
+    notes: platforms=IaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1556
+    framework: mitre-attack-enterprise
+    title: Modify Authentication Process
+    notes: platforms=Windows|Linux|macOS|Network Devices|IaaS|SaaS|Office Suite|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1556.001
+    framework: mitre-attack-enterprise
+    title: Domain Controller Authentication
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1556.002
+    framework: mitre-attack-enterprise
+    title: Password Filter DLL
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1556.003
+    framework: mitre-attack-enterprise
+    title: Pluggable Authentication Modules
+    notes: platforms=Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1556.004
+    framework: mitre-attack-enterprise
+    title: Network Device Authentication
+    notes: platforms=Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1556.005
+    framework: mitre-attack-enterprise
+    title: Reversible Encryption
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1556.006
+    framework: mitre-attack-enterprise
+    title: Multi-Factor Authentication
+    notes: platforms=Windows|SaaS|IaaS|Linux|macOS|Office Suite|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1556.007
+    framework: mitre-attack-enterprise
+    title: Hybrid Identity
+    notes: platforms=Windows|SaaS|IaaS|Office Suite|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1556.008
+    framework: mitre-attack-enterprise
+    title: Network Provider DLL
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1556.009
+    framework: mitre-attack-enterprise
+    title: Conditional Access Policies
+    notes: platforms=IaaS|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1557
+    framework: mitre-attack-enterprise
+    title: Adversary-in-the-Middle
+    notes: platforms=Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1557.001
+    framework: mitre-attack-enterprise
+    title: LLMNR/NBT-NS Poisoning and SMB Relay
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1557.002
+    framework: mitre-attack-enterprise
+    title: ARP Cache Poisoning
+    notes: platforms=Linux|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1557.003
+    framework: mitre-attack-enterprise
+    title: DHCP Spoofing
+    notes: platforms=Linux|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1557.004
+    framework: mitre-attack-enterprise
+    title: Evil Twin
+    notes: platforms=Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1558
+    framework: mitre-attack-enterprise
+    title: Steal or Forge Kerberos Tickets
+    notes: platforms=Windows|Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1558.001
+    framework: mitre-attack-enterprise
+    title: Golden Ticket
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1558.002
+    framework: mitre-attack-enterprise
+    title: Silver Ticket
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1558.003
+    framework: mitre-attack-enterprise
+    title: Kerberoasting
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1558.004
+    framework: mitre-attack-enterprise
+    title: AS-REP Roasting
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1558.005
+    framework: mitre-attack-enterprise
+    title: Ccache Files
+    notes: platforms=Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1559
+    framework: mitre-attack-enterprise
+    title: Inter-Process Communication
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1559.001
+    framework: mitre-attack-enterprise
+    title: Component Object Model
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1559.002
+    framework: mitre-attack-enterprise
+    title: Dynamic Data Exchange
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1559.003
+    framework: mitre-attack-enterprise
+    title: XPC Services
+    notes: platforms=macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1560
+    framework: mitre-attack-enterprise
+    title: Archive Collected Data
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1560.001
+    framework: mitre-attack-enterprise
+    title: Archive via Utility
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1560.002
+    framework: mitre-attack-enterprise
+    title: Archive via Library
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1560.003
+    framework: mitre-attack-enterprise
+    title: Archive via Custom Method
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1561
+    framework: mitre-attack-enterprise
+    title: Disk Wipe
+    notes: platforms=Linux|macOS|Windows|Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1561.001
+    framework: mitre-attack-enterprise
+    title: Disk Content Wipe
+    notes: platforms=Linux|Network Devices|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1561.002
+    framework: mitre-attack-enterprise
+    title: Disk Structure Wipe
+    notes: platforms=Linux|macOS|Windows|Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1562
+    framework: mitre-attack-enterprise
+    title: Impair Defenses
+    notes: platforms=Windows|IaaS|Linux|macOS|Containers|Network Devices|Identity Provider|Office Suite|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1562.001
+    framework: mitre-attack-enterprise
+    title: Disable or Modify Tools
+    notes: platforms=Containers|IaaS|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1562.002
+    framework: mitre-attack-enterprise
+    title: Disable Windows Event Logging
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1562.003
+    framework: mitre-attack-enterprise
+    title: Impair Command History Logging
+    notes: platforms=ESXi|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1562.004
+    framework: mitre-attack-enterprise
+    title: Disable or Modify System Firewall
+    notes: platforms=ESXi|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1562.006
+    framework: mitre-attack-enterprise
+    title: Indicator Blocking
+    notes: platforms=Windows|macOS|Linux|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1562.007
+    framework: mitre-attack-enterprise
+    title: Disable or Modify Cloud Firewall
+    notes: platforms=IaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1562.008
+    framework: mitre-attack-enterprise
+    title: Disable or Modify Cloud Logs
+    notes: platforms=IaaS|SaaS|Office Suite|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1562.009
+    framework: mitre-attack-enterprise
+    title: Safe Mode Boot
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1562.010
+    framework: mitre-attack-enterprise
+    title: Downgrade Attack
+    notes: platforms=Windows|Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1562.011
+    framework: mitre-attack-enterprise
+    title: Spoof Security Alerting
+    notes: platforms=Windows|macOS|Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1562.012
+    framework: mitre-attack-enterprise
+    title: Disable or Modify Linux Audit System
+    notes: platforms=Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1562.013
+    framework: mitre-attack-enterprise
+    title: Disable or Modify Network Device Firewall
+    notes: platforms=Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1563
+    framework: mitre-attack-enterprise
+    title: Remote Service Session Hijacking
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1563.001
+    framework: mitre-attack-enterprise
+    title: SSH Hijacking
+    notes: platforms=Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1563.002
+    framework: mitre-attack-enterprise
+    title: RDP Hijacking
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1564
+    framework: mitre-attack-enterprise
+    title: Hide Artifacts
+    notes: platforms=Linux|Office Suite|Windows|macOS|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1564.001
+    framework: mitre-attack-enterprise
+    title: Hidden Files and Directories
+    notes: platforms=Linux|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1564.002
+    framework: mitre-attack-enterprise
+    title: Hidden Users
+    notes: platforms=macOS|Windows|Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1564.003
+    framework: mitre-attack-enterprise
+    title: Hidden Window
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1564.004
+    framework: mitre-attack-enterprise
+    title: NTFS File Attributes
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1564.005
+    framework: mitre-attack-enterprise
+    title: Hidden File System
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1564.006
+    framework: mitre-attack-enterprise
+    title: Run Virtual Instance
+    notes: platforms=Linux|macOS|Windows|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1564.007
+    framework: mitre-attack-enterprise
+    title: VBA Stomping
+    notes: platforms=Linux|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1564.008
+    framework: mitre-attack-enterprise
+    title: Email Hiding Rules
+    notes: platforms=Windows|Linux|macOS|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1564.009
+    framework: mitre-attack-enterprise
+    title: Resource Forking
+    notes: platforms=macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1564.010
+    framework: mitre-attack-enterprise
+    title: Process Argument Spoofing
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1564.011
+    framework: mitre-attack-enterprise
+    title: Ignore Process Interrupts
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1564.012
+    framework: mitre-attack-enterprise
+    title: File/Path Exclusions
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1564.013
+    framework: mitre-attack-enterprise
+    title: Bind Mounts
+    notes: platforms=Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1564.014
+    framework: mitre-attack-enterprise
+    title: Extended Attributes
+    notes: platforms=Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1565
+    framework: mitre-attack-enterprise
+    title: Data Manipulation
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1565.001
+    framework: mitre-attack-enterprise
+    title: Stored Data Manipulation
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1565.002
+    framework: mitre-attack-enterprise
+    title: Transmitted Data Manipulation
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1565.003
+    framework: mitre-attack-enterprise
+    title: Runtime Data Manipulation
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1566
+    framework: mitre-attack-enterprise
+    title: Phishing
+    notes: platforms=Identity Provider|Linux|macOS|Office Suite|SaaS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1566.001
+    framework: mitre-attack-enterprise
+    title: Spearphishing Attachment
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1566.002
+    framework: mitre-attack-enterprise
+    title: Spearphishing Link
+    notes: platforms=Identity Provider|Linux|macOS|Office Suite|SaaS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1566.003
+    framework: mitre-attack-enterprise
+    title: Spearphishing via Service
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1566.004
+    framework: mitre-attack-enterprise
+    title: Spearphishing Voice
+    notes: platforms=Linux|macOS|Windows|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1567
+    framework: mitre-attack-enterprise
+    title: Exfiltration Over Web Service
+    notes: platforms=ESXi|Linux|macOS|Office Suite|SaaS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1567.001
+    framework: mitre-attack-enterprise
+    title: Exfiltration to Code Repository
+    notes: platforms=Linux|macOS|Windows|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1567.002
+    framework: mitre-attack-enterprise
+    title: Exfiltration to Cloud Storage
+    notes: platforms=ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1567.003
+    framework: mitre-attack-enterprise
+    title: Exfiltration to Text Storage Sites
+    notes: platforms=Linux|macOS|Windows|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1567.004
+    framework: mitre-attack-enterprise
+    title: Exfiltration Over Webhook
+    notes: platforms=Windows|macOS|Linux|SaaS|Office Suite|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1568
+    framework: mitre-attack-enterprise
+    title: Dynamic Resolution
+    notes: platforms=Linux|macOS|Windows|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1568.001
+    framework: mitre-attack-enterprise
+    title: Fast Flux DNS
+    notes: platforms=Linux|macOS|Windows|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1568.002
+    framework: mitre-attack-enterprise
+    title: Domain Generation Algorithms
+    notes: platforms=Linux|macOS|Windows|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1568.003
+    framework: mitre-attack-enterprise
+    title: DNS Calculation
+    notes: platforms=Linux|macOS|Windows|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1569
+    framework: mitre-attack-enterprise
+    title: System Services
+    notes: platforms=Windows|macOS|Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1569.001
+    framework: mitre-attack-enterprise
+    title: Launchctl
+    notes: platforms=macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1569.002
+    framework: mitre-attack-enterprise
+    title: Service Execution
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1569.003
+    framework: mitre-attack-enterprise
+    title: Systemctl
+    notes: platforms=Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1570
+    framework: mitre-attack-enterprise
+    title: Lateral Tool Transfer
+    notes: platforms=ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1571
+    framework: mitre-attack-enterprise
+    title: Non-Standard Port
+    notes: platforms=ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1572
+    framework: mitre-attack-enterprise
+    title: Protocol Tunneling
+    notes: platforms=ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1573
+    framework: mitre-attack-enterprise
+    title: Encrypted Channel
+    notes: platforms=ESXi|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1573.001
+    framework: mitre-attack-enterprise
+    title: Symmetric Cryptography
+    notes: platforms=ESXi|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1573.002
+    framework: mitre-attack-enterprise
+    title: Asymmetric Cryptography
+    notes: platforms=ESXi|Linux|macOS|Network Devices|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1574
+    framework: mitre-attack-enterprise
+    title: Hijack Execution Flow
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1574.001
+    framework: mitre-attack-enterprise
+    title: DLL
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1574.004
+    framework: mitre-attack-enterprise
+    title: Dylib Hijacking
+    notes: platforms=macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1574.005
+    framework: mitre-attack-enterprise
+    title: Executable Installer File Permissions Weakness
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1574.006
+    framework: mitre-attack-enterprise
+    title: Dynamic Linker Hijacking
+    notes: platforms=Linux|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1574.007
+    framework: mitre-attack-enterprise
+    title: Path Interception by PATH Environment Variable
+    notes: platforms=Windows|macOS|Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1574.008
+    framework: mitre-attack-enterprise
+    title: Path Interception by Search Order Hijacking
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1574.009
+    framework: mitre-attack-enterprise
+    title: Path Interception by Unquoted Path
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1574.010
+    framework: mitre-attack-enterprise
+    title: Services File Permissions Weakness
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1574.011
+    framework: mitre-attack-enterprise
+    title: Services Registry Permissions Weakness
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1574.012
+    framework: mitre-attack-enterprise
+    title: COR_PROFILER
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1574.013
+    framework: mitre-attack-enterprise
+    title: KernelCallbackTable
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1574.014
+    framework: mitre-attack-enterprise
+    title: AppDomainManager
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1578
+    framework: mitre-attack-enterprise
+    title: Modify Cloud Compute Infrastructure
+    notes: platforms=IaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1578.001
+    framework: mitre-attack-enterprise
+    title: Create Snapshot
+    notes: platforms=IaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1578.002
+    framework: mitre-attack-enterprise
+    title: Create Cloud Instance
+    notes: platforms=IaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1578.003
+    framework: mitre-attack-enterprise
+    title: Delete Cloud Instance
+    notes: platforms=IaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1578.004
+    framework: mitre-attack-enterprise
+    title: Revert Cloud Instance
+    notes: platforms=IaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1578.005
+    framework: mitre-attack-enterprise
+    title: Modify Cloud Compute Configurations
+    notes: platforms=IaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1580
+    framework: mitre-attack-enterprise
+    title: Cloud Infrastructure Discovery
+    notes: platforms=IaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1583
+    framework: mitre-attack-enterprise
+    title: Acquire Infrastructure
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1583.001
+    framework: mitre-attack-enterprise
+    title: Domains
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1583.002
+    framework: mitre-attack-enterprise
+    title: DNS Server
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1583.003
+    framework: mitre-attack-enterprise
+    title: Virtual Private Server
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1583.004
+    framework: mitre-attack-enterprise
+    title: Server
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1583.005
+    framework: mitre-attack-enterprise
+    title: Botnet
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1583.006
+    framework: mitre-attack-enterprise
+    title: Web Services
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1583.007
+    framework: mitre-attack-enterprise
+    title: Serverless
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1583.008
+    framework: mitre-attack-enterprise
+    title: Malvertising
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1584
+    framework: mitre-attack-enterprise
+    title: Compromise Infrastructure
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1584.001
+    framework: mitre-attack-enterprise
+    title: Domains
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1584.002
+    framework: mitre-attack-enterprise
+    title: DNS Server
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1584.003
+    framework: mitre-attack-enterprise
+    title: Virtual Private Server
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1584.004
+    framework: mitre-attack-enterprise
+    title: Server
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1584.005
+    framework: mitre-attack-enterprise
+    title: Botnet
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1584.006
+    framework: mitre-attack-enterprise
+    title: Web Services
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1584.007
+    framework: mitre-attack-enterprise
+    title: Serverless
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1584.008
+    framework: mitre-attack-enterprise
+    title: Network Devices
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1585
+    framework: mitre-attack-enterprise
+    title: Establish Accounts
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1585.001
+    framework: mitre-attack-enterprise
+    title: Social Media Accounts
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1585.002
+    framework: mitre-attack-enterprise
+    title: Email Accounts
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1585.003
+    framework: mitre-attack-enterprise
+    title: Cloud Accounts
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1586
+    framework: mitre-attack-enterprise
+    title: Compromise Accounts
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1586.001
+    framework: mitre-attack-enterprise
+    title: Social Media Accounts
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1586.002
+    framework: mitre-attack-enterprise
+    title: Email Accounts
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1586.003
+    framework: mitre-attack-enterprise
+    title: Cloud Accounts
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1587
+    framework: mitre-attack-enterprise
+    title: Develop Capabilities
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1587.001
+    framework: mitre-attack-enterprise
+    title: Malware
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1587.002
+    framework: mitre-attack-enterprise
+    title: Code Signing Certificates
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1587.003
+    framework: mitre-attack-enterprise
+    title: Digital Certificates
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1587.004
+    framework: mitre-attack-enterprise
+    title: Exploits
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1588
+    framework: mitre-attack-enterprise
+    title: Obtain Capabilities
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1588.001
+    framework: mitre-attack-enterprise
+    title: Malware
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1588.002
+    framework: mitre-attack-enterprise
+    title: Tool
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1588.003
+    framework: mitre-attack-enterprise
+    title: Code Signing Certificates
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1588.004
+    framework: mitre-attack-enterprise
+    title: Digital Certificates
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1588.005
+    framework: mitre-attack-enterprise
+    title: Exploits
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1588.006
+    framework: mitre-attack-enterprise
+    title: Vulnerabilities
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1588.007
+    framework: mitre-attack-enterprise
+    title: Artificial Intelligence
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1589
+    framework: mitre-attack-enterprise
+    title: Gather Victim Identity Information
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1589.001
+    framework: mitre-attack-enterprise
+    title: Credentials
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1589.002
+    framework: mitre-attack-enterprise
+    title: Email Addresses
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1589.003
+    framework: mitre-attack-enterprise
+    title: Employee Names
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1590
+    framework: mitre-attack-enterprise
+    title: Gather Victim Network Information
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1590.001
+    framework: mitre-attack-enterprise
+    title: Domain Properties
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1590.002
+    framework: mitre-attack-enterprise
+    title: DNS
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1590.003
+    framework: mitre-attack-enterprise
+    title: Network Trust Dependencies
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1590.004
+    framework: mitre-attack-enterprise
+    title: Network Topology
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1590.005
+    framework: mitre-attack-enterprise
+    title: IP Addresses
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1590.006
+    framework: mitre-attack-enterprise
+    title: Network Security Appliances
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1591
+    framework: mitre-attack-enterprise
+    title: Gather Victim Org Information
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1591.001
+    framework: mitre-attack-enterprise
+    title: Determine Physical Locations
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1591.002
+    framework: mitre-attack-enterprise
+    title: Business Relationships
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1591.003
+    framework: mitre-attack-enterprise
+    title: Identify Business Tempo
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1591.004
+    framework: mitre-attack-enterprise
+    title: Identify Roles
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1592
+    framework: mitre-attack-enterprise
+    title: Gather Victim Host Information
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1592.001
+    framework: mitre-attack-enterprise
+    title: Hardware
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1592.002
+    framework: mitre-attack-enterprise
+    title: Software
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1592.003
+    framework: mitre-attack-enterprise
+    title: Firmware
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1592.004
+    framework: mitre-attack-enterprise
+    title: Client Configurations
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1593
+    framework: mitre-attack-enterprise
+    title: Search Open Websites/Domains
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1593.001
+    framework: mitre-attack-enterprise
+    title: Social Media
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1593.002
+    framework: mitre-attack-enterprise
+    title: Search Engines
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1593.003
+    framework: mitre-attack-enterprise
+    title: Code Repositories
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1594
+    framework: mitre-attack-enterprise
+    title: Search Victim-Owned Websites
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1595
+    framework: mitre-attack-enterprise
+    title: Active Scanning
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1595.001
+    framework: mitre-attack-enterprise
+    title: Scanning IP Blocks
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1595.002
+    framework: mitre-attack-enterprise
+    title: Vulnerability Scanning
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1595.003
+    framework: mitre-attack-enterprise
+    title: Wordlist Scanning
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1596
+    framework: mitre-attack-enterprise
+    title: Search Open Technical Databases
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1596.001
+    framework: mitre-attack-enterprise
+    title: DNS/Passive DNS
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1596.002
+    framework: mitre-attack-enterprise
+    title: WHOIS
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1596.003
+    framework: mitre-attack-enterprise
+    title: Digital Certificates
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1596.004
+    framework: mitre-attack-enterprise
+    title: CDNs
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1596.005
+    framework: mitre-attack-enterprise
+    title: Scan Databases
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1597
+    framework: mitre-attack-enterprise
+    title: Search Closed Sources
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1597.001
+    framework: mitre-attack-enterprise
+    title: Threat Intel Vendors
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1597.002
+    framework: mitre-attack-enterprise
+    title: Purchase Technical Data
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1598
+    framework: mitre-attack-enterprise
+    title: Phishing for Information
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1598.001
+    framework: mitre-attack-enterprise
+    title: Spearphishing Service
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1598.002
+    framework: mitre-attack-enterprise
+    title: Spearphishing Attachment
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1598.003
+    framework: mitre-attack-enterprise
+    title: Spearphishing Link
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1598.004
+    framework: mitre-attack-enterprise
+    title: Spearphishing Voice
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1599
+    framework: mitre-attack-enterprise
+    title: Network Boundary Bridging
+    notes: platforms=Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1599.001
+    framework: mitre-attack-enterprise
+    title: Network Address Translation Traversal
+    notes: platforms=Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1600
+    framework: mitre-attack-enterprise
+    title: Weaken Encryption
+    notes: platforms=Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1600.001
+    framework: mitre-attack-enterprise
+    title: Reduce Key Space
+    notes: platforms=Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1600.002
+    framework: mitre-attack-enterprise
+    title: Disable Crypto Hardware
+    notes: platforms=Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1601
+    framework: mitre-attack-enterprise
+    title: Modify System Image
+    notes: platforms=Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1601.001
+    framework: mitre-attack-enterprise
+    title: Patch System Image
+    notes: platforms=Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1601.002
+    framework: mitre-attack-enterprise
+    title: Downgrade System Image
+    notes: platforms=Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1602
+    framework: mitre-attack-enterprise
+    title: Data from Configuration Repository
+    notes: platforms=Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1602.001
+    framework: mitre-attack-enterprise
+    title: SNMP (MIB Dump)
+    notes: platforms=Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1602.002
+    framework: mitre-attack-enterprise
+    title: Network Device Configuration Dump
+    notes: platforms=Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1606
+    framework: mitre-attack-enterprise
+    title: Forge Web Credentials
+    notes: platforms=SaaS|Windows|macOS|Linux|IaaS|Office Suite|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1606.001
+    framework: mitre-attack-enterprise
+    title: Web Cookies
+    notes: platforms=Linux|macOS|Windows|SaaS|IaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1606.002
+    framework: mitre-attack-enterprise
+    title: SAML Tokens
+    notes: platforms=SaaS|Windows|IaaS|Office Suite|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1608
+    framework: mitre-attack-enterprise
+    title: Stage Capabilities
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1608.001
+    framework: mitre-attack-enterprise
+    title: Upload Malware
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1608.002
+    framework: mitre-attack-enterprise
+    title: Upload Tool
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1608.003
+    framework: mitre-attack-enterprise
+    title: Install Digital Certificate
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1608.004
+    framework: mitre-attack-enterprise
+    title: Drive-by Target
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1608.005
+    framework: mitre-attack-enterprise
+    title: Link Target
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1608.006
+    framework: mitre-attack-enterprise
+    title: SEO Poisoning
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1609
+    framework: mitre-attack-enterprise
+    title: Container Administration Command
+    notes: platforms=Containers; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1610
+    framework: mitre-attack-enterprise
+    title: Deploy Container
+    notes: platforms=Containers; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1611
+    framework: mitre-attack-enterprise
+    title: Escape to Host
+    notes: platforms=Windows|Linux|Containers|ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1612
+    framework: mitre-attack-enterprise
+    title: Build Image on Host
+    notes: platforms=Containers; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1613
+    framework: mitre-attack-enterprise
+    title: Container and Resource Discovery
+    notes: platforms=Containers; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1614
+    framework: mitre-attack-enterprise
+    title: System Location Discovery
+    notes: platforms=IaaS|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1614.001
+    framework: mitre-attack-enterprise
+    title: System Language Discovery
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1615
+    framework: mitre-attack-enterprise
+    title: Group Policy Discovery
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1619
+    framework: mitre-attack-enterprise
+    title: Cloud Storage Object Discovery
+    notes: platforms=IaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1620
+    framework: mitre-attack-enterprise
+    title: Reflective Code Loading
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1621
+    framework: mitre-attack-enterprise
+    title: Multi-Factor Authentication Request Generation
+    notes: platforms=Windows|Linux|macOS|IaaS|SaaS|Office Suite|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1622
+    framework: mitre-attack-enterprise
+    title: Debugger Evasion
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1647
+    framework: mitre-attack-enterprise
+    title: Plist File Modification
+    notes: platforms=macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1648
+    framework: mitre-attack-enterprise
+    title: Serverless Execution
+    notes: platforms=SaaS|IaaS|Office Suite; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1649
+    framework: mitre-attack-enterprise
+    title: Steal or Forge Authentication Certificates
+    notes: platforms=Windows|Linux|macOS|Identity Provider; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1650
+    framework: mitre-attack-enterprise
+    title: Acquire Access
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1651
+    framework: mitre-attack-enterprise
+    title: Cloud Administration Command
+    notes: platforms=IaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1652
+    framework: mitre-attack-enterprise
+    title: Device Driver Discovery
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1653
+    framework: mitre-attack-enterprise
+    title: Power Settings
+    notes: platforms=Windows|Linux|macOS|Network Devices; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1654
+    framework: mitre-attack-enterprise
+    title: Log Enumeration
+    notes: platforms=ESXi|IaaS|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1656
+    framework: mitre-attack-enterprise
+    title: Impersonation
+    notes: platforms=Linux|macOS|Office Suite|SaaS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1657
+    framework: mitre-attack-enterprise
+    title: Financial Theft
+    notes: platforms=Linux|macOS|Office Suite|SaaS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1659
+    framework: mitre-attack-enterprise
+    title: Content Injection
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1665
+    framework: mitre-attack-enterprise
+    title: Hide Infrastructure
+    notes: platforms=ESXi|Linux|Network Devices|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1666
+    framework: mitre-attack-enterprise
+    title: Modify Cloud Resource Hierarchy
+    notes: platforms=IaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1667
+    framework: mitre-attack-enterprise
+    title: Email Bombing
+    notes: platforms=Linux|Office Suite|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1668
+    framework: mitre-attack-enterprise
+    title: Exclusive Control
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1669
+    framework: mitre-attack-enterprise
+    title: Wi-Fi Networks
+    notes: platforms=Linux|Network Devices|Windows|macOS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1671
+    framework: mitre-attack-enterprise
+    title: Cloud Application Integration
+    notes: platforms=Office Suite|SaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1672
+    framework: mitre-attack-enterprise
+    title: Email Spoofing
+    notes: platforms=Office Suite|Windows|macOS|Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1673
+    framework: mitre-attack-enterprise
+    title: Virtual Machine Discovery
+    notes: platforms=ESXi|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1674
+    framework: mitre-attack-enterprise
+    title: Input Injection
+    notes: platforms=Windows|macOS|Linux; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1675
+    framework: mitre-attack-enterprise
+    title: ESXi Administration Command
+    notes: platforms=ESXi; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1677
+    framework: mitre-attack-enterprise
+    title: Poisoned Pipeline Execution
+    notes: platforms=SaaS; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1678
+    framework: mitre-attack-enterprise
+    title: Delay Execution
+    notes: platforms=Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1679
+    framework: mitre-attack-enterprise
+    title: Selective Exclusion
+    notes: platforms=Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1680
+    framework: mitre-attack-enterprise
+    title: Local Storage Discovery
+    notes: platforms=ESXi|IaaS|Linux|macOS|Windows; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: T1681
+    framework: mitre-attack-enterprise
+    title: Search Threat Vendor Data
+    notes: platforms=PRE; domains=enterprise-attack
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)

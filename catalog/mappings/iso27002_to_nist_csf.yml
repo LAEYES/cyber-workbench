@@ -1,6 +1,0 @@
-id: iso27002-2022_to_nist-csf-2.0
-mappings:
-  - iso: "A.5.15"   # Access control (example)
-    nist:
-      - "PR.AA"     # Identity Management, Authentication, and Access Control
-    note: "Example placeholder mapping. Expand with proper category/subcategory IDs."
