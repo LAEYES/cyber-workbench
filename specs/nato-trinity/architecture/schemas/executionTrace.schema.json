@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/nato-trinity/schemas/executionTrace.schema.json",
+  "title": "ExecutionTrace",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "version",
+    "createdAt",
+    "createdBy",
+    "executionId",
+    "executorRef",
+    "triggerEventId",
+    "startedAt"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "const": "executionTrace" },
+    "version": { "type": "integer", "minimum": 1 },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "type": "string" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+
+    "orgId": { "type": "string" },
+    "executionId": { "type": "string" },
+    "executorRef": { "type": "string", "description": "playbookId or gateId" },
+    "triggerEventId": { "type": "string" },
+
+    "runAs": { "type": "string" },
+    "inputs": { "type": "object" },
+    "outputs": { "type": "object" },
+
+    "startedAt": { "type": "string", "format": "date-time" },
+    "endedAt": { "type": "string", "format": "date-time" },
+    "status": { "type": "string", "enum": ["running", "success", "failed", "cancelled"] },
+
+    "logsRef": { "type": "string" },
+    "evidenceRefs": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": true
+}

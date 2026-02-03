@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/nato-trinity/schemas/playbook.schema.json",
+  "title": "Playbook",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "version",
+    "createdAt",
+    "createdBy",
+    "playbookId",
+    "name",
+    "trigger",
+    "steps",
+    "approvalsRequired"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "const": "playbook" },
+    "version": { "type": "integer", "minimum": 1 },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "type": "string" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+
+    "orgId": { "type": "string" },
+    "playbookId": { "type": "string" },
+    "name": { "type": "string", "minLength": 3 },
+    "trigger": { "type": "string" },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "action"],
+        "properties": {
+          "id": { "type": "string" },
+          "action": { "type": "string" },
+          "params": { "type": "object" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "approvalsRequired": { "type": "integer", "minimum": 0, "maximum": 2 }
+  },
+  "additionalProperties": true
+}
