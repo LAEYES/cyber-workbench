@@ -16,3 +16,4 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npx tsx src/cli.ts catalog:validate --root ./catalog
+      - run: npm run nato:validate
