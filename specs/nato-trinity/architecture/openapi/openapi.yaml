@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: NATO Trinity API
-  version: 0.1.0
+  version: 0.2.0
 servers:
   - url: https://example.local
 components:
@@ -10,6 +10,74 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
+  schemas:
+    Risk:
+      type: object
+      required: [riskId, title, owner, likelihood, impact, score, status, dueDate]
+      properties:
+        riskId: { type: string }
+        title: { type: string }
+        owner: { type: string }
+        likelihood: { type: integer, minimum: 1, maximum: 5 }
+        impact: { type: integer, minimum: 1, maximum: 5 }
+        score: { type: integer, minimum: 1, maximum: 25 }
+        status: { type: string }
+        dueDate: { type: string, format: date }
+        controlRefs: { type: array, items: { type: string } }
+        evidenceRefs: { type: array, items: { type: string } }
+    Decision:
+      type: object
+      required: [decisionId, riskId, decisionType, rationale, approvedBy, approvedAt]
+      properties:
+        decisionId: { type: string }
+        riskId: { type: string }
+        decisionType: { type: string, enum: [treat, avoid, transfer, accept] }
+        rationale: { type: string }
+        approvedBy: { type: string }
+        approvedAt: { type: string, format: date-time }
+        expiryDate: { type: string, format: date }
+    Exception:
+      type: object
+      required: [exceptionId, requirementRef, scope, rationale, approvedBy, approvedAt, expiryDate]
+      properties:
+        exceptionId: { type: string }
+        requirementRef: { type: string }
+        scope: { type: string }
+        rationale: { type: string }
+        approvedBy: { type: string }
+        approvedAt: { type: string, format: date-time }
+        expiryDate: { type: string, format: date }
+    EvidencePackage:
+      type: object
+      required: [packageId, scopeRef, evidenceRefs, manifestHash, exportedAt, exportedBy]
+      properties:
+        packageId: { type: string }
+        scopeRef: { type: string }
+        evidenceRefs: { type: array, items: { type: string } }
+        manifestHash: { type: string }
+        exportedAt: { type: string, format: date-time }
+        exportedBy: { type: string }
+        bundleRef: { type: string }
+    LegalHold:
+      type: object
+      required: [holdId, orgId, scopeRef, reason, status]
+      properties:
+        holdId: { type: string }
+        orgId: { type: string }
+        scopeRef: { type: string }
+        reason: { type: string }
+        status: { type: string, enum: [active, released] }
+    AuditEvent:
+      type: object
+      required: [eventId, orgId, actor, action, objectRef, timestamp, outcome]
+      properties:
+        eventId: { type: string }
+        orgId: { type: string }
+        actor: { type: string }
+        action: { type: string }
+        objectRef: { type: string }
+        timestamp: { type: string, format: date-time }
+        outcome: { type: string, enum: [success, failure] }
 security:
   - bearerAuth: []
 paths:
@@ -19,8 +87,20 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Risk'
     post:
       summary: Create risk
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Risk'
       responses:
         '201':
           description: Created
@@ -33,12 +113,24 @@ paths:
           required: true
           schema:
             type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Decision'
       responses:
         '201':
           description: Created
   /api/v1/exceptions:
     post:
       summary: Create exception
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Exception'
       responses:
         '201':
           description: Created
@@ -57,12 +149,31 @@ paths:
   /api/v1/evidence-packages:
     post:
       summary: Export an EvidencePackage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [scopeRef]
+              properties:
+                scopeRef: { type: string }
       responses:
         '201':
           description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EvidencePackage'
   /api/v1/legal-holds:
     post:
       summary: Create legal hold
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LegalHold'
       responses:
         '201':
           description: Created
@@ -72,3 +183,9 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AuditEvent'
