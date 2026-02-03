@@ -1,0 +1,55 @@
+# Information Security Policy (ISP / ISMS Policy)
+
+**Organization:** {{org}}  
+**Version:** 0.1 (draft)  
+**Date:** {{today}}
+
+## 1. Purpose
+Define the security principles, roles and minimum requirements applicable to {{org}} information systems.
+
+## 2. Scope
+- Internal IT, cloud, endpoints, networks, applications, data, third parties.
+- Profiles: SME={{profiles.pme}}, Mid-size={{profiles.eti}}, Regulated={{profiles.regulated}}.
+
+## 3. Governance & responsibilities
+- Executive management: sponsor, decisions, budget.
+- CISO: security program, reporting.
+- DPO (if applicable): GDPR compliance.
+- Asset owners: classification, risk acceptance.
+
+## 4. Guiding principles
+- Risk-based approach (ISO 27005 / EBIOS).
+- Defense-in-depth, least privilege, Zero Trust (target).
+- Security by design & by default.
+
+## 5. Minimum baseline requirements
+### 5.1 Identity & access
+- MFA required for remote access and privileged accounts.
+- RBAC, quarterly access reviews.
+
+### 5.2 Network & infrastructure
+- Segmentation (prod/admin/users), inbound/outbound filtering.
+- Centralized logging for critical components.
+
+### 5.3 Servers & endpoints
+- Hardening, patch management, EDR/XDR based on criticality.
+- Full disk encryption for mobile endpoints.
+
+### 5.4 Data protection
+- Classification: Public / Internal / Confidential / Highly sensitive.
+- Encryption in transit (TLS) and at rest where applicable.
+
+## 6. Compliance & frameworks
+- ISO 27001/27002, NIST CSF mapping, GDPR.
+- Depending on context: NIS2 / DORA / PCI DSS (to be assessed).
+
+## 7. Incident management
+- Detect, triage, respond, communicate.
+- Forensic readiness (evidence preservation).
+
+## 8. Third-party risk
+- Vendor risk assessment (TPRM).
+- Security clauses: requirements, audit rights, incident notification.
+
+## 9. Lifecycle
+- Annual review or after major changes.

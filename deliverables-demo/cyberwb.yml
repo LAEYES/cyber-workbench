@@ -1,0 +1,6 @@
+org: ACME
+lang: both
+profiles:
+  pme: true
+  eti: true
+  regulated: true
