@@ -1,0 +1,20 @@
+# STD — D11 — Authentification Continue & Accès Conditionnel
+
+**Organisation :** {{org}}  
+**Version :** 0.2 (durci)  
+**Date :** {{today}}
+
+## 1. Exigences minimales (baseline)
+- Legacy auth bloqué.
+- Politiques conditionnelles sur accès sensibles :
+  - appareil conforme (MDM)
+  - risque élevé → blocage
+  - impossible travel → challenge/blocage
+- Revues politiques : trimestriel.
+
+## 2. Renforcé (régulé)
+- Policies strictes sur périmètre critique (admin, prod).
+- Alerting SOC sur changements policies.
+
+## 3. Preuves
+- Export policies + journal changements.

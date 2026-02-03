@@ -1,0 +1,51 @@
+# POL — D11 — Identity / Zero Trust (IAM | ZTNA | PAM)
+
+**Organisation :** {{org}}  
+**Version :** 0.2 (durci)  
+**Date :** {{today}}
+
+## 1. Mission
+Mettre en œuvre un modèle **Zero Trust** centré sur l’identité : authentification continue, accès conditionnel, moindre privilège, et contrôle d’accès par ressource (ZTNA), avec traçabilité SOC.
+
+## 2. Exigences minimales (baseline)
+### 2.1 Identité comme périmètre
+- SSO/IdP central pour applications critiques.
+- MFA : **100% admins**, **≥ 95% users**.
+- Leavers : désactivation **≤ 24h** (≤ 4h comptes sensibles).
+
+### 2.2 Accès conditionnel (policy)
+- Bloquer legacy auth.
+- Contrôles : device compliant, risque, geo (si disponible) sur accès sensibles.
+
+### 2.3 ZTNA
+- Accès distant par application/ressource (ZTNA) préféré au VPN full-tunnel.
+- Séparation user/admin/tiers.
+
+### 2.4 PAM
+- Comptes privilégiés sous vault + rotation.
+- JIT recommandé pour élévations.
+
+### 2.5 Logs
+- Logs IdP/ZTNA/PAM centralisés ; rétention **≥ 90 jours**.
+
+## 3. Exigences renforcées (régulé)
+- MFA phishing-resistant pour admins.
+- Session recording pour accès admin critiques.
+- Rétention logs **≥ 180 jours** + intégrité.
+- Two-person rule pour opérations PAM critiques.
+
+## 4. Critères d’audit (pass/fail)
+- [ ] MFA/SSO en place et mesurés.
+- [ ] Conditional access actif.
+- [ ] ZTNA déployé sur apps critiques.
+- [ ] PAM vault + rotation + (régulé) recording.
+- [ ] Logs centralisés.
+
+## 5. Preuves
+- Exports config IdP/CA.
+- Rapports ZTNA (apps protégées).
+- Inventaire PAM + rotation.
+- Extraits logs.
+
+---
+*Politique modèle : complémentaire D02 (IAM/PAM) et D03 (ZTNA/VPN).* 

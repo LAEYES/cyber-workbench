@@ -1,0 +1,20 @@
+# STD — D11 — Continuous Authentication & Conditional Access
+
+**Organization:** {{org}}  
+**Version:** 0.2 (hardened)  
+**Date:** {{today}}
+
+## 1. Baseline requirements
+- Legacy auth blocked.
+- Conditional access for sensitive access:
+  - compliant device (MDM)
+  - high risk → block
+  - impossible travel → challenge/block
+- Policy reviews: quarterly.
+
+## 2. Enhanced (regulated)
+- Strict policies for critical scope (admin, production).
+- SOC alerting on policy changes.
+
+## 3. Evidence
+- Policy exports + change logs.

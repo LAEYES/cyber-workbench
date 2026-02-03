@@ -52,7 +52,11 @@ type DocKind =
   | "siem-logging-standard"
   | "incident-response-standard"
   | "detection-usecases-standard"
-  | "soc-detection-checklist";
+  | "soc-detection-checklist"
+  | "identity-zerotrust-policy"
+  | "ztna-standard"
+  | "continuous-auth-standard"
+  | "identity-zerotrust-checklist";
 
 function normalizeDoc(doc: string): DocKind {
   const raw = doc.trim();
@@ -451,6 +455,45 @@ function normalizeDoc(doc: string): DocKind {
     v === "chk-d10-soc-detection"
   )
     return "soc-detection-checklist";
+
+  // Domain D11
+  if (
+    v === "identity-zerotrust-policy" ||
+    v === "pol_d11_identity" ||
+    v === "pol-d11-identity" ||
+    v === "pol_d11_zerotrust" ||
+    v === "pol-d11-zero-trust" ||
+    v === "pol_d11_identity_zerotrust" ||
+    v === "pol-d11-identity-zerotrust"
+  )
+    return "identity-zerotrust-policy";
+
+  if (
+    v === "ztna-standard" ||
+    v === "std_d11_ztna" ||
+    v === "std-d11-ztna"
+  )
+    return "ztna-standard";
+
+  if (
+    v === "continuous-auth-standard" ||
+    v === "std_d11_continuous_auth" ||
+    v === "std-d11-continuous-auth" ||
+    v === "std_d11_continuousauth" ||
+    v === "std-d11-continuousauth" ||
+    v === "std_d11_conditional_access" ||
+    v === "std-d11-conditional-access"
+  )
+    return "continuous-auth-standard";
+
+  if (
+    v === "identity-zerotrust-checklist" ||
+    v === "chk_d11_zerotrust" ||
+    v === "chk-d11-zero-trust" ||
+    v === "chk_d11_identity_zerotrust" ||
+    v === "chk-d11-identity-zerotrust"
+  )
+    return "identity-zerotrust-checklist";
 
   throw new Error(`Doc inconnu: ${raw}`);
 }
@@ -1119,6 +1162,59 @@ export async function genDoc(params: { doc: string; org?: string; lang?: string;
       tasks.push({
         template: tplPath("10-soc-detection", "soc-detection-checklist.en.md.hbs"),
         out: path.join(outDir, "docs", "10-soc-detection", `CHK_D10_SOC_Detection_${org}_EN.md`)
+      });
+  }
+
+  // Domain D11
+  if (doc === "identity-zerotrust-policy") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("11-identity-zerotrust", "identity-zerotrust-policy.fr.md.hbs"),
+        out: path.join(outDir, "docs", "11-identity-zerotrust", `POL_D11_Identity_ZeroTrust_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("11-identity-zerotrust", "identity-zerotrust-policy.en.md.hbs"),
+        out: path.join(outDir, "docs", "11-identity-zerotrust", `POL_D11_Identity_ZeroTrust_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "ztna-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("11-identity-zerotrust", "ztna-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "11-identity-zerotrust", `STD_D11_ZTNA_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("11-identity-zerotrust", "ztna-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "11-identity-zerotrust", `STD_D11_ZTNA_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "continuous-auth-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("11-identity-zerotrust", "continuous-auth-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "11-identity-zerotrust", `STD_D11_ContinuousAuth_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("11-identity-zerotrust", "continuous-auth-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "11-identity-zerotrust", `STD_D11_ContinuousAuth_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "identity-zerotrust-checklist") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("11-identity-zerotrust", "identity-zerotrust-checklist.fr.md.hbs"),
+        out: path.join(outDir, "docs", "11-identity-zerotrust", `CHK_D11_Identity_ZeroTrust_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("11-identity-zerotrust", "identity-zerotrust-checklist.en.md.hbs"),
+        out: path.join(outDir, "docs", "11-identity-zerotrust", `CHK_D11_Identity_ZeroTrust_${org}_EN.md`)
       });
   }
 
