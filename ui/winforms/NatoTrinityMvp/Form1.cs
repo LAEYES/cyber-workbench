@@ -48,6 +48,24 @@ public partial class Form1 : Form
         }
     }
 
+    private void OnPickEvidenceFiles()
+    {
+        try
+        {
+            using var dlg = new OpenFileDialog();
+            dlg.InitialDirectory = Path.GetFullPath(txtBaseDir.Text);
+            dlg.Multiselect = true;
+            dlg.Title = "Select evidence files";
+            if (dlg.ShowDialog(this) != DialogResult.OK) return;
+
+            txtEvidenceFiles.Text = string.Join(";", dlg.FileNames);
+        }
+        catch (Exception ex)
+        {
+            Log("ERROR " + ex.Message);
+        }
+    }
+
     private void OnRiskCreate()
     {
         try

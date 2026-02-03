@@ -1,3 +1,4 @@
+#nullable enable
 using System.Drawing;
 
 namespace NatoTrinityMvp;
@@ -206,7 +207,9 @@ partial class Form1
             BorderStyle = BorderStyle.FixedSingle
         };
 
-        var logLayout = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 1, RowCount = 2 };
+        var logLayout = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 2, RowCount = 2 };
+        logLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+        logLayout.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
         logLayout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
         logLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
 
@@ -230,8 +233,41 @@ partial class Form1
             Font = new Font("Consolas", 9f)
         };
 
+        var logButtons = new FlowLayoutPanel
+        {
+            Dock = DockStyle.Fill,
+            AutoSize = true,
+            FlowDirection = FlowDirection.LeftToRight,
+            WrapContents = false,
+            Anchor = AnchorStyles.Right
+        };
+
+        var btnClearLog = new Button { Text = "Clear" };
+        StyleSecondary(btnClearLog);
+        btnClearLog.Click += (_, _) => txtLog.Clear();
+
+        var btnCopyLog = new Button { Text = "Copy" };
+        StyleSecondary(btnCopyLog);
+        btnCopyLog.Click += (_, _) =>
+        {
+            try
+            {
+                Clipboard.SetText(txtLog.Text);
+                Log("OK log copied to clipboard");
+            }
+            catch (Exception ex)
+            {
+                Log("ERROR " + ex.Message);
+            }
+        };
+
+        logButtons.Controls.Add(btnClearLog);
+        logButtons.Controls.Add(btnCopyLog);
+
         logLayout.Controls.Add(lblLog, 0, 0);
+        logLayout.Controls.Add(logButtons, 1, 0);
         logLayout.Controls.Add(txtLog, 0, 1);
+        logLayout.SetColumnSpan(txtLog, 2);
         logCard.Controls.Add(logLayout);
 
         var storeLayout = new TableLayoutPanel
@@ -449,15 +485,21 @@ partial class Form1
         scopeRow.Controls.Add(txtScopeRef, 1, 0);
         scopeRow.Controls.Add(exportButtons, 2, 0);
 
-        var filesRow = new TableLayoutPanel { Dock = DockStyle.Top, AutoSize = true, ColumnCount = 2 };
+        var filesRow = new TableLayoutPanel { Dock = DockStyle.Top, AutoSize = true, ColumnCount = 3 };
         filesRow.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
         filesRow.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+        filesRow.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
 
         txtEvidenceFiles = MakeTextBox("..\\..\\..\\..\\tmp\\evidence1.txt;..\\..\\..\\..\\tmp\\evidence2.txt");
         txtEvidenceFiles.Dock = DockStyle.Fill;
 
+        var btnPickEvidence = new Button { Text = "Pick…" };
+        StyleSecondary(btnPickEvidence);
+        btnPickEvidence.Click += (_, _) => OnPickEvidenceFiles();
+
         filesRow.Controls.Add(MakeLabel("Files"), 0, 0);
         filesRow.Controls.Add(txtEvidenceFiles, 1, 0);
+        filesRow.Controls.Add(btnPickEvidence, 2, 0);
 
         var signRow = new FlowLayoutPanel
         {
