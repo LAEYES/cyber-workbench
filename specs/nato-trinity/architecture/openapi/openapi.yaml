@@ -325,8 +325,27 @@ paths:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Problem'
+        '401':
+          description: Unauthorized
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+        '403':
+          description: Forbidden
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
     get:
       summary: List evidence packages
+      parameters:
+        - name: limit
+          in: query
+          schema: { type: integer, minimum: 1, maximum: 500, default: 100 }
+        - name: after
+          in: query
+          schema: { type: string }
       responses:
         '200':
           description: OK
@@ -336,6 +355,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/EvidencePackage'
+        '401':
+          description: Unauthorized
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
   /api/v1/evidence-packages/{packageId}:
     get:
       summary: Get evidence package
@@ -433,6 +458,19 @@ paths:
   /api/v1/audit-events:
     get:
       summary: List audit events
+      parameters:
+        - name: limit
+          in: query
+          schema: { type: integer, minimum: 1, maximum: 500, default: 100 }
+        - name: after
+          in: query
+          schema: { type: string }
+        - name: actor
+          in: query
+          schema: { type: string }
+        - name: action
+          in: query
+          schema: { type: string }
       responses:
         '200':
           description: OK
@@ -444,6 +482,12 @@ paths:
                   $ref: '#/components/schemas/AuditEvent'
         '401':
           description: Unauthorized
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+        '403':
+          description: Forbidden
           content:
             application/problem+json:
               schema:
