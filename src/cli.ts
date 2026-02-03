@@ -15,6 +15,8 @@ import { mapAttackToCsfVia80053 } from "./commands/map_attack_csf_via80053.js";
 import { mapAttackToCsfFrom80053 } from "./commands/map_attack_csf_from80053.js";
 import { exportMappingCsv } from "./commands/export_mapping_csv.js";
 import { scoreAttackCsf } from "./commands/score_attack_csf.js";
+import { catalogStats } from "./commands/stats.js";
+import { catalogRefresh } from "./commands/refresh.js";
 
 const program = new Command();
 
@@ -235,6 +237,23 @@ program
   .option("--mode <mode>", "long|wide", "long")
   .action(async (opts) => {
     await exportMappingCsv({ inFile: opts.in, outFile: opts.out, mode: opts.mode });
+  });
+
+program
+  .command("catalog:stats")
+  .description("Affiche des stats (controls/mappings) en JSON")
+  .option("--root <dir>", "Racine du catalog", "./catalog")
+  .action(async (opts) => {
+    await catalogStats({ rootDir: opts.root });
+  });
+
+program
+  .command("catalog:refresh")
+  .description("Rafraîchit le catalog depuis catalog/sources.yml (imports reproductibles)")
+  .option("--root <dir>", "Racine du catalog", "./catalog")
+  .option("--sources <file>", "Fichier sources.yml", "./catalog/sources.yml")
+  .action(async (opts) => {
+    await catalogRefresh({ rootDir: opts.root, sourcesFile: opts.sources });
   });
 
 program

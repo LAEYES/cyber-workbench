@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+export { z };
+
 export const LangSchema = z.enum(["fr", "en"]);
 
 export const ControlRefSchema = z.object({
