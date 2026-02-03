@@ -215,6 +215,16 @@ paths:
   /api/v1/evidence:
     get:
       summary: List evidence
+      parameters:
+        - name: limit
+          in: query
+          schema: { type: integer, minimum: 1, maximum: 500, default: 100 }
+        - name: after
+          in: query
+          schema: { type: string }
+        - name: evidenceType
+          in: query
+          schema: { type: string }
       responses:
         '200':
           description: OK
@@ -224,6 +234,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Evidence'
+        '401':
+          description: Unauthorized
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
     post:
       summary: Ingest evidence (collector)
       requestBody:
@@ -239,6 +255,45 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Evidence'
+        '400':
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+  /api/v1/evidence/{evidenceId}:
+    get:
+      summary: Get evidence
+      parameters:
+        - name: evidenceId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Evidence'
+        '404':
+          description: Not Found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+  /api/v1/evidence/{evidenceId}/purge:
+    post:
+      summary: Purge evidence (controlled)
+      description: Baseline requires Approver; regulated requires two-person + WORM constraints (ADR-0011).
+      parameters:
+        - name: evidenceId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '202':
+          description: Accepted
         '400':
           description: Bad Request
           content:
@@ -303,12 +358,52 @@ paths:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Problem'
-  /api/v1/legal-holds:
+  /api/v1/legal-holds/{holdId}:
     get:
-      summary: List legal holds
+      summary: Get legal hold
+      parameters:
+        - name: holdId
+          in: path
+          required: true
+          schema: { type: string }
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegalHold'
+        '404':
+          description: Not Found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+  /api/v1/legal-holds:
+    get:
+      summary: List legal holds
+      parameters:
+        - name: limit
+          in: query
+          schema: { type: integer, minimum: 1, maximum: 500, default: 100 }
+        - name: after
+          in: query
+          schema: { type: string }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LegalHold'
+        '401':
+          description: Unauthorized
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
     post:
       summary: Create legal hold
       requestBody:
