@@ -1,0 +1,37 @@
+flowchart LR
+  subgraph Sources
+    S1[IdP exports]
+    S2[SIEM exports]
+    S3[CI/CD logs]
+    S4[SBOM/VEX/Attestations]
+    S5[ITSM cases]
+  end
+
+  subgraph Collect[Collectors]
+    C1[Pull/Push connectors]
+    C2[Normalize metadata]
+  end
+
+  subgraph Evidence[Evidence Engine]
+    E1[Hash/Sign]
+    E2[Store blob]
+    E3[Chain-of-custody events]
+    E4[Index]
+    E5[Export EvidencePackage + manifest]
+  end
+
+  subgraph Stores
+    DB[(DB)]
+    OBJ[(Object Storage)]
+    WORM[(WORM Storage - regulated)]
+    IDX[(Search Index)]
+  end
+
+  Sources --> Collect --> E1 --> E2
+  E2 --> OBJ
+  E2 --> WORM
+  E1 --> DB
+  E3 --> DB
+  E4 --> IDX
+  DB --> IDX
+  E5 --> OBJ

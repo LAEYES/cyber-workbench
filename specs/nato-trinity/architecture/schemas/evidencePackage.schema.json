@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/nato-trinity/schemas/evidencePackage.schema.json",
+  "title": "EvidencePackage",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "version",
+    "createdAt",
+    "createdBy",
+    "packageId",
+    "scopeRef",
+    "evidenceRefs",
+    "manifestHash",
+    "exportedAt",
+    "exportedBy"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "const": "evidencePackage" },
+    "version": { "type": "integer", "minimum": 1 },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "type": "string" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+
+    "packageId": { "type": "string" },
+    "scopeRef": { "type": "string" },
+    "evidenceRefs": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+
+    "manifestHash": { "type": "string" },
+    "manifestAlg": { "type": "string", "default": "sha256" },
+    "exportedAt": { "type": "string", "format": "date-time" },
+    "exportedBy": { "type": "string" },
+
+    "bundleRef": { "type": "string" },
+    "classification": { "type": "string", "enum": ["public", "internal", "sensitive"] }
+  },
+  "additionalProperties": true
+}

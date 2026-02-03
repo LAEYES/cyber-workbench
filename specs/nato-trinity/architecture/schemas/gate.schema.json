@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/nato-trinity/schemas/gate.schema.json",
+  "title": "Gate",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "version",
+    "createdAt",
+    "createdBy",
+    "gateId",
+    "name",
+    "scope",
+    "mode",
+    "severity",
+    "enabled",
+    "policyRef"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "const": "gate" },
+    "version": { "type": "integer", "minimum": 1 },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "type": "string" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+
+    "gateId": { "type": "string" },
+    "name": { "type": "string", "minLength": 3 },
+    "scope": { "type": "string" },
+    "mode": { "type": "string", "enum": ["blocking", "advisory"] },
+    "severity": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+    "enabled": { "type": "boolean" },
+
+    "policyRef": { "type": "string" },
+    "requirements": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": true
+}

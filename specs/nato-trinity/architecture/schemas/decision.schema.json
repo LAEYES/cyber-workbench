@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/nato-trinity/schemas/decision.schema.json",
+  "title": "Decision",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "version",
+    "createdAt",
+    "createdBy",
+    "decisionId",
+    "riskId",
+    "decisionType",
+    "rationale",
+    "approvedBy",
+    "approvedAt"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "const": "decision" },
+    "version": { "type": "integer", "minimum": 1 },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "type": "string" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+
+    "decisionId": { "type": "string" },
+    "riskId": { "type": "string" },
+    "decisionType": { "type": "string", "enum": ["treat", "avoid", "transfer", "accept"] },
+    "rationale": { "type": "string", "minLength": 3 },
+
+    "approvedBy": { "type": "string" },
+    "approvedAt": { "type": "string", "format": "date-time" },
+
+    "expiryDate": { "type": "string", "format": "date" },
+    "evidenceRefs": { "type": "array", "items": { "type": "string" } }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "decisionType": { "const": "accept" } }, "required": ["decisionType"] },
+      "then": { "required": ["expiryDate"] }
+    }
+  ],
+  "additionalProperties": true
+}

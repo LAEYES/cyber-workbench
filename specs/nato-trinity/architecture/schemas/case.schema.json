@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/nato-trinity/schemas/case.schema.json",
+  "title": "Case",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "version",
+    "createdAt",
+    "createdBy",
+    "caseId",
+    "severity",
+    "status",
+    "owner"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "const": "case" },
+    "version": { "type": "integer", "minimum": 1 },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "type": "string" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+
+    "caseId": { "type": "string" },
+    "severity": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+    "status": { "type": "string", "enum": ["new", "triage", "investigate", "contain", "eradicate", "recover", "closed"] },
+    "owner": { "type": "string" },
+
+    "triagedAt": { "type": "string", "format": "date-time" },
+    "containedAt": { "type": "string", "format": "date-time" },
+    "closedAt": { "type": "string", "format": "date-time" },
+
+    "timelineRefs": { "type": "array", "items": { "type": "string" } },
+    "evidenceRefs": { "type": "array", "items": { "type": "string" } },
+    "riskRefs": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": true
+}

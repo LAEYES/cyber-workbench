@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/nato-trinity/schemas/evidence.schema.json",
+  "title": "Evidence",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "version",
+    "createdAt",
+    "createdBy",
+    "evidenceId",
+    "evidenceType",
+    "sourceSystem",
+    "collectedAt",
+    "collectorId",
+    "hash",
+    "storageRef",
+    "retentionClass"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "const": "evidence" },
+    "version": { "type": "integer", "minimum": 1 },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "type": "string" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+
+    "evidenceId": { "type": "string" },
+    "evidenceType": {
+      "type": "string",
+      "enum": ["logExport", "configSnapshot", "ticket", "report", "sbom", "vex", "attestation", "signature", "screenshot"]
+    },
+    "sourceSystem": { "type": "string" },
+    "collectedAt": { "type": "string", "format": "date-time" },
+    "collectorId": { "type": "string" },
+
+    "hash": { "type": "string" },
+    "hashAlg": { "type": "string", "default": "sha256" },
+    "storageRef": { "type": "string" },
+
+    "retentionClass": { "type": "string", "enum": ["short", "standard", "long", "legal"] },
+    "classification": { "type": "string", "enum": ["public", "internal", "sensitive"] },
+
+    "metadata": { "type": "object" }
+  },
+  "additionalProperties": true
+}

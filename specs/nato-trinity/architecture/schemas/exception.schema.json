@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/nato-trinity/schemas/exception.schema.json",
+  "title": "Exception",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "version",
+    "createdAt",
+    "createdBy",
+    "exceptionId",
+    "requirementRef",
+    "scope",
+    "rationale",
+    "approvedBy",
+    "approvedAt",
+    "expiryDate",
+    "remediationPlan"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "const": "exception" },
+    "version": { "type": "integer", "minimum": 1 },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "type": "string" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+
+    "exceptionId": { "type": "string" },
+    "requirementRef": { "type": "string" },
+    "scope": { "type": "string" },
+    "rationale": { "type": "string", "minLength": 3 },
+
+    "approvedBy": { "type": "string" },
+    "approvedAt": { "type": "string", "format": "date-time" },
+    "expiryDate": { "type": "string", "format": "date" },
+    "remediationPlan": { "type": "string", "minLength": 3 },
+
+    "evidenceRefs": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": true
+}
