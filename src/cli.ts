@@ -40,7 +40,7 @@ program
   .description("Génère un livrable")
   .argument(
     "<doc>",
-    "pssi|risk-register|isms-pack|asset-inventory|tprm-questionnaire|compliance-checklist|iam-policy|mfa-standard|pam-standard|iam-pam-checklist (aliases: POL_D02_IAM, STD_D02_MFA, STD_D02_PAM, CHK_D02_IAM_PAM)"
+    "pssi|risk-register|isms-pack|asset-inventory|tprm-questionnaire|compliance-checklist|iam-policy|mfa-standard|pam-standard|iam-pam-checklist|network-security-policy|segmentation-standard|firewall-standard|vpn-ztna-standard|network-checklist (aliases: POL_D02_IAM, STD_D02_MFA, STD_D02_PAM, CHK_D02_IAM_PAM, POL_D03_NetworkSecurity, STD_D03_Segmentation, STD_D03_Firewall, STD_D03_VPN_ZTNA, CHK_D03_Network)"
   )
   .option("--org <name>", "Nom de l'organisation")
   .option("--lang <lang>", "fr|en|both")

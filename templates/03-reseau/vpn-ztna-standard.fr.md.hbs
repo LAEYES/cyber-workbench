@@ -1,0 +1,53 @@
+# STD — D03 — Standard d’accès distant (VPN / ZTNA)
+
+**Organisation :** {{org}}  
+**Version :** 0.1 (draft)  
+**Date :** {{today}}
+
+## 1. Objet
+Définir les exigences minimales pour l’accès distant (utilisateurs, administrateurs, tiers) via VPN et/ou ZTNA, avec un objectif de réduction du risque (vol d’identifiants, compromission poste, accès excessifs).
+
+## 2. Principes
+- Authentification forte (MFA) + contrôle de contexte.
+- Accès **par application/ressource** lorsque possible (ZTNA), sinon accès réseau segmenté (VPN).
+- Séparation stricte : utilisateurs vs admins vs tiers.
+
+## 3. Exigences minimales
+### 3.1 Authentification & posture
+- MFA obligatoire (phishing‑resistant recommandé pour admin).
+- Contrôles de base : appareil géré, chiffrement disque, EDR actif, OS supporté.
+
+### 3.2 Autorisations
+- Accès à privilèges via bastion (JIT/JEA si disponible).
+- Accès « full tunnel » par défaut; split tunneling uniquement si justifié.
+- Interdiction d’accès direct aux segments sensibles (DATA/BACKUP) depuis VPN user.
+
+### 3.3 Chiffrement & protocoles
+- TLS/IPsec à jour (algorithmes forts) ; interdiction des protocoles obsolètes.
+- Gestion des certificats et renouvellement automatisé lorsque possible.
+
+### 3.4 Journalisation
+- Journaliser : authentifications, connexions/déconnexions, ressources accédées, changements de config.
+- Conserver les logs selon politique de {{org}}; protection d’intégrité.
+
+### 3.5 Accès tiers
+- Comptes dédiés, durée limitée, sponsor interne, revue post‑intervention.
+- Interdiction de comptes partagés; enregistrement de session recommandé.
+
+## 4. Exigences renforcées (régulé)
+- ZTNA privilégié pour les applications critiques (policy par identité + posture + risque).
+- MFA phishing‑resistant (FIDO2/PKI) pour admins et accès critiques.
+- Enregistrement des sessions d’administration + stockage immuable.
+- Détection : corrélation SIEM (impossible travel, nouveaux devices, élévations, accès hors horaires).
+
+## 5. Continuité & résilience
+- Haute disponibilité de la solution d’accès distant pour activités critiques.
+- Procédure break-glass contrôlée (temporaire, auditée) en cas d’indisponibilité IdP.
+
+## 6. Éléments de preuve
+- Configuration (policies), liste des groupes/roles
+- Exports de logs, rapports d’accès tiers
+- Procédure d’onboarding/offboarding
+
+## 7. Exceptions
+Exceptions documentées (durée, justification, compensations : supervision renforcée, segmentation, restrictions horaires).

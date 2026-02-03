@@ -1,0 +1,53 @@
+# STD — D03 — Standard de segmentation réseau
+
+**Organisation :** ACME  
+**Version :** 0.1 (draft)  
+**Date :** 2026-02-03
+
+## 1. Objet
+Définir un standard technique de segmentation (zones, flux, contrôle) afin de réduire la surface d’attaque et contenir les impacts (lateral movement).
+
+## 2. Modèle de zones (minimum)
+- **ZONE-USER** : postes utilisateurs.
+- **ZONE-SRV** : serveurs applicatifs.
+- **ZONE-DATA** : bases de données et stockage.
+- **ZONE-ADMIN** : bastions, outils d’admin, postes admin.
+- **ZONE-DMZ** : services exposés / reverse proxy / WAF.
+- **ZONE-BACKUP** : infrastructures de sauvegarde.
+- **ZONE-IOT/GUEST** : objets connectés / invités.
+
+> Les noms peuvent varier, mais la séparation logique et les contrôles doivent être équivalents.
+
+## 3. Règles de conception
+- **Deny by default** entre zones; autorisations **explicites** et **minimales**.
+- Chaque zone possède un **owner**, une **finalité**, et une **classification de données** attendue.
+- Les flux sont décrits par : source, destination, protocole/port, sens, volumétrie, chiffrement, justification, durée.
+- Les flux d’administration (SSH/RDP/HTTPS admin) sont limités à **ZONE-ADMIN → cibles** via bastion.
+
+## 4. Mise en œuvre (recommandations)
+- Séparation via : VLAN/VRF + ACL, firewalls inter‑VLAN, micro-segmentation (agents/policies), security groups (cloud).
+- Utiliser des **tags** (app, env, owner, criticality) pour politiques cohérentes (notamment cloud/micro‑seg).
+- Éviter les « any‑any »; préférer FQDN/labels lorsque pertinent.
+
+## 5. Exigences minimales
+- Interdire la connectivité directe **USER → DATA**.
+- Interdire l’accès **IOT/GUEST → SRV/DATA/ADMIN**.
+- Interdire l’administration depuis Internet; accès admin uniquement via solution approuvée.
+- Contrôler les flux sortants (egress) des zones critiques (ADMIN, BACKUP, DATA).
+
+## 6. Exigences renforcées (régulé)
+- Micro-segmentation pour workloads critiques (par application / tier) avec politiques versionnées.
+- Revue trimestrielle des flux inter‑zones des actifs critiques, avec preuves.
+- Détection de mouvements latéraux : logs de pare-feu, NetFlow, règles de corrélation SIEM.
+
+## 7. Tests & validation
+- Tests de connectivité automatisés (CI/CD infra ou playbooks) sur flux autorisés.
+- Revue sécurité avant mise en production d’une nouvelle zone ou d’un flux transverse.
+
+## 8. Éléments de preuve (exemples)
+- Schéma réseau à jour + matrice de flux
+- Export des règles/ACL + changelog
+- Rapport de revue périodique des flux
+
+## 9. Exceptions
+Toute exception doit préciser le flux exact, la durée, et les compensations (WAF, IDS, monitoring, chiffrement).

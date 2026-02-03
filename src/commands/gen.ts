@@ -13,7 +13,17 @@ type DocKind =
   | "iam-policy"
   | "mfa-standard"
   | "pam-standard"
-  | "iam-pam-checklist";
+  | "iam-pam-checklist"
+  | "network-security-policy"
+  | "segmentation-standard"
+  | "firewall-standard"
+  | "vpn-ztna-standard"
+  | "network-checklist"
+  | "cloud-security-policy"
+  | "cloud-iam-standard"
+  | "iac-security-standard"
+  | "secrets-management-standard"
+  | "cloud-devsecops-checklist";
 
 function normalizeDoc(doc: string): DocKind {
   const raw = doc.trim();
@@ -37,6 +47,24 @@ function normalizeDoc(doc: string): DocKind {
   if (v === "pam-standard" || v === "std_d02_pam" || v === "std-d02-pam") return "pam-standard";
   if (v === "iam-pam-checklist" || v === "chk_d02_iam_pam" || v === "chk-d02-iam-pam")
     return "iam-pam-checklist";
+
+  // Domain D03
+  if (
+    v === "network-security-policy" ||
+    v === "pol_d03_networksecurity" ||
+    v === "pol-d03-networksecurity" ||
+    v === "pol_d03_network_security" ||
+    v === "pol-d03-network-security"
+  )
+    return "network-security-policy";
+  if (v === "segmentation-standard" || v === "std_d03_segmentation" || v === "std-d03-segmentation")
+    return "segmentation-standard";
+  if (v === "firewall-standard" || v === "std_d03_firewall" || v === "std-d03-firewall")
+    return "firewall-standard";
+  if (v === "vpn-ztna-standard" || v === "std_d03_vpn_ztna" || v === "std-d03-vpn-ztna")
+    return "vpn-ztna-standard";
+  if (v === "network-checklist" || v === "chk_d03_network" || v === "chk-d03-network")
+    return "network-checklist";
 
   throw new Error(`Doc inconnu: ${raw}`);
 }
@@ -190,6 +218,72 @@ export async function genDoc(params: { doc: string; org?: string; lang?: string;
       tasks.push({
         template: tplPath("02-iam", "iam-pam-checklist.en.md.hbs"),
         out: path.join(outDir, "docs", "02-iam", `CHK_D02_IAM_PAM_${org}_EN.md`)
+      });
+  }
+
+  // Domain D03
+  if (doc === "network-security-policy") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("03-reseau", "network-security-policy.fr.md.hbs"),
+        out: path.join(outDir, "docs", "03-reseau", `POL_D03_NetworkSecurity_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("03-reseau", "network-security-policy.en.md.hbs"),
+        out: path.join(outDir, "docs", "03-reseau", `POL_D03_NetworkSecurity_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "segmentation-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("03-reseau", "segmentation-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "03-reseau", `STD_D03_Segmentation_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("03-reseau", "segmentation-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "03-reseau", `STD_D03_Segmentation_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "firewall-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("03-reseau", "firewall-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "03-reseau", `STD_D03_Firewall_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("03-reseau", "firewall-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "03-reseau", `STD_D03_Firewall_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "vpn-ztna-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("03-reseau", "vpn-ztna-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "03-reseau", `STD_D03_VPN_ZTNA_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("03-reseau", "vpn-ztna-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "03-reseau", `STD_D03_VPN_ZTNA_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "network-checklist") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("03-reseau", "network-checklist.fr.md.hbs"),
+        out: path.join(outDir, "docs", "03-reseau", `CHK_D03_Network_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("03-reseau", "network-checklist.en.md.hbs"),
+        out: path.join(outDir, "docs", "03-reseau", `CHK_D03_Network_${org}_EN.md`)
       });
   }
 

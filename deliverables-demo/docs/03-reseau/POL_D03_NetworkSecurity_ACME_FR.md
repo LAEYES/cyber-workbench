@@ -1,0 +1,75 @@
+# POL — D03 — Politique de sécurité réseau & infrastructure
+
+**Organisation :** ACME  
+**Version :** 0.1 (draft)  
+**Date :** 2026-02-03
+
+## 1. Objet
+Définir les exigences de sécurité pour la conception, l’exploitation et l’évolution des réseaux et infrastructures (LAN/WAN/Wi‑Fi, datacenter, cloud, interconnexions) de ACME.
+
+## 2. Périmètre
+- Réseaux internes (campus, sites, DC), réseaux cloud (VPC/VNet), DMZ, réseaux industriels/OT le cas échéant.
+- Équipements et services : routeurs, firewalls, switches, Wi‑Fi, VPN/accès distant, DNS/DHCP/IPAM, proxies, interconnexions partenaires.
+- Téléadministration et outillage d’exploitation (NMS, sauvegardes de config, bastions).
+
+## 3. Principes
+- **Défense en profondeur :** segmentation + filtrage + durcissement + supervision.
+- **Moindre privilège réseau :** « deny by default », accès explicitement autorisés.
+- **Traçabilité :** journalisation des flux critiques et des changements.
+- **Disponibilité :** redondance et plans de continuité adaptés au besoin métier.
+- **Conception sécurisée :** changements contrôlés, revues d’architecture.
+
+## 4. Exigences minimales (baseline)
+### 4.1 Architecture & segmentation
+- Les réseaux sont segmentés a minima entre : utilisateurs, serveurs, administration, DMZ, invités/IoT, sauvegardes.
+- Les flux inter‑zones sont **documentés** (source/destination/ports/protocole/justification/propriétaire) et **révisés**.
+- L’administration d’infrastructure se fait depuis des réseaux d’admin dédiés (OOB ou in-band isolé).
+
+### 4.2 Filtrage & contrôle des flux
+- Filtrage inter‑zones via firewall/ACL centralisé; règles : **spécifiques**, **justifiées**, **temporisées** si exception.
+- Gestion du cycle de vie des règles : création → revue → optimisation → suppression.
+- Interdiction des services d’administration exposés sur Internet (SSH/RDP/WinRM) hors solution contrôlée.
+
+### 4.3 Accès distant (VPN / ZTNA)
+- Accès distant uniquement via solutions approuvées, avec MFA et posture (si disponible).
+- Séparation des usages : accès utilisateurs vs administrateurs; journalisation des connexions.
+- Interdiction d’« split tunneling » par défaut, sauf besoin documenté + compensations.
+
+### 4.4 Durcissement & gestion des équipements
+- Inventaire des équipements réseau (modèle, version, localisation, propriétaire, criticité).
+- Durcissement : services inutiles désactivés, comptes par défaut supprimés, chiffrement des canaux d’admin.
+- Gestion des vulnérabilités : suivi des versions, correctifs selon criticité, fin de support interdite.
+- Sauvegarde des configurations et restauration testée.
+
+### 4.5 Services réseau (DNS/DHCP/NTP)
+- DNS interne sécurisé (contrôles d’accès, journalisation, protection contre transferts non autorisés).
+- NTP interne de référence; synchronisation obligatoire des équipements.
+- DHCP et IPAM maîtrisés; détection des serveurs DHCP rogue.
+
+### 4.6 Supervision & détection
+- Centralisation des logs (firewalls, VPN, DNS, équipements clés) vers SIEM/outil central.
+- Alertes sur : changements de règles, nouveaux objets, pics de rejets, authentifications anormales, tunnels non conformes.
+- Capacité de capture/forensique réseau proportionnée (SPAN/TAP, NetFlow/IPFIX, logs proxy).
+
+## 5. Exigences renforcées (régulé)
+- **Revue d’architecture sécurité** formalisée avant mise en production (risques, flux, données, chiffrement, journaux).
+- **Micro-segmentation** pour actifs critiques (workloads sensibles, admin, sauvegardes) avec politique déclarative.
+- **Administration via bastion** (JIT/JEA), enregistrement des sessions et séparation stricte des rôles.
+- **Chiffrement obligatoire** des interconnexions sensibles (site↔site, cloud↔DC) avec gestion de clés.
+- **MCO/MCS renforcé :** SLA de patching, tests de reprise, règles « clean‑up » périodiques, audits de configuration.
+
+## 6. Rôles & responsabilités
+- **Owner réseau :** architecture, segmentation, exploitation, inventaire.
+- **Sécurité :** exigences, revues, suivi des exceptions, contrôle périodique.
+- **Équipes applicatives :** expression des besoins de flux, tests, validation.
+
+## 7. Exceptions
+Toute exception doit être : justifiée, limitée dans le temps, approuvée, assortie de mesures compensatoires et d’une date de revue.
+
+## 8. Indicateurs
+- % flux inter‑zones documentés et revus
+- Âge moyen des règles firewall / % règles expirées supprimées
+- Taux de conformité patching équipements réseau
+
+## 9. Révision
+Revue annuelle et après incident majeur ou évolution significative (nouveau site, cloud landing zone, refonte WAN).

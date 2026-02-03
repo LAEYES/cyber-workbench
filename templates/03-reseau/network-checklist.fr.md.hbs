@@ -1,0 +1,62 @@
+# CHK — D03 — Checklist réseau & infrastructure
+
+**Organisation :** {{org}}  
+**Version :** 0.1 (draft)  
+**Date :** {{today}}
+
+> Objectif : évaluer rapidement la maturité et la conformité des contrôles réseau. Renseigner **Statut** (OK / NOK / N/A), **Preuve** et **Commentaires**.
+
+## 1. Gouvernance & inventaire
+- [ ] Inventaire des équipements réseau à jour (Statut / Preuve / Commentaires)
+- [ ] Versions/fin de support suivies, plan de renouvellement
+- [ ] Sauvegardes des configurations + tests de restauration
+
+## 2. Architecture & segmentation
+- [ ] Schéma réseau à jour (on‑prem + cloud)
+- [ ] Matrice des flux inter‑zones maintenue et revue
+- [ ] Segmentation minimale en place (USER/SRV/DATA/ADMIN/DMZ/BACKUP/IOT)
+- [ ] Administration depuis réseau d’admin dédié / bastion
+
+## 3. Filtrage & pare-feu
+- [ ] Politique « deny by default » inter‑zones
+- [ ] Règles documentées (owner, justification, expiration)
+- [ ] Revue périodique + nettoyage (règles orphelines/shadow)
+- [ ] Journalisation activée (deny + allow sensible) et centralisée
+
+## 4. Accès distant (VPN / ZTNA)
+- [ ] MFA obligatoire pour accès distant
+- [ ] Séparation user/admin/tiers
+- [ ] Contrôles de posture (appareil géré, EDR, OS supporté)
+- [ ] Logs de connexions et alertes sur comportements anormaux
+
+## 5. Services réseau (DNS/DHCP/NTP)
+- [ ] DNS interne sécurisé (ACL, logs, transferts contrôlés)
+- [ ] Détection DHCP rogue / IPAM maîtrisé
+- [ ] Synchronisation NTP cohérente sur équipements
+
+## 6. Supervision & réponse
+- [ ] Centralisation des logs réseau vers SIEM / outil central
+- [ ] Alertes sur changements de règles, pics de rejets, tunnels non conformes
+- [ ] Capacité de capture/NetFlow pour investigation
+
+## 7. Wi‑Fi (si applicable)
+- [ ] Chiffrement moderne (WPA2‑Enterprise/WPA3), authentification forte
+- [ ] SSID invités isolé (aucun accès aux zones internes)
+- [ ] Rotation/gestion des secrets et certificats
+
+## 8. Cloud networking (si applicable)
+- [ ] Modèle landing zone, segmentation (VPC/VNet), SG/NACL cohérents
+- [ ] Politique-as-code / revues de changements
+- [ ] Exposition Internet limitée (WAF/LB, pas d’admin direct)
+
+## 9. Exigences renforcées (régulé)
+- [ ] Revue d’architecture sécurité avant mise en production
+- [ ] Micro-segmentation des workloads critiques
+- [ ] Enregistrement des sessions d’admin (bastion) + preuves
+- [ ] Audits périodiques de configuration (firewalls, VPN, DNS)
+
+## Synthèse
+- **Principaux écarts :**
+  - 
+- **Actions prioritaires (30/60/90 jours) :**
+  - 
