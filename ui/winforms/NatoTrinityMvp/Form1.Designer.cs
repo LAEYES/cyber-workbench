@@ -779,8 +779,96 @@ partial class Form1
         verifyLayout.Controls.Add(grpVerify, 0, 0);
         tabVerifyPage.Controls.Add(verifyLayout);
 
+        // Tools sidebar
+        var toolsPanel = new Panel
+        {
+            Dock = DockStyle.Fill,
+            Padding = new Padding(0),
+            BackColor = this.BackColor
+        };
+
+        var grpTools = MakeGroup("Cybersecure tools");
+        grpTools.Dock = DockStyle.Fill;
+
+        var toolsLayout = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 1, RowCount = 10 };
+        toolsLayout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+        toolsLayout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+        toolsLayout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+        toolsLayout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+        toolsLayout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+        toolsLayout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+        toolsLayout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+        toolsLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
+        toolsLayout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+        toolsLayout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+
+        var lblToolsHint = new Label
+        {
+            Text = "Quick actions (verify / anchor / rebuild)\nUse these before exports and audits.",
+            AutoSize = true,
+            ForeColor = subtleText,
+            Margin = new Padding(3, 0, 3, 8)
+        };
+
+        var btnTVerify = new Button { Text = "Verify events" };
+        StyleSecondary(btnTVerify);
+        btnTVerify.Click += (_, _) => OnVerifyEvents();
+
+        var btnTMigrate = new Button { Text = "Migrate legacy" };
+        StyleSecondary(btnTMigrate);
+        btnTMigrate.Click += (_, _) => OnMigrateLegacyEvents();
+
+        var btnTRebuild = new Button { Text = "Rebuild projections" };
+        StyleSecondary(btnTRebuild);
+        btnTRebuild.Click += (_, _) => OnRebuildFromEvents();
+
+        var btnTExportAnchor = new Button { Text = "Export anchor" };
+        StyleSecondary(btnTExportAnchor);
+        btnTExportAnchor.Click += (_, _) => OnExportAuditAnchor();
+
+        var btnTVerifyAnchor = new Button { Text = "Verify anchor" };
+        StyleSecondary(btnTVerifyAnchor);
+        btnTVerifyAnchor.Click += (_, _) => OnVerifyAuditAnchor();
+
+        var btnTOpenStore = new Button { Text = "Open store" };
+        StyleSecondary(btnTOpenStore);
+        btnTOpenStore.Click += (_, _) => OnOpenStoreDir();
+
+        var btnTOpenBundle = new Button { Text = "Open last bundle" };
+        StyleSecondary(btnTOpenBundle);
+        btnTOpenBundle.Click += (_, _) => OnOpenLastBundle();
+
+        var btnTRefreshHeads = new Button { Text = "Refresh head hashes" };
+        StyleSecondary(btnTRefreshHeads);
+        btnTRefreshHeads.Click += (_, _) => OnRefreshEventHeads();
+
+        toolsLayout.Controls.Add(lblToolsHint, 0, 0);
+        toolsLayout.Controls.Add(btnTVerify, 0, 1);
+        toolsLayout.Controls.Add(btnTMigrate, 0, 2);
+        toolsLayout.Controls.Add(btnTRebuild, 0, 3);
+        toolsLayout.Controls.Add(btnTRefreshHeads, 0, 4);
+        toolsLayout.Controls.Add(btnTExportAnchor, 0, 5);
+        toolsLayout.Controls.Add(btnTVerifyAnchor, 0, 6);
+        toolsLayout.Controls.Add(btnTOpenStore, 0, 8);
+        toolsLayout.Controls.Add(btnTOpenBundle, 0, 9);
+
+        grpTools.Controls.Add(toolsLayout);
+        toolsPanel.Controls.Add(grpTools);
+
+        var mainSplit = new SplitContainer
+        {
+            Dock = DockStyle.Fill,
+            Orientation = Orientation.Vertical,
+            SplitterDistance = 260,
+            Panel1MinSize = 230,
+            Panel2MinSize = 600
+        };
+        mainSplit.Panel1.Padding = new Padding(0, 0, 12, 0);
+        mainSplit.Panel1.Controls.Add(toolsPanel);
+        mainSplit.Panel2.Controls.Add(tabsMain);
+
         var root = new Panel { Dock = DockStyle.Fill, BackColor = this.BackColor, Padding = new Padding(10) };
-        root.Controls.Add(tabsMain);
+        root.Controls.Add(mainSplit);
         root.Controls.Add(logCard);
         root.Controls.Add(headerCard);
 
