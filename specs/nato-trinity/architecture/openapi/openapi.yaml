@@ -4,6 +4,14 @@ info:
   version: 0.1.0
 servers:
   - url: https://example.local
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerAuth: []
 paths:
   /api/v1/risks:
     get:
@@ -49,6 +57,12 @@ paths:
   /api/v1/evidence-packages:
     post:
       summary: Export an EvidencePackage
+      responses:
+        '201':
+          description: Created
+  /api/v1/legal-holds:
+    post:
+      summary: Create legal hold
       responses:
         '201':
           description: Created
