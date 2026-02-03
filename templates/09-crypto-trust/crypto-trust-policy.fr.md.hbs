@@ -1,0 +1,39 @@
+# POL — D09 — Crypto / Trust (PKI, PQC, HSM, Keys)
+
+**Organisation :** {{org}}  
+**Version :** 0.2 (durci)  
+**Date :** {{today}}
+
+## 1. Mission
+Mettre en place une architecture **crypto-agile** et **quantum-ready** : gestion des certificats (PKI), des clés (KMS/HSM), des secrets, et des standards de chiffrement (TLS, hybrid PQC), avec exigences auditées et traçables.
+
+## 2. Exigences minimales (baseline)
+- TLS **1.2+** partout en transit (TLS 1.3 recommandé).
+- Chiffrement au repos pour données Confidentiel+ (réf. D07).
+- Inventaire des certificats et clés : owner + périmètre + échéance.
+- Rotation :
+  - secrets/keys critiques : **≤ 12 mois** (ou plus strict selon risque)
+  - certificats : renouvellement automatisé recommandé.
+- Séparation des rôles : admin PKI/KMS ≠ admin données ≠ admin infra.
+- Journalisation opérations clés/certificats (émission, révocation, rotation) ; rétention **≥ 180 jours** sur périmètre critique.
+
+## 3. Exigences renforcées (régulé)
+- HSM/KMS pour périmètre critique (clés non exportables quand possible).
+- Hybrid TLS (classique + PQC) pour flux critiques **quand supporté**.
+- Immutabilité des logs crypto (WORM) sur périmètre critique.
+
+## 4. Critères d’audit (pass/fail)
+- [ ] Standards TLS définis et appliqués.
+- [ ] Inventaire certs/keys maintenu.
+- [ ] Rotation et révocation prouvées.
+- [ ] SoD appliquée.
+- [ ] Logs crypto centralisés et retenus.
+
+## 5. Preuves attendues
+- Politique TLS + scans de conformité.
+- Inventaire certs/keys + historique rotation.
+- Exemples de révocations/renouvellements.
+- Exports logs KMS/PKI.
+
+---
+*Politique modèle : se décline en standards PKI, Hybrid PQC/TLS, Key Management & HSM.*

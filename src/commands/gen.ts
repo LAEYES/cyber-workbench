@@ -42,7 +42,12 @@ type DocKind =
   | "regulatory-obligations-standard"
   | "incident-disclosure-standard"
   | "evidence-handling-standard"
-  | "compliance-legal-checklist";
+  | "compliance-legal-checklist"
+  | "crypto-trust-policy"
+  | "pki-standard"
+  | "pqc-hybrid-tls-standard"
+  | "key-management-hsm-standard"
+  | "crypto-trust-checklist";
 
 function normalizeDoc(doc: string): DocKind {
   const raw = doc.trim();
@@ -333,6 +338,58 @@ function normalizeDoc(doc: string): DocKind {
     v === "chk-d08-compliance"
   )
     return "compliance-legal-checklist";
+
+  // Domain D09
+  if (
+    v === "crypto-trust-policy" ||
+    v === "pol_d09_cryptotrust" ||
+    v === "pol-d09-cryptotrust" ||
+    v === "pol_d09_crypto_trust" ||
+    v === "pol-d09-crypto-trust"
+  )
+    return "crypto-trust-policy";
+
+  if (
+    v === "pki-standard" ||
+    v === "std_d09_pki" ||
+    v === "std-d09-pki"
+  )
+    return "pki-standard";
+
+  if (
+    v === "pqc-hybrid-tls-standard" ||
+    v === "std_d09_pqc" ||
+    v === "std-d09-pqc" ||
+    v === "std_d09_pqc_hybridtls" ||
+    v === "std-d09-pqc-hybridtls" ||
+    v === "std_d09_pqc_hybrid_tls" ||
+    v === "std-d09-pqc-hybrid-tls" ||
+    v === "std_d09_hybrid_tls" ||
+    v === "std-d09-hybrid-tls"
+  )
+    return "pqc-hybrid-tls-standard";
+
+  if (
+    v === "key-management-hsm-standard" ||
+    v === "std_d09_keymanagement_hsm" ||
+    v === "std-d09-keymanagement-hsm" ||
+    v === "std_d09_key_management_hsm" ||
+    v === "std-d09-key-management-hsm" ||
+    v === "std_d09_kms_hsm" ||
+    v === "std-d09-kms-hsm" ||
+    v === "std_d09_hsm" ||
+    v === "std-d09-hsm"
+  )
+    return "key-management-hsm-standard";
+
+  if (
+    v === "crypto-trust-checklist" ||
+    v === "chk_d09_cryptotrust" ||
+    v === "chk-d09-cryptotrust" ||
+    v === "chk_d09_crypto_trust" ||
+    v === "chk-d09-crypto-trust"
+  )
+    return "crypto-trust-checklist";
 
   throw new Error(`Doc inconnu: ${raw}`);
 }
@@ -869,6 +926,72 @@ export async function genDoc(params: { doc: string; org?: string; lang?: string;
       tasks.push({
         template: tplPath("08-compliance-legal", "compliance-legal-checklist.en.md.hbs"),
         out: path.join(outDir, "docs", "08-compliance-legal", `CHK_D08_ComplianceLegal_${org}_EN.md`)
+      });
+  }
+
+  // Domain D09
+  if (doc === "crypto-trust-policy") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("09-crypto-trust", "crypto-trust-policy.fr.md.hbs"),
+        out: path.join(outDir, "docs", "09-crypto-trust", `POL_D09_CryptoTrust_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("09-crypto-trust", "crypto-trust-policy.en.md.hbs"),
+        out: path.join(outDir, "docs", "09-crypto-trust", `POL_D09_CryptoTrust_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "pki-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("09-crypto-trust", "pki-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "09-crypto-trust", `STD_D09_PKI_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("09-crypto-trust", "pki-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "09-crypto-trust", `STD_D09_PKI_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "pqc-hybrid-tls-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("09-crypto-trust", "pqc-hybrid-tls-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "09-crypto-trust", `STD_D09_PQC_HybridTLS_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("09-crypto-trust", "pqc-hybrid-tls-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "09-crypto-trust", `STD_D09_PQC_HybridTLS_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "key-management-hsm-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("09-crypto-trust", "key-management-hsm-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "09-crypto-trust", `STD_D09_KeyManagement_HSM_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("09-crypto-trust", "key-management-hsm-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "09-crypto-trust", `STD_D09_KeyManagement_HSM_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "crypto-trust-checklist") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("09-crypto-trust", "crypto-trust-checklist.fr.md.hbs"),
+        out: path.join(outDir, "docs", "09-crypto-trust", `CHK_D09_CryptoTrust_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("09-crypto-trust", "crypto-trust-checklist.en.md.hbs"),
+        out: path.join(outDir, "docs", "09-crypto-trust", `CHK_D09_CryptoTrust_${org}_EN.md`)
       });
   }
 

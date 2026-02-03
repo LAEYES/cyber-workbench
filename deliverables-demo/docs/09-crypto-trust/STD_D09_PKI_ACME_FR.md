@@ -1,0 +1,19 @@
+# STD — D09 — Standard PKI (Certificats, mTLS)
+
+**Organisation :** ACME  
+**Version :** 0.2 (durci)  
+**Date :** 2026-02-03
+
+## 1. Exigences minimales (baseline)
+- Inventaire des certificats : CN/SAN, usage, owner, CA, expiration.
+- Renouvellement automatisé recommandé ; alerte à J-30.
+- Révocation opérationnelle (CRL/OCSP) et testée.
+- mTLS recommandé pour flux service↔service critiques.
+
+## 2. Renforcé (régulé)
+- CA protégée (HSM si possible) + séparation des rôles.
+- Durée de vie certs courte (ex: ≤ 90 jours) sur périmètre critique.
+- Journalisation émission/révocation ; rétention ≥ 180j.
+
+## 3. Preuves
+- Export inventaire certs, rapports renouvellement/révocation, config OCSP/CRL.

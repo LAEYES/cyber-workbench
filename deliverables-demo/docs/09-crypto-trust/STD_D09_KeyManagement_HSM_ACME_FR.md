@@ -1,0 +1,19 @@
+# STD — D09 — Gestion des Clés & HSM
+
+**Organisation :** ACME  
+**Version :** 0.2 (durci)  
+**Date :** 2026-02-03
+
+## 1. Exigences minimales (baseline)
+- KMS central (cloud ou on‑prem) pour clés de chiffrement.
+- Clés sensibles : accès par RBAC + moindre privilège.
+- Rotation clés critiques : **≤ 12 mois**.
+- Journalisation opérations KMS (create/rotate/decrypt) ; rétention ≥ 180j sur périmètre critique.
+
+## 2. Renforcé (régulé)
+- HSM pour clés critiques (non exportables).
+- Two-person rule pour opérations sensibles (rotation/disable).
+- Séparation des rôles (key admin ≠ data admin).
+
+## 3. Preuves
+- Config KMS/HSM, historiques rotation, exports logs.

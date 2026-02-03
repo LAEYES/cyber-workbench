@@ -1,0 +1,20 @@
+# STD — D09 — PQC & Hybrid TLS (crypto-agilité)
+
+**Organisation :** ACME  
+**Version :** 0.2 (durci)  
+**Date :** 2026-02-03
+
+## 1. Objectif
+Définir une trajectoire **quantum-ready** via crypto-agilité et hybridation (classique + PQC) quand supportée, sans dégrader la disponibilité.
+
+## 2. Exigences minimales (baseline)
+- Inventaire des flux critiques (données Très sensibles / identité / interconnexions).
+- Stratégie de migration : prioriser flux à long besoin de confidentialité.
+- Tests de compatibilité et performance avant activation.
+
+## 3. Renforcé (régulé)
+- Hybrid TLS activé sur flux critiques **supportés** (ex: interco, accès admin).
+- Crypto-policy versionnée ; rollback documenté.
+
+## 4. Preuves
+- Inventaire flux, résultats tests, décision d’activation/rollback.
