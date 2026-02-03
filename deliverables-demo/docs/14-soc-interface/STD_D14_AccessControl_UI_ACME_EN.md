@@ -1,0 +1,22 @@
+# STD — D14 — UI Access Control (RBAC / Sessions / Audit)
+
+**Organization:** ACME  
+**Version:** 0.2 (hardened)  
+**Date:** 2026-02-03
+
+## 1. RBAC (minimum)
+- Viewer: read-only
+- Analyst: triage, assign, comments
+- IR Lead: severity change, containment actions
+- Admin: integration config (excluding evidence deletion)
+
+## 2. Sessions
+- Idle timeout ≤ 30 min.
+- Re-auth for sensitive actions.
+
+## 3. Audit
+- All actions logged and exportable.
+- Retention ≥ 90d (baseline), ≥ 180d (regulated) + integrity.
+
+## 4. Evidence
+- Role/permission matrix, log exports.

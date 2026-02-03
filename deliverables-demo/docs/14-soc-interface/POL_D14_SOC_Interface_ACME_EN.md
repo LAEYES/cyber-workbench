@@ -1,0 +1,27 @@
+# POL — D14 — SOC Interface (Console / Dashboards / Views)
+
+**Organization:** ACME  
+**Version:** 0.2 (hardened)  
+**Date:** 2026-02-03
+
+## 1. Mission
+Provide an operational and **audit-safe** SOC interface: monitoring, triage, case management, executive views, and full traceability (operator actions, decisions, evidence).
+
+## 2. Baseline requirements
+- Strong authentication via IdP + MFA.
+- RBAC with minimum roles (Viewer / Analyst / IR Lead / Admin) and separation of duties.
+- Log every user action (ack, assign, close, change severity, add IOC) with timestamps.
+- Sessions: timeouts and protections against reuse.
+
+## 3. Enhanced requirements (regulated)
+- Two-person rule for critical actions (close critical incident, delete evidence, mass export).
+- UI log retention: **≥ 180 days** + integrity.
+- Immutable evidence exports (WORM) for critical incidents.
+
+## 4. Audit criteria (pass/fail)
+- [ ] MFA + RBAC enforced.
+- [ ] Complete audit trail.
+- [ ] Defined case management workflow.
+
+## 5. Evidence
+- RBAC exports, UI logs, sample cases.

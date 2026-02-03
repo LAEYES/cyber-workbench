@@ -66,7 +66,12 @@ type DocKind =
   | "playbooks-ir-soar-standard"
   | "policy-as-code-standard"
   | "evidence-audit-trails-standard"
-  | "orchestration-automation-checklist";
+  | "orchestration-automation-checklist"
+  | "soc-interface-policy"
+  | "dashboards-kpis-standard"
+  | "case-management-workflows-standard"
+  | "access-control-ui-standard"
+  | "soc-interface-checklist";
 
 function normalizeDoc(doc: string): DocKind {
   const raw = doc.trim();
@@ -604,6 +609,64 @@ function normalizeDoc(doc: string): DocKind {
     v === "chk-d13-automation"
   )
     return "orchestration-automation-checklist";
+
+  // Domain D14
+  if (
+    v === "soc-interface-policy" ||
+    v === "pol_d14_soc_interface" ||
+    v === "pol-d14-soc-interface" ||
+    v === "pol_d14_soc" ||
+    v === "pol-d14-soc"
+  )
+    return "soc-interface-policy";
+
+  if (
+    v === "dashboards-kpis-standard" ||
+    v === "std_d14_dashboards" ||
+    v === "std-d14-dashboards" ||
+    v === "std_d14_dashboards_kpis" ||
+    v === "std-d14-dashboards-kpis" ||
+    v === "std_d14_dashboard_kpis" ||
+    v === "std-d14-dashboard-kpis" ||
+    v === "std_d14_kpis" ||
+    v === "std-d14-kpis"
+  )
+    return "dashboards-kpis-standard";
+
+  if (
+    v === "case-management-workflows-standard" ||
+    v === "std_d14_case_management" ||
+    v === "std-d14-case-management" ||
+    v === "std_d14_casemanagement_workflows" ||
+    v === "std-d14-casemanagement-workflows" ||
+    v === "std_d14_case_management_workflows" ||
+    v === "std-d14-case-management-workflows" ||
+    v === "std_d14_workflows" ||
+    v === "std-d14-workflows"
+  )
+    return "case-management-workflows-standard";
+
+  if (
+    v === "access-control-ui-standard" ||
+    v === "std_d14_accesscontrol_ui" ||
+    v === "std-d14-accesscontrol-ui" ||
+    v === "std_d14_access_control_ui" ||
+    v === "std-d14-access-control-ui" ||
+    v === "std_d14_rbac_ui" ||
+    v === "std-d14-rbac-ui" ||
+    v === "std_d14_ui_access" ||
+    v === "std-d14-ui-access"
+  )
+    return "access-control-ui-standard";
+
+  if (
+    v === "soc-interface-checklist" ||
+    v === "chk_d14_soc_interface" ||
+    v === "chk-d14-soc-interface" ||
+    v === "chk_d14_soc" ||
+    v === "chk-d14-soc"
+  )
+    return "soc-interface-checklist";
 
   throw new Error(`Doc inconnu: ${raw}`);
 }
@@ -1457,6 +1520,72 @@ export async function genDoc(params: { doc: string; org?: string; lang?: string;
       tasks.push({
         template: tplPath("13-orchestration-automation", "orchestration-automation-checklist.en.md.hbs"),
         out: path.join(outDir, "docs", "13-orchestration-automation", `CHK_D13_Orchestration_Automation_${org}_EN.md`)
+      });
+  }
+
+  // Domain D14
+  if (doc === "soc-interface-policy") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("14-soc-interface", "soc-interface-policy.fr.md.hbs"),
+        out: path.join(outDir, "docs", "14-soc-interface", `POL_D14_SOC_Interface_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("14-soc-interface", "soc-interface-policy.en.md.hbs"),
+        out: path.join(outDir, "docs", "14-soc-interface", `POL_D14_SOC_Interface_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "dashboards-kpis-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("14-soc-interface", "dashboards-kpis-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "14-soc-interface", `STD_D14_Dashboards_KPIs_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("14-soc-interface", "dashboards-kpis-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "14-soc-interface", `STD_D14_Dashboards_KPIs_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "case-management-workflows-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("14-soc-interface", "case-management-workflows-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "14-soc-interface", `STD_D14_CaseManagement_Workflows_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("14-soc-interface", "case-management-workflows-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "14-soc-interface", `STD_D14_CaseManagement_Workflows_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "access-control-ui-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("14-soc-interface", "access-control-ui-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "14-soc-interface", `STD_D14_AccessControl_UI_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("14-soc-interface", "access-control-ui-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "14-soc-interface", `STD_D14_AccessControl_UI_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "soc-interface-checklist") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("14-soc-interface", "soc-interface-checklist.fr.md.hbs"),
+        out: path.join(outDir, "docs", "14-soc-interface", `CHK_D14_SOC_Interface_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("14-soc-interface", "soc-interface-checklist.en.md.hbs"),
+        out: path.join(outDir, "docs", "14-soc-interface", `CHK_D14_SOC_Interface_${org}_EN.md`)
       });
   }
 

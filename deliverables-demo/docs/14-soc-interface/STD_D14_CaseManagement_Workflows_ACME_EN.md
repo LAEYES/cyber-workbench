@@ -1,0 +1,22 @@
+# STD — D14 — Case Management & Workflows
+
+**Organization:** ACME  
+**Version:** 0.2 (hardened)  
+**Date:** 2026-02-03
+
+## 1. Mandatory fields (per case)
+- ID, severity, owner, status, timestamps (created/triaged/contained/closed)
+- Links: alerts → tickets → actions (D13) → evidence (D08)
+
+## 2. Workflow (minimum)
+- New → Triage → Investigate → Contain → Eradicate → Recover → Post-mortem
+
+## 3. SLAs (reference)
+- Triage: critical ≤ 1h, high ≤ 4h, medium ≤ 24h
+
+## 4. Enhanced (regulated)
+- Two-person approval for closing critical incidents.
+- Retain versions of communications.
+
+## 5. Evidence
+- Ticket template + samples.
