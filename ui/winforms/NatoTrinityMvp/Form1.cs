@@ -4,6 +4,8 @@ namespace NatoTrinityMvp;
 
 public partial class Form1 : Form
 {
+    private string? _lastBundleDir;
+
     public Form1()
     {
         InitializeComponent();
@@ -165,7 +167,7 @@ public partial class Form1 : Form
             var priv = string.IsNullOrWhiteSpace(txtPrivKey.Text) ? null : txtPrivKey.Text;
             var keyId = string.IsNullOrWhiteSpace(txtKeyId.Text) ? "demo" : txtKeyId.Text;
 
-            MvpBundle.ExportEvidencePackage(
+            _lastBundleDir = MvpBundle.ExportEvidencePackage(
                 outDir: outDir,
                 scopeRef: txtScopeRef.Text.Trim(),
                 orgId: txtOrg.Text.Trim(),
@@ -203,6 +205,29 @@ public partial class Form1 : Form
             var bundleDir = txtVerifyBundle.Text.Trim();
             var manifest = Path.Combine(bundleDir, "manifest.json");
             MvpBundle.VerifyBundleHashes(manifest, Log);
+        }
+        catch (Exception ex)
+        {
+            Log("ERROR " + ex.Message);
+        }
+    }
+
+    private void OnOpenLastBundle()
+    {
+        try
+        {
+            var dir = _lastBundleDir;
+            if (string.IsNullOrWhiteSpace(dir) || !Directory.Exists(dir))
+            {
+                Log("No bundle exported yet (or folder not found). Export first.");
+                return;
+            }
+
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = dir,
+                UseShellExecute = true
+            });
         }
         catch (Exception ex)
         {

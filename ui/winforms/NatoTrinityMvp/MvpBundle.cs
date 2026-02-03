@@ -9,7 +9,7 @@ public static class MvpBundle
 {
     private static readonly JsonSerializerOptions JsonOpts = new() { WriteIndented = true };
 
-    public static void ExportEvidencePackage(
+    public static string ExportEvidencePackage(
         string outDir,
         string scopeRef,
         string orgId,
@@ -110,6 +110,7 @@ public static class MvpBundle
             Encoding.UTF8);
 
         log($"OK bundle: {bundleDir}");
+        return bundleDir;
     }
 
     public static void GenerateEd25519Keys(string outDir, string name, Action<string> log)

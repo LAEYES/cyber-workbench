@@ -15,6 +15,7 @@ tmp/
 
 # NATO MVP demo keys (never commit private keys)
 *.private.pem
+*.private.b64
 
 # NATO MVP temporary metadata files
 deliverables*/nato-mvp/.tmp/
