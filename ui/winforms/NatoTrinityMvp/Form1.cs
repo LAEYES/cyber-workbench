@@ -5,6 +5,9 @@ namespace NatoTrinityMvp;
 public partial class Form1 : Form
 {
     private string? _lastBundleDir;
+    private string? _lastRiskRequestId;
+    private string? _lastDecisionRequestId;
+    private string? _lastCaseRequestId;
 
     public Form1()
     {
@@ -16,6 +19,63 @@ public partial class Form1 : Form
     private void Log(string msg)
     {
         txtLog.AppendText(msg + Environment.NewLine);
+    }
+
+    private void SetLastRequestId(string kind, string requestId)
+    {
+        switch (kind)
+        {
+            case "risk":
+                _lastRiskRequestId = requestId;
+                txtLastRiskReq.Text = requestId;
+                break;
+            case "decision":
+                _lastDecisionRequestId = requestId;
+                txtLastDecisionReq.Text = requestId;
+                break;
+            case "case":
+                _lastCaseRequestId = requestId;
+                txtLastCaseReq.Text = requestId;
+                break;
+        }
+    }
+
+    private void OnCopyText(TextBox tb)
+    {
+        try
+        {
+            var txt = tb.Text;
+            if (string.IsNullOrWhiteSpace(txt))
+            {
+                Log("Nothing to copy");
+                return;
+            }
+
+            Clipboard.SetText(txt);
+            Log("OK copied to clipboard");
+        }
+        catch (Exception ex)
+        {
+            Log("ERROR " + ex.Message);
+        }
+    }
+
+    private void OnOpenStoreDir()
+    {
+        try
+        {
+            var dir = Path.Combine(Path.GetFullPath(txtBaseDir.Text), "nato-mvp-store", txtOrg.Text);
+            Directory.CreateDirectory(dir);
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = dir,
+                UseShellExecute = true
+            });
+        }
+        catch (Exception ex)
+        {
+            Log("ERROR " + ex.Message);
+        }
     }
 
     private void OnPickBaseDir()
@@ -81,6 +141,7 @@ public partial class Form1 : Form
             );
             Log($"OK risk created {risk.RiskId} score={risk.Score}");
             Log($"OK auditEvent {ae.EventId} requestId={ae.RequestId}");
+            SetLastRequestId("risk", ae.RequestId);
         }
         catch (Exception ex)
         {
@@ -118,6 +179,7 @@ public partial class Form1 : Form
             );
             Log($"OK decision created {d.DecisionId} type={d.DecisionType} risk={d.RiskId}");
             Log($"OK auditEvent {ae.EventId} requestId={ae.RequestId}");
+            SetLastRequestId("decision", ae.RequestId);
         }
         catch (Exception ex)
         {
@@ -138,6 +200,7 @@ public partial class Form1 : Form
             );
             Log($"OK case created {c.CaseId}");
             Log($"OK auditEvent {ae.EventId} requestId={ae.RequestId}");
+            SetLastRequestId("case", ae.RequestId);
         }
         catch (Exception ex)
         {
@@ -195,6 +258,12 @@ public partial class Form1 : Form
                 keyId: keyId,
                 log: Log
             );
+
+            if (!string.IsNullOrWhiteSpace(_lastBundleDir))
+            {
+                txtVerifyBundle.Text = _lastBundleDir;
+                tabsMain.SelectedTab = tabVerifyPage;
+            }
         }
         catch (Exception ex)
         {

@@ -38,6 +38,13 @@ partial class Form1
 
     private TextBox txtVerifyBundle = null!;
 
+    private TabControl tabsMain = null!;
+    private TabPage tabVerifyPage = null!;
+
+    private TextBox txtLastRiskReq = null!;
+    private TextBox txtLastDecisionReq = null!;
+    private TextBox txtLastCaseReq = null!;
+
     protected override void Dispose(bool disposing)
     {
         if (disposing && (components != null))
@@ -141,14 +148,14 @@ partial class Form1
             };
         }
 
-        var tabs = new TabControl { Dock = DockStyle.Fill };
+        tabsMain = new TabControl { Dock = DockStyle.Fill };
         var tabStore = new TabPage("Store") { Padding = new Padding(8), BackColor = this.BackColor, AutoScroll = true };
         var tabBundle = new TabPage("Bundles") { Padding = new Padding(8), BackColor = this.BackColor, AutoScroll = true };
-        var tabVerify = new TabPage("Verify") { Padding = new Padding(8), BackColor = this.BackColor, AutoScroll = true };
+        tabVerifyPage = new TabPage("Verify") { Padding = new Padding(8), BackColor = this.BackColor, AutoScroll = true };
 
-        tabs.TabPages.Add(tabStore);
-        tabs.TabPages.Add(tabBundle);
-        tabs.TabPages.Add(tabVerify);
+        tabsMain.TabPages.Add(tabStore);
+        tabsMain.TabPages.Add(tabBundle);
+        tabsMain.TabPages.Add(tabVerifyPage);
 
         var headerCard = new Panel
         {
@@ -163,9 +170,10 @@ partial class Form1
         headerLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 55));
         headerLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 45));
 
-        var baseRow = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 3 };
+        var baseRow = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 4 };
         baseRow.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
         baseRow.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+        baseRow.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
         baseRow.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
 
         var lblBase = MakeLabel("Base dir");
@@ -174,9 +182,14 @@ partial class Form1
         StyleSecondary(btnPickBase);
         btnPickBase.Click += (_, _) => OnPickBaseDir();
 
+        var btnOpenStore = new Button { Text = "Open store" };
+        StyleSecondary(btnOpenStore);
+        btnOpenStore.Click += (_, _) => OnOpenStoreDir();
+
         baseRow.Controls.Add(lblBase, 0, 0);
         baseRow.Controls.Add(txtBaseDir, 1, 0);
         baseRow.Controls.Add(btnPickBase, 2, 0);
+        baseRow.Controls.Add(btnOpenStore, 3, 0);
 
         var orgRow = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 4 };
         orgRow.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
@@ -278,6 +291,45 @@ partial class Form1
             ColumnCount = 1
         };
         storeLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+
+        var grpLast = MakeGroup("Last requestIds");
+        var lastLayout = new TableLayoutPanel { Dock = DockStyle.Top, AutoSize = true, ColumnCount = 3 };
+        lastLayout.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        lastLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+        lastLayout.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+
+        txtLastRiskReq = MakeTextBox("");
+        txtLastRiskReq.ReadOnly = true;
+        txtLastDecisionReq = MakeTextBox("");
+        txtLastDecisionReq.ReadOnly = true;
+        txtLastCaseReq = MakeTextBox("");
+        txtLastCaseReq.ReadOnly = true;
+
+        var btnCopyRiskReq = new Button { Text = "Copy" };
+        StyleSecondary(btnCopyRiskReq);
+        btnCopyRiskReq.Click += (_, _) => OnCopyText(txtLastRiskReq);
+
+        var btnCopyDecisionReq = new Button { Text = "Copy" };
+        StyleSecondary(btnCopyDecisionReq);
+        btnCopyDecisionReq.Click += (_, _) => OnCopyText(txtLastDecisionReq);
+
+        var btnCopyCaseReq = new Button { Text = "Copy" };
+        StyleSecondary(btnCopyCaseReq);
+        btnCopyCaseReq.Click += (_, _) => OnCopyText(txtLastCaseReq);
+
+        lastLayout.Controls.Add(MakeLabel("Risk"), 0, 0);
+        lastLayout.Controls.Add(txtLastRiskReq, 1, 0);
+        lastLayout.Controls.Add(btnCopyRiskReq, 2, 0);
+
+        lastLayout.Controls.Add(MakeLabel("Decision"), 0, 1);
+        lastLayout.Controls.Add(txtLastDecisionReq, 1, 1);
+        lastLayout.Controls.Add(btnCopyDecisionReq, 2, 1);
+
+        lastLayout.Controls.Add(MakeLabel("Case"), 0, 2);
+        lastLayout.Controls.Add(txtLastCaseReq, 1, 2);
+        lastLayout.Controls.Add(btnCopyCaseReq, 2, 2);
+
+        grpLast.Controls.Add(lastLayout);
 
         var grpRisk = MakeGroup("Risk");
         var riskLayout = new TableLayoutPanel { Dock = DockStyle.Top, AutoSize = true, ColumnCount = 1 };
@@ -438,9 +490,10 @@ partial class Form1
         caseLayout.Controls.Add(caseFields, 0, 1);
         grpCase.Controls.Add(caseLayout);
 
-        storeLayout.Controls.Add(grpRisk, 0, 0);
-        storeLayout.Controls.Add(grpDecision, 0, 1);
-        storeLayout.Controls.Add(grpCase, 0, 2);
+        storeLayout.Controls.Add(grpLast, 0, 0);
+        storeLayout.Controls.Add(grpRisk, 0, 1);
+        storeLayout.Controls.Add(grpDecision, 0, 2);
+        storeLayout.Controls.Add(grpCase, 0, 3);
         tabStore.Controls.Add(storeLayout);
 
         var bundleLayout = new TableLayoutPanel
@@ -621,10 +674,10 @@ partial class Form1
         grpVerify.Controls.Add(verifyGroupLayout);
 
         verifyLayout.Controls.Add(grpVerify, 0, 0);
-        tabVerify.Controls.Add(verifyLayout);
+        tabVerifyPage.Controls.Add(verifyLayout);
 
         var root = new Panel { Dock = DockStyle.Fill, BackColor = this.BackColor, Padding = new Padding(10) };
-        root.Controls.Add(tabs);
+        root.Controls.Add(tabsMain);
         root.Controls.Add(logCard);
         root.Controls.Add(headerCard);
 
