@@ -18,6 +18,7 @@ import { scoreAttackCsf } from "./commands/score_attack_csf.js";
 import { catalogStats } from "./commands/stats.js";
 import { catalogRefresh } from "./commands/refresh.js";
 import { natoMvpExport } from "./commands/nato_mvp_export.js";
+import { natoMvpVerifyBundle } from "./commands/nato_mvp_verify.js";
 
 const program = new Command();
 
@@ -82,6 +83,14 @@ program
       retentionClass: opts.retention,
       evidenceType: opts.evidenceType
     });
+  });
+
+program
+  .command("nato:mvp-verify-bundle")
+  .description("MVP: vérifie les hashes des fichiers du bundle vs manifest.json")
+  .requiredOption("--manifest <file>", "Chemin vers manifest.json")
+  .action(async (opts) => {
+    await natoMvpVerifyBundle({ manifest: opts.manifest });
   });
 
 program
