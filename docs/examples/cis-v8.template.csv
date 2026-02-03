@@ -1,0 +1,3 @@
+id,level,ig,title_short,tags_domains,tags_cia,tags_type
+5,control,IG1;IG2;IG3,Account Management,D02,C;I,prevent
+5.1,safeguard,IG1,Establish and Maintain an Inventory of Accounts,D02,C;I,prevent

@@ -1,0 +1,3 @@
+id,domain,title_short,tags_domains,tags_cia,tags_type
+A.5.1,org,Information security policies,D01,C;I;A,prevent
+A.5.15,org,Access control,D02,C;I,prevent

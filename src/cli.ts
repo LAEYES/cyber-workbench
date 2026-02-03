@@ -3,7 +3,7 @@ import { Command } from "commander";
 import { initWorkspace } from "./commands/init.js";
 import { genDoc } from "./commands/gen.js";
 import { validateCatalog } from "./commands/catalog.js";
-import { importNistCsf } from "./commands/import_nist.js";
+import { importNistCsfFromCsv } from "./commands/import_nist_csv.js";
 import { importIso27002 } from "./commands/import_iso.js";
 import { importCisV8 } from "./commands/import_cis.js";
 
@@ -48,17 +48,17 @@ program
 
 program
   .command("catalog:import-nist")
-  .description("Importe NIST CSF 2.0 (outcomes) depuis l'export xlsx officiel du CSF Reference Tool")
-  .option("--url <url>", "URL de l'xlsx")
+  .description("Importe NIST CSF 2.0 (outcomes) depuis un CSV exporté localement (mode le plus sûr)")
+  .requiredOption("--in <file>", "CSV exporté depuis la feuille 'CSF 2.0'")
   .option("--out <file>", "Fichier de sortie", "./catalog/controls/nist-csf-2.0.outcomes.yml")
   .action(async (opts) => {
-    await importNistCsf({ outFile: opts.out, url: opts.url });
+    await importNistCsfFromCsv({ inFile: opts.in, outFile: opts.out });
   });
 
 program
   .command("catalog:import-iso")
-  .description("Importe ISO 27002 (IDs + métadonnées) depuis un fichier local CSV/XLSX (license-safe)")
-  .requiredOption("--in <file>", "Fichier source (csv/xlsx)")
+  .description("Importe ISO 27002 (IDs + métadonnées) depuis un fichier local CSV (license-safe)")
+  .requiredOption("--in <file>", "Fichier source (csv)")
   .option("--out <file>", "Fichier de sortie", "./catalog/controls/iso27002-2022.controls.yml")
   .option("--version <v>", "Version", "2022")
   .action(async (opts) => {
@@ -67,8 +67,8 @@ program
 
 program
   .command("catalog:import-cis")
-  .description("Importe CIS v8 (controls/safeguards) depuis un fichier local CSV/XLSX (license-safe)")
-  .requiredOption("--in <file>", "Fichier source (csv/xlsx)")
+  .description("Importe CIS v8 (controls/safeguards) depuis un fichier local CSV (license-safe)")
+  .requiredOption("--in <file>", "Fichier source (csv)")
   .option("--out <file>", "Fichier de sortie", "./catalog/controls/cis-v8.controls.yml")
   .option("--version <v>", "Version", "8")
   .action(async (opts) => {

@@ -3,17 +3,22 @@
 Objectif : importer des référentiels **sans dépendre** de copier/coller manuel.
 
 ## NIST CSF 2.0 (public)
-- Import automatique depuis l'export officiel (xlsx) :
+### Mode le plus sûr : import depuis CSV (export local depuis l’xlsx officiel)
+1) Télécharge l’xlsx officiel depuis NIST (CSF Reference Tool export)
+2) Ouvre-le et **enregistre en CSV** la feuille **"CSF 2.0"**
+3) Importe le CSV :
 
 ```bash
-npx tsx src/cli.ts catalog:import-nist --out ./catalog/controls/nist-csf-2.0.outcomes.yml
+npx tsx src/cli.ts catalog:import-nist --in ./inputs/nist-csf-2.0.csv --out ./catalog/controls/nist-csf-2.0.outcomes.yml
 ```
 
 ## ISO/IEC 27002:2022 (copyright)
 On ne stocke pas le texte officiel dans le repo.
-On importe **les IDs + métadonnées** depuis un fichier local que vous fournissez.
+On importe **les IDs + métadonnées** depuis un fichier local CSV que vous fournissez.
 
-### Format d'entrée recommandé (CSV)
+Exemple de template : `docs/examples/iso27002-2022.template.csv`
+
+### Format d'entrée recommandé (CSV UTF-8)
 Colonnes :
 - `id` (ex: `A.5.1`)
 - `domain` (`org|people|phys|tech`)
@@ -28,9 +33,11 @@ npx tsx src/cli.ts catalog:import-iso --in ./inputs/iso27002-2022.csv --out ./ca
 ```
 
 ## CIS Controls v8 (copyright)
-Même principe : import depuis un fichier local.
+Même principe : import depuis un fichier local CSV.
 
-### Format d'entrée recommandé (CSV)
+Exemple de template : `docs/examples/cis-v8.template.csv`
+
+### Format d'entrée recommandé (CSV UTF-8)
 Colonnes :
 - `id` (ex: `5.1` pour safeguard ou `5` pour control)
 - `level` (`control|safeguard`)

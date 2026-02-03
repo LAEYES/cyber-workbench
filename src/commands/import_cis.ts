@@ -1,18 +1,8 @@
 import path from "node:path";
 import { promises as fs } from "node:fs";
-import * as XLSX from "xlsx";
 import { writeYamlFile } from "../catalog/write.js";
 import { splitList } from "../catalog/csv.js";
-
-type CisRow = {
-  id: string;
-  level?: string; // control|safeguard
-  ig?: string; // IG1;IG2;IG3
-  title_short?: string;
-  tags_domains?: string;
-  tags_cia?: string;
-  tags_type?: string;
-};
+import { parseCsv, rowsToObjects } from "../catalog/csv_parse.js";
 
 function norm(s: any): string {
   return String(s ?? "").trim();
@@ -23,13 +13,8 @@ export async function importCisV8(params: { inFile: string; outFile: string; ver
   const outFile = path.resolve(params.outFile);
   const version = params.version ?? "8";
 
-  const buf = await fs.readFile(inFile);
-  const wb = XLSX.read(buf, { type: "buffer" });
-  const sheetName = wb.SheetNames[0];
-  if (!sheetName) throw new Error("No worksheet found");
-  const ws = wb.Sheets[sheetName];
-
-  const rows = XLSX.utils.sheet_to_json<CisRow>(ws, { defval: "" });
+  const raw = await fs.readFile(inFile, "utf8");
+  const rows = rowsToObjects(parseCsv(raw));
 
   const controls = rows
     .map((r) => {
@@ -44,12 +29,7 @@ export async function importCisV8(params: { inFile: string; outFile: string; ver
         id,
         framework: "cis-controls-v8",
         title,
-        notes: [
-          level ? `level=${level}` : null,
-          ig.length ? `ig=${ig.join(",")}` : null
-        ]
-          .filter(Boolean)
-          .join("; ") || undefined,
+        notes: [level ? `level=${level}` : null, ig.length ? `ig=${ig.join(",")}` : null].filter(Boolean).join("; ") || undefined,
         tags: {
           domains: splitList(norm((r as any).tags_domains ?? (r as any).Domains)),
           cia: splitList(norm((r as any).tags_cia ?? (r as any).CIA)) as any,

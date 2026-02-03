@@ -1,17 +1,8 @@
 import path from "node:path";
 import { promises as fs } from "node:fs";
-import * as XLSX from "xlsx";
 import { writeYamlFile } from "../catalog/write.js";
 import { splitList } from "../catalog/csv.js";
-
-type IsoRow = {
-  id: string;
-  domain?: string;
-  title_short?: string;
-  tags_domains?: string;
-  tags_cia?: string;
-  tags_type?: string;
-};
+import { parseCsv, rowsToObjects } from "../catalog/csv_parse.js";
 
 function norm(s: any): string {
   return String(s ?? "").trim();
@@ -22,20 +13,15 @@ export async function importIso27002(params: { inFile: string; outFile: string; 
   const outFile = path.resolve(params.outFile);
   const version = params.version ?? "2022";
 
-  const buf = await fs.readFile(inFile);
-  const wb = XLSX.read(buf, { type: "buffer" });
-  const sheetName = wb.SheetNames[0];
-  if (!sheetName) throw new Error("No worksheet found");
-  const ws = wb.Sheets[sheetName];
-
-  const rows = XLSX.utils.sheet_to_json<IsoRow>(ws, { defval: "" });
+  const raw = await fs.readFile(inFile, "utf8");
+  const rows = rowsToObjects(parseCsv(raw));
 
   const controls = rows
     .map((r) => {
-      const id = norm((r as any).id ?? (r as any).ID);
+      const id = norm(r.id ?? (r as any).ID);
       if (!id) return null;
 
-      const domain = norm((r as any).domain ?? (r as any).Domain);
+      const domain = norm(r.domain ?? (r as any).Domain);
       const title = norm((r as any).title_short ?? (r as any).title ?? (r as any).Title ?? id);
 
       return {
