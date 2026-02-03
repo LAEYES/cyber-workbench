@@ -1,0 +1,27 @@
+# STD — D08 — Traitement des Preuves (Evidence Handling / Chain of Custody)
+
+**Organisation :** {{org}}  
+**Version :** 0.2 (durci)  
+**Date :** {{today}}
+
+## 1. Objectif
+Garantir l’intégrité, la traçabilité et l’admissibilité des preuves lors d’incidents (forensic readiness).
+
+## 2. Exigences minimales (baseline)
+- Chaîne de conservation (chain of custody) utilisée pour incidents **critiques**.
+- Preuves horodatées, hashées (SHA-256), stockées en accès restreint.
+- Logs / artefacts : rétention ≥ **90 jours** (si non régulé) sur périmètre critique.
+
+## 3. Exigences renforcées (régulé)
+- Stockage immuable (WORM) pour preuves critiques.
+- Rétention ≥ **180 jours** (ou obligations) + intégrité.
+- Double-contrôle (4-eyes) sur export/partage de preuves.
+
+## 4. Critères d’audit (pass/fail)
+- [ ] Procédure chain of custody.
+- [ ] Stockage sécurisé + contrôle d’accès.
+- [ ] Hash/timestamps + journaux d’accès.
+
+## 5. Preuves
+- Exemple de chain of custody.
+- Exemples d’artefacts hashés.

@@ -1,0 +1,98 @@
+# POL — D08 — Cyber Legal & Compliance Policy (Compliance Layer)
+
+**Organization:** ACME  
+**Version:** 0.2 (hardened)  
+**Date:** 2026-02-03
+
+## 1. Mission
+Provide **legal and regulatory cyber security assurance** for ACME: compliance (GDPR / NIS2 / DORA depending on status), contractual security, incident disclosure obligations, and evidence handling.
+
+> **License-safe** document: summarized requirements, no copyrighted standard text.
+
+## 2. Scope
+- Personal data, customer data, secrets, logs, evidence.
+- Vendors, contracts, security clauses, audits.
+- Cyber incidents (detection, qualification, notification, post-mortem).
+
+## 3. Governance (mandatory)
+- **Compliance/Cyber Legal Owner**: owns D08, maintains obligations register.
+- **CISO/Security**: security requirements, technical evidence, IR coordination.
+- **DPO**: GDPR (if applicable).
+- **Procurement/Vendor management**: clauses, DPAs, subprocessors.
+- **Executive management**: risk decisions / exceptional notification decisions.
+
+## 4. Baseline requirements
+### 4.1 Obligations register (mandatory)
+- Maintain a register: status (GDPR/NIS2/DORA/PCI/etc.), scope, authorities, timelines, owners, evidence.
+- Review: **quarterly** (baseline).
+
+### 4.2 Contractual security
+- Minimum clauses: incident notification, subprocessors, location, exit, auditability.
+- Evidence requirements: reports/attestations, exportable logs.
+
+### 4.3 Incident disclosure
+- Documented process: qualify → decide → notify.
+- RACI + channels + templates.
+- Annual table-top exercise.
+
+### 4.4 Evidence handling
+- Chain of custody for critical incidents.
+- Evidence storage: restricted access, timestamps, integrity.
+
+## 5. Enhanced requirements (regulated)
+- Obligations register reviewed **monthly** for critical scope.
+- Disclosure exercises **semi-annually**.
+- Immutable evidence (WORM) for critical logs/artifacts.
+- Legal governance integrated into IR runbooks (escalation and comms decisions).
+
+## 6. Functional segmentation (global)
+```text
+┌───────────── GOVERNANCE ─────────────┐
+│ CISO / GRC                           │
+└──────────────────────────────────────┘
+                  ↓
+┌──────── CRYPTO / TRUST ──────────────┐
+│ PKI | PQC | HSM | Keys               │
+└──────────────────────────────────────┘
+                  ↓
+┌────── INFRA / CLOUD / ENDPOINT ──────┐
+│ Network | Cloud | Device Security    │
+└──────────────────────────────────────┘
+                  ↓
+┌──────── APPLICATION / DEVSECOPS ─────┐
+│ CI/CD | AppSec | API Security        │
+└──────────────────────────────────────┘
+                  ↓
+┌──────── SOC / DETECTION ─────────────┐
+│ SIEM | XDR | IR | CTI                │
+└──────────────────────────────────────┘
+                  ↓
+┌──────── IDENTITY / ZERO TRUST ───────┐
+│ IAM | ZTNA | PAM                     │
+└──────────────────────────────────────┘
+                  ↓
+┌──────── RESILIENCE / BACKUP ─────────┐
+│ DRP | BCP | Vault | Immutable Backup │
+└──────────────────────────────────────┘
+```
+
+## 7. Standard secure flow (Zero Trust + crypto agility)
+```text
+User → ZTNA → IAM → Device Check → App → Hybrid TLS → Data Vault
+   (Continuous auth) (Posture)        (SOC logging)
+```
+
+## 8. Audit criteria (pass/fail)
+- [ ] Obligations register maintained and reviewed.
+- [ ] Standard contractual security clauses used.
+- [ ] Incident disclosure procedure tested.
+- [ ] Evidence chain of custody operational.
+
+## 9. Expected evidence
+- Obligations register + RACI.
+- Clause templates + contract samples.
+- Exercise reports (disclosure / IR).
+- Chain of custody samples.
+
+---
+*Template policy: complemented by standards (obligations, contractual security, disclosure, evidence handling).*

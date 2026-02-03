@@ -37,7 +37,12 @@ type DocKind =
   | "data-classification-standard"
   | "encryption-key-management-standard"
   | "backup-recovery-standard"
-  | "data-protection-checklist";
+  | "data-protection-checklist"
+  | "compliance-legal-policy"
+  | "regulatory-obligations-standard"
+  | "incident-disclosure-standard"
+  | "evidence-handling-standard"
+  | "compliance-legal-checklist";
 
 function normalizeDoc(doc: string): DocKind {
   const raw = doc.trim();
@@ -270,6 +275,64 @@ function normalizeDoc(doc: string): DocKind {
     v === "chk-d07-dataprotection"
   )
     return "data-protection-checklist";
+
+  // Domain D08
+  if (
+    v === "compliance-legal-policy" ||
+    v === "pol_d08_compliancelegal" ||
+    v === "pol-d08-compliancelegal" ||
+    v === "pol_d08_compliance_legal" ||
+    v === "pol-d08-compliance-legal" ||
+    v === "pol_d08_compliance" ||
+    v === "pol-d08-compliance" ||
+    v === "pol_d08_legal" ||
+    v === "pol-d08-legal"
+  )
+    return "compliance-legal-policy";
+
+  if (
+    v === "regulatory-obligations-standard" ||
+    v === "std_d08_regulatoryobligations" ||
+    v === "std-d08-regulatoryobligations" ||
+    v === "std_d08_regulatory_obligations" ||
+    v === "std-d08-regulatory-obligations" ||
+    v === "std_d08_obligations" ||
+    v === "std-d08-obligations"
+  )
+    return "regulatory-obligations-standard";
+
+  if (
+    v === "incident-disclosure-standard" ||
+    v === "std_d08_incidentdisclosure" ||
+    v === "std-d08-incidentdisclosure" ||
+    v === "std_d08_incident_disclosure" ||
+    v === "std-d08-incident-disclosure" ||
+    v === "std_d08_disclosure" ||
+    v === "std-d08-disclosure"
+  )
+    return "incident-disclosure-standard";
+
+  if (
+    v === "evidence-handling-standard" ||
+    v === "std_d08_evidencehandling" ||
+    v === "std-d08-evidencehandling" ||
+    v === "std_d08_evidence" ||
+    v === "std-d08-evidence" ||
+    v === "std_d08_chain_of_custody" ||
+    v === "std-d08-chain-of-custody"
+  )
+    return "evidence-handling-standard";
+
+  if (
+    v === "compliance-legal-checklist" ||
+    v === "chk_d08_compliancelegal" ||
+    v === "chk-d08-compliancelegal" ||
+    v === "chk_d08_compliance_legal" ||
+    v === "chk-d08-compliance-legal" ||
+    v === "chk_d08_compliance" ||
+    v === "chk-d08-compliance"
+  )
+    return "compliance-legal-checklist";
 
   throw new Error(`Doc inconnu: ${raw}`);
 }
@@ -740,6 +803,72 @@ export async function genDoc(params: { doc: string; org?: string; lang?: string;
       tasks.push({
         template: tplPath("07-data", "data-protection-checklist.en.md.hbs"),
         out: path.join(outDir, "docs", "07-data", `CHK_D07_DataProtection_${org}_EN.md`)
+      });
+  }
+
+  // Domain D08
+  if (doc === "compliance-legal-policy") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("08-compliance-legal", "compliance-legal-policy.fr.md.hbs"),
+        out: path.join(outDir, "docs", "08-compliance-legal", `POL_D08_ComplianceLegal_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("08-compliance-legal", "compliance-legal-policy.en.md.hbs"),
+        out: path.join(outDir, "docs", "08-compliance-legal", `POL_D08_ComplianceLegal_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "regulatory-obligations-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("08-compliance-legal", "regulatory-obligations-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "08-compliance-legal", `STD_D08_RegulatoryObligations_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("08-compliance-legal", "regulatory-obligations-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "08-compliance-legal", `STD_D08_RegulatoryObligations_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "incident-disclosure-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("08-compliance-legal", "incident-disclosure-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "08-compliance-legal", `STD_D08_IncidentDisclosure_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("08-compliance-legal", "incident-disclosure-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "08-compliance-legal", `STD_D08_IncidentDisclosure_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "evidence-handling-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("08-compliance-legal", "evidence-handling-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "08-compliance-legal", `STD_D08_EvidenceHandling_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("08-compliance-legal", "evidence-handling-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "08-compliance-legal", `STD_D08_EvidenceHandling_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "compliance-legal-checklist") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("08-compliance-legal", "compliance-legal-checklist.fr.md.hbs"),
+        out: path.join(outDir, "docs", "08-compliance-legal", `CHK_D08_ComplianceLegal_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("08-compliance-legal", "compliance-legal-checklist.en.md.hbs"),
+        out: path.join(outDir, "docs", "08-compliance-legal", `CHK_D08_ComplianceLegal_${org}_EN.md`)
       });
   }
 

@@ -1,0 +1,100 @@
+# POL — D08 — Politique Conformité & Juridique Cyber (Compliance Layer)
+
+**Organisation :** {{org}}  
+**Version :** 0.2 (durci)  
+**Date :** {{today}}
+
+## 1. Mission
+Assurer la **sécurité légale et réglementaire** de {{org}} : conformité (RGPD / NIS2 / DORA selon statut), obligations contractuelles, gestion des notifications d’incidents, conservation des preuves et gouvernance de la conformité.
+
+> Document **license-safe** : exigences résumées, sans reproduction de texte normatif.
+
+## 2. Périmètre
+- Données personnelles, données clients, secrets, logs, preuves.
+- Fournisseurs, contrats, clauses de sécurité, audits.
+- Incidents cyber (détection, qualification, notification, post-mortem).
+
+## 3. Gouvernance (obligatoire)
+- **Compliance/Cyber Legal Owner** : pilote D08, maintient le registre d’obligations.
+- **RSSI/CISO** : exigences sécurité, preuves techniques, coordination IR.
+- **DPO** : RGPD (si applicable).
+- **Achats/Vendor management** : clauses, DPA, sous-traitants.
+- **Direction** : arbitrage risques / décisions de notification exceptionnelles.
+
+## 4. Exigences minimales (baseline)
+### 4.1 Registre d’obligations (obligatoire)
+- Registre maintenu : statut (RGPD/NIS2/DORA/PCI/etc.), périmètre, autorités, délais, responsables, preuves.
+- Revue : **trimestrielle** (baseline).
+
+### 4.2 Contrats & clauses de sécurité
+- Clauses minimales : notification incident, sous-traitants, localisation, réversibilité, auditabilité.
+- Exigences d’évidence : rapports, attestations, logs exportables.
+
+### 4.3 Notification d’incident (disclosure)
+- Procédure documentée : qualification → décision → notification.
+- RACI + canaux + gabarits.
+- Test (table-top) : **annuel**.
+
+### 4.4 Gestion des preuves (evidence handling)
+- Chaîne de conservation (chain of custody) pour incidents critiques.
+- Stockage des preuves : accès restreint, horodatage, intégrité.
+
+## 5. Exigences renforcées (régulé)
+- Revue registre obligations : **mensuelle** sur périmètre critique.
+- Exercices de notification : **semestriel**.
+- Preuves immuables (WORM) pour logs et artefacts critiques.
+- Gouvernance juridique intégrée au runbook IR (décision d’escalade, communication).
+
+## 6. Cloisonnement fonctionnel (Segmentation Globale)
+> Objectif : isoler les couches, auditer les interfaces, chiffrer les flux.
+
+```text
+┌───────────── GOVERNANCE ─────────────┐
+│ CISO / GRC                           │
+└──────────────────────────────────────┘
+                  ↓
+┌──────── CRYPTO / TRUST ──────────────┐
+│ PKI | PQC | HSM | Keys               │
+└──────────────────────────────────────┘
+                  ↓
+┌────── INFRA / CLOUD / ENDPOINT ──────┐
+│ Network | Cloud | Device Security    │
+└──────────────────────────────────────┘
+                  ↓
+┌──────── APPLICATION / DEVSECOPS ─────┐
+│ CI/CD | AppSec | API Security        │
+└──────────────────────────────────────┘
+                  ↓
+┌──────── SOC / DETECTION ─────────────┐
+│ SIEM | XDR | IR | CTI                │
+└──────────────────────────────────────┘
+                  ↓
+┌──────── IDENTITY / ZERO TRUST ───────┐
+│ IAM | ZTNA | PAM                     │
+└──────────────────────────────────────┘
+                  ↓
+┌──────── RESILIENCE / BACKUP ─────────┐
+│ DRP | BCP | Vault | Immutable Backup │
+└──────────────────────────────────────┘
+```
+
+## 7. Flux sécurisé standard (Zero Trust + crypto-agilité)
+```text
+User → ZTNA → IAM → Device Check → App → Hybrid TLS → Data Vault
+   (Auth continue)   (Posture)        (Logs SOC)
+```
+
+## 8. Critères d’audit (pass/fail)
+- [ ] Registre obligations maintenu + revu.
+- [ ] Clauses contractuelles standard appliquées.
+- [ ] Procédure notification testée.
+- [ ] Chaîne de conservation des preuves opérationnelle.
+
+## 9. Preuves attendues
+- Registre obligations + RACI.
+- Modèles de clauses + échantillons contrats.
+- Rapports d’exercices (notification / IR).
+- Échantillons chain of custody.
+
+---
+*Politique modèle : se décline en standards (obligations, contractual security, disclosure, evidence handling).* 

@@ -1,0 +1,30 @@
+# STD — D08 — Regulatory Obligations Register (GDPR / NIS2 / DORA) — license-safe
+
+**Organization:** ACME  
+**Version:** 0.2 (hardened)  
+**Date:** 2026-02-03
+
+## 1. Goal
+Maintain a single, auditable register of cyber legal/regulatory obligations and associated evidence.
+
+## 2. Mandatory fields (per obligation)
+- Framework: GDPR / NIS2 / DORA / Other
+- Applicable (Yes/No) + rationale
+- Scope (systems/processes/data)
+- Timelines & triggers (e.g., incident notification)
+- Owner (business / IT / security / legal)
+- Associated procedure
+- Expected evidence (links)
+- Last review date
+
+## 3. Cadence
+- Baseline: **quarterly** review.
+- Regulated: **monthly** review for critical scope.
+
+## 4. Audit criteria (pass/fail)
+- [ ] Register exists and is up to date.
+- [ ] Owners and evidence populated.
+- [ ] Reviews completed on time.
+
+---
+*Template standard: complete based on ACME actual legal status.*

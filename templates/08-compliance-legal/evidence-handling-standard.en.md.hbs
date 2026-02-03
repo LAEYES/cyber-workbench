@@ -1,0 +1,27 @@
+# STD — D08 — Evidence Handling / Chain of Custody Standard
+
+**Organization:** {{org}}  
+**Version:** 0.2 (hardened)  
+**Date:** {{today}}
+
+## 1. Goal
+Ensure integrity, traceability and admissibility of evidence during incidents (forensic readiness).
+
+## 2. Baseline requirements
+- Chain of custody used for **critical** incidents.
+- Evidence is timestamped, hashed (SHA-256), stored with restricted access.
+- Logs/artifacts retention: **≥ 90 days** for critical scope (baseline).
+
+## 3. Enhanced requirements (regulated)
+- Immutable storage (WORM) for critical evidence.
+- Retention **≥ 180 days** (or per obligations) + integrity.
+- Two-person control for exporting/sharing evidence.
+
+## 4. Audit criteria (pass/fail)
+- [ ] Chain of custody procedure.
+- [ ] Secure storage + access control.
+- [ ] Hash/timestamps + access logs.
+
+## 5. Evidence
+- Chain of custody sample.
+- Sample hashed artifacts.
