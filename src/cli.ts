@@ -13,6 +13,8 @@ import { importCtidAttackToNist80053 } from "./commands/import_ctid_nist80053.js
 import { mapAttackToCsf } from "./commands/map_attack_csf.js";
 import { mapAttackToCsfVia80053 } from "./commands/map_attack_csf_via80053.js";
 import { mapAttackToCsfFrom80053 } from "./commands/map_attack_csf_from80053.js";
+import { exportMappingCsv } from "./commands/export_mapping_csv.js";
+import { scoreAttackCsf } from "./commands/score_attack_csf.js";
 
 const program = new Command();
 
@@ -222,6 +224,46 @@ program
       attackTo80053File: opts.attack2ctrl,
       csfTo80053File: opts.csf2ctrl,
       outFile: opts.out
+    });
+  });
+
+program
+  .command("catalog:export-mapping-csv")
+  .description("Exporte un fichier mapping YAML en CSV")
+  .requiredOption("--in <file>", "Fichier mapping YAML")
+  .option("--out <file>", "Fichier CSV de sortie", "./catalog/exports/mapping.csv")
+  .option("--mode <mode>", "long|wide", "long")
+  .action(async (opts) => {
+    await exportMappingCsv({ inFile: opts.in, outFile: opts.out, mode: opts.mode });
+  });
+
+program
+  .command("catalog:score-attack-csf")
+  .description("Produit un CSV de scoring ATT&CK→CSF (score = #contrôles 800-53 partagés)")
+  .option(
+    "--attack2ctrl <file>",
+    "Mapping ATT&CK→800-53",
+    "./catalog/mappings/mitre-attack_to_nist-800-53-r5.yml"
+  )
+  .option(
+    "--csf2ctrl <file>",
+    "Mapping CSF→800-53",
+    "./catalog/mappings/nist-csf-2.0_to_nist-800-53-r5.yml"
+  )
+  .option("--out-csv <file>", "CSV de sortie", "./catalog/exports/attack_to_csf_scores.csv")
+  .option(
+    "--out-mapping <file>",
+    "Optionnel: écrit un mapping enrichi (avec meta)",
+    "./catalog/mappings/mitre-attack_to_nist-csf-2.0_via_800-53_scored.yml"
+  )
+  .option("--top <n>", "Top outcomes dans le CSV", "5")
+  .action(async (opts) => {
+    await scoreAttackCsf({
+      attackTo80053File: opts.attack2ctrl,
+      csfTo80053File: opts.csf2ctrl,
+      outCsv: opts.outCsv,
+      outEnrichedMapping: opts.outMapping,
+      topOutcomes: Number(opts.top)
     });
   });
 

@@ -4,6 +4,7 @@ dist/
 .env
 
 deliverables/
+exports/
 inputs/*.csv
 inputs/*.xlsx
 inputs/*.xls

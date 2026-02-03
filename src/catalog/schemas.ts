@@ -37,7 +37,9 @@ export const MappingItemSchema = z.object({
   from: ControlRefSchema,
   to: z.array(ControlRefSchema).min(1),
   confidence: z.enum(["low", "medium", "high"]).default("medium"),
-  rationale: z.string().optional()
+  rationale: z.string().optional(),
+  // Optional metrics/metadata for scoring & traceability
+  meta: z.record(z.any()).optional()
 });
 
 export const MappingSchema = z.object({
