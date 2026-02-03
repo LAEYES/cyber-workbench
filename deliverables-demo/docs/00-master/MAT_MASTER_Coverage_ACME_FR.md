@@ -1,0 +1,34 @@
+# MAT — MASTER — Matrice de couverture (baseline vs régulé)
+
+**Organisation :** ACME  
+**Version :** 0.2  
+**Date :** 2026-02-03
+
+## 1. But
+Rendre la couverture lisible sans table : pour chaque domaine, lister Policy/Standards/Checklist + points « régulé ».
+
+## 2. Matrice (par domaine)
+- **D01** : POL + STD + CHK — régulé : gouvernance renforcée, preuves & revues.
+- **D02** : POL + STD + CHK — régulé : PAM renforcé, revues accès.
+- **D03** : POL + STD + CHK — régulé : segmentation stricte, revues FW.
+- **D04** : POL + STD + CHK — régulé : gates CI, secrets, traçabilité.
+- **D05** : POL + STD + CHK — régulé : SLA patching, EDR coverage.
+- **D06** : POL + STD + CHK — régulé : gates SDLC, vuln SLAs.
+- **D07** : POL + STD + CHK — régulé : chiffrement/keys, sauvegardes.
+- **D08** : POL + STD + CHK — régulé : conservation preuves, disclosure.
+- **D09** : POL + STD + CHK — régulé : HSM/PQC, rotation.
+- **D10** : POL + STD + CHK — régulé : use cases critiques, SLA IR.
+- **D11** : POL + STD + CHK — régulé : auth continue, ZT.
+- **D12** : POL + STD + CHK — régulé : immutable backups, tests DR.
+- **D13** : POL + STD + CHK — régulé : audit trails, approvals.
+- **D14** : POL + STD + CHK — régulé : logs UI, two-person.
+- **D15** : POL + STD + CHK — régulé : revues risques critiques.
+- **D16** : POL + STD + CHK — régulé : provenance/signing, rétention.
+- **D17** : POL + STD + CHK — régulé : attestation, tokens ≤ 1h.
+- **D18** : POL + STD + CHK — régulé : déploiement par segments.
+
+## 3. RACI (gabarit)
+- **R**: Owner domaine (IT/Cloud/SecOps)
+- **A**: RSSI/CISO
+- **C**: Risk/Legal/Privacy
+- **I**: Direction / Métiers

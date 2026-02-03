@@ -91,7 +91,11 @@ type DocKind =
   | "honeypot-deployment-standard"
   | "honeytokens-canary-standard"
   | "deception-response-playbooks-standard"
-  | "deception-checklist";
+  | "deception-checklist"
+  | "master-cyberprogram-policy"
+  | "master-deliverables-index"
+  | "master-coverage-matrix"
+  | "master-audit-readiness-checklist";
 
 function normalizeDoc(doc: string): DocKind {
   const raw = doc.trim();
@@ -921,6 +925,45 @@ function normalizeDoc(doc: string): DocKind {
     v === "chk-d18-honeypots"
   )
     return "deception-checklist";
+
+  // MASTER pack (D00)
+  if (
+    v === "master-cyberprogram-policy" ||
+    v === "pol_master_cyberprogram" ||
+    v === "pol-master-cyberprogram" ||
+    v === "pol_master_cyber_program" ||
+    v === "pol-master-cyber-program"
+  )
+    return "master-cyberprogram-policy";
+
+  if (
+    v === "master-deliverables-index" ||
+    v === "idx_master_deliverables" ||
+    v === "idx-master-deliverables" ||
+    v === "idx_master" ||
+    v === "idx-master"
+  )
+    return "master-deliverables-index";
+
+  if (
+    v === "master-coverage-matrix" ||
+    v === "mat_master_coverage" ||
+    v === "mat-master-coverage" ||
+    v === "mat_master" ||
+    v === "mat-master"
+  )
+    return "master-coverage-matrix";
+
+  if (
+    v === "master-audit-readiness-checklist" ||
+    v === "chk_master_audit" ||
+    v === "chk-master-audit" ||
+    v === "chk_master_auditreadiness" ||
+    v === "chk-master-auditreadiness" ||
+    v === "chk_master" ||
+    v === "chk-master"
+  )
+    return "master-audit-readiness-checklist";
 
   throw new Error(`Doc inconnu: ${raw}`);
 }
@@ -2104,6 +2147,59 @@ export async function genDoc(params: { doc: string; org?: string; lang?: string;
       tasks.push({
         template: tplPath("18-deception", "deception-checklist.en.md.hbs"),
         out: path.join(outDir, "docs", "18-deception", `CHK_D18_Deception_${org}_EN.md`)
+      });
+  }
+
+  // MASTER pack (D00)
+  if (doc === "master-cyberprogram-policy") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("00-master", "master-cyberprogram-policy.fr.md.hbs"),
+        out: path.join(outDir, "docs", "00-master", `POL_MASTER_CyberProgram_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("00-master", "master-cyberprogram-policy.en.md.hbs"),
+        out: path.join(outDir, "docs", "00-master", `POL_MASTER_CyberProgram_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "master-deliverables-index") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("00-master", "master-deliverables-index.fr.md.hbs"),
+        out: path.join(outDir, "docs", "00-master", `IDX_MASTER_Deliverables_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("00-master", "master-deliverables-index.en.md.hbs"),
+        out: path.join(outDir, "docs", "00-master", `IDX_MASTER_Deliverables_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "master-coverage-matrix") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("00-master", "master-coverage-matrix.fr.md.hbs"),
+        out: path.join(outDir, "docs", "00-master", `MAT_MASTER_Coverage_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("00-master", "master-coverage-matrix.en.md.hbs"),
+        out: path.join(outDir, "docs", "00-master", `MAT_MASTER_Coverage_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "master-audit-readiness-checklist") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("00-master", "master-audit-readiness-checklist.fr.md.hbs"),
+        out: path.join(outDir, "docs", "00-master", `CHK_MASTER_AuditReadiness_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("00-master", "master-audit-readiness-checklist.en.md.hbs"),
+        out: path.join(outDir, "docs", "00-master", `CHK_MASTER_AuditReadiness_${org}_EN.md`)
       });
   }
 
