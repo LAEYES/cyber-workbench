@@ -4,34 +4,34 @@
 **Date :** {{today}}
 
 ## 1. Inventaire & conformité
-- [ ] Inventaire endpoints à jour (propriétaire, OS, criticité).
-- [ ] OS supporté et versions à jour.
-- [ ] Chiffrement disque activé (au moins laptops).
+- [ ] Inventaire endpoints à jour (owner, OS, criticité, dernier check-in).
+- [ ] Conformité globale **≥ 95%** (baseline) / **≥ 98%** (régulé).
 
 ## 2. Durcissement
-- [ ] Baseline GPO/MDM appliquée (verrouillage, restrictions macros/scripts).
-- [ ] Pas d’admin local pour usage quotidien ; comptes admin dédiés.
-- [ ] Pare-feu hôte actif et configuré.
+- [ ] Baseline GPO/MDM appliquée et versionnée.
+- [ ] Auto-lock ≤ 10 min.
+- [ ] Pas d’admin local quotidien ; comptes admin dédiés.
+- [ ] Pare-feu hôte activé (deny-by-default inbound).
 
 ## 3. Patching
 - [ ] Outil de patching central + reporting.
-- [ ] SLA patching défini ; suivi des écarts.
-- [ ] Applications critiques couvertes (navigateurs, PDF, VPN, agents).
+- [ ] SLA P0–P4 définis et mesurés.
+- [ ] Endpoints offline > 14 jours gérés.
 
 ## 4. EDR / AV
-- [ ] Couverture EDR/AV ~100%.
-- [ ] Exclusions minimales et revues.
-- [ ] Procédure d’isolation/quarantaine.
+- [ ] Couverture EDR **≥ 98%** ; agents inactifs > 24h traités.
+- [ ] Anti-tampering activé.
+- [ ] Exclusions rares, approuvées, time-boxed.
+- [ ] SLA de traitement (critique ≤ 1h).
 
-## 5. Données & périphériques
-- [ ] Verrouillage automatique + protection session.
-- [ ] Politique USB/BYOD (si applicable) et contrôles.
+## 5. Données
+- [ ] Chiffrement laptops 100%.
+- [ ] Sauvegarde/sync des données métier.
 
 ## 6. Renforcé (régulé)
-- [ ] Postes admin dédiés (PAW) + segmentation.
-- [ ] Allow-list applicative sur périmètre critique.
-- [ ] Logs renforcés + rétention + intégrité.
-- [ ] Tests EDR et exercices réguliers.
+- [ ] PAW dédiés + segmentation.
+- [ ] Allow-list applicative périmètre critique.
+- [ ] Rétention logs ≥ 180 jours + intégrité.
 
 ---
-*Checklist modèle : à compléter avec preuves et liens vers les politiques/standards.*
+*Checklist modèle : à compléter avec preuves (exports MDM/EDR, dashboards, tickets).*

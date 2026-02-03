@@ -4,28 +4,28 @@
 **Date :** {{today}}
 
 ## 1. Gouvernance
-- [ ] Owner applicatif identifié ; périmètre et criticité.
-- [ ] Exigences sécurité documentées.
-- [ ] Threat modeling réalisé pour applis exposées / données sensibles.
+- [ ] Owner identifié + criticité/exposition documentées.
 
-## 2. Développement sécurisé
-- [ ] PR + revue de code systématique.
-- [ ] Règles secure coding appliquées (validation entrées, authz, gestion erreurs).
-- [ ] Sécurité API : OIDC/OAuth2, scopes, rate limit.
+## 2. Gates CI/CD
+- [ ] Branch protection + PR obligatoires.
+- [ ] Build/tests OK.
+- [ ] SAST/SCA/secret scanning exécutés.
+- [ ] Blocage secrets + critiques (ou dérogations approuvées).
 
-## 3. CI/CD & supply chain
-- [ ] SAST + SCA intégrés en CI.
-- [ ] Secrets absents des dépôts ; vault.
-- [ ] Traçabilité PR → build → déploiement.
+## 3. Threat modeling
+- [ ] Réalisé pour applications exposées / données sensibles.
 
 ## 4. Vulnérabilités
-- [ ] Processus triage/correction avec SLA.
-- [ ] Re-test après correction.
+- [ ] Process triage/correction avec SLA P0–P4.
+- [ ] Re-test et preuves.
 
-## 5. Renforcé (régulé)
-- [ ] SBOM + provenance / signature d’artefacts.
-- [ ] Pentest avant prod et périodique sur périmètre critique.
-- [ ] Gouvernance formalisée (reporting, risk acceptance).
+## 5. Logs sécurité
+- [ ] Logs auth/admin centralisés.
+- [ ] Rétention ≥ 90j (baseline) / ≥ 180j (régulé).
+
+## 6. Renforcé (régulé)
+- [ ] SBOM + provenance + signature.
+- [ ] Pentest avant prod + périodique.
 
 ---
-*Checklist modèle : à compléter avec preuves et liens vers pipelines/rapports.*
+*Checklist modèle : compléter avec liens vers pipelines et rapports.*

@@ -1,68 +1,52 @@
 # Politique Sécurité Applicative & SDLC (D06)
 
 **Organisation :** {{org}}  
-**Version :** 0.1 (draft)  
+**Version :** 0.2 (durci)  
 **Date :** {{today}}
 
 ## 1. Objet
-Définir les exigences de sécurité applicative et de cycle de vie de développement (SDLC/DevSecOps) afin de réduire les vulnérabilités, sécuriser la chaîne de livraison et améliorer la résilience des applications et APIs.
+Définir des exigences **auditées et mesurables** de sécurité applicative / SDLC afin de réduire les vulnérabilités, sécuriser la supply chain logicielle et améliorer la résilience des applications et APIs.
 
-## 2. Périmètre
-- Applications internes/exposées, APIs, micro-services, frontends, batchs.
-- Développements internes, sous-traités et logiciels configurés.
-- Chaîne de livraison : dépôts, CI/CD, artefacts, environnements.
-- Profils : PME={{profiles.pme}}, ETI={{profiles.eti}}, Régulé={{profiles.regulated}}.
+## 2. Exigences minimales (baseline)
+### 2.1 Gouvernance (obligatoire)
+- Owner applicatif identifié (responsable risque).
+- Criticité et exposition (Internet/interne) documentées.
 
-## 3. Principes
-- **Security by design** : exigences sécurité dès la conception.
-- **Shift-left & automation** : tests de sécurité dans CI/CD.
-- **Least privilege** sur CI/CD et secrets.
-- **Traçabilité** : PR → build → release → déploiement.
-- **Gestion des vulnérabilités** pilotée par risque (exploité/exposé/critique).
+### 2.2 Gates CI/CD (obligatoire)
+- Build + tests unitaires OK.
+- SAST/SCA/secret scanning exécutés.
+- Blocage sur **secrets** et vulnérabilités **critiques** sauf dérogation.
 
-## 4. Gouvernance & responsabilités
-- **Product/App Owner** : priorisation et acceptation des risques.
-- **Engineering** : mise en œuvre, corrections, preuves.
-- **Security/AppSec** : standards, revues, accompagnement, arbitrage.
-- **Ops/SRE** : configuration runtime, logs, WAF/monitoring, réponse à incident.
+### 2.3 Threat modeling (ciblé)
+- Obligatoire pour applications exposées et/ou données sensibles.
 
-## 5. Exigences minimales (baseline)
-### 5.1 Exigences & modélisation
-- Exigences de sécurité documentées pour chaque application critique.
-- Modélisation des menaces (au minimum pour applis exposées / données sensibles).
+### 2.4 Observabilité sécurité
+- Logs applicatifs (auth, admin actions, erreurs) activés et centralisés.
+- Rétention : **≥ 90 jours** (baseline).
 
-### 5.2 Secure coding
-- Règles de codage sécurisé (OWASP) et revues de code (PR).
-- Gestion des erreurs sans fuite d’informations ; validation des entrées.
+### 2.5 SLA vulnérabilités
+- Conformité au standard VM (D06) ; suivi SLA.
 
-### 5.3 Tests de sécurité
-- SAST (code) et SCA (dépendances) en CI.
-- DAST ou tests dynamiques périodiques pour applications exposées.
-
-### 5.4 Secrets & CI/CD
-- Secrets stockés dans un coffre ; pas de secrets en dépôt.
-- Comptes CI/CD dédiés, permissions minimales, tokens courts.
-
-### 5.5 Vulnérabilités
-- Processus de triage/correction ; suivi des correctifs.
-- Mesures compensatoires possibles (WAF, désactivation feature, restriction réseau).
-
-## 6. Exigences renforcées (secteurs régulés)
+## 3. Exigences renforcées (secteurs régulés)
 - Threat modeling systématique sur périmètre critique et changements majeurs.
-- SBOM pour applications critiques + contrôle provenance/supply chain.
-- Signature des artefacts et contrôle d’intégrité.
-- Pentest avant mise en prod et périodique (ex. annuel) sur périmètre critique.
-- SLA correction stricts et gouvernance formalisée (comité, reporting).
-- Journalisation applicative renforcée + corrélation SIEM.
+- SBOM pour applications critiques + provenance + signature artefacts.
+- Pentest avant prod et périodique (au moins annuel) sur périmètre critique.
+- Rétention logs : **≥ 180 jours** + intégrité.
 
-## 7. Exceptions
-Toute exception est : documentée, justifiée, limitée dans le temps, compensée, approuvée par le RSSI/CISO.
+## 4. Exceptions
+Dérogations tracées, approuvées, time-boxed.
 
-## 8. Preuves attendues (exemples)
-- Checklist SDLC et pipeline CI/CD.
-- Rapports SAST/SCA/DAST + plans de remédiation.
-- Registre vulnérabilités + SLA.
-- Rapports pentest (si applicable).
+## 5. Critères d’audit (pass/fail)
+- [ ] Gates CI/CD en place et prouvés.
+- [ ] Threat modeling sur périmètre requis.
+- [ ] Logs sécurité centralisés avec rétention.
+- [ ] Process vulnérabilités avec SLA et preuves.
+
+## 6. Preuves attendues
+- Règles branch protection + checks requis.
+- Rapports SAST/SCA/secret scanning.
+- Exemples de threat models.
+- Extraits de logs/alertes + rétention.
 
 ---
-*Document modèle : à adapter au modèle de delivery (agile/DevOps) et aux technologies.*
+*Document modèle : à adapter au modèle de delivery et à la stack.*

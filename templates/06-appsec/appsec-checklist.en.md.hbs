@@ -4,28 +4,28 @@
 **Date:** {{today}}
 
 ## 1. Governance
-- [ ] Application owner identified; scope and criticality.
-- [ ] Security requirements documented.
-- [ ] Threat modeling performed for internet-facing apps / sensitive data.
+- [ ] Owner identified + criticality/exposure documented.
 
-## 2. Secure development
-- [ ] PR + systematic code review.
-- [ ] Secure coding rules applied (input validation, authz, error handling).
-- [ ] API security: OIDC/OAuth2, scopes, rate limiting.
+## 2. CI/CD gates
+- [ ] Branch protection + PR required.
+- [ ] Build/tests pass.
+- [ ] SAST/SCA/secret scanning executed.
+- [ ] Block secrets + critical vulns (or approved exceptions).
 
-## 3. CI/CD & supply chain
-- [ ] SAST + SCA in CI.
-- [ ] No secrets in repos; use a vault.
-- [ ] Traceability PR → build → deployment.
+## 3. Threat modeling
+- [ ] Performed for internet-facing apps / sensitive data.
 
 ## 4. Vulnerabilities
-- [ ] Triage/remediation process with SLAs.
-- [ ] Re-test after fixes.
+- [ ] Triage/remediation with P0–P4 SLAs.
+- [ ] Re-test and evidence.
 
-## 5. Enhanced (regulated)
-- [ ] SBOM + provenance / artifact signing.
-- [ ] Pre-prod and periodic pentests for critical scope.
-- [ ] Formal governance (reporting, risk acceptances).
+## 5. Security logging
+- [ ] Auth/admin logs centralized.
+- [ ] Retention ≥ 90d (baseline) / ≥ 180d (regulated).
+
+## 6. Enhanced (regulated)
+- [ ] SBOM + provenance + signing.
+- [ ] Pre-prod + periodic pentesting.
 
 ---
-*Template checklist: complete with evidence and links to pipelines/reports.*
+*Template checklist: add links to pipelines and reports.*

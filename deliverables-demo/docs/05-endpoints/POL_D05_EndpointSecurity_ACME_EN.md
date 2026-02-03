@@ -1,70 +1,68 @@
 # Endpoint & Workstation Security Policy (D05)
 
 **Organization:** ACME  
-**Version:** 0.1 (draft)  
+**Version:** 0.2 (hardened)  
 **Date:** 2026-02-03
 
 ## 1. Purpose
-Define security requirements for workstations, laptops, managed mobile devices and endpoints (including admin workstations) to reduce compromise risk, data leakage and business disruption.
+Define **operational and auditable** endpoint security requirements to reduce compromise, data leakage and disruption risks.
 
 ## 2. Scope
 - Windows/macOS/Linux endpoints; iOS/Android (if managed).
-- Internal and remote endpoints, work-from-home, BYOD (if allowed).
-- Administrative endpoints (jump hosts, dedicated admin workstations).
+- Internal and remote endpoints, WFH, BYOD (if allowed).
+- Admin workstations (PAW / jump hosts).
 - Profiles: SME=true, Mid=true, Regulated=true.
 
-## 3. Principles
-- **Hardened baselines** and standardized configurations.
-- **Central management** (MDM/UEM, GPO, configuration management).
-- **Defense-in-depth**: EDR/AV, host firewall, application control.
-- **Systematic patch management** prioritized by criticality.
-- **Encryption** and **backup/sync** for critical data.
-- **Traceability**: security logs and alerts are collected and acted upon.
+## 3. Baseline requirements
+### 3.1 Inventory & compliance (mandatory)
+- Maintain an up-to-date endpoint inventory (owner, OS, criticality, last check-in).
+- Mandatory minimum compliance:
+  - supported OS
+  - disk encryption (laptops)
+  - active EDR
+  - host firewall enabled
+- Fleet compliance target: **≥ 95%**.
 
-## 4. Governance & responsibilities
-- **IT Ops / Workplace**: build, deployment, hardening, patching, compliance.
-- **Security/CISO**: requirements, assurance, exceptions, risk ownership.
-- **Managers**: approve specific needs (software), arbitrate.
-- **Users**: comply with rules and report incidents.
+### 3.2 Identity & access
+- No shared accounts on endpoints.
+- Admin access via separate accounts; no permanent local admin (unless exception).
 
-## 5. Baseline requirements
-### 5.1 Inventory & compliance
-- Maintain an endpoint inventory with owner and criticality.
-- Minimum compliance: supported OS, encryption, active EDR/AV, host firewall enabled.
+### 3.3 Hardening
+- Enforced and versioned GPO/MDM baselines.
+- Auto-lock ≤ **10 minutes**.
 
-### 5.2 Hardening
-- Standard build (golden image) and secure configuration.
-- Disable unnecessary services; restrict macros and scripts.
-- Limit local accounts; no permanent local admin unless documented need.
+### 3.4 Patching
+- Patching SLAs enforced (see D05 PatchManagement standard).
 
-### 5.3 Patching
-- OS and critical application updates applied within defined timelines.
-- Prioritize internet-exposed and actively exploited vulnerabilities.
+### 3.5 Protection & response
+- EDR/AV coverage and SLAs enforced (see D05 EDR standard).
+- Endpoint isolation capability tested.
 
-### 5.4 Endpoint protection
-- Centrally managed EDR/AV with real-time protection.
-- Host firewall enabled; restrict unnecessary ports/flows.
+### 3.6 Data
+- Encryption: **100%** of laptops.
+- Backup/sync of business data per operating model.
 
-### 5.5 Data
-- Full-disk encryption (at least laptops); auto-lock.
-- Backup/sync of business data (per operating model).
+## 4. Enhanced requirements (regulated sectors)
+- Fleet compliance: **≥ 98%**; critical scope: **≥ 99%**.
+- Dedicated PAWs and segmentation.
+- Application allow-listing for critical scope.
+- Endpoint/EDR log retention: **≥ 180 days** + integrity.
+- Peripheral restrictions (USB) and transfer controls as needed.
 
-## 6. Enhanced requirements (regulated sectors)
-- Dedicated admin workstations (PAW) and strong segmentation.
-- Application allow-listing on critical scope.
-- Enhanced hardening (benchmarks) with compliance evidence.
-- Accelerated patching for critical vulns (strict SLA) + maintenance windows.
-- Detection & response: EDR playbooks, proactive hunting, increased log retention.
-- Peripheral restrictions: controlled USB, DLP/transfer controls where required.
+## 5. Exceptions
+Exceptions must be documented, time-boxed, compensated and approved by Security/CISO.
 
-## 7. Exceptions
-Any exception must be documented, justified, time-bound, compensated (alternative controls) and approved by Security/CISO.
+## 6. Audit criteria (pass/fail)
+- [ ] Inventory and compliance measured.
+- [ ] Hardening baseline enforced.
+- [ ] Patching SLAs met.
+- [ ] EDR compliant (coverage, exclusions, SLAs).
+- [ ] Encryption proven.
 
-## 8. Expected evidence (examples)
+## 7. Expected evidence
 - Endpoint compliance report (MDM/UEM/EDR).
-- Configuration baseline and key settings.
-- Patching/vulnerability report.
-- Endpoint onboarding/offboarding procedures.
+- Baseline exports (GPO/MDM) + versions.
+- Patching reports + exceptions.
 
 ---
-*Template document: adapt to your fleet, tooling (Intune/Jamf/SCCM, etc.) and regulatory requirements.*
+*Template document: adapt to fleet and tooling.*
