@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/nato-trinity/schemas/chainOfCustodyEvent.schema.json",
+  "title": "ChainOfCustodyEvent",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "version",
+    "createdAt",
+    "createdBy",
+    "eventId",
+    "evidenceId",
+    "action",
+    "actor",
+    "timestamp"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "const": "chainOfCustodyEvent" },
+    "version": { "type": "integer", "minimum": 1 },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "type": "string" },
+
+    "eventId": { "type": "string" },
+    "evidenceId": { "type": "string" },
+    "action": {
+      "type": "string",
+      "enum": ["create", "access", "export", "legalHold", "purge", "retentionChange"]
+    },
+    "actor": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "details": { "type": "object" }
+  },
+  "additionalProperties": true
+}
