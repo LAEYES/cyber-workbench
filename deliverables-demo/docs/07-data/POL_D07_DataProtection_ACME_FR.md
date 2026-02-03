@@ -1,0 +1,57 @@
+# POL — D07 — Politique Protection des Données
+
+**Organisation :** ACME  
+**Version :** 0.2 (durci)  
+**Date :** 2026-02-03
+
+## 1. Objet
+Définir des exigences **mesurables et auditées** de protection des données (classification, accès, chiffrement, rétention, sauvegarde, DLP) afin de réduire le risque de fuite, d’altération et d’indisponibilité.
+
+## 2. Périmètre
+- Données métier, RH, clients, données personnelles, secrets, logs.
+- Stockages : postes, serveurs, SaaS, cloud (objets/blobs), bases de données.
+
+## 3. Exigences minimales (baseline)
+### 3.1 Classification (obligatoire)
+- 4 niveaux minimum : **Public / Interne / Confidentiel / Très sensible**.
+- Owner de données obligatoire pour chaque dataset/application critique.
+
+### 3.2 Accès
+- Accès par RBAC, moindre privilège.
+- Revue des accès : périmètre sensible **trimestriel** (baseline).
+
+### 3.3 Chiffrement
+- TLS en transit.
+- Chiffrement au repos pour **Confidentiel+**.
+
+### 3.4 Rétention & suppression
+- Règles de rétention définies (par catégorie) + suppression à échéance.
+
+### 3.5 Sauvegarde & restauration
+- RPO/RTO définis pour systèmes critiques.
+- Tests de restauration : **au moins trimestriel** sur périmètre critique.
+
+### 3.6 DLP / contrôle de sortie
+- Contrôle des canaux de sortie pour **Confidentiel+** (partage public interdit, liens externes contrôlés).
+
+## 4. Exigences renforcées (régulé)
+- Revue accès : **mensuelle** sur périmètre critique + recertification.
+- Chiffrement avec clés gérées client (KMS/HSM/BYOK) sur périmètre critique.
+- Sauvegardes immuables (WORM) + air-gap logique si possible.
+- Rétention logs accès données : **≥ 180 jours** + intégrité.
+
+## 5. Critères d’audit (pass/fail)
+- [ ] Classification déployée + owners identifiés.
+- [ ] RBAC + revues d’accès réalisées.
+- [ ] Chiffrement en transit et au repos (Confidentiel+).
+- [ ] Rétention/suppression appliquées.
+- [ ] Backups testés.
+
+## 6. Preuves attendues
+- Matrice classification + owners.
+- Exports RBAC + rapports revues.
+- Preuves chiffrement (config KMS/TLS).
+- Rapports de tests restauration.
+
+---
+*Politique modèle : à décliner en standards (classification, chiffrement/clefs, sauvegardes, DLP).* 

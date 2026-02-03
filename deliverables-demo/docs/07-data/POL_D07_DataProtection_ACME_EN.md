@@ -1,0 +1,57 @@
+# POL — D07 — Data Protection Policy
+
+**Organization:** ACME  
+**Version:** 0.2 (hardened)  
+**Date:** 2026-02-03
+
+## 1. Purpose
+Define **measurable and auditable** data protection requirements (classification, access, encryption, retention, backup, DLP) to reduce leakage, integrity loss and unavailability risks.
+
+## 2. Scope
+- Business, HR, customer, personal data, secrets, logs.
+- Storage: endpoints, servers, SaaS, cloud object storage, databases.
+
+## 3. Baseline requirements
+### 3.1 Classification (mandatory)
+- Minimum 4 levels: **Public / Internal / Confidential / Highly sensitive**.
+- Data owner mandatory for each critical dataset/application.
+
+### 3.2 Access
+- RBAC and least privilege.
+- Access reviews: sensitive scope **quarterly** (baseline).
+
+### 3.3 Encryption
+- TLS in transit.
+- At-rest encryption for **Confidential+**.
+
+### 3.4 Retention & deletion
+- Retention rules defined per category + deletion at end of life.
+
+### 3.5 Backup & restore
+- RPO/RTO defined for critical systems.
+- Restore tests: **at least quarterly** for critical scope.
+
+### 3.6 DLP / egress controls
+- Egress controls for **Confidential+** (no public sharing, controlled external links).
+
+## 4. Enhanced requirements (regulated)
+- Access reviews: **monthly** for critical scope + formal recertification.
+- Customer-managed keys (KMS/HSM/BYOK) for critical scope.
+- Immutable backups (WORM) + logical air-gap where feasible.
+- Data access log retention: **≥ 180 days** + integrity.
+
+## 5. Audit criteria (pass/fail)
+- [ ] Classification deployed + owners identified.
+- [ ] RBAC + access reviews performed.
+- [ ] Encryption in transit and at rest (Confidential+).
+- [ ] Retention/deletion enforced.
+- [ ] Backups tested.
+
+## 6. Expected evidence
+- Classification matrix + owners.
+- RBAC exports + review reports.
+- Encryption evidence (KMS/TLS settings).
+- Restore test reports.
+
+---
+*Template policy: complemented by standards (classification, encryption/keys, backups, DLP).*

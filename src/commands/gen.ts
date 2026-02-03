@@ -32,7 +32,12 @@ type DocKind =
   | "application-security-policy"
   | "secure-development-standard"
   | "vulnerability-management-standard"
-  | "appsec-checklist";
+  | "appsec-checklist"
+  | "data-protection-policy"
+  | "data-classification-standard"
+  | "encryption-key-management-standard"
+  | "backup-recovery-standard"
+  | "data-protection-checklist";
 
 function normalizeDoc(doc: string): DocKind {
   const raw = doc.trim();
@@ -213,6 +218,58 @@ function normalizeDoc(doc: string): DocKind {
     v === "chk-d06-appsec"
   )
     return "appsec-checklist";
+
+  // Domain D07
+  if (
+    v === "data-protection-policy" ||
+    v === "pol_d07_dataprotection" ||
+    v === "pol-d07-dataprotection" ||
+    v === "pol_d07_data_protection" ||
+    v === "pol-d07-data-protection"
+  )
+    return "data-protection-policy";
+
+  if (
+    v === "data-classification-standard" ||
+    v === "std_d07_data_classification" ||
+    v === "std-d07-data-classification" ||
+    v === "std_d07_dataclassification" ||
+    v === "std-d07-dataclassification" ||
+    v === "std_d07_classification" ||
+    v === "std-d07-classification"
+  )
+    return "data-classification-standard";
+
+  if (
+    v === "encryption-key-management-standard" ||
+    v === "std_d07_encryption" ||
+    v === "std-d07-encryption" ||
+    v === "std_d07_encryptionandkeymanagement" ||
+    v === "std-d07-encryptionandkeymanagement" ||
+    v === "std_d07_kms" ||
+    v === "std-d07-kms"
+  )
+    return "encryption-key-management-standard";
+
+  if (
+    v === "backup-recovery-standard" ||
+    v === "std_d07_backup_recovery" ||
+    v === "std-d07-backup-recovery" ||
+    v === "std_d07_backupandrecovery" ||
+    v === "std-d07-backupandrecovery" ||
+    v === "std_d07_backup" ||
+    v === "std-d07-backup"
+  )
+    return "backup-recovery-standard";
+
+  if (
+    v === "data-protection-checklist" ||
+    v === "chk_d07_data_protection" ||
+    v === "chk-d07-data-protection" ||
+    v === "chk_d07_dataprotection" ||
+    v === "chk-d07-dataprotection"
+  )
+    return "data-protection-checklist";
 
   throw new Error(`Doc inconnu: ${raw}`);
 }
@@ -617,6 +674,72 @@ export async function genDoc(params: { doc: string; org?: string; lang?: string;
       tasks.push({
         template: tplPath("06-appsec", "appsec-checklist.en.md.hbs"),
         out: path.join(outDir, "docs", "06-appsec", `CHK_D06_AppSec_${org}_EN.md`)
+      });
+  }
+
+  // Domain D07
+  if (doc === "data-protection-policy") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("07-data", "data-protection-policy.fr.md.hbs"),
+        out: path.join(outDir, "docs", "07-data", `POL_D07_DataProtection_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("07-data", "data-protection-policy.en.md.hbs"),
+        out: path.join(outDir, "docs", "07-data", `POL_D07_DataProtection_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "data-classification-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("07-data", "data-classification-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "07-data", `STD_D07_DataClassification_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("07-data", "data-classification-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "07-data", `STD_D07_DataClassification_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "encryption-key-management-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("07-data", "encryption-key-management-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "07-data", `STD_D07_EncryptionAndKeyManagement_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("07-data", "encryption-key-management-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "07-data", `STD_D07_EncryptionAndKeyManagement_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "backup-recovery-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("07-data", "backup-recovery-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "07-data", `STD_D07_BackupAndRecovery_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("07-data", "backup-recovery-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "07-data", `STD_D07_BackupAndRecovery_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "data-protection-checklist") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("07-data", "data-protection-checklist.fr.md.hbs"),
+        out: path.join(outDir, "docs", "07-data", `CHK_D07_DataProtection_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("07-data", "data-protection-checklist.en.md.hbs"),
+        out: path.join(outDir, "docs", "07-data", `CHK_D07_DataProtection_${org}_EN.md`)
       });
   }
 
