@@ -10,6 +10,33 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
+
+  responses:
+    BadRequest:
+      description: Bad Request
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Forbidden:
+      description: Forbidden
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    NotFound:
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+
   schemas:
     Problem:
       type: object
@@ -444,6 +471,7 @@ components:
 
 security:
   - bearerAuth: []
+
 paths:
   /api/v1/risks:
     get:
@@ -865,11 +893,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Case'
         '401':
-          description: Unauthorized
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
     post:
       summary: Create case
       requestBody:
@@ -886,11 +912,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/Case'
         '400':
-          description: Bad Request
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
 
   /api/v1/cases/{caseId}:
     get:
@@ -907,12 +933,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Case'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not Found
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/NotFound'
 
   /api/v1/gates:
     get:
@@ -936,6 +962,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Gate'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
     post:
       summary: Create gate
       requestBody:
@@ -951,6 +981,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Gate'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
 
   /api/v1/gates/{gateId}:
     get:
@@ -967,12 +1003,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Gate'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not Found
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/NotFound'
 
   /api/v1/evidence/{evidenceId}/chain-of-custody:
     get:
@@ -997,6 +1033,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ChainOfCustodyEvent'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
     post:
       summary: Append chain-of-custody event
       parameters:
@@ -1017,6 +1059,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ChainOfCustodyEvent'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
 
   /api/v1/chain-of-custody-events/{eventId}:
     get:
@@ -1033,12 +1083,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ChainOfCustodyEvent'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not Found
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/NotFound'
 
   /api/v1/manifests:
     get:
@@ -1062,6 +1112,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Manifest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
     post:
       summary: Create manifest
       requestBody:
@@ -1077,6 +1131,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Manifest'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
 
   /api/v1/manifests/{packageId}:
     get:
@@ -1093,9 +1153,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Manifest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
-          description: Not Found
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/NotFound'
