@@ -1,0 +1,11 @@
+stateDiagram-v2
+  [*] --> Draft
+  Draft --> PendingApproval: submit
+  PendingApproval --> Approved1: approve#1
+  Approved1 --> Approved2: approve#2 (regulated)
+  Approved1 --> Executed: execute (baseline)
+  Approved2 --> Executed: execute
+  PendingApproval --> Rejected: reject
+  Approved1 --> Rejected: reject
+  Executed --> [*]
+  Rejected --> [*]
