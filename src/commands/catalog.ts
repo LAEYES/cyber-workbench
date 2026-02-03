@@ -7,7 +7,7 @@ export async function validateCatalog(params: { rootDir: string }) {
 
   const controlFiles = [
     path.join(root, "controls", "iso27002-2022.controls.yml"),
-    path.join(root, "controls", "nist-csf-2.0.subcategories.yml"),
+    path.join(root, "controls", "nist-csf-2.0.outcomes.yml"),
     path.join(root, "controls", "cis-v8.safeguards.yml")
   ];
 

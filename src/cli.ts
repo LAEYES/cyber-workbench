@@ -3,6 +3,7 @@ import { Command } from "commander";
 import { initWorkspace } from "./commands/init.js";
 import { genDoc } from "./commands/gen.js";
 import { validateCatalog } from "./commands/catalog.js";
+import { importNistCsf } from "./commands/import_nist.js";
 
 const program = new Command();
 
@@ -41,6 +42,15 @@ program
   .option("--root <dir>", "Racine du catalog", "./catalog")
   .action(async (opts) => {
     await validateCatalog({ rootDir: opts.root });
+  });
+
+program
+  .command("catalog:import-nist")
+  .description("Importe NIST CSF 2.0 (outcomes) depuis l'export xlsx des informative references")
+  .option("--url <url>", "URL de l'xlsx")
+  .option("--out <file>", "Fichier de sortie", "./catalog/controls/nist-csf-2.0.outcomes.yml")
+  .action(async (opts) => {
+    await importNistCsf({ outFile: opts.out, url: opts.url });
   });
 
 program.parseAsync(process.argv);
