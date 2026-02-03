@@ -107,6 +107,121 @@ Obligatoire pour :
 
 ---
 
+## 4. Modèle de données (normatif)
+### 4.1 Exigences transverses
+- Tous les objets MUST avoir : `id`, `type`, `createdAt`, `createdBy`, `updatedAt` (si modifiable).
+- Tous les objets MUST être **versionnés** (au minimum `version` incrémentée à chaque changement).
+- Tous les liens MUST être explicites (IDs) et auditables (qui a lié, quand).
+
+### 4.2 Objets — Risk Engine
+#### 4.2.1 Risk
+- Champs minimum : `riskId`, `title`, `description`, `owner`, `likelihood(1-5)`, `impact(1-5)`, `score(1-25)`, `status`, `dueDate`, `treatment`.
+- `score` MUST = `likelihood * impact`.
+
+#### 4.2.2 Decision
+- Types : `treat | avoid | transfer | accept`.
+- Champs minimum : `decisionId`, `riskId`, `decisionType`, `rationale`, `approvedBy`, `approvedAt`, `expiryDate` (si accept).
+
+#### 4.2.3 Exception
+- Champs minimum : `exceptionId`, `requirementRef`, `scope`, `rationale`, `approvedBy`, `approvedAt`, `expiryDate`, `remediationPlan`.
+- `expiryDate` MUST être défini et ≤ 30 jours par défaut (modifiable via politique).
+
+### 4.3 Objets — Policy-as-Code Orchestrator
+#### 4.3.1 Gate
+- Champs minimum : `gateId`, `name`, `scope`, `mode(blocking|advisory)`, `severity`, `policyRef`, `enabled`.
+
+#### 4.3.2 GateResult
+- Champs minimum : `gateResultId`, `gateId`, `targetRef` (build/deploy/access), `status(pass|fail|warn)`, `executedAt`, `evidenceRefs[]`.
+
+#### 4.3.3 Playbook
+- Champs minimum : `playbookId`, `name`, `trigger`, `steps[]`, `approvalsRequired`.
+
+#### 4.3.4 ExecutionTrace
+- Champs minimum : `executionId`, `playbookId|gateId`, `triggerEventId`, `inputs`, `outputs`, `startedAt`, `endedAt`, `runAs`, `logsRef`.
+
+### 4.4 Objets — Evidence Engine
+#### 4.4.1 Evidence
+- Types : `logExport | configSnapshot | ticket | report | sbom | vex | attestation | signature | screenshot`.
+- Champs minimum : `evidenceId`, `type`, `sourceSystem`, `collectedAt`, `collectorId`, `hash`, `storageRef`, `retentionClass`.
+
+#### 4.4.2 ChainOfCustodyEvent
+- Champs : `eventId`, `evidenceId`, `action(create|access|export|legalHold|purge)`, `actor`, `timestamp`, `details`.
+
+#### 4.4.3 EvidencePackage
+- Champs minimum : `packageId`, `scopeRef` (risk/case/control), `evidenceRefs[]`, `manifestHash`, `exportedAt`, `exportedBy`.
+
+### 4.5 Objets — Case/Incident (liaison)
+#### 4.5.1 Case
+- Champs minimum : `caseId`, `severity`, `status`, `owner`, `createdAt`, `triagedAt`, `containedAt`, `closedAt`, `timelineRefs[]`, `evidenceRefs[]`, `riskRefs[]`.
+
+### 4.6 Liens obligatoires (pass/fail)
+- Tout **Risk** MUST avoir ≥ 1 `controlRef` OU justification explicite "no control".
+- Tout **Decision accept** MUST avoir `expiryDate` + `approvedBy` ≠ `risk.owner`.
+- Tout **GateResult fail** MUST créer ou lier un `Case` (ou ticket) sous 24h.
+- Tout **EvidencePackage** MUST inclure un manifeste (hash) et lister précisément les preuves.
+
+---
+
+## 5. Exigences “en dur” (pass/fail)
+### 5.1 Logging & traçabilité (baseline)
+- Les actions Admin/Approver/IR Lead MUST être journalisées.
+- Les journaux MUST inclure : actor, action, objet, horodatage, résultat.
+
+### 5.2 Rétention (baseline vs régulé)
+- Baseline : logs critiques ≥ 180j ; preuves incidents ≥ 1 an.
+- Régulé : logs critiques ≥ 1 an ; preuves incidents/décisions ≥ 3 ans ; WORM pour preuves critiques.
+
+### 5.3 SLA par défaut (baseline)
+- Triage incident critique ≤ 1h.
+- Vuln critique corrigée/mitigée ≤ 7j.
+- Patch critique ≤ 7j.
+
+### 5.4 SLA par défaut (régulé)
+- Triage incident critique ≤ 1h (inchangé) + containment initial ≤ 4h.
+- Vuln critique corrigée/mitigée ≤ 72h.
+- Patch critique ≤ 72h.
+
+### 5.5 Exceptions
+- Toute exception MUST être time-boxed, approuvée, justifiée et liée à une preuve.
+
+---
+
+## 6. Interfaces & intégrations (normatives)
+### 6.1 Entrées minimales
+- IdP (auth/MFA/RBAC exports)
+- SIEM (exports logs + alertes)
+- CI/CD (logs build, artefacts, results gates)
+- Supply chain (SBOM, attestations, signatures)
+
+### 6.2 Formats
+- JSON/YAML recommandés.
+- Schémas versionnés ; validation automatique en CI.
+
+---
+
+## 7. Workflows end-to-end
+### 7.1 Flux Risk → Decision → Evidence
+1) Créer Risk
+2) Lier contrôles et preuves
+3) Produire Decision (accept/treat…)
+4) Générer EvidencePackage pour audit
+
+### 7.2 Flux CI/CD Gate → Release
+1) Build
+2) Générer SBOM
+3) Signer artefact
+4) Exécuter Gate (pass/fail)
+5) Stocker preuves + attestation
+
+### 7.3 Flux Incident → Case → Containment → Evidence
+1) Alert
+2) Case (D14)
+3) Orchestration actions (D13)
+4) Capture preuves (D08)
+5) Clôture + post-mortem
+
+---
+
 # EN — Specification
 
 ## 0. Meta
@@ -205,3 +320,118 @@ Mandatory for:
 - evidence deletion/purge,
 - accepting critical risks,
 - disabling critical gates.
+
+---
+
+## 4. Data model (normative)
+### 4.1 Cross-cutting requirements
+- All objects MUST have: `id`, `type`, `createdAt`, `createdBy`, `updatedAt` (if mutable).
+- All objects MUST be versioned (at least `version` incremented on change).
+- All links MUST be explicit (IDs) and auditable (who linked, when).
+
+### 4.2 Objects — Risk Engine
+#### 4.2.1 Risk
+- Minimum fields: `riskId`, `title`, `description`, `owner`, `likelihood(1-5)`, `impact(1-5)`, `score(1-25)`, `status`, `dueDate`, `treatment`.
+- `score` MUST equal `likelihood * impact`.
+
+#### 4.2.2 Decision
+- Types: `treat | avoid | transfer | accept`.
+- Minimum fields: `decisionId`, `riskId`, `decisionType`, `rationale`, `approvedBy`, `approvedAt`, `expiryDate` (if accept).
+
+#### 4.2.3 Exception
+- Minimum fields: `exceptionId`, `requirementRef`, `scope`, `rationale`, `approvedBy`, `approvedAt`, `expiryDate`, `remediationPlan`.
+- `expiryDate` MUST be set and ≤ 30 days by default (policy-driven).
+
+### 4.3 Objects — Policy-as-Code Orchestrator
+#### 4.3.1 Gate
+- Minimum fields: `gateId`, `name`, `scope`, `mode(blocking|advisory)`, `severity`, `policyRef`, `enabled`.
+
+#### 4.3.2 GateResult
+- Minimum fields: `gateResultId`, `gateId`, `targetRef` (build/deploy/access), `status(pass|fail|warn)`, `executedAt`, `evidenceRefs[]`.
+
+#### 4.3.3 Playbook
+- Minimum fields: `playbookId`, `name`, `trigger`, `steps[]`, `approvalsRequired`.
+
+#### 4.3.4 ExecutionTrace
+- Minimum fields: `executionId`, `playbookId|gateId`, `triggerEventId`, `inputs`, `outputs`, `startedAt`, `endedAt`, `runAs`, `logsRef`.
+
+### 4.4 Objects — Evidence Engine
+#### 4.4.1 Evidence
+- Types: `logExport | configSnapshot | ticket | report | sbom | vex | attestation | signature | screenshot`.
+- Minimum fields: `evidenceId`, `type`, `sourceSystem`, `collectedAt`, `collectorId`, `hash`, `storageRef`, `retentionClass`.
+
+#### 4.4.2 ChainOfCustodyEvent
+- Fields: `eventId`, `evidenceId`, `action(create|access|export|legalHold|purge)`, `actor`, `timestamp`, `details`.
+
+#### 4.4.3 EvidencePackage
+- Minimum fields: `packageId`, `scopeRef` (risk/case/control), `evidenceRefs[]`, `manifestHash`, `exportedAt`, `exportedBy`.
+
+### 4.5 Case/Incident objects (linking)
+#### 4.5.1 Case
+- Minimum fields: `caseId`, `severity`, `status`, `owner`, `createdAt`, `triagedAt`, `containedAt`, `closedAt`, `timelineRefs[]`, `evidenceRefs[]`, `riskRefs[]`.
+
+### 4.6 Mandatory link rules (pass/fail)
+- Every **Risk** MUST have ≥ 1 `controlRef` OR explicit "no control" rationale.
+- Every **accept Decision** MUST have `expiryDate` + `approvedBy` ≠ `risk.owner`.
+- Every **failed GateResult** MUST create or link to a `Case` (or ticket) within 24h.
+- Every **EvidencePackage** MUST include a manifest (hash) and list evidence precisely.
+
+---
+
+## 5. “Hard” requirements (pass/fail)
+### 5.1 Logging & traceability (baseline)
+- Admin/Approver/IR Lead actions MUST be logged.
+- Logs MUST include: actor, action, object, timestamp, outcome.
+
+### 5.2 Retention (baseline vs regulated)
+- Baseline: critical logs ≥ 180d; incident evidence ≥ 1y.
+- Regulated: critical logs ≥ 1y; incident/decision evidence ≥ 3y; WORM for critical evidence.
+
+### 5.3 Default SLAs (baseline)
+- Critical incident triage ≤ 1h.
+- Critical vuln fixed/mitigated ≤ 7d.
+- Critical patch ≤ 7d.
+
+### 5.4 Default SLAs (regulated)
+- Critical triage ≤ 1h (unchanged) + initial containment ≤ 4h.
+- Critical vuln fixed/mitigated ≤ 72h.
+- Critical patch ≤ 72h.
+
+### 5.5 Exceptions
+- Every exception MUST be time-boxed, approved, justified, and linked to evidence.
+
+---
+
+## 6. Interfaces & integrations (normative)
+### 6.1 Minimum inputs
+- IdP (auth/MFA/RBAC exports)
+- SIEM (log exports + alerts)
+- CI/CD (build logs, artifacts, gate results)
+- Supply chain (SBOM, attestations, signatures)
+
+### 6.2 Formats
+- JSON/YAML recommended.
+- Versioned schemas; automated validation in CI.
+
+---
+
+## 7. End-to-end workflows
+### 7.1 Risk → Decision → Evidence
+1) Create Risk
+2) Link controls and evidence
+3) Produce Decision (accept/treat…)
+4) Generate EvidencePackage for audit
+
+### 7.2 CI/CD Gate → Release
+1) Build
+2) Generate SBOM
+3) Sign artifact
+4) Run Gate (pass/fail)
+5) Store evidence + attestation
+
+### 7.3 Incident → Case → Containment → Evidence
+1) Alert
+2) Case (D14)
+3) Orchestrate actions (D13)
+4) Capture evidence (D08)
+5) Close + post-mortem
