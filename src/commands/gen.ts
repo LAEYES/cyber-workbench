@@ -86,7 +86,12 @@ type DocKind =
   | "workload-identity-standard"
   | "attestation-runtime-integrity-standard"
   | "secretless-access-standard"
-  | "workload-identity-checklist";
+  | "workload-identity-checklist"
+  | "deception-policy"
+  | "honeypot-deployment-standard"
+  | "honeytokens-canary-standard"
+  | "deception-response-playbooks-standard"
+  | "deception-checklist";
 
 function normalizeDoc(doc: string): DocKind {
   const raw = doc.trim();
@@ -860,6 +865,62 @@ function normalizeDoc(doc: string): DocKind {
     v === "chk-d17-workload"
   )
     return "workload-identity-checklist";
+
+  // Domain D18
+  if (
+    v === "deception-policy" ||
+    v === "pol_d18_deception" ||
+    v === "pol-d18-deception" ||
+    v === "pol_d18_honeypots" ||
+    v === "pol-d18-honeypots"
+  )
+    return "deception-policy";
+
+  if (
+    v === "honeypot-deployment-standard" ||
+    v === "std_d18_honeypot" ||
+    v === "std-d18-honeypot" ||
+    v === "std_d18_honeypotdeployment" ||
+    v === "std-d18-honeypotdeployment" ||
+    v === "std_d18_honeypot_deployment" ||
+    v === "std-d18-honeypot-deployment" ||
+    v === "std_d18_honeypots" ||
+    v === "std-d18-honeypots"
+  )
+    return "honeypot-deployment-standard";
+
+  if (
+    v === "honeytokens-canary-standard" ||
+    v === "std_d18_honeytokens" ||
+    v === "std-d18-honeytokens" ||
+    v === "std_d18_honeytokens_canary" ||
+    v === "std-d18-honeytokens-canary" ||
+    v === "std_d18_canary" ||
+    v === "std-d18-canary"
+  )
+    return "honeytokens-canary-standard";
+
+  if (
+    v === "deception-response-playbooks-standard" ||
+    v === "std_d18_response_playbooks" ||
+    v === "std-d18-response-playbooks" ||
+    v === "std_d18_deceptionresponse_playbooks" ||
+    v === "std-d18-deceptionresponse-playbooks" ||
+    v === "std_d18_deception_response_playbooks" ||
+    v === "std-d18-deception-response-playbooks" ||
+    v === "std_d18_soar_playbooks" ||
+    v === "std-d18-soar-playbooks"
+  )
+    return "deception-response-playbooks-standard";
+
+  if (
+    v === "deception-checklist" ||
+    v === "chk_d18_deception" ||
+    v === "chk-d18-deception" ||
+    v === "chk_d18_honeypots" ||
+    v === "chk-d18-honeypots"
+  )
+    return "deception-checklist";
 
   throw new Error(`Doc inconnu: ${raw}`);
 }
@@ -1977,6 +2038,72 @@ export async function genDoc(params: { doc: string; org?: string; lang?: string;
       tasks.push({
         template: tplPath("17-workload-identity-attestation", "workload-identity-checklist.en.md.hbs"),
         out: path.join(outDir, "docs", "17-workload-identity-attestation", `CHK_D17_WorkloadIdentity_${org}_EN.md`)
+      });
+  }
+
+  // Domain D18
+  if (doc === "deception-policy") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("18-deception", "deception-policy.fr.md.hbs"),
+        out: path.join(outDir, "docs", "18-deception", `POL_D18_Deception_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("18-deception", "deception-policy.en.md.hbs"),
+        out: path.join(outDir, "docs", "18-deception", `POL_D18_Deception_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "honeypot-deployment-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("18-deception", "honeypot-deployment-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "18-deception", `STD_D18_HoneypotDeployment_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("18-deception", "honeypot-deployment-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "18-deception", `STD_D18_HoneypotDeployment_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "honeytokens-canary-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("18-deception", "honeytokens-canary-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "18-deception", `STD_D18_Honeytokens_Canary_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("18-deception", "honeytokens-canary-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "18-deception", `STD_D18_Honeytokens_Canary_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "deception-response-playbooks-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("18-deception", "deception-response-playbooks-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "18-deception", `STD_D18_DeceptionResponse_Playbooks_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("18-deception", "deception-response-playbooks-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "18-deception", `STD_D18_DeceptionResponse_Playbooks_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "deception-checklist") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("18-deception", "deception-checklist.fr.md.hbs"),
+        out: path.join(outDir, "docs", "18-deception", `CHK_D18_Deception_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("18-deception", "deception-checklist.en.md.hbs"),
+        out: path.join(outDir, "docs", "18-deception", `CHK_D18_Deception_${org}_EN.md`)
       });
   }
 

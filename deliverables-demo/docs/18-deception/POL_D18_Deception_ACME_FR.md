@@ -1,0 +1,31 @@
+# POL — D18 — Deception / Honeypots / Canary
+
+**Organisation :** ACME  
+**Version :** 0.2 (durci)  
+**Date :** 2026-02-03
+
+## 1. Objectif
+Détecter rapidement les mouvements adverses via leurres (honeypots, honeytokens, canary) avec alerting fiable, réponse orchestrée (D13), et preuves (D08).
+
+## 2. Principes
+- Les leurres ne doivent pas exposer de données réelles.
+- Segmentation stricte (D03) + isolement.
+- Alertes haute confiance : tout accès à un leurre = incident potentiel.
+
+## 3. Exigences minimales (baseline)
+- Déployer au moins :
+  - 1 honeytoken (credential/token) par environnement prod
+  - 1 canary file/share sur serveurs sensibles
+- Alerting intégré au SIEM/SOAR (D10/D13) avec enrichissement.
+- Playbook auto : triage + containment initial (si possible) en ≤ 30 min.
+
+## 4. Exigences renforcées (régulé)
+- Leurres par segment critique (prod/admin/data).
+- Journaux deception conservés ≥ 180 jours + intégrité.
+
+## 5. Pass/fail
+- [ ] Tout trigger génère un ticket + timeline.
+- [ ] Test mensuel des leurres.
+
+## 6. Preuves
+- Inventaire leurres, tests mensuels, tickets incidents, logs.

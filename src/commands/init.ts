@@ -34,6 +34,7 @@ export async function initWorkspace(params: { org: string; lang: Lang | string; 
   await ensureDir(path.join(outDir, "docs", "15-risk-engine"));
   await ensureDir(path.join(outDir, "docs", "16-supply-chain"));
   await ensureDir(path.join(outDir, "docs", "17-workload-identity-attestation"));
+  await ensureDir(path.join(outDir, "docs", "18-deception"));
 
   console.log(`OK: workspace initialisé dans ${outDir}`);
   console.log(`Config: ${path.join(outDir, "cyberwb.yml")}`);

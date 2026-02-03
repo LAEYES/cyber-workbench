@@ -1,0 +1,21 @@
+# STD — D18 — Deception Response Playbooks (SOAR)
+
+**Organization:** {{org}}  
+**Version:** 0.2 (hardened)  
+**Date:** {{today}}
+
+## 1. Triggers
+- Canary file/share access
+- Honeypot connection
+- Honeycredential usage
+
+## 2. Automated actions (≤ 30 min)
+- Create case (D14) + enrich (asset, user, IP, geo, TI).
+- Isolate endpoint when applicable (D05) / network block (D03).
+- Evidence capture (D08): logs, artifacts.
+
+## 3. Escalation
+- Critical if trigger is on admin/data segments.
+
+## 4. Evidence
+- Sample playbooks, SOAR logs, tickets.
