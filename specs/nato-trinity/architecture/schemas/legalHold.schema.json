@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/nato-trinity/schemas/legalHold.schema.json",
+  "title": "LegalHold",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "version",
+    "createdAt",
+    "createdBy",
+    "holdId",
+    "orgId",
+    "scopeRef",
+    "reason",
+    "status",
+    "createdByActor",
+    "createdAtTs"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "const": "legalHold" },
+    "version": { "type": "integer", "minimum": 1 },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "type": "string" },
+
+    "holdId": { "type": "string" },
+    "orgId": { "type": "string" },
+    "scopeRef": { "type": "string", "description": "riskId/caseId/evidenceId" },
+
+    "reason": { "type": "string", "minLength": 3 },
+    "status": { "type": "string", "enum": ["active", "released"] },
+
+    "createdByActor": { "type": "string" },
+    "createdAtTs": { "type": "string", "format": "date-time" },
+    "releasedBy": { "type": "string" },
+    "releasedAt": { "type": "string", "format": "date-time" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "status": { "const": "released" } }, "required": ["status"] },
+      "then": { "required": ["releasedBy", "releasedAt"] }
+    }
+  ],
+  "additionalProperties": true
+}
