@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/nato-trinity/schemas/auditEvent.schema.json",
+  "title": "AuditEvent",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "version",
+    "createdAt",
+    "createdBy",
+    "eventId",
+    "orgId",
+    "actor",
+    "action",
+    "objectRef",
+    "timestamp",
+    "outcome"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "const": "auditEvent" },
+    "version": { "type": "integer", "minimum": 1 },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "type": "string" },
+
+    "eventId": { "type": "string" },
+    "orgId": { "type": "string" },
+
+    "actor": { "type": "string" },
+    "actorType": { "type": "string", "enum": ["human", "service"] },
+
+    "action": { "type": "string" },
+    "objectRef": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+
+    "outcome": { "type": "string", "enum": ["success", "failure"] },
+    "ip": { "type": "string" },
+    "userAgent": { "type": "string" },
+
+    "details": { "type": "object" }
+  },
+  "additionalProperties": true
+}
