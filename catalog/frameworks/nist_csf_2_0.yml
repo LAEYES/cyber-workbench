@@ -1,0 +1,17 @@
+id: nist-csf-2.0
+name: NIST Cybersecurity Framework 2.0
+version: "2.0"
+functions:
+  - id: GV
+    name: Govern
+  - id: ID
+    name: Identify
+  - id: PR
+    name: Protect
+  - id: DE
+    name: Detect
+  - id: RS
+    name: Respond
+  - id: RC
+    name: Recover
+notes: "Minimal scaffold; categories/subcategories will be expanded."

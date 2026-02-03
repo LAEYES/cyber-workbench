@@ -23,7 +23,10 @@ program
 program
   .command("gen")
   .description("Génère un livrable")
-  .argument("<doc>", "pssi|risk-register")
+  .argument(
+    "<doc>",
+    "pssi|risk-register|isms-pack|asset-inventory|tprm-questionnaire|compliance-checklist"
+  )
   .option("--org <name>", "Nom de l'organisation")
   .option("--lang <lang>", "fr|en|both")
   .option("--out <dir>", "Dossier de sortie", "./deliverables")

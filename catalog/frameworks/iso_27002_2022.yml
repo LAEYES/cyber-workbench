@@ -1,0 +1,13 @@
+id: iso-27002-2022
+name: ISO/IEC 27002
+version: "2022"
+domains:
+  - id: org
+    name: Organizational
+  - id: people
+    name: People
+  - id: phys
+    name: Physical
+  - id: tech
+    name: Technological
+notes: "Scaffold only; control list to be added/expanded."
