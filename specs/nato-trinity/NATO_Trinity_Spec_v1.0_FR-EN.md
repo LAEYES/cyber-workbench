@@ -222,6 +222,70 @@ Obligatoire pour :
 
 ---
 
+## 8. Sécurité de la plateforme
+### 8.1 Exigences d’authentification & autorisation
+- Authentification MUST être basée sur un IdP (OIDC/SAML) avec MFA pour rôles à privilèges.
+- Autorisation MUST être RBAC avec séparation des tâches (SoD) et journalisation.
+
+### 8.2 Journalisation & non-répudiation
+- Toutes les actions sensibles (approvals, désactivation gates, exports, purge) MUST générer un audit event.
+- Les exports audit MUST être signés et/ou hashés avec manifeste.
+
+### 8.3 Cryptographie & clés
+- Les secrets/clé de signature MUST être stockés via KMS/HSM.
+- Rotation clés : ≥ annuelle (baseline), ≤ 6 mois (régulé) ou sur incident.
+
+### 8.4 Confidentialité & minimisation
+- Les preuves MUST être classifiées (au minimum: public/interne/sensible).
+- Les exports MUST supporter redaction (masquage) quand requis.
+
+---
+
+## 9. Observabilité & conformité
+### 9.1 KPIs minimum
+- Couverture logs critiques (cible = 100%).
+- Conformité SLA (triage, patch/vuln).
+- Complétude evidence (risque/case avec EvidencePackage).
+
+### 9.2 Audit packs
+- MUST pouvoir exporter un EvidencePackage par : risque, case, contrôle, période.
+- MUST inclure un manifeste (hash) + liste exhaustive des preuves.
+
+### 9.3 Rétention, purge, legal hold
+- Purge MUST être contrôlée (baseline: approver; régulé: two-person + WORM/immutabilité selon classe).
+- Legal hold MUST bloquer purge/export non autorisé.
+
+---
+
+## 10. Exigences non-fonctionnelles (NFR)
+- **Disponibilité** : définir cible (ex. 99.9%) pour composants critiques.
+- **Performance** : recherche EvidencePackage < 5s sur périmètre nominal.
+- **Scalabilité** : ingestion logs/exports extensible.
+- **Souveraineté/portabilité** : déploiement possible on-prem ou cloud contrôlé.
+
+---
+
+## 11. Critères d’acceptation (Definition of Done)
+### 11.1 DoD Baseline
+- Risk Engine opérationnel (registre + décisions + exceptions time-boxed).
+- Gates CI/CD minimales + traçabilité d’exécution.
+- Evidence Engine : ingestion + hashing/manifeste + exports audit.
+- Pass/fail : 0 item critique en échec sur CHK_MASTER_AuditReadiness (ou équivalent).
+
+### 11.2 DoD Régulé
+- Two-person rule sur actions critiques.
+- WORM / immutabilité pour preuves critiques.
+- Rétentions renforcées appliquées et vérifiables.
+
+---
+
+## 12. Annexes
+- A) Glossaire étendu
+- B) Tables de valeurs par défaut (SLA/rétention) — format liste (pas de tables)
+- C) Mapping capability → domaines D01..D18
+
+---
+
 # EN — Specification
 
 ## 0. Meta
@@ -435,3 +499,68 @@ Mandatory for:
 3) Orchestrate actions (D13)
 4) Capture evidence (D08)
 5) Close + post-mortem
+
+---
+
+## 8. Platform security
+### 8.1 Authentication & authorization requirements
+- Authentication MUST rely on an IdP (OIDC/SAML) with MFA for privileged roles.
+- Authorization MUST be RBAC with separation of duties (SoD) and full audit logging.
+
+### 8.2 Logging & non-repudiation
+- All sensitive actions (approvals, disabling gates, exports, purges) MUST generate an audit event.
+- Audit exports MUST be signed and/or hashed with a manifest.
+
+### 8.3 Cryptography & key management
+- Secrets/signing keys MUST be stored in KMS/HSM.
+- Key rotation: ≥ yearly (baseline), ≤ 6 months (regulated) or upon incident.
+
+### 8.4 Confidentiality & minimization
+- Evidence MUST be classified (at least: public/internal/sensitive).
+- Exports MUST support redaction when required.
+
+---
+
+## 9. Observability & compliance
+### 9.1 Minimum KPIs
+- Critical log coverage (target = 100%).
+- SLA compliance (triage, patch/vuln).
+- Evidence completeness (risks/cases with EvidencePackages).
+
+### 9.2 Audit packs
+- MUST export an EvidencePackage by: risk, case, control, time window.
+- MUST include a manifest (hash) + exhaustive evidence listing.
+
+### 9.3 Retention, purge, legal hold
+- Purge MUST be controlled (baseline: approver; regulated: two-person + WORM/immutability by class).
+- Legal hold MUST block purge and unauthorized exports.
+
+---
+
+## 10. Non-functional requirements (NFR)
+- **Availability**: define target (e.g., 99.9%) for critical components.
+- **Performance**: EvidencePackage search < 5s on nominal scope.
+- **Scalability**: extensible ingestion for logs/exports.
+- **Sovereignty/portability**: deployable on-prem or controlled cloud.
+
+---
+
+## 11. Acceptance criteria (Definition of Done)
+### 11.1 Baseline DoD
+- Operational Risk Engine (register + decisions + time-boxed exceptions).
+- Minimal CI/CD gates + execution traceability.
+- Evidence Engine: ingestion + hashing/manifest + audit exports.
+- Pass/fail: 0 failed critical items in CHK_MASTER_AuditReadiness (or equivalent).
+
+### 11.2 Regulated DoD
+- Two-person rule on critical actions.
+- WORM / immutability for critical evidence.
+- Stronger retention enforced and verifiable.
+
+---
+
+## 12. Annexes
+- A) Extended glossary
+- B) Default values (SLA/retention) — list format (no tables)
+- C) Capability → D01..D18 mapping
+
