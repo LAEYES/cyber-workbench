@@ -2,6 +2,7 @@
 import { Command } from "commander";
 import { initWorkspace } from "./commands/init.js";
 import { genDoc } from "./commands/gen.js";
+import { validateCatalog } from "./commands/catalog.js";
 
 const program = new Command();
 
@@ -32,6 +33,14 @@ program
   .option("--out <dir>", "Dossier de sortie", "./deliverables")
   .action(async (doc, opts) => {
     await genDoc({ doc, org: opts.org, lang: opts.lang, outDir: opts.out });
+  });
+
+program
+  .command("catalog:validate")
+  .description("Valide la structure du catalog et des mappings")
+  .option("--root <dir>", "Racine du catalog", "./catalog")
+  .action(async (opts) => {
+    await validateCatalog({ rootDir: opts.root });
   });
 
 program.parseAsync(process.argv);

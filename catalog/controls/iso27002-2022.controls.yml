@@ -1,0 +1,25 @@
+id: iso27002-2022.controls
+framework: iso-27002-2022
+version: "2022"
+controls:
+  # NOTE: keep titles short; avoid copying copyrighted text.
+  - id: "A.5.1"
+    framework: iso-27002-2022
+    title: "Information security policies"
+    domain: org
+    tags:
+      domains: ["D01"]
+      cia: ["C","I","A"]
+      type: ["prevent"]
+    sources:
+      - "ISO/IEC 27002:2022"
+  - id: "A.5.15"
+    framework: iso-27002-2022
+    title: "Access control"
+    domain: org
+    tags:
+      domains: ["D02"]
+      cia: ["C","I"]
+      type: ["prevent"]
+    sources:
+      - "ISO/IEC 27002:2022"

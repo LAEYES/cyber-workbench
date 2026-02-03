@@ -1,0 +1,23 @@
+id: nist-csf-2.0.subcategories
+framework: nist-csf-2.0
+version: "2.0"
+controls:
+  # NOTE: NIST CSF is public; still keep text concise.
+  - id: "GV.RM"
+    framework: nist-csf-2.0
+    title: "Risk Management Strategy"
+    tags:
+      domains: ["D01"]
+      cia: ["C","I","A"]
+      type: ["prevent"]
+    sources:
+      - "NIST CSF 2.0"
+  - id: "PR.AA"
+    framework: nist-csf-2.0
+    title: "Identity Management, Authentication, and Access Control"
+    tags:
+      domains: ["D02"]
+      cia: ["C","I"]
+      type: ["prevent"]
+    sources:
+      - "NIST CSF 2.0"

@@ -1,0 +1,10 @@
+id: cis-controls-v8_to_iso27002-2022_nist-csf-2.0
+fromFramework: cis-controls-v8
+toFramework: multi
+items:
+  - from: { framework: cis-controls-v8, id: "5" }
+    to:
+      - { framework: iso-27002-2022, id: "A.5.15" }
+      - { framework: nist-csf-2.0, id: "PR.AA" }
+    confidence: medium
+    rationale: "Account management aligns with access control and identity management."

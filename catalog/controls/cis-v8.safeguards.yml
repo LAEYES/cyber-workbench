@@ -1,0 +1,23 @@
+id: cis-v8.safeguards
+framework: cis-controls-v8
+version: "8"
+controls:
+  # NOTE: CIS text is copyrighted; keep titles short.
+  - id: "5"
+    framework: cis-controls-v8
+    title: "Account Management"
+    tags:
+      domains: ["D02"]
+      cia: ["C","I"]
+      type: ["prevent"]
+    sources:
+      - "CIS Controls v8"
+  - id: "8"
+    framework: cis-controls-v8
+    title: "Audit Log Management"
+    tags:
+      domains: ["D07"]
+      cia: ["I","A"]
+      type: ["detect"]
+    sources:
+      - "CIS Controls v8"

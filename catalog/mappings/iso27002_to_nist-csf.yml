@@ -1,0 +1,14 @@
+id: iso27002-2022_to_nist-csf-2.0
+fromFramework: iso-27002-2022
+toFramework: nist-csf-2.0
+items:
+  - from: { framework: iso-27002-2022, id: "A.5.1" }
+    to:
+      - { framework: nist-csf-2.0, id: "GV.RM" }
+    confidence: medium
+    rationale: "Security policies and risk governance are linked at governance level."
+  - from: { framework: iso-27002-2022, id: "A.5.15" }
+    to:
+      - { framework: nist-csf-2.0, id: "PR.AA" }
+    confidence: high
+    rationale: "Access control maps directly to PR.AA."
