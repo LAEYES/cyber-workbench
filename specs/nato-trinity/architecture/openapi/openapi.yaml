@@ -11,6 +11,40 @@ components:
       scheme: bearer
       bearerFormat: JWT
   schemas:
+    Problem:
+      type: object
+      required: [type, title, status]
+      properties:
+        type: { type: string, example: "about:blank" }
+        title: { type: string }
+        status: { type: integer }
+        detail: { type: string }
+        instance: { type: string }
+        requestId: { type: string }
+        errorCode: { type: string }
+    GateResult:
+      type: object
+      required: [gateResultId, gateId, targetRef, status, executedAt]
+      properties:
+        gateResultId: { type: string }
+        gateId: { type: string }
+        targetRef: { type: string }
+        status: { type: string, enum: [pass, fail, warn] }
+        executedAt: { type: string, format: date-time }
+        evidenceRefs: { type: array, items: { type: string } }
+        caseRef: { type: string }
+    Evidence:
+      type: object
+      required: [evidenceId, evidenceType, sourceSystem, collectedAt, hash, storageRef]
+      properties:
+        evidenceId: { type: string }
+        evidenceType: { type: string }
+        sourceSystem: { type: string }
+        collectedAt: { type: string, format: date-time }
+        hash: { type: string }
+        storageRef: { type: string }
+        classification: { type: string, enum: [public, internal, sensitive] }
+        retentionClass: { type: string, enum: [short, standard, long, legal] }
     Risk:
       type: object
       required: [riskId, title, owner, likelihood, impact, score, status, dueDate]
@@ -146,6 +180,71 @@ paths:
       responses:
         '202':
           description: Accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GateResult'
+        '400':
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+  /api/v1/gate-results/{gateResultId}:
+    get:
+      summary: Get GateResult
+      parameters:
+        - name: gateResultId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GateResult'
+        '404':
+          description: Not Found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+  /api/v1/evidence:
+    get:
+      summary: List evidence
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Evidence'
+    post:
+      summary: Ingest evidence (collector)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Evidence'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Evidence'
+        '400':
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
   /api/v1/evidence-packages:
     post:
       summary: Export an EvidencePackage
@@ -177,6 +276,21 @@ paths:
       responses:
         '201':
           description: Created
+    patch:
+      summary: Release legal hold
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [holdId, status]
+              properties:
+                holdId: { type: string }
+                status: { type: string, enum: [released] }
+      responses:
+        '200':
+          description: OK
   /api/v1/audit-events:
     get:
       summary: List audit events
