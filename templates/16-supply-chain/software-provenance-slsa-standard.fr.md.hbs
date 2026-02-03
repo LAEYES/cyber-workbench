@@ -1,0 +1,24 @@
+# STD — D16 — Provenance Logicielle (SLSA / Attestations)
+
+**Organisation :** {{org}}  
+**Version :** 0.2 (durci)  
+**Date :** {{today}}
+
+## 1. Exigences (baseline)
+- Le pipeline de build doit produire une **attestation** par release :
+  - repo + commit SHA, tag/version
+  - dépendances résolues (hash)
+  - environnement build (runner, image, toolchain versions)
+  - artefact produit (digest)
+
+## 2. Exigences (régulé)
+- Build reproductible quand possible.
+- Build isolé (pas d’accès Internet sortant sauf allowlist), secrets via vault.
+- Signature de l’attestation.
+
+## 3. Critères pass/fail
+- [ ] Attestation présente et liée à l’artefact (digest match).
+- [ ] Provenance stockée et consultable.
+
+## 4. Preuves
+- Attestations, config CI, logs de build.

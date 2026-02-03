@@ -1,0 +1,35 @@
+# POL — D16 — Sécurité Supply Chain (SBOM / Provenance / Signing)
+
+**Organisation :** ACME  
+**Version :** 0.2 (durci)  
+**Date :** 2026-02-03
+
+## 1. Objectif
+Réduire le risque supply chain logiciel (dépendances, build, CI/CD, artefacts, registres, provenance) en imposant des contrôles **mesurables**, des **gates** d’intégration, et des **preuves** auditables.
+
+## 2. Périmètre
+- Code source, dépendances (directes/transitives), artefacts (packages, conteneurs), pipelines CI/CD, registries.
+- Fournisseurs : SaaS Dev, CI, registries, CDN, services de signature.
+
+## 3. Exigences minimales (baseline)
+- Inventaire applications + dépôts + pipelines (owner, criticité).
+- SBOM obligatoire pour tout artefact déployé en prod (à chaque release).
+- Signature obligatoire des artefacts prod et vérification à l’exécution/déploiement.
+- Politique de dépendances : sources autorisées, pinning versions, blocage packages “typosquat”.
+
+## 4. Exigences renforcées (régulé)
+- Provenance/attestations build (type SLSA) pour releases prod.
+- Environnements build isolés + secrets build via coffre (rotation).
+- Rétention preuves : **≥ 1 an** (baseline), **≥ 3 ans** (régulé) pour releases prod.
+
+## 5. SLA & critères pass/fail (exemples)
+- SBOM : 100% des releases prod doivent publier une SBOM.
+- Signature : 100% des artefacts prod doivent être signés + vérifiés.
+- Vulnérabilités critiques (CVSS ≥ 9 ou exploitées) : correctif/mitigation **≤ 7 jours** (baseline), **≤ 72h** (régulé).
+
+## 6. Gouvernance
+- Owner par application/pipeline.
+- Exceptions : time-boxed (max 30 jours) + approbation sécurité.
+
+## 7. Preuves attendues
+- SBOM (format + hash), attestations provenance, logs CI, politiques de vérification, preuves de rotation clés.

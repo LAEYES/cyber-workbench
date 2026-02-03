@@ -1,0 +1,20 @@
+# STD — D16 — Signature & Vérification des Artefacts
+
+**Organisation :** {{org}}  
+**Version :** 0.2 (durci)  
+**Date :** {{today}}
+
+## 1. Exigences (baseline)
+- Tout artefact prod (container/package) doit être **signé**.
+- Vérification obligatoire au déploiement (policy “deny unsigned”).
+
+## 2. Gestion des clés
+- Stockage clés : HSM/KMS.
+- Rotation : au moins annuelle (baseline), semestrielle (régulé) ou sur incident.
+
+## 3. Critères pass/fail
+- [ ] 100% artefacts prod signés.
+- [ ] Vérification active sur environnements prod.
+
+## 4. Preuves
+- Configs policies, journaux de vérification, historique rotation.

@@ -1,0 +1,21 @@
+# STD — D16 — SBOM & VEX Management
+
+**Organization:** {{org}}  
+**Version:** 0.2 (hardened)  
+**Date:** {{today}}
+
+## 1. SBOM (mandatory)
+- One SBOM per production artifact, generated each release.
+- Must include direct + transitive dependencies + hashes.
+
+## 2. VEX
+- For any critical vuln not fixed immediately, publish a VEX:
+  - status (not affected / fixed / under investigation / affected)
+  - rationale + mitigation + review date
+
+## 3. Vulnerability SLAs (reference)
+- Critical: ≤ 7 days (baseline), ≤ 72h (regulated)
+- High: ≤ 30 days
+
+## 4. Evidence
+- SBOMs, VEXs, remediation tickets.

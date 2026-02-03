@@ -76,7 +76,12 @@ type DocKind =
   | "risk-scoring-model-standard"
   | "control-evidence-linkage-standard"
   | "ai-assist-guardrails-standard"
-  | "risk-engine-checklist";
+  | "risk-engine-checklist"
+  | "supply-chain-security-policy"
+  | "software-provenance-slsa-standard"
+  | "sbom-vex-management-standard"
+  | "artifact-signing-verification-standard"
+  | "supply-chain-security-checklist";
 
 function normalizeDoc(doc: string): DocKind {
   const raw = doc.trim();
@@ -730,6 +735,68 @@ function normalizeDoc(doc: string): DocKind {
     v === "chk-d15-risk-engine"
   )
     return "risk-engine-checklist";
+
+  // Domain D16
+  if (
+    v === "supply-chain-security-policy" ||
+    v === "pol_d16_supply_chain" ||
+    v === "pol-d16-supply-chain" ||
+    v === "pol_d16_supplychainsecurity" ||
+    v === "pol-d16-supplychainsecurity"
+  )
+    return "supply-chain-security-policy";
+
+  if (
+    v === "software-provenance-slsa-standard" ||
+    v === "std_d16_provenance" ||
+    v === "std-d16-provenance" ||
+    v === "std_d16_slsa" ||
+    v === "std-d16-slsa" ||
+    v === "std_d16_softwareprovenance_slsa" ||
+    v === "std-d16-softwareprovenance-slsa" ||
+    v === "std_d16_software_provenance_slsa" ||
+    v === "std-d16-software-provenance-slsa" ||
+    v === "std_d16_software_provenance" ||
+    v === "std-d16-software-provenance"
+  )
+    return "software-provenance-slsa-standard";
+
+  if (
+    v === "sbom-vex-management-standard" ||
+    v === "std_d16_sbom" ||
+    v === "std-d16-sbom" ||
+    v === "std_d16_vex" ||
+    v === "std-d16-vex" ||
+    v === "std_d16_sbom_vex" ||
+    v === "std-d16-sbom-vex" ||
+    v === "std_d16_sbom_vex_management" ||
+    v === "std-d16-sbom-vex-management"
+  )
+    return "sbom-vex-management-standard";
+
+  if (
+    v === "artifact-signing-verification-standard" ||
+    v === "std_d16_signing" ||
+    v === "std-d16-signing" ||
+    v === "std_d16_artifact_signing" ||
+    v === "std-d16-artifact-signing" ||
+    v === "std_d16_artifactsigning_verification" ||
+    v === "std-d16-artifactsigning-verification" ||
+    v === "std_d16_artifact_signing_verification" ||
+    v === "std-d16-artifact-signing-verification" ||
+    v === "std_d16_verification" ||
+    v === "std-d16-verification"
+  )
+    return "artifact-signing-verification-standard";
+
+  if (
+    v === "supply-chain-security-checklist" ||
+    v === "chk_d16_supply_chain" ||
+    v === "chk-d16-supply-chain" ||
+    v === "chk_d16_supplychainsecurity" ||
+    v === "chk-d16-supplychainsecurity"
+  )
+    return "supply-chain-security-checklist";
 
   throw new Error(`Doc inconnu: ${raw}`);
 }
@@ -1715,6 +1782,72 @@ export async function genDoc(params: { doc: string; org?: string; lang?: string;
       tasks.push({
         template: tplPath("15-risk-engine", "risk-engine-checklist.en.md.hbs"),
         out: path.join(outDir, "docs", "15-risk-engine", `CHK_D15_RiskEngine_${org}_EN.md`)
+      });
+  }
+
+  // Domain D16
+  if (doc === "supply-chain-security-policy") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("16-supply-chain", "supply-chain-security-policy.fr.md.hbs"),
+        out: path.join(outDir, "docs", "16-supply-chain", `POL_D16_SupplyChainSecurity_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("16-supply-chain", "supply-chain-security-policy.en.md.hbs"),
+        out: path.join(outDir, "docs", "16-supply-chain", `POL_D16_SupplyChainSecurity_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "software-provenance-slsa-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("16-supply-chain", "software-provenance-slsa-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "16-supply-chain", `STD_D16_SoftwareProvenance_SLSA_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("16-supply-chain", "software-provenance-slsa-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "16-supply-chain", `STD_D16_SoftwareProvenance_SLSA_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "sbom-vex-management-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("16-supply-chain", "sbom-vex-management-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "16-supply-chain", `STD_D16_SBOM_VEX_Management_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("16-supply-chain", "sbom-vex-management-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "16-supply-chain", `STD_D16_SBOM_VEX_Management_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "artifact-signing-verification-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("16-supply-chain", "artifact-signing-verification-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "16-supply-chain", `STD_D16_ArtifactSigning_Verification_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("16-supply-chain", "artifact-signing-verification-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "16-supply-chain", `STD_D16_ArtifactSigning_Verification_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "supply-chain-security-checklist") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("16-supply-chain", "supply-chain-security-checklist.fr.md.hbs"),
+        out: path.join(outDir, "docs", "16-supply-chain", `CHK_D16_SupplyChainSecurity_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("16-supply-chain", "supply-chain-security-checklist.en.md.hbs"),
+        out: path.join(outDir, "docs", "16-supply-chain", `CHK_D16_SupplyChainSecurity_${org}_EN.md`)
       });
   }
 

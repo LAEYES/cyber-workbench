@@ -1,0 +1,20 @@
+# STD — D16 — Artifact Signing & Verification
+
+**Organization:** {{org}}  
+**Version:** 0.2 (hardened)  
+**Date:** {{today}}
+
+## 1. Baseline requirements
+- All production artifacts (containers/packages) must be **signed**.
+- Verification enforced at deploy time ("deny unsigned" policy).
+
+## 2. Key management
+- Key storage: HSM/KMS.
+- Rotation: at least yearly (baseline), every 6 months (regulated) or upon incident.
+
+## 3. Pass/fail criteria
+- [ ] 100% of production artifacts signed.
+- [ ] Verification enforced in production.
+
+## 4. Evidence
+- Policy configs, verification logs, rotation history.
