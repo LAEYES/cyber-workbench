@@ -11,7 +11,8 @@
     "dev": "tsx src/cli.ts",
     "lint": "eslint .",
     "format": "prettier -w .",
-    "nato:validate": "node scripts/validate-nato-trinity.mjs"
+    "nato:validate": "node scripts/validate-nato-trinity.mjs",
+    "nato:bundle-check": "node scripts/validate-nato-manifest.mjs"
   },
   "dependencies": {
     "commander": "^12.1.0",
@@ -24,6 +25,8 @@
     "@apidevtools/swagger-parser": "^12.1.0",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^22.10.5",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
     "eslint": "^9.19.0",
     "prettier": "^3.4.2",
     "tsx": "^4.19.2",
