@@ -1,26 +1,45 @@
 # STD — D02 — Standard MFA
 
 **Organisation :** {{org}}  
+**Version :** 0.2 (durci)  
 **Date :** {{today}}
 
 ## 1. Objectif
-Imposer l’authentification multifacteur sur les accès sensibles.
+Imposer l’authentification multifacteur sur les accès sensibles avec exigences **auditées** (couverture, facteurs, exceptions).
 
 ## 2. Portée
-- SSO/IdP, VPN/ZTNA, consoles cloud, messagerie, outils d’admin, PAM.
+SSO/IdP, VPN/ZTNA, consoles cloud, messagerie, outils d’admin, PAM.
 
-## 3. Exigences
-- MFA requis pour :
-  - comptes à privilèges
-  - accès distant
-  - accès aux données sensibles
-  - accès administrateur aux SaaS/Cloud
-- Facteurs acceptés : FIDO2/WebAuthn, TOTP, push (avec protections anti-fatigue).
-- Interdits (sauf exception) : SMS (faible).
+## 3. Exigences minimales (baseline)
+### 3.1 Couverture (obligatoire)
+- MFA sur **100%** des comptes admins.
+- MFA sur **≥ 95%** des utilisateurs (ou 100% si SSO global).
 
-## 4. Renforcé (régulé)
-- Phishing-resistant MFA (FIDO2) pour admins.
-- Policies d’accès conditionnel (device compliant, geo, risque, impossible travel).
+### 3.2 Facteurs acceptés
+- Préféré : **FIDO2/WebAuthn**.
+- Accepté : TOTP.
+- Push : accepté uniquement avec protections anti-fatigue (number matching, rate limit, geo).
+- SMS : **interdit** sauf exception.
 
-## 5. Exceptions
-- Dérogation limitée dans le temps + contrôle compensatoire.
+### 3.3 Politiques d’accès
+- Bloquer protocoles/flows non MFA (legacy auth).
+- Politiques conditionnelles : risque, géo, appareil compliant (si dispo).
+
+### 3.4 Exceptions
+- Dérogations time-boxed : max **30 jours** (baseline) ; **14 jours** (régulé).
+
+## 4. Exigences renforcées (régulé)
+- MFA phishing-resistant obligatoire pour admins et accès périmètre critique.
+- Enrôlement renforcé (preuve identité) pour admins.
+- Revues mensuelles des facteurs/inscriptions.
+
+## 5. Critères d’audit (pass/fail)
+- [ ] 100% admins en MFA.
+- [ ] Couverture utilisateurs ≥ 95%.
+- [ ] Legacy auth bloqué.
+- [ ] Exceptions tracées, approuvées, time-boxed.
+
+## 6. Preuves attendues
+- Export configuration IdP/MFA.
+- Dashboard couverture MFA.
+- Exemples d’exceptions.

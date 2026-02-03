@@ -4,19 +4,24 @@
 **Date:** {{today}}
 
 ## IAM
-- [ ] Identity inventory (human/service) up to date
-- [ ] JML process documented + SLAs enforced
-- [ ] MFA enabled on SSO/IdP and cloud consoles
-- [ ] Third-party access: dedicated accounts + expiry
-- [ ] Access reviews completed (evidence)
+- [ ] Identity inventory (humans/services) up to date.
+- [ ] JML SLAs: leaver ≤ 24h (≤ 4h for sensitive accounts).
+- [ ] MFA: 100% admins; ≥ 95% users.
+- [ ] Legacy authentication blocked.
+- [ ] Access reviews: monthly (critical), quarterly (others).
+- [ ] Centralized IAM logs + retention ≥ 90d.
 
 ## PAM
-- [ ] Privileged account list + owners
-- [ ] Vault for privileged secrets in place
-- [ ] Secret rotation
-- [ ] Session recording / bastion (regulated)
-- [ ] Break-glass tested
+- [ ] Privileged inventory + owners.
+- [ ] Vault in place.
+- [ ] Rotation compliant (≤ 90d) + history.
+- [ ] Alerts on elevations/admin changes.
 
-## Logs & evidence
-- [ ] Authentication logs centralized
-- [ ] Alerts on anomalies (impossible travel, MFA fatigue, etc.)
+## Enhanced (regulated)
+- [ ] Phishing-resistant MFA for admins.
+- [ ] Session recording + approvals for critical scope.
+- [ ] Break-glass tested quarterly.
+- [ ] Log retention ≥ 180d + integrity.
+
+---
+*Template checklist: complete with evidence (IdP/PAM exports, tickets, dashboards).*

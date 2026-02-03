@@ -1,26 +1,45 @@
 # STD — D02 — MFA Standard
 
 **Organization:** {{org}}  
+**Version:** 0.2 (hardened)  
 **Date:** {{today}}
 
 ## 1. Goal
-Require multi-factor authentication for sensitive access.
+Enforce MFA for sensitive access with **auditable** requirements (coverage, factors, exceptions).
 
 ## 2. Scope
-- SSO/IdP, VPN/ZTNA, cloud consoles, email, admin tools, PAM.
+SSO/IdP, VPN/ZTNA, cloud consoles, email, admin tools, PAM.
 
-## 3. Requirements
-- MFA required for:
-  - privileged accounts
-  - remote access
-  - sensitive data access
-  - SaaS/Cloud administrative access
-- Accepted factors: FIDO2/WebAuthn, TOTP, push (with anti-fatigue protections).
-- Disallowed (unless exception): SMS (weak).
+## 3. Baseline requirements
+### 3.1 Coverage (mandatory)
+- MFA for **100%** of admin accounts.
+- MFA for **≥ 95%** of users (or 100% if global SSO).
 
-## 4. Regulated / enhanced
-- Phishing-resistant MFA (FIDO2) for admins.
-- Conditional access policies (device compliance, geo, risk signals, impossible travel).
+### 3.2 Accepted factors
+- Preferred: **FIDO2/WebAuthn**.
+- Accepted: TOTP.
+- Push only with anti-fatigue protections (number matching, rate limiting, geo).
+- SMS is **prohibited** unless approved exception.
 
-## 5. Exceptions
-- Time-bound exception + compensating controls.
+### 3.3 Access policies
+- Block legacy / non-MFA authentication.
+- Conditional access (risk, geo, compliant device) where available.
+
+### 3.4 Exceptions
+- Time-boxed: max **30 days** (baseline); **14 days** (regulated).
+
+## 4. Enhanced (regulated)
+- Phishing-resistant MFA required for admins and critical scope access.
+- Strong admin enrollment (identity proofing).
+- Monthly reviews of enrolled factors/devices.
+
+## 5. Audit criteria (pass/fail)
+- [ ] 100% admins under MFA.
+- [ ] User coverage ≥ 95%.
+- [ ] Legacy auth blocked.
+- [ ] Exceptions tracked, approved, time-boxed.
+
+## 6. Expected evidence
+- IdP/MFA configuration export.
+- MFA coverage dashboard.
+- Exception samples.

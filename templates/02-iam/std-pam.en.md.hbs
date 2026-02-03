@@ -1,24 +1,44 @@
 # STD — D02 — PAM Standard (Privileged Access Management)
 
 **Organization:** {{org}}  
+**Version:** 0.2 (hardened)  
 **Date:** {{today}}
 
 ## 1. Goal
-Reduce risks associated with privileged accounts and sessions.
+Reduce risks related to privileged accounts and sessions (credential theft, abuse, lateral movement) with **measurable** controls.
 
 ## 2. Scope
-- AD/Entra admins, root, sudoers, cloud admins, DB admins, CI/CD, secrets.
+AD/Entra admins, root/sudo, cloud admins, DB admins, CI/CD, secrets, break-glass.
 
 ## 3. Baseline requirements
+### 3.1 Inventory & ownership
+- Privileged account inventory with owner and justification.
 - Separate admin accounts from standard user accounts.
-- Vault privileged secrets/passwords.
-- Rotate secrets on a defined schedule.
-- Log and alert on privileged actions.
 
-## 4. Regulated / enhanced
-- Session recording (bastion/PAM proxy) with approvals.
-- JIT elevation.
-- Break-glass accounts with controls and periodic tests.
+### 3.2 Vault & rotation
+- Privileged secrets stored in a vault.
+- Rotation:
+  - privileged human accounts: **≤ 90 days**
+  - critical application secrets: **≤ 90 days** (or automated rotation)
+- No unmanaged long-lived privileged passwords.
 
-## 5. Evidence
-- Privileged account inventory, rotation policies, session logs.
+### 3.3 Sessions & traceability
+- Log privilege elevations and privileged actions.
+- Alert on: admin grants, privilege elevation, MFA disabled, anomalous admin access.
+
+## 4. Enhanced (regulated)
+- Session recording for critical scope.
+- Four-eyes approvals for critical sessions.
+- JIT elevation for admin roles.
+- Break-glass: offline storage, two-person control, quarterly testing, immediate rotation after use.
+
+## 5. Audit criteria (pass/fail)
+- [ ] Privileged inventory maintained.
+- [ ] Vault in place with compliant rotation.
+- [ ] Privileged logs/alerts centralized.
+- [ ] (Regulated) session recording + approvals.
+
+## 6. Expected evidence
+- Privileged inventory export.
+- Rotation policy + history.
+- Sample logs/alerts.

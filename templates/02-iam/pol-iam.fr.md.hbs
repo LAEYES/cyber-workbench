@@ -1,50 +1,67 @@
 # POL — D02 — Politique IAM (Identity & Access Management)
 
 **Organisation :** {{org}}  
-**Version :** 0.1 (draft)  
+**Version :** 0.2 (durci)  
 **Date :** {{today}}
 
 ## 1. Objet
-Définir les exigences de gouvernance et de contrôle des identités, des authentifications et des accès aux SI de {{org}}.
+Définir des exigences **mesurables et auditées** de gouvernance des identités, authentifications et autorisations, afin de réduire le risque de compromission et de limiter l’impact (blast radius).
 
 ## 2. Périmètre
 - Comptes humains, comptes techniques/service, comptes à privilèges.
 - Accès internes, distants, cloud/SaaS, API.
 
-## 3. Principes
-- Moindre privilège, séparation des tâches, traçabilité.
-- MFA par défaut, gestion du cycle de vie (JML: Joiner/Mover/Leaver).
-- Zéro Trust (cible) : vérification continue, accès conditionnels.
+## 3. Exigences minimales (baseline)
+### 3.1 Inventaire & référentiel (obligatoire)
+- Inventaire des identités (humains/services) maintenu.
+- Comptes partagés **interdits** sauf exception approuvée.
 
-## 4. Règles minimales (baseline)
-### 4.1 Cycle de vie des identités
-- Toute identité est unique, nominative (sauf comptes techniques documentés).
-- Provisioning/déprovisioning sous SLA (ex: départ < 24h).
+### 3.2 Joiner/Mover/Leaver (SLA)
+- Création à l’arrivée : via workflow (ticket/IGA).
+- Déprovisionnement départ : **≤ 24h** (baseline) ; **≤ 4h** pour comptes sensibles.
+- Désactivation immédiate en cas d’incident/suspicion.
 
-### 4.2 Authentification
-- MFA obligatoire pour accès distants, VPN/SSO, consoles cloud, et privilèges.
-- Mots de passe : longueur min 14, blocage après tentatives, bannissement de mots de passe faibles.
+### 3.3 Authentification
+- MFA obligatoire pour :
+  - accès distants
+  - SSO/IdP
+  - consoles cloud
+  - comptes à privilèges
+- Politique mots de passe : longueur **≥ 14**, blocage après tentatives, protection anti-password-spraying.
 
-### 4.3 Autorisations
-- RBAC (rôles) + exceptions tracées et temporisées.
-- Revue d’habilitations : trimestrielle (actifs critiques) / semestrielle (autres).
+### 3.4 Autorisations
+- RBAC par groupes/roles ; pas d’attribution directe individuelle hors exception.
+- Accès sensibles : time-bound (JIT) quand possible.
+- Revues d’habilitations :
+  - périmètre critique : **mensuel**
+  - autres : **trimestriel**
 
-### 4.4 Journalisation
-- Journaliser authentifications, élévations de privilèges, accès admin, changements IAM.
-- Conservation et protection des logs (intégrité).
+### 3.5 Journalisation & alerting
+- Logs IAM centralisés : authentifications, MFA, changements IAM, élévations.
+- Rétention : **≥ 90 jours** (baseline).
 
-## 5. Exigences renforcées (régulé)
-- IGA (Identity Governance) avec campagnes d’attestation, SoD, preuves.
-- PAM obligatoire : coffre, enregistrement des sessions, comptes break-glass, rotation.
-- Accès tiers : ZTNA, comptes dédiés, JIT/JEA, interdiction de comptes partagés.
+## 4. Exigences renforcées (régulé)
+- MFA phishing-resistant (FIDO2/WebAuthn) pour admins.
+- IGA : campagnes d’attestation, SoD, preuves.
+- PAM obligatoire : vault + rotation + session recording (périmètre critique) + approbations.
+- Accès tiers : comptes dédiés, JIT/JEA, ZTNA, interdiction comptes partagés.
+- Rétention logs : **≥ 180 jours** + intégrité.
 
-## 6. Exceptions
-- Exceptions formalisées : justification, analyse de risque, durée, compensations.
+## 5. Exceptions
+Exceptions documentées, compensées, time-boxed, approuvées RSSI/CISO.
 
-## 7. Indicateurs
-- % comptes à privilèges sous PAM
-- % MFA sur accès sensibles
+## 6. Indicateurs (KPI)
+- % MFA (users/admins)
+- % comptes privilégiés sous PAM
 - Délai moyen de déprovisionnement
+- Taux de revues d’accès réalisées dans les délais
 
-## 8. Révision
-- Revue annuelle ou après incident majeur/changement d’architecture.
+## 7. Critères d’audit (pass/fail)
+- [ ] MFA appliqué sur périmètre requis.
+- [ ] SLA JML respectés.
+- [ ] Revues d’accès tracées.
+- [ ] Logs IAM centralisés + rétention.
+- [ ] Exceptions gérées.
+
+---
+*Politique modèle : à compléter par les standards MFA/PAM et procédures d’exploitation.*

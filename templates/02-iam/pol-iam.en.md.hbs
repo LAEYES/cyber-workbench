@@ -1,50 +1,67 @@
 # POL — D02 — IAM Policy (Identity & Access Management)
 
 **Organization:** {{org}}  
-**Version:** 0.1 (draft)  
+**Version:** 0.2 (hardened)  
 **Date:** {{today}}
 
 ## 1. Purpose
-Define governance and minimum requirements for identities, authentication, and access control across {{org}}.
+Define **measurable and auditable** identity, authentication and authorization requirements to reduce compromise risk and limit blast radius.
 
 ## 2. Scope
 - Human users, service accounts, privileged accounts.
 - Internal/remote access, cloud/SaaS, APIs.
 
-## 3. Principles
-- Least privilege, segregation of duties, auditability.
-- MFA by default, lifecycle management (JML: Joiner/Mover/Leaver).
-- Zero Trust (target): continuous verification and conditional access.
+## 3. Baseline requirements
+### 3.1 Inventory & source of truth (mandatory)
+- Maintain an identity inventory (humans/services).
+- Shared accounts are **prohibited** unless approved exception.
 
-## 4. Baseline requirements
-### 4.1 Identity lifecycle
-- Unique, accountable identities (no shared accounts except documented service accounts).
-- Provisioning/deprovisioning with SLAs (e.g., leaver < 24h).
+### 3.2 Joiner/Mover/Leaver SLAs
+- Provisioning via workflow (ticket/IGA).
+- Leaver deprovisioning: **≤ 24h**; **≤ 4h** for sensitive accounts.
+- Immediate disablement on incident/suspicion.
 
-### 4.2 Authentication
-- MFA required for remote access, SSO/VPN, cloud consoles, and privileged actions.
-- Password policy: min 14 chars, lockout controls, block weak passwords.
+### 3.3 Authentication
+- MFA required for:
+  - remote access
+  - SSO/IdP
+  - cloud consoles
+  - privileged accounts
+- Password policy: length **≥ 14**, lockout/rate limiting, anti-password-spraying.
 
-### 4.3 Authorization
-- RBAC with time-bound, approved exceptions.
-- Access reviews: quarterly (critical) / semiannual (others).
+### 3.4 Authorization
+- RBAC via groups/roles; no direct individual grants except approved exceptions.
+- Sensitive access: time-bound (JIT) where feasible.
+- Access reviews:
+  - critical scope: **monthly**
+  - others: **quarterly**
 
-### 4.4 Logging
-- Log authentications, privilege elevations, admin access, IAM changes.
-- Protect log integrity and retention.
+### 3.5 Logging & alerting
+- Centralize IAM logs: authentications, MFA, IAM changes, privilege elevations.
+- Retention: **≥ 90 days** (baseline).
 
-## 5. Regulated / enhanced requirements
-- IGA with access attestations, SoD, and evidence.
-- PAM mandatory: vaulting, session recording, break-glass, rotation.
-- Third-party access: ZTNA, dedicated accounts, JIT/JEA, no shared accounts.
+## 4. Enhanced requirements (regulated)
+- Phishing-resistant MFA (FIDO2/WebAuthn) for administrators.
+- IGA: attestations, SoD, evidence.
+- PAM mandatory: vault + rotation + session recording (critical scope) + approvals.
+- Third-party access: dedicated accounts, JIT/JEA, ZTNA, no shared accounts.
+- Log retention: **≥ 180 days** + integrity.
 
-## 6. Exceptions
-- Formal exceptions: justification, risk assessment, expiration, compensating controls.
+## 5. Exceptions
+Exceptions must be documented, compensated, time-bound and approved by Security/CISO.
 
-## 7. Metrics
+## 6. KPIs
+- MFA coverage (users/admins)
 - % privileged accounts under PAM
-- % MFA on sensitive access
 - Mean deprovisioning time
+- % access reviews completed on time
 
-## 8. Review
-- Annual review or after major incident/architecture changes.
+## 7. Audit criteria (pass/fail)
+- [ ] MFA enforced for required scope.
+- [ ] JML SLAs met.
+- [ ] Access reviews tracked.
+- [ ] IAM logs centralized with retention.
+- [ ] Exception management evidenced.
+
+---
+*Template policy: complemented by MFA/PAM standards and operational procedures.*

@@ -1,24 +1,44 @@
 # STD — D02 — Standard PAM (Privileged Access Management)
 
 **Organisation :** {{org}}  
+**Version :** 0.2 (durci)  
 **Date :** {{today}}
 
 ## 1. Objectif
-Réduire le risque lié aux comptes et sessions à privilèges.
+Réduire le risque lié aux comptes et sessions à privilèges (vol d’identifiants, abus, mouvement latéral) avec contrôles **mesurables**.
 
 ## 2. Portée
-- Admin AD/Entra, root, sudoers, admins cloud, DB admins, CI/CD, secrets.
+Admins AD/Entra, root/sudo, admins cloud, DB admins, CI/CD, secrets, break-glass.
 
-## 3. Exigences (baseline)
+## 3. Exigences minimales (baseline)
+### 3.1 Inventaire & ownership
+- Liste des comptes privilégiés + owner + justification.
 - Comptes admin séparés des comptes bureautiques.
-- Coffre-fort / vault pour secrets et mots de passe admin.
-- Rotation des secrets à intervalle défini.
-- Journalisation et alerte sur actions admin.
 
-## 4. Renforcé (régulé)
-- Session recording (bastion/PAM proxy) + approbation.
-- JIT (Just-in-Time) : élévation temporaire.
-- Break-glass : comptes d’urgence, contrôlés, tests périodiques.
+### 3.2 Vault & rotation
+- Secrets admin stockés dans un coffre.
+- Rotation :
+  - comptes humains privilégiés : **≤ 90 jours**
+  - secrets applicatifs critiques : **≤ 90 jours** (ou rotation automatique)
+- Interdiction de mots de passe statiques non gérés.
 
-## 5. Preuves attendues
-- Liste comptes privilégiés, politiques de rotation, logs de sessions.
+### 3.3 Sessions & traçabilité
+- Journalisation des élévations et actions admin.
+- Alertes sur : ajout admin, élévation, désactivation MFA, accès anormal.
+
+## 4. Exigences renforcées (régulé)
+- Session recording sur périmètre critique.
+- Approvals (4-eyes) pour sessions critiques.
+- JIT pour élévation admin.
+- Break-glass : offline, double-contrôle, test trimestriel, rotation immédiate après usage.
+
+## 5. Critères d’audit (pass/fail)
+- [ ] Inventaire comptes privilégiés tenu.
+- [ ] Vault en place + rotation conforme.
+- [ ] Logs/alertes admin centralisés.
+- [ ] (Régulé) session recording + approvals.
+
+## 6. Preuves attendues
+- Export inventaire comptes privilégiés.
+- Politique rotation + historique.
+- Extraits logs/alertes.

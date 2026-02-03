@@ -4,19 +4,24 @@
 **Date :** {{today}}
 
 ## IAM
-- [ ] Inventaire des identités (humains / services) à jour
-- [ ] Process JML (joiner/mover/leaver) documenté + SLA appliqués
-- [ ] MFA activé sur SSO/IdP et consoles cloud
-- [ ] Accès tiers : comptes dédiés + expiration
-- [ ] Revues d’habilitations réalisées (preuves)
+- [ ] Inventaire identités (humains/services) à jour.
+- [ ] SLA JML : départ ≤ 24h (≤ 4h comptes sensibles).
+- [ ] MFA : 100% admins ; ≥ 95% users.
+- [ ] Legacy auth bloqué.
+- [ ] Revues d’accès : mensuelles (critique), trimestrielles (reste).
+- [ ] Logs IAM centralisés + rétention ≥ 90j.
 
 ## PAM
-- [ ] Liste des comptes à privilèges + propriétaires
-- [ ] Coffre-fort secrets admin en place
-- [ ] Rotation des secrets
-- [ ] Session recording / bastion (si régulé)
-- [ ] Break-glass testé
+- [ ] Inventaire comptes privilégiés + owners.
+- [ ] Coffre secrets en place.
+- [ ] Rotation conforme (≤ 90j) + historique.
+- [ ] Alertes sur élévations et changements admin.
 
-## Logs & preuves
-- [ ] Logs d’authentification centralisés
-- [ ] Alertes sur anomalies (impossible travel, MFA fatigue, etc.)
+## Renforcé (régulé)
+- [ ] MFA phishing-resistant admins.
+- [ ] Session recording + approvals périmètre critique.
+- [ ] Break-glass testé trimestriellement.
+- [ ] Rétention logs ≥ 180j + intégrité.
+
+---
+*Checklist modèle : compléter avec preuves (exports IdP/PAM, tickets, dashboards).*
