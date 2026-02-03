@@ -18,3 +18,7 @@ tmp/
 
 # NATO MVP temporary metadata files
 deliverables*/nato-mvp/.tmp/
+
+# WinForms UI
+ui/**/bin/
+ui/**/obj/
