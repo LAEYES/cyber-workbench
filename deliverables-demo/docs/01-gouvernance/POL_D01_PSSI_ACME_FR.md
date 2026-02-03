@@ -1,59 +1,94 @@
 # Politique de Sécurité des Systèmes d’Information (PSSI)
 
 **Organisation :** ACME  
-**Version :** 0.1 (draft)  
+**Version :** 0.2 (durci)  
 **Date :** 2026-02-03
 
 ## 1. Objet
-Définir les principes, rôles et exigences de sécurité applicables aux systèmes d’information de ACME.
+Fixer des exigences **mesurables** de sécurité applicables aux systèmes d’information de ACME (personnes, processus, technologie) et définir le cadre de gouvernance (rôles, décisions, exceptions, preuves).
 
 ## 2. Périmètre
-- SI internes, cloud, postes de travail, réseaux, applications, données, tiers.
+- SI internes, cloud, endpoints, réseaux, applications, données, prestataires.
 - Profils : PME=true, ETI=true, Régulé=true.
 
-## 3. Gouvernance & responsabilités
-- Direction : sponsor, arbitrages, budget.
-- RSSI/CISO : pilotage sécurité, reporting.
-- DPO (si applicable) : conformité RGPD.
-- Propriétaires d’actifs : classification, risque.
+## 3. Gouvernance (obligatoire)
+### 3.1 Rôles & responsabilités
+- **Direction** : sponsor, arbitrage risques/budget, validation des exceptions majeures.
+- **RSSI/CISO** : pilotage du SMSI/programme, reporting, gestion des exceptions.
+- **DPO** (si applicable) : conformité RGPD et gouvernance des données personnelles.
+- **Owners (actifs/applications/données)** : classification, décision sur le risque résiduel.
+
+### 3.2 Indicateurs (KPI/KRI) minimum
+Suivi mensuel (ou trimestriel en PME) :
+- Taux de **MFA** (utilisateurs, admins)
+- Taux de **conformité patching** endpoints et serveurs
+- Couverture **EDR** et santé agents
+- Taux de **revues d’accès** réalisées dans les délais
+- Incidents : # critiques, temps de détection (MTTD) / remédiation (MTTR)
 
 ## 4. Principes directeurs
-- Approche par les risques (ISO 27005 / EBIOS).
-- Défense en profondeur, moindre privilège, Zero Trust (cible).
-- Sécurité by design & by default.
+- Approche **par les risques** (ISO 27005 / EBIOS) + traitement documenté.
+- **Moindre privilège**, **séparation des rôles**, **deny-by-default**.
+- **Sécurité by design/by default** (projets, changements, achats).
+- **Traçabilité** : logs centralisés et exploitables.
 
 ## 5. Exigences minimales (baseline)
 ### 5.1 Identités & accès
-- MFA obligatoire pour accès distants et comptes à privilèges.
-- RBAC, revues d’habilitations trimestrielles.
+- MFA obligatoire pour : accès distants, accès admin, données sensibles.
+- Revues d’habilitations :
+  - périmètre sensible : **mensuel**
+  - reste du SI : **trimestriel**
+- Comptes admins dédiés, distincts des comptes bureautiques.
 
 ### 5.2 Réseau & infrastructure
-- Segmentation (prod/admin/utilisateurs), filtrage entrant/sortant.
-- Journalisation centralisée (syslog/agent) des composants critiques.
+- Segmentation minimum : utilisateurs / serveurs / admin / DMZ (si exposé).
+- Filtrage entrant/sortant ; règles « any/any » interdites sauf exception documentée.
+- Journalisation centralisée des composants critiques ; horodatage (NTP) requis.
 
-### 5.3 Postes & serveurs
-- Hardening, patch management, EDR/XDR selon criticité.
-- Chiffrement disque sur postes nomades.
+### 5.3 Endpoints & serveurs
+- Baselines de durcissement appliquées et versionnées.
+- Chiffrement disque : **100%** des laptops.
+- EDR/AV : **≥ 98%** de couverture (fleet) ; agent inactif > 24h traité.
 
-### 5.4 Données
-- Classification : Public / Interne / Confidentiel / Très sensible.
-- Chiffrement en transit (TLS) et au repos quand applicable.
+### 5.4 Correctifs & vulnérabilités
+- SLA minimum (max) : P0 exploité/internet ≤ **72h**, critique ≤ **7j**, élevé ≤ **14j**, moyen ≤ **30j**.
+- Exceptions time-boxed avec contrôles compensatoires.
 
-## 6. Conformité & référentiels
-- ISO 27001/27002, NIST CSF (cartographie), RGPD.
-- Selon contexte : NIS2 / DORA / PCI DSS (à qualifier).
+### 5.5 Données
+- Classification minimale : Public / Interne / Confidentiel / Très sensible.
+- Chiffrement : TLS en transit ; au repos pour données sensibles.
+- Sauvegardes : objectifs RPO/RTO définis pour systèmes critiques.
 
-## 7. Gestion des incidents
-- Détection, qualification, réponse, communication.
-- Conservation des preuves (forensic readiness).
+### 5.6 Gestion des incidents
+- Processus documenté : détection → triage → containment → remédiation → retour d’expérience.
+- Capacité de conservation de preuves (forensic readiness) sur périmètre critique.
 
-## 8. Gestion des tiers
-- Évaluation des risques fournisseurs (TPRM).
-- Clauses sécurité : exigences, auditabilité, notification incident.
+### 5.7 Gestion des tiers
+- Évaluation sécurité avant onboarding (TPRM) + clauses : notification incident, sous-traitants, réversibilité.
+
+## 6. Exigences renforcées (secteurs régulés)
+- MFA **résistant au phishing** (FIDO2/WebAuthn) pour administrateurs.
+- Logs : rétention **≥ 180 jours** (ou obligations), intégrité/immutabilité sur périmètre critique.
+- Revues d’accès : mensuelles sur périmètre critique + recertification formelle.
+- Tests : exercices de réponse à incident au moins **annuels**.
+- Chiffrement : clés gérées client (KMS/HSM) sur périmètre critique si applicable.
+
+## 7. Exceptions
+Toute exception est :
+- **documentée** (périmètre, risque, compensations),
+- **limitée dans le temps**,
+- **approuvée** (RSSI/CISO, Direction si majeure),
+- **revue** périodiquement.
+
+## 8. Critères d’audit (pass/fail)
+- [ ] KPI/KRI définis et suivis.
+- [ ] MFA, patching, EDR, logs : exigences mesurées.
+- [ ] Process incidents + preuves d’exercices.
+- [ ] TPRM et clauses sécurité en place.
+- [ ] Gestion d’exceptions tracée.
 
 ## 9. Cycle de vie
-- Revue annuelle ou à chaque changement majeur.
+- Revue **annuelle** (minimum) ou après changement majeur.
 
 ---
-## Annexes (à générer ensuite)
-- RACI, SoA, catalogue de contrôles, playbooks, indicateurs (KPI/KRI).
+*Document modèle : à décliner en standards/ procédures par domaine (IAM, réseau, endpoints, cloud, AppSec, etc.).*

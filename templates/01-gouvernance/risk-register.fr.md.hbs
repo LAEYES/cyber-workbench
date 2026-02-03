@@ -1,20 +1,47 @@
 # Registre des risques SI (ISO 27005 / EBIOS light)
 
 **Organisation :** {{org}}  
+**Version :** 0.2 (durci)  
 **Date :** {{today}}
 
-## Échelle (exemple)
-- **Vraisemblance**: 1 (rare) → 5 (très probable)
-- **Impact**: 1 (faible) → 5 (critique)
-- **Niveau** = V × I (seuils à définir)
+## 1. Règles de scoring (obligatoire)
+- **Vraisemblance (V)**: 1 (rare) → 5 (très probable)
+- **Impact (I)**: 1 (faible) → 5 (critique)
+- **Score** = V × I
 
-## Registre (modèle)
+## 2. Seuils & traitement (exemple à valider)
+- **1–5** : Acceptable (surveiller)
+- **6–10** : Réduire planifié
+- **11–15** : Réduire prioritaire
+- **16–25** : Réduire immédiat / éviter (Direction informée)
 
-| ID | Actif/Process | Scénario | Menace | Vulnérabilité | V | I | Niveau | Traitement | Contrôles (ISO/NIST) | Proprio | Échéance | Statut |
+## 3. Champs obligatoires (par risque)
+Chaque risque doit avoir :
+- ID unique (R-xxx)
+- Actif/processus concerné + owner
+- Scénario et conséquence métier
+- Menace + vulnérabilité
+- V/I/Score + justification
+- Traitement (réduire/éviter/transférer/accepter) + plan d’actions
+- Date d’échéance + statut
+- Preuve de remédiation / contrôle compensatoire
+- Décision d’acceptation (si applicable) + durée max
+
+## 4. Registre (modèle)
+
+| ID | Actif/Process | Scénario (cause → impact) | Menace | Vulnérabilité | V | I | Score | Traitement | Mesures / contrôles | Owner | Échéance | Statut |
 |---|---|---|---|---|---:|---:|---:|---|---|---|---|---|
-| R-001 | Identités | Compromission compte admin | Phishing / vol creds | MFA absent, revue droits inexistante | 4 | 5 | 20 | Réduire | A.5/A.8 / PR.AA | RSSI | 2026-03-31 | Ouvert |
-| R-002 | Données clients | Exfiltration via SaaS | Mauvaise conf | DLP absent, partage public | 3 | 5 | 15 | Réduire | A.8 / PR.DS | DPO | 2026-04-30 | Ouvert |
+| R-001 | IAM | Compromission compte admin → prise de contrôle | Phishing | MFA absent, revues non faites | 4 | 5 | 20 | Réduire immédiat | MFA phishing-resistant, PAM, revues mensuelles | RSSI | 2026-03-31 | Ouvert |
+| R-002 | SaaS | Exfiltration données → RGPD/finance | Mauvaise config | Partage public, DLP absent | 3 | 5 | 15 | Réduire prioritaire | CSPM, guardrails, DLP, logs | DPO | 2026-04-30 | Ouvert |
 
-## Notes
-- Lier chaque risque à la **cartographie d’actifs** et au **plan de traitement**.
-- Formaliser l’**acceptation** (qui, pourquoi, durée).
+## 5. Cadence de revue (minimum)
+- Risques **≥ 16** : revue hebdomadaire jusqu’à réduction.
+- Risques **11–15** : revue mensuelle.
+- Autres : revue trimestrielle.
+
+## 6. Acceptation de risque (règles)
+- Acceptation = documentée (raison, compensations, durée, owner).
+- Durée max recommandée : **90 jours** (baseline) ; **60 jours** (régulé) avant revalidation.
+
+---
+*Template : à relier au plan de traitement, à l’inventaire d’actifs et aux preuves (tickets, rapports, configs).*

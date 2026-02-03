@@ -1,30 +1,39 @@
 # Checklist Conformité (RGPD / NIS2 / DORA / PCI DSS) — D01
 
 **Organisation :** {{org}}  
+**Version :** 0.2 (durci)  
 **Date :** {{today}}
 
-> Version "lite" : à adapter au périmètre et au statut (opérateur essentiel, entité importante, etc.).
+> Checklist **license-safe** : exigences résumées (sans texte normatif). À adapter au statut/périmètre.
 
-## RGPD (extraits)
-- Registre des traitements tenu à jour
-- Base légale documentée
-- DPIA réalisés pour traitements à risque
-- Procédure de violation de données (72h)
+## RGPD (minimum)
+- [ ] Registre des traitements à jour (owner, finalités, sous-traitants) — **preuve :** export registre
+- [ ] Base légale documentée pour chaque traitement — **preuve :** fiche traitement
+- [ ] DPIA réalisés pour traitements à risque — **preuve :** DPIA + validation
+- [ ] Procédure violation données (notification ≤ 72h) testée — **preuve :** procédure + exercice
 
-## NIS2 (extraits)
-- Gouvernance sécurité et gestion des risques
-- Mesures techniques/organisationnelles proportionnées
-- Gestion des incidents et notification
-- Sécurité de la chaîne d’approvisionnement
+## NIS2 (minimum)
+- [ ] Gouvernance sécurité (rôles, reporting) — **preuve :** PSSI + RACI
+- [ ] Gestion des risques formalisée — **preuve :** registre risques + revues
+- [ ] Gestion incidents + notification — **preuve :** playbook + tickets
+- [ ] Sécurité supply chain — **preuve :** TPRM + clauses + inventaire tiers
 
-## DORA (extraits)
-- ICT risk management framework
-- Gestion et tests de résilience
-- Gestion des prestataires ICT critiques
-- Reporting d’incidents majeurs
+## DORA (minimum, si applicable)
+- [ ] ICT risk management framework — **preuve :** politiques + standards
+- [ ] Tests de résilience (au moins annuels sur périmètre critique) — **preuve :** rapport tests
+- [ ] Gestion prestataires ICT critiques — **preuve :** classification fournisseurs + audits
+- [ ] Reporting incidents majeurs — **preuve :** procédure + RACI
 
-## PCI DSS (extraits)
-- Segmentation du CDE
-- Gestion des vulnérabilités & patching
-- Logging/audit trails
-- Tests réguliers
+## PCI DSS (minimum, si applicable)
+- [ ] Périmètre CDE identifié et isolé — **preuve :** diagramme + règles réseau
+- [ ] Gestion vulnérabilités/patching sur CDE — **preuve :** SLA + rapports
+- [ ] Logging/audit trails centralisés — **preuve :** SIEM + rétention
+- [ ] Tests réguliers (scan, pentest selon périmètre) — **preuve :** rapports
+
+## Critères d’audit (pass/fail)
+- [ ] Statut réglementaire déterminé (RGPD/NIS2/DORA/PCI).
+- [ ] RACI + procédures documentées.
+- [ ] Preuves collectées et accessibles (liens).
+
+---
+*Checklist modèle : compléter par liens, preuves et owners.*
