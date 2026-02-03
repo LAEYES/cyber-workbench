@@ -1,0 +1,17 @@
+[
+  {
+    "eventId": "ae_92ea805d-062a-40e6-a9e9-7f8606495a9b",
+    "orgId": "ACME",
+    "actor": "bob",
+    "actorType": "human",
+    "action": "risk.decision.create",
+    "objectRef": "decision:D-1770154886311",
+    "timestamp": "2026-02-03T21:41:26.314Z",
+    "outcome": "success",
+    "requestId": "req_2aa19ad7-a536-480b-93be-08870f283a23",
+    "details": {
+      "riskId": "R-TEST",
+      "decisionType": "accept"
+    }
+  }
+]

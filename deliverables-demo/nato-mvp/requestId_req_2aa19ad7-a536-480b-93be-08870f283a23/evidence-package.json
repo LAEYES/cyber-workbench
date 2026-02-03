@@ -1,0 +1,13 @@
+{
+  "packageId": "pkg_requestId_req_2aa19ad7-a536-480b-93be-08870f283a23_1770155226643",
+  "scopeRef": "requestId:req_2aa19ad7-a536-480b-93be-08870f283a23",
+  "evidenceRefs": [
+    "ev_1",
+    "ev_2"
+  ],
+  "manifestHash": "cb09ef30e2b0efa1f0afaf1bc56f9e03ad20bad519a5b765fb11a0f242fecb7d",
+  "exportedAt": "2026-02-03T21:47:06.647Z",
+  "exportedBy": "mvp-local",
+  "bundleRef": "C:\\Users\\Aymeric\\.openclaw\\workspace\\cyber-workbench\\deliverables-demo\\nato-mvp\\requestId_req_2aa19ad7-a536-480b-93be-08870f283a23",
+  "orgId": "ACME"
+}

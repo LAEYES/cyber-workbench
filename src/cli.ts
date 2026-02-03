@@ -24,6 +24,7 @@ import { natoMvpGenerateSigningKey } from "./commands/nato_mvp_keys.js";
 import { natoMvpRiskCreate, natoMvpRiskGet } from "./commands/nato_mvp_risk.js";
 import { natoMvpDecisionCreate } from "./commands/nato_mvp_decision.js";
 import { natoMvpExportFromStore } from "./commands/nato_mvp_export_from_store.js";
+import { natoMvpExportFromRequestId } from "./commands/nato_mvp_export_from_requestid.js";
 
 const program = new Command();
 
@@ -206,6 +207,30 @@ program
       storeOutDir: opts.store,
       outDir: opts.out,
       inputs: opts.in || [],
+      sign: Boolean(opts.sign),
+      signingKey: opts.signingKey,
+      keyId: opts.keyId
+    });
+  });
+
+program
+  .command("nato:mvp-export-from-requestid")
+  .description("MVP: export EvidencePackage pour requestId:<id> en incluant AuditEvents + objets liés")
+  .requiredOption("--request <id>", "RequestId (req_...)")
+  .option("--org <id>", "OrgId", "ORG")
+  .option("--actor <id>", "Actor", "user")
+  .option("--store <dir>", "Dossier store (nato-mvp-store)", "./deliverables")
+  .option("--out <dir>", "Dossier bundle", "./deliverables")
+  .option("--sign", "Signe le manifest.json (MVP local)", false)
+  .option("--signing-key <pem>", "Chemin vers la clé privée PEM (ed25519)")
+  .option("--key-id <id>", "KeyId à inclure dans signature", "mvp-local-1")
+  .action(async (opts) => {
+    await natoMvpExportFromRequestId({
+      requestId: opts.request,
+      orgId: opts.org,
+      actor: opts.actor,
+      storeOutDir: opts.store,
+      outDir: opts.out,
       sign: Boolean(opts.sign),
       signingKey: opts.signingKey,
       keyId: opts.keyId
