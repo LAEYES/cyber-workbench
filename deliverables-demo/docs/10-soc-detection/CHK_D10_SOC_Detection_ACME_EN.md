@@ -1,0 +1,16 @@
+# CHK — D10 — SOC / Detection Checklist
+
+**Organization:** ACME  
+**Version:** 0.2 (hardened)  
+**Date:** 2026-02-03
+
+- [ ] Minimum log sources integrated (IdP, EDR, FW/VPN, cloud audit, DNS).
+- [ ] Log retention ≥ 90d / 180d regulated.
+- [ ] Triage SLAs (critical ≤ 1h, high ≤ 4h, medium ≤ 24h).
+- [ ] IR runbooks available.
+- [ ] Yearly IR exercise / semi-annual regulated.
+- [ ] Use-case catalog + quarterly review.
+- [ ] (Regulated) SOAR playbooks + WORM logs.
+
+---
+*Checklist: complete with evidence (dashboards, tickets, reports).*

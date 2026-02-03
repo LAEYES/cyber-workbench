@@ -1,0 +1,17 @@
+# STD — D10 — Cas d’usage Détection (Use Cases)
+
+**Organisation :** ACME  
+**Version :** 0.2 (durci)  
+**Date :** 2026-02-03
+
+## 1. Exigences minimales (baseline)
+- Catalogue de cas d’usage priorisé.
+- Chaque use case a : description, sources logs, logique, faux positifs, owner.
+- Revue qualité : **trimestriel**.
+
+## 2. Renforcé (régulé)
+- Couverture MITRE-like sur périmètre critique.
+- Tests continus (simulation) : **trimestriel**.
+
+## 3. Preuves
+- Liste use cases, résultats tests, backlog améliorations.

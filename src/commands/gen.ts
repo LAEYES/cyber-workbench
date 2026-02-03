@@ -47,7 +47,12 @@ type DocKind =
   | "pki-standard"
   | "pqc-hybrid-tls-standard"
   | "key-management-hsm-standard"
-  | "crypto-trust-checklist";
+  | "crypto-trust-checklist"
+  | "soc-detection-policy"
+  | "siem-logging-standard"
+  | "incident-response-standard"
+  | "detection-usecases-standard"
+  | "soc-detection-checklist";
 
 function normalizeDoc(doc: string): DocKind {
   const raw = doc.trim();
@@ -390,6 +395,62 @@ function normalizeDoc(doc: string): DocKind {
     v === "chk-d09-crypto-trust"
   )
     return "crypto-trust-checklist";
+
+  // Domain D10
+  if (
+    v === "soc-detection-policy" ||
+    v === "pol_d10_soc" ||
+    v === "pol-d10-soc" ||
+    v === "pol_d10_detection" ||
+    v === "pol-d10-detection" ||
+    v === "pol_d10_soc_detection" ||
+    v === "pol-d10-soc-detection"
+  )
+    return "soc-detection-policy";
+
+  if (
+    v === "siem-logging-standard" ||
+    v === "std_d10_siem" ||
+    v === "std-d10-siem" ||
+    v === "std_d10_logging" ||
+    v === "std-d10-logging" ||
+    v === "std_d10_siem_logging" ||
+    v === "std-d10-siem-logging"
+  )
+    return "siem-logging-standard";
+
+  if (
+    v === "incident-response-standard" ||
+    v === "std_d10_ir" ||
+    v === "std-d10-ir" ||
+    v === "std_d10_incident_response" ||
+    v === "std-d10-incident-response" ||
+    v === "std_d10_incidentresponse" ||
+    v === "std-d10-incidentresponse"
+  )
+    return "incident-response-standard";
+
+  if (
+    v === "detection-usecases-standard" ||
+    v === "std_d10_usecases" ||
+    v === "std-d10-usecases" ||
+    v === "std_d10_detection_usecases" ||
+    v === "std-d10-detection-usecases" ||
+    v === "std_d10_detectionusecases" ||
+    v === "std-d10-detectionusecases"
+  )
+    return "detection-usecases-standard";
+
+  if (
+    v === "soc-detection-checklist" ||
+    v === "chk_d10_soc" ||
+    v === "chk-d10-soc" ||
+    v === "chk_d10_detection" ||
+    v === "chk-d10-detection" ||
+    v === "chk_d10_soc_detection" ||
+    v === "chk-d10-soc-detection"
+  )
+    return "soc-detection-checklist";
 
   throw new Error(`Doc inconnu: ${raw}`);
 }
@@ -992,6 +1053,72 @@ export async function genDoc(params: { doc: string; org?: string; lang?: string;
       tasks.push({
         template: tplPath("09-crypto-trust", "crypto-trust-checklist.en.md.hbs"),
         out: path.join(outDir, "docs", "09-crypto-trust", `CHK_D09_CryptoTrust_${org}_EN.md`)
+      });
+  }
+
+  // Domain D10
+  if (doc === "soc-detection-policy") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("10-soc-detection", "soc-detection-policy.fr.md.hbs"),
+        out: path.join(outDir, "docs", "10-soc-detection", `POL_D10_SOC_Detection_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("10-soc-detection", "soc-detection-policy.en.md.hbs"),
+        out: path.join(outDir, "docs", "10-soc-detection", `POL_D10_SOC_Detection_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "siem-logging-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("10-soc-detection", "siem-logging-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "10-soc-detection", `STD_D10_SIEM_Logging_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("10-soc-detection", "siem-logging-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "10-soc-detection", `STD_D10_SIEM_Logging_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "incident-response-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("10-soc-detection", "incident-response-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "10-soc-detection", `STD_D10_IncidentResponse_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("10-soc-detection", "incident-response-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "10-soc-detection", `STD_D10_IncidentResponse_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "detection-usecases-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("10-soc-detection", "detection-usecases-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "10-soc-detection", `STD_D10_DetectionUseCases_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("10-soc-detection", "detection-usecases-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "10-soc-detection", `STD_D10_DetectionUseCases_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "soc-detection-checklist") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("10-soc-detection", "soc-detection-checklist.fr.md.hbs"),
+        out: path.join(outDir, "docs", "10-soc-detection", `CHK_D10_SOC_Detection_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("10-soc-detection", "soc-detection-checklist.en.md.hbs"),
+        out: path.join(outDir, "docs", "10-soc-detection", `CHK_D10_SOC_Detection_${org}_EN.md`)
       });
   }
 

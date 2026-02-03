@@ -1,0 +1,18 @@
+# STD — D10 — Standard Logging SIEM
+
+**Organisation :** ACME  
+**Version :** 0.2 (durci)  
+**Date :** 2026-02-03
+
+## 1. Exigences minimales (baseline)
+- Sources minimum : IdP/IAM, EDR, firewall/VPN, cloud audit, DNS.
+- Time sync (NTP) sur sources.
+- Parsing normalisé + champs (user, src, action, outcome).
+- Rétention : **≥ 90 jours**.
+
+## 2. Renforcé (régulé)
+- Rétention : **≥ 180 jours** + WORM sur périmètre critique.
+- Qualité ingestion : > **98%** événements attendus.
+
+## 3. Preuves
+- Dashboard ingestion, schéma champs, preuves rétention.

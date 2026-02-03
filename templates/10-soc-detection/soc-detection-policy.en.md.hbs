@@ -1,0 +1,44 @@
+# POL — D10 — SOC / Detection & Response (SIEM, XDR, IR, CTI)
+
+**Organization:** {{org}}  
+**Version:** 0.2 (hardened)  
+**Date:** {{today}}
+
+## 1. Mission
+Build a “cyber nervous system”: detection (SIEM/XDR), response (IR/SOAR), intelligence (CTI), and incident handling, with **measurable** requirements (MTTD/MTTR, log coverage, alert quality).
+
+## 2. Baseline requirements
+### 2.1 Log coverage (mandatory)
+- Centralize at minimum: IdP/IAM, EDR, firewalls/VPN, cloud audit, DNS.
+- Retention: **≥ 90 days** (baseline).
+
+### 2.2 Detection & triage
+- Prioritized use-case catalog (phishing, admin abuse, malware, lateral movement).
+- Triage SLAs:
+  - Critical: **≤ 1h**
+  - High: **≤ 4h**
+  - Medium: **≤ 24h**
+
+### 2.3 Incident response
+- Documented IR runbooks (containment, eradication, recovery).
+- Exercises: **yearly**.
+
+## 3. Enhanced requirements (regulated)
+- Log retention: **≥ 180 days** + integrity.
+- SOAR/automated playbooks (isolate host, block IOCs, disable account).
+- CTI feeds integrated + validated.
+- Exercises: **semi-annually** for critical scope.
+
+## 4. Audit criteria (pass/fail)
+- [ ] Minimum log sources integrated.
+- [ ] Triage SLAs defined and measured.
+- [ ] IR runbooks + exercises.
+- [ ] Log retention and integrity.
+
+## 5. Evidence
+- Log source list + ingestion rate.
+- Alert tickets with timelines.
+- IR exercise reports.
+
+---
+*Template policy: complemented by SIEM logging, IR playbooks, detection use cases, CTI standards.*
