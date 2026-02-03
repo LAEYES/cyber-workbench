@@ -1,0 +1,38 @@
+# Standard EDR / Antivirus (D05)
+
+**Organisation :** ACME  
+**Version :** 0.1 (draft)  
+**Date :** 2026-02-03
+
+## 1. Objet
+Définir les exigences minimales pour la protection endpoint (EDR/AV) : déploiement, configuration, alerting et réponse.
+
+## 2. Exigences minimales (baseline)
+### 2.1 Déploiement & couverture
+- Agent EDR/AV déployé sur **100%** des endpoints en scope.
+- Protection temps réel activée ; mise à jour signatures/agents automatisée.
+
+### 2.2 Configuration
+- Politique standard : protection, blocage comportements à risque, contrôle scripts (selon outil).
+- Exclusions strictement limitées, justifiées, revues périodiquement.
+
+### 2.3 Alerting & traitement
+- Alertes critiques traitées selon SLA.
+- Procédures de quarantaine/isolation poste.
+
+### 2.4 Journalisation
+- Logs EDR centralisés ; rétention adaptée.
+
+## 3. Exigences renforcées (secteurs régulés)
+- Intégration SIEM + playbooks SOAR (si disponible).
+- Télémetrie étendue + conservation renforcée.
+- Chasse proactive (threat hunting) sur périmètre critique.
+- Tests réguliers (simulation) des capacités de détection et réponse.
+
+## 4. Preuves attendues
+- Tableau de bord couverture EDR.
+- Politique EDR (paramètres) + exceptions.
+- Exemples d’alertes et de traitement.
+
+---
+*Standard modèle : à adapter à l’outil EDR et à l’organisation SOC.*

@@ -1,0 +1,70 @@
+# Politique Sécurité des Postes & Endpoints (D05)
+
+**Organisation :** ACME  
+**Version :** 0.1 (draft)  
+**Date :** 2026-02-03
+
+## 1. Objet
+Définir les exigences de sécurité applicables aux postes de travail, laptops, serveurs bureautiques, terminaux mobiles et endpoints (y compris postes d’administration) afin de réduire les risques de compromission, de fuite de données et d’interruption d’activité.
+
+## 2. Périmètre
+- Postes Windows/macOS/Linux ; mobiles iOS/Android (si gérés).
+- Endpoints internes, distants, télétravail, BYOD (si autorisé).
+- Équipements d’administration (jump hosts, postes admin dédiés).
+- Profils : PME=true, ETI=true, Régulé=true.
+
+## 3. Principes
+- **Baseline de durcissement** et configuration standardisée.
+- **Gestion centralisée** (MDM/UEM, GPO, configuration management).
+- **Protection multicouche** : EDR/AV, pare-feu hôte, contrôle applicatif.
+- **Patch management** systématique et priorisé par criticité.
+- **Chiffrement** et **sauvegarde** des données critiques.
+- **Traçabilité** : journaux et alertes sécurité remontés et traités.
+
+## 4. Gouvernance & responsabilités
+- **IT Ops / Workplace** : build, déploiement, durcissement, patching, conformité.
+- **RSSI/CISO** : exigences, contrôle, exceptions, pilotage des risques.
+- **Managers** : validation des besoins spécifiques (logiciels), arbitrage.
+- **Utilisateurs** : respect des règles, signalement d’incidents.
+
+## 5. Exigences minimales (baseline)
+### 5.1 Inventaire & conformité
+- Inventaire des endpoints (asset management) avec propriétaire et criticité.
+- Conformité minimale : OS supporté, chiffrement, EDR/AV actif, pare-feu actif.
+
+### 5.2 Durcissement
+- Image standard (golden image) et configuration sécurisée.
+- Désactivation des services inutiles ; restriction des macros et scripts.
+- Comptes locaux limités ; pas d’admin local permanent sauf besoin documenté.
+
+### 5.3 Patching
+- Mises à jour OS et applications critiques appliquées dans des délais définis.
+- Priorisation des vulnérabilités exposées et exploitées.
+
+### 5.4 Protection endpoint
+- EDR/AV géré centralement, protection temps réel.
+- Pare-feu hôte actif ; restrictions des ports/flux non nécessaires.
+
+### 5.5 Données
+- Chiffrement disque (au minimum laptops) ; verrouillage automatique.
+- Sauvegarde et/ou synchronisation des données métier (selon modèle).
+
+## 6. Exigences renforcées (secteurs régulés)
+- Postes d’administration dédiés (PAW) et segmentation forte.
+- Contrôle applicatif (allow-list) sur périmètre critique.
+- Durcissement renforcé (CIS/benchmarks) avec preuves de conformité.
+- Patching accéléré sur vulnérabilités critiques (SLA strict) + fenêtres de maintenance.
+- Détection/réponse : playbooks EDR, chasse proactive, conservation renforcée des logs.
+- Restrictions périphériques : USB contrôlé, DLP/contrôles de transfert si nécessaire.
+
+## 7. Exceptions
+Toute exception est : documentée, justifiée, limitée dans le temps, compensée (contrôles alternatifs), approuvée par le RSSI/CISO.
+
+## 8. Preuves attendues (exemples)
+- Rapport conformité endpoints (MDM/UEM/EDR).
+- Baseline de configuration + paramètres principaux.
+- Rapport patching / vulnérabilités.
+- Procédures d’onboarding/offboarding des postes.
+
+---
+*Document modèle : à adapter selon le parc, l’outillage (Intune/Jamf/SCCM, etc.) et les obligations réglementaires.*

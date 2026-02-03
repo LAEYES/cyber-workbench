@@ -1,0 +1,47 @@
+# Standard Durcissement Endpoints (D05)
+
+**Organisation :** {{org}}  
+**Version :** 0.1 (draft)  
+**Date :** {{today}}
+
+## 1. Objet
+Décrire la baseline de durcissement (hardening) des endpoints pour réduire la surface d’attaque et améliorer la résistance aux attaques.
+
+## 2. Exigences minimales (baseline)
+### 2.1 Configuration de sécurité
+- Baseline de configuration définie et appliquée (GPO/MDM/config management).
+- Verrouillage automatique de session (timeout) et mot de passe/PIN conforme.
+- Désactivation/limitation des fonctionnalités à risque (macros, scripts non signés, exécution depuis répertoires temporaires).
+
+### 2.2 Privilèges
+- Principe de moindre privilège : pas d’admin local pour usage courant.
+- Comptes admin dédiés pour opérations d’administration.
+
+### 2.3 Protection du navigateur
+- Durcissement navigateur : blocage extensions non approuvées, isolation site, mises à jour automatiques.
+- DNS sécurisé (DoH/filtrage) si disponible.
+
+### 2.4 Chiffrement & verrouillage
+- Chiffrement disque activé (BitLocker/FileVault/LUKS).
+- Secure Boot activé quand applicable.
+
+### 2.5 Surface d’attaque
+- Désactiver services inutiles (RDP/SMB, etc.) selon besoin.
+- Pare-feu hôte configuré en deny-by-default pour entrées non nécessaires.
+
+## 3. Exigences renforcées (secteurs régulés)
+- Contrôle applicatif (allow-list) sur périmètre critique.
+- Journaux avancés (ex. Sysmon) + centralisation et rétention renforcée.
+- Désactivation stricte des langages/script engines non requis.
+- Durcissement renforcé des postes admin (PAW) + interdiction navigation web non nécessaire.
+
+## 4. Tests & vérifications
+- Vérification périodique de conformité (rapport MDM/GPO).
+- Tests de durcissement lors des montées de version OS.
+
+## 5. Preuves attendues
+- Baseline (export GPO/MDM) + version.
+- Rapport de conformité.
+
+---
+*Standard modèle : à adapter par OS (Windows/macOS/Linux) et par profil de risque.*

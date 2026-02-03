@@ -1,0 +1,38 @@
+# Endpoint Patch Management Standard (D05)
+
+**Organization:** {{org}}  
+**Version:** 0.1 (draft)  
+**Date:** {{today}}
+
+## 1. Purpose
+Define rules for endpoint patching and updates (OS, browsers, office suites, remote tools).
+
+## 2. Baseline requirements
+### 2.1 Governance & responsibilities
+- Use an update management tool (WSUS/Intune/Jamf/other) and reporting.
+- Defined maintenance windows; user communications.
+
+### 2.2 Timelines (indicative SLAs)
+- Actively exploited / internet-exposed: **7 days**.
+- Critical: **14 days**.
+- High: **30 days**.
+- Others: regular cycle.
+
+### 2.3 Coverage
+- OS + critical apps (browsers, PDF, VPN, security agents).
+- Software inventory to identify outdated versions.
+
+### 2.4 Exceptions
+- Documented exceptions with compensating controls (isolation, access restriction, monitoring).
+
+## 3. Enhanced requirements (regulated sectors)
+- Stricter SLAs for critical scope (e.g., 72h/7d depending on context).
+- Pre-deployment validation (pilot) + full traceability.
+- KPIs and regular reviews; escalation on drift.
+
+## 4. Expected evidence
+- Patch compliance report.
+- Vulnerability management procedure.
+
+---
+*Template standard: adapt to fleet constraints and production requirements.*

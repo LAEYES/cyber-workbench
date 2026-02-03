@@ -1,0 +1,37 @@
+# Endpoint & Workstations Checklist (D05)
+
+**Organization:** ACME  
+**Date:** 2026-02-03
+
+## 1. Inventory & compliance
+- [ ] Endpoint inventory up to date (owner, OS, criticality).
+- [ ] Supported OS versions and up to date.
+- [ ] Full-disk encryption enabled (at least laptops).
+
+## 2. Hardening
+- [ ] GPO/MDM baseline enforced (lock, macro/script restrictions).
+- [ ] No local admin for daily use; separate admin accounts.
+- [ ] Host firewall enabled and configured.
+
+## 3. Patching
+- [ ] Central patching tool + reporting.
+- [ ] Patching SLAs defined; track exceptions.
+- [ ] Critical apps covered (browsers, PDF, VPN, agents).
+
+## 4. EDR / AV
+- [ ] EDR/AV coverage ~100%.
+- [ ] Minimal exclusions with review.
+- [ ] Isolation/quarantine procedure.
+
+## 5. Data & peripherals
+- [ ] Auto-lock + session protections.
+- [ ] USB/BYOD policy (if applicable) and controls.
+
+## 6. Enhanced (regulated)
+- [ ] Dedicated admin workstations (PAW) + segmentation.
+- [ ] Application allow-listing on critical scope.
+- [ ] Enhanced logs + retention + integrity.
+- [ ] Regular EDR tests and exercises.
+
+---
+*Template checklist: complete with evidence and links to policies/standards.*

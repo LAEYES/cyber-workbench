@@ -23,7 +23,12 @@ type DocKind =
   | "cloud-iam-standard"
   | "iac-security-standard"
   | "secrets-management-standard"
-  | "cloud-devsecops-checklist";
+  | "cloud-devsecops-checklist"
+  | "endpoint-security-policy"
+  | "hardening-standard"
+  | "patch-management-standard"
+  | "edr-standard"
+  | "endpoint-checklist";
 
 function normalizeDoc(doc: string): DocKind {
   const raw = doc.trim();
@@ -115,6 +120,54 @@ function normalizeDoc(doc: string): DocKind {
     v === "chk-d04-cloud-devsecops"
   )
     return "cloud-devsecops-checklist";
+
+  // Domain D05
+  if (
+    v === "endpoint-security-policy" ||
+    v === "pol_d05_endpointsecurity" ||
+    v === "pol-d05-endpointsecurity" ||
+    v === "pol_d05_endpoints" ||
+    v === "pol-d05-endpoints" ||
+    v === "pol_d05_endpoint" ||
+    v === "pol-d05-endpoint"
+  )
+    return "endpoint-security-policy";
+
+  if (
+    v === "hardening-standard" ||
+    v === "std_d05_hardening" ||
+    v === "std-d05-hardening"
+  )
+    return "hardening-standard";
+
+  if (
+    v === "patch-management-standard" ||
+    v === "std_d05_patch_management" ||
+    v === "std-d05-patch-management" ||
+    v === "std_d05_patchmanagement" ||
+    v === "std-d05-patchmanagement" ||
+    v === "std_d05_patching" ||
+    v === "std-d05-patching"
+  )
+    return "patch-management-standard";
+
+  if (
+    v === "edr-standard" ||
+    v === "std_d05_edr" ||
+    v === "std-d05-edr" ||
+    v === "std_d05_av" ||
+    v === "std-d05-av"
+  )
+    return "edr-standard";
+
+  if (
+    v === "endpoint-checklist" ||
+    v === "chk_d05_endpoints" ||
+    v === "chk-d05-endpoints" ||
+    v === "chk_d05_endpoint" ||
+    v === "chk-d05-endpoint"
+  )
+    return "endpoint-checklist";
 
   throw new Error(`Doc inconnu: ${raw}`);
 }
@@ -400,6 +453,72 @@ export async function genDoc(params: { doc: string; org?: string; lang?: string;
       tasks.push({
         template: tplPath("04-cloud-devsecops", "cloud-devsecops-checklist.en.md.hbs"),
         out: path.join(outDir, "docs", "04-cloud-devsecops", `CHK_D04_CloudDevSecOps_${org}_EN.md`)
+      });
+  }
+
+  // Domain D05
+  if (doc === "endpoint-security-policy") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("05-endpoints", "endpoint-security-policy.fr.md.hbs"),
+        out: path.join(outDir, "docs", "05-endpoints", `POL_D05_EndpointSecurity_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("05-endpoints", "endpoint-security-policy.en.md.hbs"),
+        out: path.join(outDir, "docs", "05-endpoints", `POL_D05_EndpointSecurity_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "hardening-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("05-endpoints", "hardening-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "05-endpoints", `STD_D05_Hardening_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("05-endpoints", "hardening-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "05-endpoints", `STD_D05_Hardening_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "patch-management-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("05-endpoints", "patch-management-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "05-endpoints", `STD_D05_PatchManagement_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("05-endpoints", "patch-management-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "05-endpoints", `STD_D05_PatchManagement_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "edr-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("05-endpoints", "edr-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "05-endpoints", `STD_D05_EDR_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("05-endpoints", "edr-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "05-endpoints", `STD_D05_EDR_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "endpoint-checklist") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("05-endpoints", "endpoint-checklist.fr.md.hbs"),
+        out: path.join(outDir, "docs", "05-endpoints", `CHK_D05_Endpoints_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("05-endpoints", "endpoint-checklist.en.md.hbs"),
+        out: path.join(outDir, "docs", "05-endpoints", `CHK_D05_Endpoints_${org}_EN.md`)
       });
   }
 
