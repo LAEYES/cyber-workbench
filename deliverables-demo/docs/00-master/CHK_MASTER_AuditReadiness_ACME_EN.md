@@ -1,39 +1,48 @@
 # CHK — MASTER — Audit Readiness (cross-domain)
 
 **Organization:** ACME  
-**Version:** 0.2 (hardened)  
+**Version:** 0.3 (hardened)  
 **Date:** 2026-02-03
 
-## 1. Governance & risk
-- [ ] D01: policies in force, periodic reviews.
-- [ ] D15: risk register up-to-date + time-boxed acceptances.
+## 0. Audit decision rule
+- **PASS** = 0 failed critical items.
+- **FAIL** = ≥ 1 failed critical item (action plan mandatory).
 
-## 2. Identity (human + machine)
-- [ ] D02/D11: MFA + RBAC/SoD + access reviews.
-- [ ] D17: workload identity + no static secrets in production.
+## 1. Governance & risk (critical)
+- [ ] D01: policies in force, reviews ≥ yearly, exceptions time-boxed (≤ 30d).
+- [ ] D15: risk register current, acceptances ≤ 90d (regulated ≤ 60d), decisions traceable.
 
-## 3. Detection & response
-- [ ] D10: critical logs ingested, priority detections active.
-- [ ] D13: playbooks + audit trails + approvals.
-- [ ] D14: case management + triage SLAs.
+## 2. Identity (human + machine) (critical)
+- [ ] D02/D11: MFA 100% privileged accounts + SoD, access reviews ≥ quarterly (regulated ≥ monthly).
+- [ ] D17: workload identity in prod + 0 unmanaged static secrets; tokens/certs ≤ 24h (regulated ≤ 1h).
 
-## 4. Hardening & vulnerabilities
-- [ ] D05: patching meets SLAs, EDR coverage.
-- [ ] D06: SDLC gates + vulnerability management.
+## 3. Detection & response (critical)
+- [ ] D10: critical log coverage = 100% + priority detections active; critical triage ≤ 1h.
+- [ ] D13: versioned playbooks + audit trails; approvals for critical actions.
+- [ ] D14: case management (workflow + mandatory fields) + tracked triage SLAs (MTTD/MTTR).
 
-## 5. Data & crypto
-- [ ] D07: classification + backups + tests.
-- [ ] D09: key management, rotation, PKI.
+## 4. Hardening & vulnerabilities (critical)
+- [ ] D05: critical patch ≤ 7d (regulated ≤ 72h) + EDR coverage ≥ 95% (regulated ≥ 99%).
+- [ ] D06: SDLC gates (SAST/DAST/dep scan) + critical vulns ≤ 7d (regulated ≤ 72h) OR documented VEX/mitigation.
 
-## 6. Supply chain
-- [ ] D16: SBOM 100% prod + signing + provenance (as required).
+## 5. Data & crypto (critical)
+- [ ] D07: effective classification + encryption for sensitive data + restore tests ≥ quarterly.
+- [ ] D09: key management (KMS/HSM), rotation ≥ yearly (regulated ≤ 6 months), usage inventory.
 
-## 7. Resilience
-- [ ] D12: defined RPO/RTO + proven DR/restore tests.
+## 6. Supply chain (critical)
+- [ ] D16: SBOM 100% prod releases + signing & verification (deny unsigned); critical vulns ≤ 7d (regulated ≤ 72h).
 
-## 8. Compliance & evidence
-- [ ] D08: chain of custody + compliant retention.
-- [ ] Immutable evidence for critical incidents/decisions (regulated).
+## 7. Resilience (critical)
+- [ ] D12: defined RPO/RTO + restore tests ≥ quarterly + DR test ≥ yearly (evidence retained).
+
+## 8. Compliance & evidence (critical)
+- [ ] D08: chain-of-custody + compliant retention (≥ 1y; regulated ≥ 3y) + integrity.
+- [ ] Critical incidents/decisions: immutable evidence (WORM) (regulated) + timestamped exports.
+
+## 9. Minimum retention (reminder)
+- SIEM/SOAR/IdP/ZTNA: ≥ 180d (regulated ≥ 1y)
+- Releases/SBOM/attestations: ≥ 1y (regulated ≥ 3y)
+- DR/restore tests: ≥ 3y
 
 ---
-*Pass/fail: if a critical item is “no”, trigger an action plan with due date and owner.*
+*If FAIL: open a case (D14), assign an owner, set a due date, and link evidence (D08/D13).*
