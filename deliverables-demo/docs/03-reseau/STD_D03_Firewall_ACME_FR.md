@@ -1,49 +1,34 @@
 # STD — D03 — Standard pare-feu (firewall)
 
 **Organisation :** ACME  
-**Version :** 0.1 (draft)  
+**Version :** 0.2 (durci)  
 **Date :** 2026-02-03
 
 ## 1. Objet
-Définir les exigences de configuration, d’exploitation et de gouvernance des firewalls/NGFW (on‑prem et cloud) pour assurer un filtrage cohérent et auditable.
+Définir une gouvernance **auditable** des règles firewall/NGFW (on‑prem + cloud).
 
-## 2. Gouvernance des règles
-- **Deny by default** pour les politiques inter‑zones.
-- Toute règle inclut : propriétaire, justification, service/app, criticité, date de création, date de revue/expiration.
-- Les règles temporaires ont une **date d’expiration** obligatoire.
-- Revue périodique : au minimum semestrielle; trimestrielle pour zones critiques.
+## 2. Règles (obligatoires)
+- Deny-by-default inter‑zones.
+- Toute règle a : owner, justification, app/service, date création, date revue, expiration.
+- Règles temporaires : expiration obligatoire (max **30 jours**).
 
-## 3. Conception des règles
-- Prioriser des règles **spécifiques** (pas de `any/any`, pas de plages trop larges).
-- Préférer objets/groupes nommés (IP/FQDN/tags) et services applicatifs.
-- Séparer politiques : inter‑zones, egress Internet, accès admin, VPN/remote.
-- Journaliser : deny par défaut + allow sur flux sensibles (admin, DMZ, DATA, BACKUP).
+## 3. Journalisation (minimum)
+- Log deny par défaut.
+- Log allow sur flux sensibles (ADMIN/DMZ/DATA/BACKUP).
+- Rétention logs : **≥ 90 jours** (baseline) / **≥ 180 jours** (régulé).
 
-## 4. Sécurité de la plateforme
-- Administration sécurisée : accès depuis ZONE-ADMIN, MFA, RBAC, comptes nominatifs.
-- Durcissement : désactivation services inutiles, chiffrement TLS, SNMPv3 si supervision.
-- Synchronisation NTP, sauvegardes de configuration, contrôle d’intégrité.
-- HA/cluster lorsque requis par l’analyse d’impact.
+## 4. Revue & clean-up
+- Revue règles : **semestriel** (baseline) / **trimestriel** (critique ou régulé).
+- Nettoyage : règles orphelines/shadow/objets non utilisés.
 
-## 5. Fonctions NGFW (selon contexte)
-- IPS/IDS, filtrage URL, anti-malware, contrôle applicatif, déchiffrement TLS si légalement/contractuellement possible.
-- Politique de contournement documentée (ex: pinning, contraintes métiers).
+## 5. Sécurité plateforme
+- Admin depuis zone ADMIN, MFA, RBAC.
+- Backups config + test restauration.
 
-## 6. Exigences cloud (Security Groups / NACL / Firewall managé)
-- Approche « policy as code » recommandée pour la traçabilité (revues, pull requests).
-- Tags et nomenclature obligatoires (app, env, owner, data class).
-- Éviter l’exposition directe : préférer LB/WAF + DMZ.
+## 6. Renforcé (régulé)
+- Double validation (réseau + sécurité) sur périmètre critique.
+- Tests de non‑régression (simulation) pour changements majeurs.
 
-## 7. Exigences renforcées (régulé)
-- Double validation (réseau + sécurité) pour modifications sur périmètre critique.
-- Contrôles de non‑régression (tests automatisés, simulation de règles).
-- Audit trimestriel : règles orphelines, shadow rules, objets non utilisés, ouvertures Internet.
-- Conservation des logs et export des changements pour preuves.
-
-## 8. Éléments de preuve
-- Exports de politique + historique des changements
-- Procédure de revue et tickets de changement
-- Rapport d’audit de règles (clean‑up)
-
-## 9. Exceptions
-Exceptions temporaires uniquement, avec revue de risque et mesures compensatoires (WAF, monitoring renforcé, segmentation).
+## 7. Preuves attendues
+- Exports politiques + changelog.
+- Tickets de change + revues.

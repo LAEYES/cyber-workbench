@@ -1,75 +1,55 @@
 # POL — D03 — Network & Infrastructure Security Policy
 
-**Organisation:** {{org}}  
-**Version:** 0.1 (draft)  
+**Organization:** {{org}}  
+**Version:** 0.2 (hardened)  
 **Date:** {{today}}
 
 ## 1. Purpose
-Define security requirements for the design, operation and evolution of {{org}} networks and infrastructure (LAN/WAN/Wi‑Fi, datacenter, cloud, interconnections).
+Define **operational and auditable** requirements for network design and operations (LAN/WAN/Wi‑Fi, DC, cloud, interconnects): segmentation, filtering, remote access, hardening, monitoring.
 
 ## 2. Scope
-- Internal networks (campus, sites, DC), cloud networks (VPC/VNet), DMZ, and OT/industrial networks when applicable.
-- Assets and services: routers, firewalls, switches, Wi‑Fi, VPN/remote access, DNS/DHCP/IPAM, proxies, partner links.
-- Administrative tooling (NMS, configuration backups, bastions).
+- On‑prem and cloud networks, DMZ, partner connectivity.
+- Devices/services: routers, firewalls, switches, Wi‑Fi, VPN/remote access, DNS/DHCP/IPAM, proxies.
 
-## 3. Principles
-- **Defense in depth:** segmentation + filtering + hardening + monitoring.
-- **Network least privilege:** deny by default; allow explicitly.
-- **Traceability:** log critical events and changes.
-- **Availability:** resilience aligned to business needs.
-- **Secure-by-design:** controlled changes and architecture reviews.
+## 3. Baseline requirements
+### 3.1 Inventory & lifecycle (mandatory)
+- Maintain inventory (owner, version, end-of-support).
+- EOL/EOS equipment is **prohibited** in critical scope.
+- Config backups: **daily** (critical) / **weekly** (others) + restore test **quarterly**.
 
-## 4. Baseline requirements
-### 4.1 Architecture & segmentation
-- Networks are segmented at minimum into: users, servers, administration, DMZ, guest/IoT, backups.
-- Inter-zone flows are **documented** (src/dst/ports/protocol/justification/owner) and **reviewed**.
-- Infrastructure administration is performed from dedicated admin networks (OOB or isolated in-band).
+### 3.2 Segmentation (minimum)
+- Minimum segments: USER / SRV / ADMIN / DMZ (if exposed) / GUEST-IOT / BACKUP / DATA.
+- Inter-zone flow matrix reviewed:
+  - critical: **quarterly**
+  - others: **semi-annual**
 
-### 4.2 Traffic filtering & access control
-- Inter-zone filtering uses centralized firewall/ACL; rules are **specific**, **justified**, and **time-bound** when exceptional.
-- Rule lifecycle management: create → review → optimize → remove.
-- Internet exposure of admin services (SSH/RDP/WinRM) is forbidden unless through an approved controlled solution.
+### 3.3 Filtering
+- Inter-zone: **deny-by-default**.
+- Any/any prohibited unless approved exception (max **30d**).
+- No internet-exposed admin services (SSH/RDP/WinRM) outside controlled solutions.
 
-### 4.3 Remote access (VPN / ZTNA)
-- Remote access is allowed only via approved solutions with MFA and (when available) device posture.
-- Separate user access from administrator access; log all remote sessions.
-- Split tunneling is disabled by default unless documented with compensating controls.
+### 3.4 Remote access (VPN/ZTNA)
+- MFA required.
+- Separate user/admin/third-party access.
+- Minimum posture (managed device, active EDR, supported OS) for sensitive access.
 
-### 4.4 Device hardening & lifecycle
-- Maintain an inventory of network devices (model, version, location, owner, criticality).
-- Harden devices: disable unused services, remove default accounts, encrypt management channels.
-- Vulnerability management: track versions, patch based on severity, prohibit end-of-support devices.
-- Backup configurations and test restoration.
+### 3.5 Logging & monitoring
+- Centralize network logs with retention **≥ 90 days**.
+- Minimum alerts: rule changes, new objects, deny spikes, anomalous connections.
 
-### 4.5 Core network services (DNS/DHCP/NTP)
-- Secure internal DNS (access controls, logging, protect against unauthorized transfers).
-- Use internal NTP references; time sync is mandatory for devices.
-- Govern DHCP and IPAM; detect rogue DHCP servers.
+## 4. Enhanced requirements (regulated)
+- Pre-production security architecture review (flows, data, crypto, logs).
+- Micro-segmentation for critical workloads.
+- Bastion administration + session recording (critical scope).
+- Log retention **≥ 180 days** + integrity.
+- Dual approval (network + security) for critical changes.
 
-### 4.6 Monitoring & detection
-- Centralize logs (firewalls, VPN, DNS, key devices) to SIEM/central tooling.
-- Alert on: rule changes, new objects, spikes in drops/denies, abnormal authentication, non-compliant tunnels.
-- Provide proportionate network forensics (SPAN/TAP, NetFlow/IPFIX, proxy logs).
+## 5. Audit criteria (pass/fail)
+- [ ] Inventory and EOL managed.
+- [ ] Minimum segmentation + reviewed flow matrix.
+- [ ] Deny-by-default and rules justified/expiring.
+- [ ] Remote access MFA + separation.
+- [ ] Centralized logging + retention.
 
-## 5. Enhanced requirements (regulated)
-- Formal **security architecture review** before production (risks, flows, data, encryption, logging).
-- **Micro-segmentation** for critical assets (sensitive workloads, admin, backups) using policy-based controls.
-- **Bastion-based administration** (JIT/JEA), session recording, strict separation of duties.
-- Mandatory **encryption** for sensitive interconnections (site-to-site, cloud-to-DC) with key management.
-- Strengthened operations: patch SLAs, recovery tests, periodic rule clean-up, configuration audits.
-
-## 6. Roles & responsibilities
-- **Network owner:** architecture, segmentation, operations, inventory.
-- **Security:** requirements, reviews, exception governance, periodic assurance.
-- **Application teams:** flow requirements, testing, validation.
-
-## 7. Exceptions
-Exceptions must be justified, time-limited, approved, documented with compensating controls and a review date.
-
-## 8. Metrics
-- % of inter-zone flows documented and reviewed
-- Firewall rule age / % expired rules removed
-- Network device patch compliance rate
-
-## 9. Review
-Annual review and after major incidents or significant changes (new site, cloud landing zone, WAN redesign).
+---
+*Template policy: complemented by segmentation/firewall/VPN standards and change procedures.*

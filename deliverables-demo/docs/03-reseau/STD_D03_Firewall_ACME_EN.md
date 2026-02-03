@@ -1,49 +1,34 @@
-# STD — D03 — Firewall Standard
+# STD — D03 — Firewall / NGFW Standard
 
-**Organisation:** ACME  
-**Version:** 0.1 (draft)  
+**Organization:** ACME  
+**Version:** 0.2 (hardened)  
 **Date:** 2026-02-03
 
 ## 1. Purpose
-Define configuration, operational and governance requirements for firewalls/NGFW (on‑prem and cloud) to ensure consistent and auditable filtering.
+Define **auditable** governance for firewall/NGFW rules (on‑prem + cloud).
 
-## 2. Rule governance
-- **Deny by default** for inter-zone policies.
-- Each rule includes: owner, business justification, service/app, criticality, creation date, review/expiry date.
-- Temporary rules require a mandatory **expiration date**.
-- Periodic review: at least semi-annual; quarterly for critical zones.
+## 2. Rule requirements (mandatory)
+- Inter-zone deny-by-default.
+- Each rule includes: owner, justification, app/service, created date, review date, expiration.
+- Temporary rules require expiration (max **30 days**).
 
-## 3. Rule design
-- Prefer **specific** rules (no any/any, no overly broad ranges).
-- Use named objects/groups (IP/FQDN/tags) and application-aware services when applicable.
-- Separate policies: inter‑zone, Internet egress, admin access, VPN/remote.
-- Logging: log default denies and allows for sensitive flows (admin, DMZ, DATA, BACKUP).
+## 3. Logging (minimum)
+- Log default denies.
+- Log allows for sensitive flows (ADMIN/DMZ/DATA/BACKUP).
+- Log retention: **≥ 90 days** (baseline) / **≥ 180 days** (regulated).
 
-## 4. Platform security
-- Secure administration: access from ZONE-ADMIN, MFA, RBAC, named accounts.
-- Hardening: disable unused services, enforce TLS, use SNMPv3 for monitoring.
-- NTP sync, config backups, integrity controls.
-- HA/cluster when required by impact analysis.
+## 4. Review & clean-up
+- Rule review: **semi-annual** (baseline) / **quarterly** (critical or regulated).
+- Cleanup: orphan/shadow rules, unused objects.
 
-## 5. NGFW capabilities (context dependent)
-- IPS/IDS, URL filtering, anti-malware, application control, TLS inspection where legally/contractually possible.
-- Documented bypass policy (e.g., pinning, business constraints).
+## 5. Platform security
+- Admin from ADMIN zone, MFA, RBAC.
+- Config backups + restore tests.
 
-## 6. Cloud controls (Security Groups / NACL / managed firewall)
-- Prefer policy-as-code for traceability (reviews, pull requests).
-- Mandatory tagging/naming (app, env, owner, data class).
-- Avoid direct exposure: prefer LB/WAF + DMZ patterns.
+## 6. Enhanced (regulated)
+- Dual approval (network + security) for critical scope.
+- Non-regression testing (simulation) for major changes.
 
-## 7. Enhanced requirements (regulated)
-- Dual approval (network + security) for changes affecting critical scope.
-- Non-regression controls (automated tests, rule simulation).
-- Quarterly audit: orphan rules, shadow rules, unused objects, internet openings.
-- Log retention and export of changes for evidence.
-
-## 8. Evidence
-- Policy exports + change history
-- Review procedure and change tickets
-- Rule audit / clean-up report
-
-## 9. Exceptions
-Only temporary exceptions with risk review and compensating controls (WAF, enhanced monitoring, segmentation).
+## 7. Expected evidence
+- Policy exports + changelog.
+- Change tickets + review records.

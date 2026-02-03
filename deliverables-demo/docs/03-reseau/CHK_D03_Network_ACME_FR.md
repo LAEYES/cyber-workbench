@@ -1,62 +1,34 @@
 # CHK — D03 — Checklist réseau & infrastructure
 
 **Organisation :** ACME  
-**Version :** 0.1 (draft)  
+**Version :** 0.2 (durci)  
 **Date :** 2026-02-03
 
-> Objectif : évaluer rapidement la maturité et la conformité des contrôles réseau. Renseigner **Statut** (OK / NOK / N/A), **Preuve** et **Commentaires**.
+## 1. Inventaire & MCO
+- [ ] Inventaire à jour (owner, version, EOL).
+- [ ] Backups config (daily critique / weekly autre) + restore test trimestriel.
 
-## 1. Gouvernance & inventaire
-- [ ] Inventaire des équipements réseau à jour (Statut / Preuve / Commentaires)
-- [ ] Versions/fin de support suivies, plan de renouvellement
-- [ ] Sauvegardes des configurations + tests de restauration
+## 2. Segmentation
+- [ ] Segments minimum (USER/SRV/ADMIN/DMZ/BACKUP/DATA/IOT).
+- [ ] Matrice flux revue (trimestriel critique / semestriel autre).
+- [ ] USER→DATA interdit.
 
-## 2. Architecture & segmentation
-- [ ] Schéma réseau à jour (on‑prem + cloud)
-- [ ] Matrice des flux inter‑zones maintenue et revue
-- [ ] Segmentation minimale en place (USER/SRV/DATA/ADMIN/DMZ/BACKUP/IOT)
-- [ ] Administration depuis réseau d’admin dédié / bastion
+## 3. Firewall
+- [ ] Deny-by-default inter‑zones.
+- [ ] Règles avec owner/justif/revue/expiration.
+- [ ] Règles temporaires ≤ 30j.
+- [ ] Logs deny + allow sensible ; rétention ≥ 90j/180j.
 
-## 3. Filtrage & pare-feu
-- [ ] Politique « deny by default » inter‑zones
-- [ ] Règles documentées (owner, justification, expiration)
-- [ ] Revue périodique + nettoyage (règles orphelines/shadow)
-- [ ] Journalisation activée (deny + allow sensible) et centralisée
+## 4. Accès distant
+- [ ] MFA obligatoire.
+- [ ] Posture minimale pour accès sensible.
+- [ ] Split tunneling interdit (exceptions time-boxed).
+- [ ] Logs centralisés.
 
-## 4. Accès distant (VPN / ZTNA)
-- [ ] MFA obligatoire pour accès distant
-- [ ] Séparation user/admin/tiers
-- [ ] Contrôles de posture (appareil géré, EDR, OS supporté)
-- [ ] Logs de connexions et alertes sur comportements anormaux
+## 5. Renforcé (régulé)
+- [ ] Micro-seg workloads critiques.
+- [ ] Bastion + session recording.
+- [ ] Double validation sur périmètre critique.
 
-## 5. Services réseau (DNS/DHCP/NTP)
-- [ ] DNS interne sécurisé (ACL, logs, transferts contrôlés)
-- [ ] Détection DHCP rogue / IPAM maîtrisé
-- [ ] Synchronisation NTP cohérente sur équipements
-
-## 6. Supervision & réponse
-- [ ] Centralisation des logs réseau vers SIEM / outil central
-- [ ] Alertes sur changements de règles, pics de rejets, tunnels non conformes
-- [ ] Capacité de capture/NetFlow pour investigation
-
-## 7. Wi‑Fi (si applicable)
-- [ ] Chiffrement moderne (WPA2‑Enterprise/WPA3), authentification forte
-- [ ] SSID invités isolé (aucun accès aux zones internes)
-- [ ] Rotation/gestion des secrets et certificats
-
-## 8. Cloud networking (si applicable)
-- [ ] Modèle landing zone, segmentation (VPC/VNet), SG/NACL cohérents
-- [ ] Politique-as-code / revues de changements
-- [ ] Exposition Internet limitée (WAF/LB, pas d’admin direct)
-
-## 9. Exigences renforcées (régulé)
-- [ ] Revue d’architecture sécurité avant mise en production
-- [ ] Micro-segmentation des workloads critiques
-- [ ] Enregistrement des sessions d’admin (bastion) + preuves
-- [ ] Audits périodiques de configuration (firewalls, VPN, DNS)
-
-## Synthèse
-- **Principaux écarts :**
-  - 
-- **Actions prioritaires (30/60/90 jours) :**
-  - 
+---
+*Checklist : compléter avec preuves (exports, tickets, dashboards).* 
