@@ -21,6 +21,8 @@ import { natoMvpExport } from "./commands/nato_mvp_export.js";
 import { natoMvpVerifyBundle } from "./commands/nato_mvp_verify.js";
 import { natoMvpVerifyManifest } from "./commands/nato_mvp_verify_manifest.js";
 import { natoMvpGenerateSigningKey } from "./commands/nato_mvp_keys.js";
+import { natoMvpRiskCreate, natoMvpRiskGet } from "./commands/nato_mvp_risk.js";
+import { natoMvpDecisionCreate } from "./commands/nato_mvp_decision.js";
 
 const program = new Command();
 
@@ -117,6 +119,70 @@ program
   .option("--name <name>", "Nom de base des fichiers", "nato-mvp-ed25519")
   .action(async (opts) => {
     await natoMvpGenerateSigningKey({ outDir: opts.out, name: opts.name });
+  });
+
+program
+  .command("nato:mvp-risk-create")
+  .description("MVP: crée un Risk dans un store local (JSON)")
+  .requiredOption("--title <t>", "Titre")
+  .requiredOption("--owner <o>", "Owner")
+  .requiredOption("--likelihood <n>", "1..5")
+  .requiredOption("--impact <n>", "1..5")
+  .requiredOption("--due <yyyy-mm-dd>", "Due date")
+  .option("--risk-id <id>", "RiskId (optionnel)")
+  .option("--desc <text>", "Description")
+  .option("--status <s>", "new|open|accepted|mitigated|closed", "open")
+  .option("--org <id>", "OrgId", "ORG")
+  .option("--actor <id>", "Actor", "user")
+  .option("--out <dir>", "Dossier store", "./deliverables")
+  .action(async (opts) => {
+    await natoMvpRiskCreate({
+      outDir: opts.out,
+      orgId: opts.org,
+      actor: opts.actor,
+      riskId: opts.riskId,
+      title: opts.title,
+      owner: opts.owner,
+      likelihood: Number(opts.likelihood),
+      impact: Number(opts.impact),
+      dueDate: opts.due,
+      status: opts.status,
+      description: opts.desc
+    });
+  });
+
+program
+  .command("nato:mvp-risk-get")
+  .description("MVP: affiche un Risk depuis le store local")
+  .requiredOption("--risk-id <id>", "RiskId")
+  .option("--org <id>", "OrgId", "ORG")
+  .option("--out <dir>", "Dossier store", "./deliverables")
+  .action(async (opts) => {
+    await natoMvpRiskGet({ outDir: opts.out, orgId: opts.org, riskId: opts.riskId });
+  });
+
+program
+  .command("nato:mvp-decision-create")
+  .description("MVP: crée une Decision (SoD + expiry) dans le store local")
+  .requiredOption("--risk-id <id>", "RiskId")
+  .requiredOption("--type <t>", "treat|avoid|transfer|accept")
+  .requiredOption("--rationale <t>", "Rationale")
+  .requiredOption("--approved-by <id>", "ApprovedBy")
+  .option("--expiry <yyyy-mm-dd>", "Expiry (required for accept)")
+  .option("--org <id>", "OrgId", "ORG")
+  .option("--actor <id>", "Actor", "user")
+  .option("--out <dir>", "Dossier store", "./deliverables")
+  .action(async (opts) => {
+    await natoMvpDecisionCreate({
+      outDir: opts.out,
+      orgId: opts.org,
+      actor: opts.actor,
+      riskId: opts.riskId,
+      decisionType: opts.type,
+      rationale: opts.rationale,
+      approvedBy: opts.approvedBy,
+      expiryDate: opts.expiry
+    });
   });
 
 program

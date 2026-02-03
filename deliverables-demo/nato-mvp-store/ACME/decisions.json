@@ -1,0 +1,17 @@
+{
+  "D-1770154886311": {
+    "id": "decision_5e1fedea-e0f1-4a0b-8b84-02a2189a0549",
+    "type": "decision",
+    "version": 1,
+    "createdAt": "2026-02-03T21:41:26.311Z",
+    "createdBy": "bob",
+    "orgId": "ACME",
+    "decisionId": "D-1770154886311",
+    "riskId": "R-TEST",
+    "decisionType": "accept",
+    "rationale": "Business need",
+    "approvedBy": "ciso",
+    "approvedAt": "2026-02-03T21:41:26.312Z",
+    "expiryDate": "2026-04-01"
+  }
+}

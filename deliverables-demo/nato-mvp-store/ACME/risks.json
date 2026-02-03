@@ -1,0 +1,18 @@
+{
+  "R-TEST": {
+    "id": "risk_2a3bee00-9eee-401e-9167-50e55742c83e",
+    "type": "risk",
+    "version": 1,
+    "createdAt": "2026-02-03T21:41:25.513Z",
+    "createdBy": "bob",
+    "orgId": "ACME",
+    "riskId": "R-TEST",
+    "title": "Test risk",
+    "owner": "alice",
+    "likelihood": 3,
+    "impact": 4,
+    "score": 12,
+    "status": "open",
+    "dueDate": "2026-03-01"
+  }
+}
