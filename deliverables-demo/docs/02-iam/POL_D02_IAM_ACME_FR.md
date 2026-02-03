@@ -1,50 +1,65 @@
-# POL — D02 — Politique IAM (Identity & Access Management)
+# Politique IAM (Identity & Access Management)
 
 **Organisation :** ACME  
 **Version :** 0.1 (draft)  
 **Date :** 2026-02-03
 
 ## 1. Objet
-Définir les exigences de gouvernance et de contrôle des identités, des authentifications et des accès aux SI de ACME.
+Définir les exigences de gestion des identités et des accès (IAM) afin de protéger les ressources de ACME (applications, systèmes, données, services cloud).
 
 ## 2. Périmètre
-- Comptes humains, comptes techniques/service, comptes à privilèges.
-- Accès internes, distants, cloud/SaaS, API.
+- Utilisateurs internes, prestataires, comptes de service, comptes techniques.
+- Ressources : SI interne, SaaS, IaaS/PaaS, annuaires, outils d’administration.
+- Profils : PME=true, ETI=true, Régulé=true.
 
 ## 3. Principes
-- Moindre privilège, séparation des tâches, traçabilité.
-- MFA par défaut, gestion du cycle de vie (JML: Joiner/Mover/Leaver).
-- Zéro Trust (cible) : vérification continue, accès conditionnels.
+- **Moindre privilège** et **need-to-know**.
+- **Séparation des rôles** (ex. admin vs usage bureautique).
+- **Traçabilité** : actions d’authentification et d’administration journalisées.
+- **Identité comme périmètre** (cible Zero Trust) : accès conditionnels selon risque.
 
-## 4. Règles minimales (baseline)
-### 4.1 Cycle de vie des identités
-- Toute identité est unique, nominative (sauf comptes techniques documentés).
-- Provisioning/déprovisioning sous SLA (ex: départ < 24h).
+## 4. Gouvernance & responsabilités
+- **Propriétaires d’applications / données** : définition des rôles, validation des accès.
+- **IAM Owner** : gestion du référentiel d’identités, workflows, règles.
+- **IT Ops** : intégration technique, disponibilité des annuaires/SSO.
+- **RSSI/CISO** : exigences, contrôle, gestion des exceptions.
 
-### 4.2 Authentification
-- MFA obligatoire pour accès distants, VPN/SSO, consoles cloud, et privilèges.
-- Mots de passe : longueur min 14, blocage après tentatives, bannissement de mots de passe faibles.
+## 5. Exigences minimales (baseline)
+### 5.1 Cycle de vie des identités (JML)
+- Processus **Joiner/Mover/Leaver** formalisé.
+- Désactivation des comptes à la sortie **< 24h** (ou immédiat si risque).
+- Comptes nominaux (pas de comptes partagés) sauf exception documentée.
 
-### 4.3 Autorisations
-- RBAC (rôles) + exceptions tracées et temporisées.
-- Revue d’habilitations : trimestrielle (actifs critiques) / semestrielle (autres).
+### 5.2 Authentification
+- MFA obligatoire pour : accès distants, accès admin, données sensibles.
+- Mots de passe : longueur minimale + protection contre réutilisation (password manager recommandé).
 
-### 4.4 Journalisation
-- Journaliser authentifications, élévations de privilèges, accès admin, changements IAM.
-- Conservation et protection des logs (intégrité).
+### 5.3 Autorisation
+- Modèle RBAC (rôles) ou équivalent ; droits attribués via groupes.
+- Revue des habilitations **au moins trimestrielle** pour les rôles sensibles.
 
-## 5. Exigences renforcées (régulé)
-- IGA (Identity Governance) avec campagnes d’attestation, SoD, preuves.
-- PAM obligatoire : coffre, enregistrement des sessions, comptes break-glass, rotation.
-- Accès tiers : ZTNA, comptes dédiés, JIT/JEA, interdiction de comptes partagés.
+### 5.4 Journalisation & alerting
+- Journalisation des événements IAM : authentification, échecs, élévation, création/suppression.
+- Centralisation dans un SIEM/outil de logs (si disponible).
 
-## 6. Exceptions
-- Exceptions formalisées : justification, analyse de risque, durée, compensations.
+### 5.5 Comptes à privilèges (lien PAM)
+- Comptes admin dédiés, distincts des comptes usuels.
+- Accès admin via bastion / coffre-fort quand disponible.
 
-## 7. Indicateurs
-- % comptes à privilèges sous PAM
-- % MFA sur accès sensibles
-- Délai moyen de déprovisionnement
+## 6. Exigences renforcées (secteurs régulés)
+- MFA **résistant au phishing** (FIDO2/WebAuthn) pour accès à privilèges et environnements critiques.
+- Preuve d’identité (enrôlement) renforcée pour admins et prestataires.
+- Revue des habilitations : mensuelle pour périmètre critique + **recertification** formelle.
+- Politiques d’accès conditionnel (contexte, posture poste, géolocalisation, risque) et blocage des protocoles hérités.
+- Conservation et intégrité des logs IAM (horodatage, rétention, contrôle d’accès).
 
-## 8. Révision
-- Revue annuelle ou après incident majeur/changement d’architecture.
+## 7. Exceptions
+Toute exception est : justifiée, limitée dans le temps, compensée (contrôles alternatifs), approuvée par le RSSI/CISO.
+
+## 8. Indicateurs (exemples)
+- % comptes avec MFA, % admins en MFA phishing-resistant.
+- Délai moyen de désactivation à la sortie.
+- Taux de revues d’accès réalisées dans les délais.
+
+---
+*Document modèle : à adapter selon l’architecture IAM/PAM et les obligations réglementaires applicables.*

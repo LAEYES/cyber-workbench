@@ -1,26 +1,49 @@
-# STD — D02 — MFA Standard
+# MFA Standard (Multi‑Factor Authentication)
 
 **Organization:** ACME  
+**Version:** 0.1 (draft)  
 **Date:** 2026-02-03
 
-## 1. Goal
-Require multi-factor authentication for sensitive access.
+## 1. Purpose
+Define ACME MFA standard: where, when, and how multi‑factor authentication must be enforced.
 
-## 2. Scope
-- SSO/IdP, VPN/ZTNA, cloud consoles, email, admin tools, PAM.
+## 2. Definitions
+- **MFA**: at least two of *knowledge* (password), *possession* (token), *inherence* (biometrics).
+- **Phishing‑resistant**: key‑based factors (FIDO2/WebAuthn) resilient to phishing/proxy attacks.
 
-## 3. Requirements
-- MFA required for:
-  - privileged accounts
-  - remote access
-  - sensitive data access
-  - SaaS/Cloud administrative access
-- Accepted factors: FIDO2/WebAuthn, TOTP, push (with anti-fatigue protections).
-- Disallowed (unless exception): SMS (weak).
+## 3. Baseline requirements
+### 3.1 MFA mandatory use cases
+- Remote access (VPN, external web access, VDI).
+- Administrative environments (cloud console, hypervisors, directories).
+- Applications processing sensitive data.
 
-## 4. Regulated / enhanced
-- Phishing-resistant MFA (FIDO2) for admins.
-- Conditional access policies (device compliance, geo, risk signals, impossible travel).
+### 3.2 Allowed factors
+- Recommended: authenticator app (TOTP) or push with number matching.
+- Allowed only as last resort: SMS (SIM‑swap risk).
+- Biometrics: acceptable when paired with possession (e.g., passkeys on managed devices).
 
-## 5. Exceptions
-- Time-bound exception + compensating controls.
+### 3.3 Enrollment & recovery
+- Controlled enrollment (identity verification, corporate email/phone, managed device when possible).
+- Documented recovery flow with limits on resets.
+- Backup codes stored in a vault (password manager) and rotated.
+
+### 3.4 Exceptions and emergency accounts
+- Break‑glass accounts: very limited, restricted usage, monitored, secrets rotated.
+- Any MFA exception: justified, approved, time‑bound, with compensating controls.
+
+### 3.5 Logging
+- Log: enrollments, factor removal, bypass, MFA failures.
+- Alert on: repeated attempts, bypass usage, factor changes.
+
+## 4. Enhanced requirements (regulated environments)
+- Phishing‑resistant MFA required for privileged accounts and critical environments.
+- Step‑up MFA for sensitive actions (privilege elevation, IAM changes, data export).
+- Block legacy authentication protocols (basic auth, etc.).
+- Device posture controls for critical access.
+
+## 5. Checks (examples)
+- % accounts covered by MFA (overall / admins / third parties).
+- Leaver offboarding: time to remove access and factors.
+
+---
+*Template document: adapt to your IdP (Entra ID/Okta/etc.) and business constraints.*

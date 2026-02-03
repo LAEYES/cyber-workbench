@@ -23,10 +23,21 @@ npx tsx src/cli.ts init --org "ACME" --lang both --out ./deliverables
 
 ### 2) Générer des documents
 ```bash
+# D01 - Gouvernance
 npx tsx src/cli.ts gen pssi --out ./deliverables
 npx tsx src/cli.ts gen risk-register --out ./deliverables
+
+# D02 - IAM / PAM
+npx tsx src/cli.ts gen iam-policy --out ./deliverables
+npx tsx src/cli.ts gen mfa-standard --out ./deliverables
+npx tsx src/cli.ts gen pam-standard --out ./deliverables
+npx tsx src/cli.ts gen iam-pam-checklist --out ./deliverables
+
+# Alias acceptés (conventions de nommage)
+npx tsx src/cli.ts gen POL_D02_IAM --out ./deliverables
 ```
 
 ## Roadmap (MVP)
 - Domaine 1 Gouvernance : PSSI, ISMS pack, registre des risques (ISO 27005 + EBIOS light), plan d'audit, cartographie des actifs.
+- Domaine 2 IAM/PAM : politique IAM, standard MFA, standard PAM, checklist IAM/PAM.
 - Catalogue : ISO + NIST + CIS (données structurées + mappings).
