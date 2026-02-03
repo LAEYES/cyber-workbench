@@ -9,8 +9,10 @@ import { importIso27002 } from "./commands/import_iso.js";
 import { importCisV8 } from "./commands/import_cis.js";
 import { importNist80053 } from "./commands/import_80053.js";
 import { importMitreAttack } from "./commands/import_attack.js";
+import { importCtidAttackToNist80053 } from "./commands/import_ctid_nist80053.js";
 import { mapAttackToCsf } from "./commands/map_attack_csf.js";
 import { mapAttackToCsfVia80053 } from "./commands/map_attack_csf_via80053.js";
+import { mapAttackToCsfFrom80053 } from "./commands/map_attack_csf_from80053.js";
 
 const program = new Command();
 
@@ -108,6 +110,19 @@ program
   });
 
 program
+  .command("catalog:import-ctid-attack-80053")
+  .description("Importe les mappings CTID (ATT&CK → NIST 800-53 rev5) — public")
+  .option("--url <url>", "URL du JSON CTID (optionnel)")
+  .option(
+    "--out <file>",
+    "Fichier de sortie",
+    "./catalog/mappings/mitre-attack_to_nist-800-53-r5.yml"
+  )
+  .action(async (opts) => {
+    await importCtidAttackToNist80053({ url: opts.url, outFile: opts.out });
+  });
+
+program
   .command("catalog:import-attack")
   .description("Importe MITRE ATT&CK (Enterprise + Cloud + ICS) via STIX — public")
   .option("--out-techniques <file>", "Sortie techniques", "./catalog/controls/mitre-attack.techniques.yml")
@@ -181,6 +196,32 @@ program
       csfTo80053File: opts.csf2ctrl,
       outAttackTo80053File: opts.outAttack80053,
       outAttackToCsfFile: opts.outAttackCsf
+    });
+  });
+
+program
+  .command("catalog:map-attack-csf-from80053")
+  .description("Génère ATT&CK→CSF à partir d'un mapping ATT&CK→800-53 + CSF→800-53")
+  .option(
+    "--attack2ctrl <file>",
+    "Mapping ATT&CK→800-53",
+    "./catalog/mappings/mitre-attack_to_nist-800-53-r5.yml"
+  )
+  .option(
+    "--csf2ctrl <file>",
+    "Mapping CSF→800-53",
+    "./catalog/mappings/nist-csf-2.0_to_nist-800-53-r5.yml"
+  )
+  .option(
+    "--out <file>",
+    "Sortie ATT&CK→CSF",
+    "./catalog/mappings/mitre-attack_to_nist-csf-2.0_via_800-53.yml"
+  )
+  .action(async (opts) => {
+    await mapAttackToCsfFrom80053({
+      attackTo80053File: opts.attack2ctrl,
+      csfTo80053File: opts.csf2ctrl,
+      outFile: opts.out
     });
   });
 
