@@ -37,12 +37,12 @@ export async function genDoc(params: { doc: string; org?: string; lang?: string;
     if (lang === "fr" || lang === "both")
       tasks.push({
         template: tplPath("01-gouvernance", "pssi.fr.md.hbs"),
-        out: path.join(outDir, "docs", "01-gouvernance", `PSSI_${org}_FR.md`)
+        out: path.join(outDir, "docs", "01-gouvernance", `POL_D01_PSSI_${org}_FR.md`)
       });
     if (lang === "en" || lang === "both")
       tasks.push({
         template: tplPath("01-gouvernance", "pssi.en.md.hbs"),
-        out: path.join(outDir, "docs", "01-gouvernance", `ISMS_Policy_${org}_EN.md`)
+        out: path.join(outDir, "docs", "01-gouvernance", `POL_D01_ISMS_Policy_${org}_EN.md`)
       });
   }
 
@@ -50,12 +50,12 @@ export async function genDoc(params: { doc: string; org?: string; lang?: string;
     if (lang === "fr" || lang === "both")
       tasks.push({
         template: tplPath("01-gouvernance", "risk-register.fr.md.hbs"),
-        out: path.join(outDir, "docs", "01-gouvernance", `Registre_Risques_${org}_FR.md`)
+        out: path.join(outDir, "docs", "01-gouvernance", `TMP_D01_RiskRegister_${org}_FR.md`)
       });
     if (lang === "en" || lang === "both")
       tasks.push({
         template: tplPath("01-gouvernance", "risk-register.en.md.hbs"),
-        out: path.join(outDir, "docs", "01-gouvernance", `Risk_Register_${org}_EN.md`)
+        out: path.join(outDir, "docs", "01-gouvernance", `TMP_D01_RiskRegister_${org}_EN.md`)
       });
   }
 
