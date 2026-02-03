@@ -1,0 +1,18 @@
+# CHK — D12 — Checklist Résilience
+
+**Organisation :** ACME  
+**Version :** 0.2 (durci)  
+**Date :** 2026-02-03
+
+- [ ] RPO/RTO définis pour services critiques.
+- [ ] Backups chiffrés + restore tests trimestriels (critique).
+- [ ] DRP/BCP documentés.
+- [ ] Exercices annuels.
+
+## Renforcé (régulé)
+- [ ] Backups immuables WORM + air-gap logique.
+- [ ] Restore tests mensuels (critique).
+- [ ] Exercices semestriels (critique).
+
+---
+*Checklist : compléter avec preuves (rapports, runbooks, exercices).* 

@@ -56,7 +56,12 @@ type DocKind =
   | "identity-zerotrust-policy"
   | "ztna-standard"
   | "continuous-auth-standard"
-  | "identity-zerotrust-checklist";
+  | "identity-zerotrust-checklist"
+  | "resilience-policy"
+  | "drp-standard"
+  | "bcp-standard"
+  | "immutable-backup-standard"
+  | "resilience-checklist";
 
 function normalizeDoc(doc: string): DocKind {
   const raw = doc.trim();
@@ -494,6 +499,50 @@ function normalizeDoc(doc: string): DocKind {
     v === "chk-d11-identity-zerotrust"
   )
     return "identity-zerotrust-checklist";
+
+  // Domain D12
+  if (
+    v === "resilience-policy" ||
+    v === "pol_d12_resilience" ||
+    v === "pol-d12-resilience" ||
+    v === "pol_d12_backup" ||
+    v === "pol-d12-backup"
+  )
+    return "resilience-policy";
+
+  if (
+    v === "drp-standard" ||
+    v === "std_d12_drp" ||
+    v === "std-d12-drp"
+  )
+    return "drp-standard";
+
+  if (
+    v === "bcp-standard" ||
+    v === "std_d12_bcp" ||
+    v === "std-d12-bcp"
+  )
+    return "bcp-standard";
+
+  if (
+    v === "immutable-backup-standard" ||
+    v === "std_d12_immutable_backup" ||
+    v === "std-d12-immutable-backup" ||
+    v === "std_d12_immutablebackups" ||
+    v === "std-d12-immutablebackups" ||
+    v === "std_d12_immutable_backups" ||
+    v === "std-d12-immutable-backups" ||
+    v === "std_d12_worm" ||
+    v === "std-d12-worm"
+  )
+    return "immutable-backup-standard";
+
+  if (
+    v === "resilience-checklist" ||
+    v === "chk_d12_resilience" ||
+    v === "chk-d12-resilience"
+  )
+    return "resilience-checklist";
 
   throw new Error(`Doc inconnu: ${raw}`);
 }
@@ -1215,6 +1264,72 @@ export async function genDoc(params: { doc: string; org?: string; lang?: string;
       tasks.push({
         template: tplPath("11-identity-zerotrust", "identity-zerotrust-checklist.en.md.hbs"),
         out: path.join(outDir, "docs", "11-identity-zerotrust", `CHK_D11_Identity_ZeroTrust_${org}_EN.md`)
+      });
+  }
+
+  // Domain D12
+  if (doc === "resilience-policy") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("12-resilience-backup", "resilience-policy.fr.md.hbs"),
+        out: path.join(outDir, "docs", "12-resilience-backup", `POL_D12_Resilience_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("12-resilience-backup", "resilience-policy.en.md.hbs"),
+        out: path.join(outDir, "docs", "12-resilience-backup", `POL_D12_Resilience_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "drp-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("12-resilience-backup", "drp-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "12-resilience-backup", `STD_D12_DRP_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("12-resilience-backup", "drp-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "12-resilience-backup", `STD_D12_DRP_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "bcp-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("12-resilience-backup", "bcp-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "12-resilience-backup", `STD_D12_BCP_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("12-resilience-backup", "bcp-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "12-resilience-backup", `STD_D12_BCP_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "immutable-backup-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("12-resilience-backup", "immutable-backup-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "12-resilience-backup", `STD_D12_ImmutableBackups_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("12-resilience-backup", "immutable-backup-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "12-resilience-backup", `STD_D12_ImmutableBackups_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "resilience-checklist") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("12-resilience-backup", "resilience-checklist.fr.md.hbs"),
+        out: path.join(outDir, "docs", "12-resilience-backup", `CHK_D12_Resilience_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("12-resilience-backup", "resilience-checklist.en.md.hbs"),
+        out: path.join(outDir, "docs", "12-resilience-backup", `CHK_D12_Resilience_${org}_EN.md`)
       });
   }
 

@@ -1,0 +1,27 @@
+# POL — D12 — Résilience & Backup (DRP | BCP | Vault | Immutable)
+
+**Organisation :** {{org}}  
+**Version :** 0.2 (durci)  
+**Date :** {{today}}
+
+## 1. Mission
+Assurer la **cyber‑résilience** : continuité d’activité (BCP), reprise après sinistre (DRP), sauvegardes immuables, et restauration vérifiée, avec objectifs RPO/RTO mesurés.
+
+## 2. Exigences minimales (baseline)
+- Définir RPO/RTO pour services critiques.
+- Backups chiffrés + tests de restauration **trimestriels** (critique).
+- Copie séparée (compte/tenant distinct) recommandée.
+
+## 3. Exigences renforcées (régulé)
+- Backups immuables (WORM) + air-gap logique.
+- Tests restauration **mensuels** (critique).
+- Exercices DRP/BCP au moins **annuels**.
+
+## 4. Critères d’audit (pass/fail)
+- [ ] RPO/RTO définis.
+- [ ] Backups chiffrés et testés.
+- [ ] Immutabilité (si régulé) prouvée.
+- [ ] Runbooks de restauration.
+
+## 5. Preuves
+- Rapports backups, rapports restore tests, runbooks, résultats exercices.

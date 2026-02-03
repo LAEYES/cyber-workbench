@@ -1,0 +1,18 @@
+# STD — D12 — Disaster Recovery Plan (DRP) Standard
+
+**Organization:** ACME  
+**Version:** 0.2 (hardened)  
+**Date:** 2026-02-03
+
+## 1. Baseline requirements
+- Critical services list + dependencies.
+- RTO/RPO per service.
+- Failover and restore runbooks.
+- DRP test: **yearly** (baseline).
+
+## 2. Enhanced (regulated)
+- DRP test: **semi-annually** (critical).
+- Full evidence (timeline, results, actions).
+
+## 3. Evidence
+- Runbooks, DRP test reports.

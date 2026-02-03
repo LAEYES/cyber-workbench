@@ -1,0 +1,17 @@
+# STD — D12 — Immutable Backups (WORM) Standard
+
+**Organization:** ACME  
+**Version:** 0.2 (hardened)  
+**Date:** 2026-02-03
+
+## 1. Baseline requirements
+- Separate backup copy (separate account/tenant) recommended.
+- MFA for backup admin accounts.
+- Centralized backup operations logs; retention ≥ 180d for critical scope.
+
+## 2. Enhanced (regulated)
+- WORM/immutability enabled for critical backups.
+- Logical air-gap (restricted access, separate network where feasible).
+
+## 3. Evidence
+- WORM config, logs, separate account proof.
