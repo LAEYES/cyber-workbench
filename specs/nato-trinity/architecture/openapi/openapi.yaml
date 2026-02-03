@@ -33,6 +33,85 @@ components:
         createdBy: { type: string }
         updatedAt: { type: string, format: date-time }
 
+    CreateRiskRequest:
+      type: object
+      required: [riskId, title, owner, likelihood, impact, score, status, dueDate]
+      properties:
+        riskId: { type: string }
+        title: { type: string }
+        description: { type: string }
+        owner: { type: string }
+        likelihood: { type: integer, minimum: 1, maximum: 5 }
+        impact: { type: integer, minimum: 1, maximum: 5 }
+        score: { type: integer, minimum: 1, maximum: 25 }
+        status: { type: string, enum: [new, open, accepted, mitigated, closed] }
+        dueDate: { type: string, format: date }
+        controlRefs: { type: array, items: { type: string } }
+        evidenceRefs: { type: array, items: { type: string } }
+        caseRefs: { type: array, items: { type: string } }
+
+    CreateDecisionRequest:
+      oneOf:
+        - type: object
+          required: [decisionId, riskId, decisionType, rationale, approvedBy, approvedAt, expiryDate]
+          properties:
+            decisionId: { type: string }
+            riskId: { type: string }
+            decisionType: { type: string, enum: [treat, avoid, transfer, accept] }
+            rationale: { type: string }
+            approvedBy: { type: string }
+            approvedAt: { type: string, format: date-time }
+            expiryDate: { type: string, format: date }
+            evidenceRefs: { type: array, items: { type: string } }
+        - type: object
+          required: [decisionId, riskId, decisionType, rationale, approvedBy, approvedAt]
+          properties:
+            decisionId: { type: string }
+            riskId: { type: string }
+            decisionType: { type: string, enum: [treat, avoid, transfer] }
+            rationale: { type: string }
+            approvedBy: { type: string }
+            approvedAt: { type: string, format: date-time }
+            evidenceRefs: { type: array, items: { type: string } }
+
+    CreateExceptionRequest:
+      type: object
+      required: [exceptionId, requirementRef, scope, rationale, approvedBy, approvedAt, expiryDate]
+      properties:
+        exceptionId: { type: string }
+        requirementRef: { type: string }
+        scope: { type: string }
+        rationale: { type: string }
+        approvedBy: { type: string }
+        approvedAt: { type: string, format: date-time }
+        expiryDate: { type: string, format: date }
+
+    IngestEvidenceRequest:
+      type: object
+      required: [evidenceId, evidenceType, sourceSystem, collectedAt, collectorId, hash, storageRef, retentionClass]
+      properties:
+        evidenceId: { type: string }
+        evidenceType: { type: string, enum: [logExport, configSnapshot, ticket, report, sbom, vex, attestation, signature, screenshot] }
+        sourceSystem: { type: string }
+        collectedAt: { type: string, format: date-time }
+        collectorId: { type: string }
+        hash: { type: string }
+        hashAlg: { type: string, default: sha256 }
+        storageRef: { type: string }
+        classification: { type: string, enum: [public, internal, sensitive] }
+        retentionClass: { type: string, enum: [short, standard, long, legal] }
+        metadata: { type: object, additionalProperties: true }
+
+    CreateLegalHoldRequest:
+      type: object
+      required: [holdId, orgId, scopeRef, reason, status]
+      properties:
+        holdId: { type: string }
+        orgId: { type: string }
+        scopeRef: { type: string }
+        reason: { type: string }
+        status: { type: string, enum: [active] }
+
     GateResult:
       allOf:
         - $ref: '#/components/schemas/EntityBase'
@@ -320,10 +399,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Risk'
+              $ref: '#/components/schemas/CreateRiskRequest'
       responses:
         '201':
           description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Risk'
   /api/v1/risks/{riskId}/decisions:
     post:
       summary: Create decision for a risk
@@ -338,10 +421,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Decision'
+              $ref: '#/components/schemas/CreateDecisionRequest'
       responses:
         '201':
           description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Decision'
   /api/v1/exceptions:
     post:
       summary: Create exception
@@ -350,10 +437,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Exception'
+              $ref: '#/components/schemas/CreateExceptionRequest'
       responses:
         '201':
           description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Exception'
   /api/v1/gates/{gateId}/run:
     post:
       summary: Run a gate and produce GateResult
@@ -433,7 +524,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Evidence'
+              $ref: '#/components/schemas/IngestEvidenceRequest'
       responses:
         '201':
           description: Created
@@ -622,10 +713,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/LegalHold'
+              $ref: '#/components/schemas/CreateLegalHoldRequest'
       responses:
         '201':
           description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegalHold'
     patch:
       summary: Release legal hold
       requestBody:
