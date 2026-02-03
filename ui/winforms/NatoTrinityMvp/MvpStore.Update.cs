@@ -19,6 +19,7 @@ public sealed partial class MvpStore
         var updated = r with { Status = newStatus, UpdatedAt = NowIso(), UpdatedBy = actor };
         db[riskId] = updated;
         WriteDb(RisksPath, db);
+        AppendRiskSnapshotEvent(actor, "risk.updateStatus", updated);
 
         var ae = EmitAudit(actor, "human", "risk.updateStatus", $"risk:{riskId}", "success");
         return (updated, ae);

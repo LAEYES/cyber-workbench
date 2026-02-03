@@ -97,6 +97,7 @@ public sealed partial class MvpStore
 
         db[riskId] = r;
         WriteDb(RisksPath, db);
+        AppendRiskSnapshotEvent(actor, "risk.create", r);
         var ae = EmitAudit(actor, "human", "risk.create", $"risk:{riskId}", "success");
         return (r, ae);
     }
@@ -167,6 +168,7 @@ public sealed partial class MvpStore
 
         db[caseId] = c;
         WriteDb(CasesPath, db);
+        AppendCaseSnapshotEvent(actor, "case.create", c);
         var ae = EmitAudit(actor, "human", "case.create", $"case:{caseId}", "success");
         return (c, ae);
     }

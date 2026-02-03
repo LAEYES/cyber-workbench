@@ -101,6 +101,20 @@ public partial class Form1 : Form
         }
     }
 
+    private void OnRebuildFromEvents()
+    {
+        try
+        {
+            Require(!string.IsNullOrWhiteSpace(txtActor.Text), "Actor is required");
+            var (risks, cases) = Store().RebuildProjectionsFromEvents(txtActor.Text);
+            Log($"OK rebuilt projections from events: risks={risks} cases={cases}");
+        }
+        catch (Exception ex)
+        {
+            Log("ERROR " + ex.Message);
+        }
+    }
+
     private void OnPickBaseDir()
     {
         using var dlg = new FolderBrowserDialog();

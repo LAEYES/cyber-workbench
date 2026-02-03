@@ -189,10 +189,25 @@ partial class Form1
         StyleSecondary(btnOpenStore);
         btnOpenStore.Click += (_, _) => OnOpenStoreDir();
 
+        var btnRebuild = new Button { Text = "Rebuild" };
+        StyleSecondary(btnRebuild);
+        btnRebuild.Click += (_, _) => OnRebuildFromEvents();
+
+        var baseButtons = new FlowLayoutPanel
+        {
+            Dock = DockStyle.Fill,
+            AutoSize = true,
+            FlowDirection = FlowDirection.LeftToRight,
+            WrapContents = false
+        };
+        baseButtons.Controls.Add(btnPickBase);
+        baseButtons.Controls.Add(btnOpenStore);
+        baseButtons.Controls.Add(btnRebuild);
+
         baseRow.Controls.Add(lblBase, 0, 0);
         baseRow.Controls.Add(txtBaseDir, 1, 0);
-        baseRow.Controls.Add(btnPickBase, 2, 0);
-        baseRow.Controls.Add(btnOpenStore, 3, 0);
+        baseRow.Controls.Add(baseButtons, 2, 0);
+        baseRow.SetColumnSpan(baseButtons, 2);
 
         var orgRow = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 4 };
         orgRow.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
