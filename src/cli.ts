@@ -4,6 +4,7 @@ import { initWorkspace } from "./commands/init.js";
 import { genDoc } from "./commands/gen.js";
 import { validateCatalog } from "./commands/catalog.js";
 import { importNistCsfFromCsv } from "./commands/import_nist_csv.js";
+import { importNistCsfFromXlsx } from "./commands/import_nist_xlsx.js";
 import { importIso27002 } from "./commands/import_iso.js";
 import { importCisV8 } from "./commands/import_cis.js";
 import { importNist80053 } from "./commands/import_80053.js";
@@ -55,6 +56,24 @@ program
   .option("--out <file>", "Fichier de sortie", "./catalog/controls/nist-csf-2.0.outcomes.yml")
   .action(async (opts) => {
     await importNistCsfFromCsv({ inFile: opts.in, outFile: opts.out });
+  });
+
+program
+  .command("catalog:import-nist-xlsx")
+  .description("Importe NIST CSF 2.0 depuis l'export xlsx officiel ET génère le mapping CSF→NIST 800-53 (SP 800-53) depuis les informative references")
+  .option("--url <url>", "URL de l'xlsx NIST")
+  .option("--out-outcomes <file>", "Sortie outcomes", "./catalog/controls/nist-csf-2.0.outcomes.yml")
+  .option(
+    "--out-map-80053 <file>",
+    "Sortie mapping CSF→800-53",
+    "./catalog/mappings/nist-csf-2.0_to_nist-800-53-r5.yml"
+  )
+  .action(async (opts) => {
+    await importNistCsfFromXlsx({
+      url: opts.url,
+      outOutcomesFile: opts.outOutcomes,
+      outCsfTo80053MappingFile: opts.outMap80053
+    });
   });
 
 program

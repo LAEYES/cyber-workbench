@@ -1,0 +1,2116 @@
+id: nist-csf-2.0_to_nist-800-53-r5
+fromFramework: nist-csf-2.0
+toFramework: nist-800-53-r5
+items:
+  - from:
+      framework: nist-csf-2.0
+      id: DE.AE-02
+    to:
+      - framework: nist-800-53-r5
+        id: AU-06
+      - framework: nist-800-53-r5
+        id: CA-07
+      - framework: nist-800-53-r5
+        id: IR-04
+      - framework: nist-800-53-r5
+        id: SI-04
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: DE.AE-03
+    to:
+      - framework: nist-800-53-r5
+        id: AU-06
+      - framework: nist-800-53-r5
+        id: CA-07
+      - framework: nist-800-53-r5
+        id: IR-04
+      - framework: nist-800-53-r5
+        id: IR-05
+      - framework: nist-800-53-r5
+        id: IR-08
+      - framework: nist-800-53-r5
+        id: PM-16
+      - framework: nist-800-53-r5
+        id: SI-04
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: DE.AE-04
+    to:
+      - framework: nist-800-53-r5
+        id: PM-09
+      - framework: nist-800-53-r5
+        id: PM-11
+      - framework: nist-800-53-r5
+        id: PM-18
+      - framework: nist-800-53-r5
+        id: PM-28
+      - framework: nist-800-53-r5
+        id: PM-30
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: DE.AE-06
+    to:
+      - framework: nist-800-53-r5
+        id: IR-04
+      - framework: nist-800-53-r5
+        id: PM-15
+      - framework: nist-800-53-r5
+        id: PM-16
+      - framework: nist-800-53-r5
+        id: RA-03
+      - framework: nist-800-53-r5
+        id: RA-04
+      - framework: nist-800-53-r5
+        id: RA-10
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: DE.AE-07
+    to:
+      - framework: nist-800-53-r5
+        id: PM-16
+      - framework: nist-800-53-r5
+        id: RA-03
+      - framework: nist-800-53-r5
+        id: RA-10
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: DE.AE-08
+    to:
+      - framework: nist-800-53-r5
+        id: IR-04
+      - framework: nist-800-53-r5
+        id: IR-08
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: DE.CM-01
+    to:
+      - framework: nist-800-53-r5
+        id: AC-02
+      - framework: nist-800-53-r5
+        id: AU-12
+      - framework: nist-800-53-r5
+        id: CA-07
+      - framework: nist-800-53-r5
+        id: CM-03
+      - framework: nist-800-53-r5
+        id: SC-05
+      - framework: nist-800-53-r5
+        id: SC-07
+      - framework: nist-800-53-r5
+        id: SI-04
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: DE.CM-02
+    to:
+      - framework: nist-800-53-r5
+        id: CA-07
+      - framework: nist-800-53-r5
+        id: PE-03
+      - framework: nist-800-53-r5
+        id: PE-06
+      - framework: nist-800-53-r5
+        id: PE-20
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: DE.CM-03
+    to:
+      - framework: nist-800-53-r5
+        id: AC-02
+      - framework: nist-800-53-r5
+        id: AU-12
+      - framework: nist-800-53-r5
+        id: AU-13
+      - framework: nist-800-53-r5
+        id: CA-07
+      - framework: nist-800-53-r5
+        id: CM-10
+      - framework: nist-800-53-r5
+        id: CM-11
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: DE.CM-06
+    to:
+      - framework: nist-800-53-r5
+        id: CA-07
+      - framework: nist-800-53-r5
+        id: PS-07
+      - framework: nist-800-53-r5
+        id: SA-04
+      - framework: nist-800-53-r5
+        id: SA-09
+      - framework: nist-800-53-r5
+        id: SI-04
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: DE.CM-09
+    to:
+      - framework: nist-800-53-r5
+        id: AC-04
+      - framework: nist-800-53-r5
+        id: AC-09
+      - framework: nist-800-53-r5
+        id: AU-12
+      - framework: nist-800-53-r5
+        id: CA-07
+      - framework: nist-800-53-r5
+        id: CM-03
+      - framework: nist-800-53-r5
+        id: CM-06
+      - framework: nist-800-53-r5
+        id: CM-10
+      - framework: nist-800-53-r5
+        id: CM-11
+      - framework: nist-800-53-r5
+        id: SC-34
+      - framework: nist-800-53-r5
+        id: SC-35
+      - framework: nist-800-53-r5
+        id: SI-04
+      - framework: nist-800-53-r5
+        id: SI-07
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.OC-01
+    to:
+      - framework: nist-800-53-r5
+        id: PM-11
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.OC-02
+    to:
+      - framework: nist-800-53-r5
+        id: PM-09
+      - framework: nist-800-53-r5
+        id: PM-18
+      - framework: nist-800-53-r5
+        id: PM-30
+      - framework: nist-800-53-r5
+        id: SR-03
+      - framework: nist-800-53-r5
+        id: SR-05
+      - framework: nist-800-53-r5
+        id: SR-06
+      - framework: nist-800-53-r5
+        id: SR-08
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.OC-03
+    to:
+      - framework: nist-800-53-r5
+        id: AC-01
+      - framework: nist-800-53-r5
+        id: AT-01
+      - framework: nist-800-53-r5
+        id: AU-01
+      - framework: nist-800-53-r5
+        id: CA-01
+      - framework: nist-800-53-r5
+        id: CM-01
+      - framework: nist-800-53-r5
+        id: CP-01
+      - framework: nist-800-53-r5
+        id: IA-01
+      - framework: nist-800-53-r5
+        id: IR-01
+      - framework: nist-800-53-r5
+        id: MA-01
+      - framework: nist-800-53-r5
+        id: MP-01
+      - framework: nist-800-53-r5
+        id: PE-01
+      - framework: nist-800-53-r5
+        id: PL-01
+      - framework: nist-800-53-r5
+        id: PM-01
+      - framework: nist-800-53-r5
+        id: PM-28
+      - framework: nist-800-53-r5
+        id: PS-01
+      - framework: nist-800-53-r5
+        id: PT-01
+      - framework: nist-800-53-r5
+        id: RA-01
+      - framework: nist-800-53-r5
+        id: SA-01
+      - framework: nist-800-53-r5
+        id: SC-01
+      - framework: nist-800-53-r5
+        id: SI-01
+      - framework: nist-800-53-r5
+        id: SR-01
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.OC-04
+    to:
+      - framework: nist-800-53-r5
+        id: CP-02(08)
+      - framework: nist-800-53-r5
+        id: PM-08
+      - framework: nist-800-53-r5
+        id: PM-11
+      - framework: nist-800-53-r5
+        id: PM-30(01)
+      - framework: nist-800-53-r5
+        id: RA-09
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.OC-05
+    to:
+      - framework: nist-800-53-r5
+        id: PM-11
+      - framework: nist-800-53-r5
+        id: PM-30
+      - framework: nist-800-53-r5
+        id: RA-07
+      - framework: nist-800-53-r5
+        id: SA-09
+      - framework: nist-800-53-r5
+        id: SR-05
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.OV-01
+    to:
+      - framework: nist-800-53-r5
+        id: AC-01
+      - framework: nist-800-53-r5
+        id: AT-01
+      - framework: nist-800-53-r5
+        id: AU-01
+      - framework: nist-800-53-r5
+        id: CA-01
+      - framework: nist-800-53-r5
+        id: CM-01
+      - framework: nist-800-53-r5
+        id: CP-01
+      - framework: nist-800-53-r5
+        id: IA-01
+      - framework: nist-800-53-r5
+        id: IR-01
+      - framework: nist-800-53-r5
+        id: MA-01
+      - framework: nist-800-53-r5
+        id: MP-01
+      - framework: nist-800-53-r5
+        id: PE-01
+      - framework: nist-800-53-r5
+        id: PL-01
+      - framework: nist-800-53-r5
+        id: PM-01
+      - framework: nist-800-53-r5
+        id: PM-09
+      - framework: nist-800-53-r5
+        id: PM-18
+      - framework: nist-800-53-r5
+        id: PM-30
+      - framework: nist-800-53-r5
+        id: PM-31
+      - framework: nist-800-53-r5
+        id: PS-01
+      - framework: nist-800-53-r5
+        id: PT-01
+      - framework: nist-800-53-r5
+        id: RA-01
+      - framework: nist-800-53-r5
+        id: RA-07
+      - framework: nist-800-53-r5
+        id: SA-01
+      - framework: nist-800-53-r5
+        id: SC-01
+      - framework: nist-800-53-r5
+        id: SI-01
+      - framework: nist-800-53-r5
+        id: SR-01
+      - framework: nist-800-53-r5
+        id: SR-06
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.OV-02
+    to:
+      - framework: nist-800-53-r5
+        id: PM-09
+      - framework: nist-800-53-r5
+        id: PM-19
+      - framework: nist-800-53-r5
+        id: PM-30
+      - framework: nist-800-53-r5
+        id: PM-31
+      - framework: nist-800-53-r5
+        id: RA-07
+      - framework: nist-800-53-r5
+        id: SR-06
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.OV-03
+    to:
+      - framework: nist-800-53-r5
+        id: PM-04
+      - framework: nist-800-53-r5
+        id: PM-06
+      - framework: nist-800-53-r5
+        id: RA-07
+      - framework: nist-800-53-r5
+        id: SR-06
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.PO-01
+    to:
+      - framework: nist-800-53-r5
+        id: AC-01
+      - framework: nist-800-53-r5
+        id: AT-01
+      - framework: nist-800-53-r5
+        id: AU-01
+      - framework: nist-800-53-r5
+        id: CA-01
+      - framework: nist-800-53-r5
+        id: CM-01
+      - framework: nist-800-53-r5
+        id: CP-01
+      - framework: nist-800-53-r5
+        id: IA-01
+      - framework: nist-800-53-r5
+        id: IR-01
+      - framework: nist-800-53-r5
+        id: MA-01
+      - framework: nist-800-53-r5
+        id: MP-01
+      - framework: nist-800-53-r5
+        id: PE-01
+      - framework: nist-800-53-r5
+        id: PL-01
+      - framework: nist-800-53-r5
+        id: PM-01
+      - framework: nist-800-53-r5
+        id: PS-01
+      - framework: nist-800-53-r5
+        id: PT-01
+      - framework: nist-800-53-r5
+        id: RA-01
+      - framework: nist-800-53-r5
+        id: SA-01
+      - framework: nist-800-53-r5
+        id: SC-01
+      - framework: nist-800-53-r5
+        id: SI-01
+      - framework: nist-800-53-r5
+        id: SR-01
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.PO-02
+    to:
+      - framework: nist-800-53-r5
+        id: AC-01
+      - framework: nist-800-53-r5
+        id: AT-01
+      - framework: nist-800-53-r5
+        id: AU-01
+      - framework: nist-800-53-r5
+        id: CA-01
+      - framework: nist-800-53-r5
+        id: CM-01
+      - framework: nist-800-53-r5
+        id: CP-01
+      - framework: nist-800-53-r5
+        id: IA-01
+      - framework: nist-800-53-r5
+        id: IR-01
+      - framework: nist-800-53-r5
+        id: MA-01
+      - framework: nist-800-53-r5
+        id: MP-01
+      - framework: nist-800-53-r5
+        id: PE-01
+      - framework: nist-800-53-r5
+        id: PL-01
+      - framework: nist-800-53-r5
+        id: PM-01
+      - framework: nist-800-53-r5
+        id: PS-01
+      - framework: nist-800-53-r5
+        id: PT-01
+      - framework: nist-800-53-r5
+        id: RA-01
+      - framework: nist-800-53-r5
+        id: SA-01
+      - framework: nist-800-53-r5
+        id: SC-01
+      - framework: nist-800-53-r5
+        id: SI-01
+      - framework: nist-800-53-r5
+        id: SR-01
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.RM-01
+    to:
+      - framework: nist-800-53-r5
+        id: PM-09
+      - framework: nist-800-53-r5
+        id: RA-07
+      - framework: nist-800-53-r5
+        id: SR-02
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.RM-02
+    to:
+      - framework: nist-800-53-r5
+        id: PM-09
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.RM-03
+    to:
+      - framework: nist-800-53-r5
+        id: PM-03
+      - framework: nist-800-53-r5
+        id: PM-09
+      - framework: nist-800-53-r5
+        id: PM-30
+      - framework: nist-800-53-r5
+        id: RA-07
+      - framework: nist-800-53-r5
+        id: SA-24
+      - framework: nist-800-53-r5
+        id: SR-02
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.RM-04
+    to:
+      - framework: nist-800-53-r5
+        id: PM-09
+      - framework: nist-800-53-r5
+        id: PM-28
+      - framework: nist-800-53-r5
+        id: PM-30
+      - framework: nist-800-53-r5
+        id: SR-02
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.RM-05
+    to:
+      - framework: nist-800-53-r5
+        id: PM-09
+      - framework: nist-800-53-r5
+        id: PM-30
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.RM-06
+    to:
+      - framework: nist-800-53-r5
+        id: PM-09
+      - framework: nist-800-53-r5
+        id: PM-18
+      - framework: nist-800-53-r5
+        id: PM-28
+      - framework: nist-800-53-r5
+        id: PM-30
+      - framework: nist-800-53-r5
+        id: RA-03
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.RM-07
+    to:
+      - framework: nist-800-53-r5
+        id: PM-09
+      - framework: nist-800-53-r5
+        id: PM-18
+      - framework: nist-800-53-r5
+        id: PM-28
+      - framework: nist-800-53-r5
+        id: PM-30
+      - framework: nist-800-53-r5
+        id: RA-03
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.RR-01
+    to:
+      - framework: nist-800-53-r5
+        id: PM-02
+      - framework: nist-800-53-r5
+        id: PM-19
+      - framework: nist-800-53-r5
+        id: PM-23
+      - framework: nist-800-53-r5
+        id: PM-24
+      - framework: nist-800-53-r5
+        id: PM-29
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.RR-02
+    to:
+      - framework: nist-800-53-r5
+        id: PM-02
+      - framework: nist-800-53-r5
+        id: PM-13
+      - framework: nist-800-53-r5
+        id: PM-19
+      - framework: nist-800-53-r5
+        id: PM-23
+      - framework: nist-800-53-r5
+        id: PM-24
+      - framework: nist-800-53-r5
+        id: PM-29
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.RR-03
+    to:
+      - framework: nist-800-53-r5
+        id: PM-03
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.RR-04
+    to:
+      - framework: nist-800-53-r5
+        id: PM-13
+      - framework: nist-800-53-r5
+        id: PS-01
+      - framework: nist-800-53-r5
+        id: PS-07
+      - framework: nist-800-53-r5
+        id: PS-09
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.SC-01
+    to:
+      - framework: nist-800-53-r5
+        id: PM-30
+      - framework: nist-800-53-r5
+        id: SR-02
+      - framework: nist-800-53-r5
+        id: SR-03
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.SC-02
+    to:
+      - framework: nist-800-53-r5
+        id: SR-02
+      - framework: nist-800-53-r5
+        id: SR-03
+      - framework: nist-800-53-r5
+        id: SR-05
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.SC-03
+    to:
+      - framework: nist-800-53-r5
+        id: AC-01
+      - framework: nist-800-53-r5
+        id: AT-01
+      - framework: nist-800-53-r5
+        id: AU-01
+      - framework: nist-800-53-r5
+        id: CA-01
+      - framework: nist-800-53-r5
+        id: CM-01
+      - framework: nist-800-53-r5
+        id: CP-01
+      - framework: nist-800-53-r5
+        id: IA-01
+      - framework: nist-800-53-r5
+        id: IR-01
+      - framework: nist-800-53-r5
+        id: MA-01
+      - framework: nist-800-53-r5
+        id: MP-01
+      - framework: nist-800-53-r5
+        id: PE-01
+      - framework: nist-800-53-r5
+        id: PL-01
+      - framework: nist-800-53-r5
+        id: PM-01
+      - framework: nist-800-53-r5
+        id: PM-09
+      - framework: nist-800-53-r5
+        id: PM-18
+      - framework: nist-800-53-r5
+        id: PM-30
+      - framework: nist-800-53-r5
+        id: PM-31
+      - framework: nist-800-53-r5
+        id: PS-01
+      - framework: nist-800-53-r5
+        id: PT-01
+      - framework: nist-800-53-r5
+        id: RA-01
+      - framework: nist-800-53-r5
+        id: RA-03
+      - framework: nist-800-53-r5
+        id: RA-07
+      - framework: nist-800-53-r5
+        id: SA-01
+      - framework: nist-800-53-r5
+        id: SC-01
+      - framework: nist-800-53-r5
+        id: SI-01
+      - framework: nist-800-53-r5
+        id: SR-01
+      - framework: nist-800-53-r5
+        id: SR-02
+      - framework: nist-800-53-r5
+        id: SR-03
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.SC-04
+    to:
+      - framework: nist-800-53-r5
+        id: RA-09
+      - framework: nist-800-53-r5
+        id: SA-09
+      - framework: nist-800-53-r5
+        id: SR-06
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.SC-05
+    to:
+      - framework: nist-800-53-r5
+        id: SA-04
+      - framework: nist-800-53-r5
+        id: SA-09
+      - framework: nist-800-53-r5
+        id: SR-03
+      - framework: nist-800-53-r5
+        id: SR-05
+      - framework: nist-800-53-r5
+        id: SR-06
+      - framework: nist-800-53-r5
+        id: SR-10
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.SC-06
+    to:
+      - framework: nist-800-53-r5
+        id: SA-04
+      - framework: nist-800-53-r5
+        id: SA-09
+      - framework: nist-800-53-r5
+        id: SR-05
+      - framework: nist-800-53-r5
+        id: SR-06
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.SC-07
+    to:
+      - framework: nist-800-53-r5
+        id: RA-09
+      - framework: nist-800-53-r5
+        id: SA-04
+      - framework: nist-800-53-r5
+        id: SA-09
+      - framework: nist-800-53-r5
+        id: SR-03
+      - framework: nist-800-53-r5
+        id: SR-06
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.SC-08
+    to:
+      - framework: nist-800-53-r5
+        id: CP-01
+      - framework: nist-800-53-r5
+        id: IR-01
+      - framework: nist-800-53-r5
+        id: SA-04
+      - framework: nist-800-53-r5
+        id: SA-09
+      - framework: nist-800-53-r5
+        id: SR-02
+      - framework: nist-800-53-r5
+        id: SR-03
+      - framework: nist-800-53-r5
+        id: SR-08
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.SC-09
+    to:
+      - framework: nist-800-53-r5
+        id: PM-09
+      - framework: nist-800-53-r5
+        id: PM-19
+      - framework: nist-800-53-r5
+        id: PM-28
+      - framework: nist-800-53-r5
+        id: PM-30
+      - framework: nist-800-53-r5
+        id: PM-31
+      - framework: nist-800-53-r5
+        id: RA-03
+      - framework: nist-800-53-r5
+        id: RA-07
+      - framework: nist-800-53-r5
+        id: SA-04
+      - framework: nist-800-53-r5
+        id: SA-09
+      - framework: nist-800-53-r5
+        id: SR-02
+      - framework: nist-800-53-r5
+        id: SR-03
+      - framework: nist-800-53-r5
+        id: SR-05
+      - framework: nist-800-53-r5
+        id: SR-06
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: GV.SC-10
+    to:
+      - framework: nist-800-53-r5
+        id: PM-31
+      - framework: nist-800-53-r5
+        id: RA-03
+      - framework: nist-800-53-r5
+        id: RA-05
+      - framework: nist-800-53-r5
+        id: RA-07
+      - framework: nist-800-53-r5
+        id: SA-04
+      - framework: nist-800-53-r5
+        id: SA-09
+      - framework: nist-800-53-r5
+        id: SR-02
+      - framework: nist-800-53-r5
+        id: SR-03
+      - framework: nist-800-53-r5
+        id: SR-05
+      - framework: nist-800-53-r5
+        id: SR-06
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: ID.AM-01
+    to:
+      - framework: nist-800-53-r5
+        id: CM-08
+      - framework: nist-800-53-r5
+        id: PM-05
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: ID.AM-02
+    to:
+      - framework: nist-800-53-r5
+        id: AC-20
+      - framework: nist-800-53-r5
+        id: CM-08
+      - framework: nist-800-53-r5
+        id: PM-05
+      - framework: nist-800-53-r5
+        id: SA-05
+      - framework: nist-800-53-r5
+        id: SA-09
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: ID.AM-03
+    to:
+      - framework: nist-800-53-r5
+        id: AC-04
+      - framework: nist-800-53-r5
+        id: CA-03
+      - framework: nist-800-53-r5
+        id: CA-09
+      - framework: nist-800-53-r5
+        id: PL-02
+      - framework: nist-800-53-r5
+        id: PL-08
+      - framework: nist-800-53-r5
+        id: PM-07
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: ID.AM-04
+    to:
+      - framework: nist-800-53-r5
+        id: AC-20
+      - framework: nist-800-53-r5
+        id: SA-09
+      - framework: nist-800-53-r5
+        id: SR-02
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: ID.AM-05
+    to:
+      - framework: nist-800-53-r5
+        id: RA-02
+      - framework: nist-800-53-r5
+        id: RA-03
+      - framework: nist-800-53-r5
+        id: RA-09
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: ID.AM-07
+    to:
+      - framework: nist-800-53-r5
+        id: CM-12
+      - framework: nist-800-53-r5
+        id: CM-13
+      - framework: nist-800-53-r5
+        id: SI-12
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: ID.AM-08
+    to:
+      - framework: nist-800-53-r5
+        id: CM-09
+      - framework: nist-800-53-r5
+        id: CM-13
+      - framework: nist-800-53-r5
+        id: MA-02
+      - framework: nist-800-53-r5
+        id: MA-06
+      - framework: nist-800-53-r5
+        id: PL-02
+      - framework: nist-800-53-r5
+        id: PM-22
+      - framework: nist-800-53-r5
+        id: PM-23
+      - framework: nist-800-53-r5
+        id: SA-03
+      - framework: nist-800-53-r5
+        id: SA-04
+      - framework: nist-800-53-r5
+        id: SA-08
+      - framework: nist-800-53-r5
+        id: SA-22
+      - framework: nist-800-53-r5
+        id: SI-12
+      - framework: nist-800-53-r5
+        id: SI-18
+      - framework: nist-800-53-r5
+        id: SR-05
+      - framework: nist-800-53-r5
+        id: SR-12
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: ID.IM-01
+    to:
+      - framework: nist-800-53-r5
+        id: AC-01
+      - framework: nist-800-53-r5
+        id: AT-01
+      - framework: nist-800-53-r5
+        id: AU-01
+      - framework: nist-800-53-r5
+        id: CA-01
+      - framework: nist-800-53-r5
+        id: CA-02
+      - framework: nist-800-53-r5
+        id: CA-05
+      - framework: nist-800-53-r5
+        id: CA-07
+      - framework: nist-800-53-r5
+        id: CA-08
+      - framework: nist-800-53-r5
+        id: CM-01
+      - framework: nist-800-53-r5
+        id: CP-01
+      - framework: nist-800-53-r5
+        id: CP-02
+      - framework: nist-800-53-r5
+        id: IA-01
+      - framework: nist-800-53-r5
+        id: IR-01
+      - framework: nist-800-53-r5
+        id: IR-04
+      - framework: nist-800-53-r5
+        id: IR-08
+      - framework: nist-800-53-r5
+        id: MA-01
+      - framework: nist-800-53-r5
+        id: MP-01
+      - framework: nist-800-53-r5
+        id: PE-01
+      - framework: nist-800-53-r5
+        id: PL-01
+      - framework: nist-800-53-r5
+        id: PL-02
+      - framework: nist-800-53-r5
+        id: PM-01
+      - framework: nist-800-53-r5
+        id: PS-01
+      - framework: nist-800-53-r5
+        id: PT-01
+      - framework: nist-800-53-r5
+        id: RA-01
+      - framework: nist-800-53-r5
+        id: RA-03
+      - framework: nist-800-53-r5
+        id: RA-05
+      - framework: nist-800-53-r5
+        id: RA-07
+      - framework: nist-800-53-r5
+        id: SA-01
+      - framework: nist-800-53-r5
+        id: SA-08
+      - framework: nist-800-53-r5
+        id: SA-11
+      - framework: nist-800-53-r5
+        id: SA-17(06)
+      - framework: nist-800-53-r5
+        id: SC-01
+      - framework: nist-800-53-r5
+        id: SI-01
+      - framework: nist-800-53-r5
+        id: SI-02
+      - framework: nist-800-53-r5
+        id: SI-04
+      - framework: nist-800-53-r5
+        id: SR-01
+      - framework: nist-800-53-r5
+        id: SR-05
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: ID.IM-02
+    to:
+      - framework: nist-800-53-r5
+        id: AC-01
+      - framework: nist-800-53-r5
+        id: AT-01
+      - framework: nist-800-53-r5
+        id: AU-01
+      - framework: nist-800-53-r5
+        id: CA-01
+      - framework: nist-800-53-r5
+        id: CA-02
+      - framework: nist-800-53-r5
+        id: CA-05
+      - framework: nist-800-53-r5
+        id: CA-07
+      - framework: nist-800-53-r5
+        id: CA-08
+      - framework: nist-800-53-r5
+        id: CM-01
+      - framework: nist-800-53-r5
+        id: CP-01
+      - framework: nist-800-53-r5
+        id: CP-02
+      - framework: nist-800-53-r5
+        id: CP-04
+      - framework: nist-800-53-r5
+        id: IA-01
+      - framework: nist-800-53-r5
+        id: IR-01
+      - framework: nist-800-53-r5
+        id: IR-03
+      - framework: nist-800-53-r5
+        id: IR-04
+      - framework: nist-800-53-r5
+        id: IR-08
+      - framework: nist-800-53-r5
+        id: MA-01
+      - framework: nist-800-53-r5
+        id: MP-01
+      - framework: nist-800-53-r5
+        id: PE-01
+      - framework: nist-800-53-r5
+        id: PL-01
+      - framework: nist-800-53-r5
+        id: PL-02
+      - framework: nist-800-53-r5
+        id: PM-01
+      - framework: nist-800-53-r5
+        id: PM-04
+      - framework: nist-800-53-r5
+        id: PM-31
+      - framework: nist-800-53-r5
+        id: PS-01
+      - framework: nist-800-53-r5
+        id: PT-01
+      - framework: nist-800-53-r5
+        id: RA-01
+      - framework: nist-800-53-r5
+        id: RA-03
+      - framework: nist-800-53-r5
+        id: RA-05
+      - framework: nist-800-53-r5
+        id: RA-07
+      - framework: nist-800-53-r5
+        id: SA-01
+      - framework: nist-800-53-r5
+        id: SA-08
+      - framework: nist-800-53-r5
+        id: SA-11
+      - framework: nist-800-53-r5
+        id: SC-01
+      - framework: nist-800-53-r5
+        id: SI-01
+      - framework: nist-800-53-r5
+        id: SI-02
+      - framework: nist-800-53-r5
+        id: SI-04
+      - framework: nist-800-53-r5
+        id: SR-01
+      - framework: nist-800-53-r5
+        id: SR-05
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: ID.IM-03
+    to:
+      - framework: nist-800-53-r5
+        id: AC-01
+      - framework: nist-800-53-r5
+        id: AT-01
+      - framework: nist-800-53-r5
+        id: AU-01
+      - framework: nist-800-53-r5
+        id: CA-01
+      - framework: nist-800-53-r5
+        id: CA-02
+      - framework: nist-800-53-r5
+        id: CA-05
+      - framework: nist-800-53-r5
+        id: CA-07
+      - framework: nist-800-53-r5
+        id: CA-08
+      - framework: nist-800-53-r5
+        id: CM-01
+      - framework: nist-800-53-r5
+        id: CP-01
+      - framework: nist-800-53-r5
+        id: CP-02
+      - framework: nist-800-53-r5
+        id: IA-01
+      - framework: nist-800-53-r5
+        id: IR-01
+      - framework: nist-800-53-r5
+        id: IR-04
+      - framework: nist-800-53-r5
+        id: IR-08
+      - framework: nist-800-53-r5
+        id: MA-01
+      - framework: nist-800-53-r5
+        id: MP-01
+      - framework: nist-800-53-r5
+        id: PE-01
+      - framework: nist-800-53-r5
+        id: PL-01
+      - framework: nist-800-53-r5
+        id: PL-02
+      - framework: nist-800-53-r5
+        id: PM-01
+      - framework: nist-800-53-r5
+        id: PM-04
+      - framework: nist-800-53-r5
+        id: PM-31
+      - framework: nist-800-53-r5
+        id: PS-01
+      - framework: nist-800-53-r5
+        id: PT-01
+      - framework: nist-800-53-r5
+        id: RA-01
+      - framework: nist-800-53-r5
+        id: RA-03
+      - framework: nist-800-53-r5
+        id: RA-05
+      - framework: nist-800-53-r5
+        id: RA-07
+      - framework: nist-800-53-r5
+        id: SA-01
+      - framework: nist-800-53-r5
+        id: SA-04
+      - framework: nist-800-53-r5
+        id: SA-08
+      - framework: nist-800-53-r5
+        id: SA-11
+      - framework: nist-800-53-r5
+        id: SC-01
+      - framework: nist-800-53-r5
+        id: SI-01
+      - framework: nist-800-53-r5
+        id: SI-02
+      - framework: nist-800-53-r5
+        id: SI-04
+      - framework: nist-800-53-r5
+        id: SR-01
+      - framework: nist-800-53-r5
+        id: SR-05
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: ID.IM-04
+    to:
+      - framework: nist-800-53-r5
+        id: CP-02
+      - framework: nist-800-53-r5
+        id: IR-08
+      - framework: nist-800-53-r5
+        id: PL-02
+      - framework: nist-800-53-r5
+        id: SR-02
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: ID.RA-01
+    to:
+      - framework: nist-800-53-r5
+        id: CA-02
+      - framework: nist-800-53-r5
+        id: CA-07
+      - framework: nist-800-53-r5
+        id: CA-08
+      - framework: nist-800-53-r5
+        id: RA-03
+      - framework: nist-800-53-r5
+        id: RA-05
+      - framework: nist-800-53-r5
+        id: SA-11(02)
+      - framework: nist-800-53-r5
+        id: SA-15(07)
+      - framework: nist-800-53-r5
+        id: SA-15(08)
+      - framework: nist-800-53-r5
+        id: SI-04
+      - framework: nist-800-53-r5
+        id: SI-05
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: ID.RA-02
+    to:
+      - framework: nist-800-53-r5
+        id: PM-15
+      - framework: nist-800-53-r5
+        id: PM-16
+      - framework: nist-800-53-r5
+        id: SI-05
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: ID.RA-03
+    to:
+      - framework: nist-800-53-r5
+        id: PM-12
+      - framework: nist-800-53-r5
+        id: PM-16
+      - framework: nist-800-53-r5
+        id: RA-03
+      - framework: nist-800-53-r5
+        id: SI-05
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: ID.RA-04
+    to:
+      - framework: nist-800-53-r5
+        id: PM-09
+      - framework: nist-800-53-r5
+        id: PM-11
+      - framework: nist-800-53-r5
+        id: RA-02
+      - framework: nist-800-53-r5
+        id: RA-03
+      - framework: nist-800-53-r5
+        id: RA-08
+      - framework: nist-800-53-r5
+        id: RA-09
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: ID.RA-05
+    to:
+      - framework: nist-800-53-r5
+        id: PM-16
+      - framework: nist-800-53-r5
+        id: RA-02
+      - framework: nist-800-53-r5
+        id: RA-03
+      - framework: nist-800-53-r5
+        id: RA-07
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: ID.RA-06
+    to:
+      - framework: nist-800-53-r5
+        id: PM-09
+      - framework: nist-800-53-r5
+        id: PM-18
+      - framework: nist-800-53-r5
+        id: PM-30
+      - framework: nist-800-53-r5
+        id: RA-07
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: ID.RA-07
+    to:
+      - framework: nist-800-53-r5
+        id: CA-07
+      - framework: nist-800-53-r5
+        id: CM-03
+      - framework: nist-800-53-r5
+        id: CM-04
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: ID.RA-08
+    to:
+      - framework: nist-800-53-r5
+        id: RA-05
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: ID.RA-09
+    to:
+      - framework: nist-800-53-r5
+        id: SA-04
+      - framework: nist-800-53-r5
+        id: SA-05
+      - framework: nist-800-53-r5
+        id: SA-10
+      - framework: nist-800-53-r5
+        id: SA-11
+      - framework: nist-800-53-r5
+        id: SA-15
+      - framework: nist-800-53-r5
+        id: SA-17
+      - framework: nist-800-53-r5
+        id: SI-07
+      - framework: nist-800-53-r5
+        id: SR-05
+      - framework: nist-800-53-r5
+        id: SR-06
+      - framework: nist-800-53-r5
+        id: SR-10
+      - framework: nist-800-53-r5
+        id: SR-11
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: ID.RA-10
+    to:
+      - framework: nist-800-53-r5
+        id: SR-06
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: PR.AA-01
+    to:
+      - framework: nist-800-53-r5
+        id: AC-01
+      - framework: nist-800-53-r5
+        id: AC-02
+      - framework: nist-800-53-r5
+        id: AC-14
+      - framework: nist-800-53-r5
+        id: IA-01
+      - framework: nist-800-53-r5
+        id: IA-02
+      - framework: nist-800-53-r5
+        id: IA-03
+      - framework: nist-800-53-r5
+        id: IA-04
+      - framework: nist-800-53-r5
+        id: IA-05
+      - framework: nist-800-53-r5
+        id: IA-06
+      - framework: nist-800-53-r5
+        id: IA-07
+      - framework: nist-800-53-r5
+        id: IA-08
+      - framework: nist-800-53-r5
+        id: IA-09
+      - framework: nist-800-53-r5
+        id: IA-10
+      - framework: nist-800-53-r5
+        id: IA-11
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: PR.AA-02
+    to:
+      - framework: nist-800-53-r5
+        id: IA-12
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: PR.AA-03
+    to:
+      - framework: nist-800-53-r5
+        id: AC-07
+      - framework: nist-800-53-r5
+        id: AC-12
+      - framework: nist-800-53-r5
+        id: IA-02
+      - framework: nist-800-53-r5
+        id: IA-03
+      - framework: nist-800-53-r5
+        id: IA-05
+      - framework: nist-800-53-r5
+        id: IA-07
+      - framework: nist-800-53-r5
+        id: IA-08
+      - framework: nist-800-53-r5
+        id: IA-09
+      - framework: nist-800-53-r5
+        id: IA-10
+      - framework: nist-800-53-r5
+        id: IA-11
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: PR.AA-04
+    to:
+      - framework: nist-800-53-r5
+        id: IA-13
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: PR.AA-05
+    to:
+      - framework: nist-800-53-r5
+        id: AC-01
+      - framework: nist-800-53-r5
+        id: AC-02
+      - framework: nist-800-53-r5
+        id: AC-03
+      - framework: nist-800-53-r5
+        id: AC-05
+      - framework: nist-800-53-r5
+        id: AC-06
+      - framework: nist-800-53-r5
+        id: AC-10
+      - framework: nist-800-53-r5
+        id: AC-16
+      - framework: nist-800-53-r5
+        id: AC-17
+      - framework: nist-800-53-r5
+        id: AC-18
+      - framework: nist-800-53-r5
+        id: AC-19
+      - framework: nist-800-53-r5
+        id: AC-24
+      - framework: nist-800-53-r5
+        id: IA-13
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: PR.AA-06
+    to:
+      - framework: nist-800-53-r5
+        id: PE-02
+      - framework: nist-800-53-r5
+        id: PE-03
+      - framework: nist-800-53-r5
+        id: PE-04
+      - framework: nist-800-53-r5
+        id: PE-05
+      - framework: nist-800-53-r5
+        id: PE-06
+      - framework: nist-800-53-r5
+        id: PE-08
+      - framework: nist-800-53-r5
+        id: PE-18
+      - framework: nist-800-53-r5
+        id: PE-19
+      - framework: nist-800-53-r5
+        id: PE-20
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: PR.AT-01
+    to:
+      - framework: nist-800-53-r5
+        id: AT-02
+      - framework: nist-800-53-r5
+        id: AT-03
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: PR.AT-02
+    to:
+      - framework: nist-800-53-r5
+        id: AT-03
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: PR.DS-01
+    to:
+      - framework: nist-800-53-r5
+        id: CA-03
+      - framework: nist-800-53-r5
+        id: CP-09
+      - framework: nist-800-53-r5
+        id: MP-08
+      - framework: nist-800-53-r5
+        id: SC-04
+      - framework: nist-800-53-r5
+        id: SC-07
+      - framework: nist-800-53-r5
+        id: SC-12
+      - framework: nist-800-53-r5
+        id: SC-13
+      - framework: nist-800-53-r5
+        id: SC-28
+      - framework: nist-800-53-r5
+        id: SC-32
+      - framework: nist-800-53-r5
+        id: SC-39
+      - framework: nist-800-53-r5
+        id: SC-43
+      - framework: nist-800-53-r5
+        id: SI-03
+      - framework: nist-800-53-r5
+        id: SI-04
+      - framework: nist-800-53-r5
+        id: SI-07
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: PR.DS-02
+    to:
+      - framework: nist-800-53-r5
+        id: AU-16
+      - framework: nist-800-53-r5
+        id: CA-03
+      - framework: nist-800-53-r5
+        id: SC-04
+      - framework: nist-800-53-r5
+        id: SC-07
+      - framework: nist-800-53-r5
+        id: SC-08
+      - framework: nist-800-53-r5
+        id: SC-11
+      - framework: nist-800-53-r5
+        id: SC-12
+      - framework: nist-800-53-r5
+        id: SC-13
+      - framework: nist-800-53-r5
+        id: SC-16
+      - framework: nist-800-53-r5
+        id: SC-40
+      - framework: nist-800-53-r5
+        id: SC-43
+      - framework: nist-800-53-r5
+        id: SI-03
+      - framework: nist-800-53-r5
+        id: SI-04
+      - framework: nist-800-53-r5
+        id: SI-07
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: PR.DS-10
+    to:
+      - framework: nist-800-53-r5
+        id: AC-02
+      - framework: nist-800-53-r5
+        id: AC-03
+      - framework: nist-800-53-r5
+        id: AC-04
+      - framework: nist-800-53-r5
+        id: AU-09
+      - framework: nist-800-53-r5
+        id: AU-13
+      - framework: nist-800-53-r5
+        id: CA-03
+      - framework: nist-800-53-r5
+        id: CP-09
+      - framework: nist-800-53-r5
+        id: SA-08
+      - framework: nist-800-53-r5
+        id: SC-04
+      - framework: nist-800-53-r5
+        id: SC-07
+      - framework: nist-800-53-r5
+        id: SC-11
+      - framework: nist-800-53-r5
+        id: SC-13
+      - framework: nist-800-53-r5
+        id: SC-24
+      - framework: nist-800-53-r5
+        id: SC-32
+      - framework: nist-800-53-r5
+        id: SC-39
+      - framework: nist-800-53-r5
+        id: SC-40
+      - framework: nist-800-53-r5
+        id: SC-43
+      - framework: nist-800-53-r5
+        id: SI-03
+      - framework: nist-800-53-r5
+        id: SI-04
+      - framework: nist-800-53-r5
+        id: SI-07
+      - framework: nist-800-53-r5
+        id: SI-10
+      - framework: nist-800-53-r5
+        id: SI-16
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: PR.DS-11
+    to:
+      - framework: nist-800-53-r5
+        id: CP-06
+      - framework: nist-800-53-r5
+        id: CP-09
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: PR.IR-01
+    to:
+      - framework: nist-800-53-r5
+        id: AC-03
+      - framework: nist-800-53-r5
+        id: AC-04
+      - framework: nist-800-53-r5
+        id: SC-04
+      - framework: nist-800-53-r5
+        id: SC-05
+      - framework: nist-800-53-r5
+        id: SC-07
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: PR.IR-02
+    to:
+      - framework: nist-800-53-r5
+        id: CP-02
+      - framework: nist-800-53-r5
+        id: PE-09
+      - framework: nist-800-53-r5
+        id: PE-10
+      - framework: nist-800-53-r5
+        id: PE-11
+      - framework: nist-800-53-r5
+        id: PE-12
+      - framework: nist-800-53-r5
+        id: PE-13
+      - framework: nist-800-53-r5
+        id: PE-14
+      - framework: nist-800-53-r5
+        id: PE-15
+      - framework: nist-800-53-r5
+        id: PE-18
+      - framework: nist-800-53-r5
+        id: PE-23
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: PR.IR-03
+    to:
+      - framework: nist-800-53-r5
+        id: SA-08
+      - framework: nist-800-53-r5
+        id: SA-24
+      - framework: nist-800-53-r5
+        id: SC-06
+      - framework: nist-800-53-r5
+        id: SC-24
+      - framework: nist-800-53-r5
+        id: SC-36
+      - framework: nist-800-53-r5
+        id: SC-39
+      - framework: nist-800-53-r5
+        id: SI-13
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: PR.IR-04
+    to:
+      - framework: nist-800-53-r5
+        id: CP-06
+      - framework: nist-800-53-r5
+        id: CP-07
+      - framework: nist-800-53-r5
+        id: CP-08
+      - framework: nist-800-53-r5
+        id: PM-03
+      - framework: nist-800-53-r5
+        id: PM-09
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: PR.PS-01
+    to:
+      - framework: nist-800-53-r5
+        id: CM-01
+      - framework: nist-800-53-r5
+        id: CM-02
+      - framework: nist-800-53-r5
+        id: CM-03
+      - framework: nist-800-53-r5
+        id: CM-04
+      - framework: nist-800-53-r5
+        id: CM-05
+      - framework: nist-800-53-r5
+        id: CM-06
+      - framework: nist-800-53-r5
+        id: CM-07
+      - framework: nist-800-53-r5
+        id: CM-08
+      - framework: nist-800-53-r5
+        id: CM-09
+      - framework: nist-800-53-r5
+        id: CM-10
+      - framework: nist-800-53-r5
+        id: CM-11
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: PR.PS-02
+    to:
+      - framework: nist-800-53-r5
+        id: CM-11
+      - framework: nist-800-53-r5
+        id: MA-03(06)
+      - framework: nist-800-53-r5
+        id: SA-10(01)
+      - framework: nist-800-53-r5
+        id: SI-02
+      - framework: nist-800-53-r5
+        id: SI-07
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: PR.PS-03
+    to:
+      - framework: nist-800-53-r5
+        id: CM-07(09)
+      - framework: nist-800-53-r5
+        id: SA-10(03)
+      - framework: nist-800-53-r5
+        id: SC-03(01)
+      - framework: nist-800-53-r5
+        id: SC-39(01)
+      - framework: nist-800-53-r5
+        id: SC-49
+      - framework: nist-800-53-r5
+        id: SC-51
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: PR.PS-04
+    to:
+      - framework: nist-800-53-r5
+        id: AU-02
+      - framework: nist-800-53-r5
+        id: AU-03
+      - framework: nist-800-53-r5
+        id: AU-06
+      - framework: nist-800-53-r5
+        id: AU-07
+      - framework: nist-800-53-r5
+        id: AU-11
+      - framework: nist-800-53-r5
+        id: AU-12
+      - framework: nist-800-53-r5
+        id: SA-15(13)
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: PR.PS-05
+    to:
+      - framework: nist-800-53-r5
+        id: CM-07(02)
+      - framework: nist-800-53-r5
+        id: CM-07(04)
+      - framework: nist-800-53-r5
+        id: CM-07(05)
+      - framework: nist-800-53-r5
+        id: SC-34
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: PR.PS-06
+    to:
+      - framework: nist-800-53-r5
+        id: SA-03
+      - framework: nist-800-53-r5
+        id: SA-08
+      - framework: nist-800-53-r5
+        id: SA-10
+      - framework: nist-800-53-r5
+        id: SA-11
+      - framework: nist-800-53-r5
+        id: SA-15
+      - framework: nist-800-53-r5
+        id: SA-15(13)
+      - framework: nist-800-53-r5
+        id: SA-17
+      - framework: nist-800-53-r5
+        id: SA-24
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: RC.CO-03
+    to:
+      - framework: nist-800-53-r5
+        id: IR-04
+      - framework: nist-800-53-r5
+        id: IR-06
+      - framework: nist-800-53-r5
+        id: SR-08
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: RC.CO-04
+    to:
+      - framework: nist-800-53-r5
+        id: CP-02
+      - framework: nist-800-53-r5
+        id: IR-04
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: RC.RP-01
+    to:
+      - framework: nist-800-53-r5
+        id: CP-10
+      - framework: nist-800-53-r5
+        id: IR-04
+      - framework: nist-800-53-r5
+        id: IR-08
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: RC.RP-02
+    to:
+      - framework: nist-800-53-r5
+        id: CP-10
+      - framework: nist-800-53-r5
+        id: IR-04
+      - framework: nist-800-53-r5
+        id: IR-08
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: RC.RP-03
+    to:
+      - framework: nist-800-53-r5
+        id: CP-02
+      - framework: nist-800-53-r5
+        id: CP-04
+      - framework: nist-800-53-r5
+        id: CP-09
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: RC.RP-04
+    to:
+      - framework: nist-800-53-r5
+        id: IR-01
+      - framework: nist-800-53-r5
+        id: IR-08
+      - framework: nist-800-53-r5
+        id: PM-08
+      - framework: nist-800-53-r5
+        id: PM-09
+      - framework: nist-800-53-r5
+        id: PM-11
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: RC.RP-05
+    to:
+      - framework: nist-800-53-r5
+        id: CP-10
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: RC.RP-06
+    to:
+      - framework: nist-800-53-r5
+        id: IR-04
+      - framework: nist-800-53-r5
+        id: IR-08
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: RS.AN-03
+    to:
+      - framework: nist-800-53-r5
+        id: AU-07
+      - framework: nist-800-53-r5
+        id: IR-04
+      - framework: nist-800-53-r5
+        id: SI-02(07)
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: RS.AN-06
+    to:
+      - framework: nist-800-53-r5
+        id: AU-07
+      - framework: nist-800-53-r5
+        id: IR-04
+      - framework: nist-800-53-r5
+        id: IR-06
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: RS.AN-07
+    to:
+      - framework: nist-800-53-r5
+        id: AU-07
+      - framework: nist-800-53-r5
+        id: IR-04
+      - framework: nist-800-53-r5
+        id: IR-06
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: RS.AN-08
+    to:
+      - framework: nist-800-53-r5
+        id: IR-04
+      - framework: nist-800-53-r5
+        id: IR-08
+      - framework: nist-800-53-r5
+        id: RA-03
+      - framework: nist-800-53-r5
+        id: RA-07
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: RS.CO-02
+    to:
+      - framework: nist-800-53-r5
+        id: IR-04
+      - framework: nist-800-53-r5
+        id: IR-06
+      - framework: nist-800-53-r5
+        id: IR-07
+      - framework: nist-800-53-r5
+        id: SR-03
+      - framework: nist-800-53-r5
+        id: SR-08
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: RS.CO-03
+    to:
+      - framework: nist-800-53-r5
+        id: IR-04
+      - framework: nist-800-53-r5
+        id: IR-06
+      - framework: nist-800-53-r5
+        id: IR-07
+      - framework: nist-800-53-r5
+        id: SR-03
+      - framework: nist-800-53-r5
+        id: SR-08
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: RS.MA-01
+    to:
+      - framework: nist-800-53-r5
+        id: IR-06
+      - framework: nist-800-53-r5
+        id: IR-07
+      - framework: nist-800-53-r5
+        id: IR-08
+      - framework: nist-800-53-r5
+        id: SR-03
+      - framework: nist-800-53-r5
+        id: SR-08
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: RS.MA-02
+    to:
+      - framework: nist-800-53-r5
+        id: IR-04
+      - framework: nist-800-53-r5
+        id: IR-05
+      - framework: nist-800-53-r5
+        id: IR-06
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: RS.MA-03
+    to:
+      - framework: nist-800-53-r5
+        id: IR-04
+      - framework: nist-800-53-r5
+        id: IR-05
+      - framework: nist-800-53-r5
+        id: IR-06
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: RS.MA-04
+    to:
+      - framework: nist-800-53-r5
+        id: IR-04
+      - framework: nist-800-53-r5
+        id: IR-05
+      - framework: nist-800-53-r5
+        id: IR-06
+      - framework: nist-800-53-r5
+        id: IR-07
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: RS.MA-05
+    to:
+      - framework: nist-800-53-r5
+        id: IR-04
+      - framework: nist-800-53-r5
+        id: IR-08
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: RS.MI-01
+    to:
+      - framework: nist-800-53-r5
+        id: IR-04
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).
+  - from:
+      framework: nist-csf-2.0
+      id: RS.MI-02
+    to:
+      - framework: nist-800-53-r5
+        id: IR-04
+    confidence: high
+    rationale: Mapping extracted from NIST CSF 2.0 Informative References (SP 800-53).

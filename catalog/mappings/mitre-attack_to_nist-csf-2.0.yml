@@ -1,0 +1,4 @@
+id: mitre-attack_to_nist-csf-2.0
+fromFramework: mitre-attack
+toFramework: nist-csf-2.0
+items: []

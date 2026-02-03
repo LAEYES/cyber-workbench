@@ -10,7 +10,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: DE.AE-02
     framework: nist-csf-2.0
     title: Potentially adverse events are analyzed to better understand associated activities
@@ -19,7 +19,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: DE.AE-03
     framework: nist-csf-2.0
     title: Information is correlated from multiple sources
@@ -28,7 +28,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: DE.AE-04
     framework: nist-csf-2.0
     title: The estimated impact and scope of adverse events are understood
@@ -37,7 +37,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: DE.AE-05
     framework: nist-csf-2.0
     title: '[Withdrawn: Moved to DE.AE-08]'
@@ -46,7 +46,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: DE.AE-06
     framework: nist-csf-2.0
     title: Information on adverse events is provided to authorized staff and tools
@@ -55,7 +55,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: DE.AE-07
     framework: nist-csf-2.0
     title: Cyber threat intelligence and other contextual information are integrated into the analysis
@@ -64,7 +64,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: DE.AE-08
     framework: nist-csf-2.0
     title: Incidents are declared when adverse events meet the defined incident criteria
@@ -73,7 +73,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: DE.CM-01
     framework: nist-csf-2.0
     title: Networks and network services are monitored to find potentially adverse events
@@ -82,7 +82,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: DE.CM-02
     framework: nist-csf-2.0
     title: The physical environment is monitored to find potentially adverse events
@@ -91,7 +91,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: DE.CM-03
     framework: nist-csf-2.0
     title: Personnel activity and technology usage are monitored to find potentially adverse events
@@ -100,7 +100,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: DE.CM-04
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into DE.CM-01, DE.CM-09]'
@@ -109,7 +109,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: DE.CM-05
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into DE.CM-01, DE.CM-09]'
@@ -118,7 +118,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: DE.CM-06
     framework: nist-csf-2.0
     title: External service provider activities and services are monitored to find potentially adverse events
@@ -127,7 +127,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: DE.CM-07
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into DE.CM-01, DE.CM-03, DE.CM-06, DE.CM-09]'
@@ -136,7 +136,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: DE.CM-08
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into ID.RA-01]'
@@ -145,7 +145,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: DE.CM-09
     framework: nist-csf-2.0
     title: Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events
@@ -154,7 +154,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: DE.DP-01
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into GV.RR-02]'
@@ -163,7 +163,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: DE.DP-02
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into DE.AE]'
@@ -172,7 +172,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: DE.DP-03
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into ID.IM-02]'
@@ -181,7 +181,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: DE.DP-04
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into DE.AE-06]'
@@ -190,7 +190,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: DE.DP-05
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into ID.IM, ID.IM-03]'
@@ -199,7 +199,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.OC-01
     framework: nist-csf-2.0
     title: The organizational mission is understood and informs cybersecurity risk management
@@ -208,7 +208,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.OC-02
     framework: nist-csf-2.0
     title: >-
@@ -219,7 +219,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.OC-03
     framework: nist-csf-2.0
     title: >-
@@ -230,7 +230,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.OC-04
     framework: nist-csf-2.0
     title: >-
@@ -241,7 +241,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.OC-05
     framework: nist-csf-2.0
     title: Outcomes, capabilities, and services that the organization depends on are understood and communicated
@@ -250,7 +250,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.OV-01
     framework: nist-csf-2.0
     title: Cybersecurity risk management strategy outcomes are reviewed to inform and adjust strategy and direction
@@ -259,7 +259,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.OV-02
     framework: nist-csf-2.0
     title: The cybersecurity risk management strategy is reviewed and adjusted to ensure coverage of organizational requirements and risks
@@ -268,7 +268,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.OV-03
     framework: nist-csf-2.0
     title: Organizational cybersecurity risk management performance is evaluated and reviewed for adjustments needed
@@ -277,7 +277,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.PO-01
     framework: nist-csf-2.0
     title: >-
@@ -288,7 +288,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.PO-02
     framework: nist-csf-2.0
     title: >-
@@ -299,7 +299,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.RM-01
     framework: nist-csf-2.0
     title: Risk management objectives are established and agreed to by organizational stakeholders
@@ -308,7 +308,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.RM-02
     framework: nist-csf-2.0
     title: Risk appetite and risk tolerance statements are established, communicated, and maintained
@@ -317,7 +317,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.RM-03
     framework: nist-csf-2.0
     title: Cybersecurity risk management activities and outcomes are included in enterprise risk management processes
@@ -326,7 +326,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.RM-04
     framework: nist-csf-2.0
     title: Strategic direction that describes appropriate risk response options is established and communicated
@@ -335,7 +335,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.RM-05
     framework: nist-csf-2.0
     title: >-
@@ -346,7 +346,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.RM-06
     framework: nist-csf-2.0
     title: A standardized method for calculating, documenting, categorizing, and prioritizing cybersecurity risks is established and communicated
@@ -355,7 +355,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.RM-07
     framework: nist-csf-2.0
     title: Strategic opportunities (i.e., positive risks) are characterized and are included in organizational cybersecurity risk discussions
@@ -364,7 +364,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.RR-01
     framework: nist-csf-2.0
     title: >-
@@ -375,7 +375,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.RR-02
     framework: nist-csf-2.0
     title: >-
@@ -386,7 +386,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.RR-03
     framework: nist-csf-2.0
     title: Adequate resources are allocated commensurate with the cybersecurity risk strategy, roles, responsibilities, and policies
@@ -395,7 +395,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.RR-04
     framework: nist-csf-2.0
     title: Cybersecurity is included in human resources practices
@@ -404,7 +404,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.SC-01
     framework: nist-csf-2.0
     title: >-
@@ -415,7 +415,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.SC-02
     framework: nist-csf-2.0
     title: >-
@@ -426,7 +426,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.SC-03
     framework: nist-csf-2.0
     title: >-
@@ -437,7 +437,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.SC-04
     framework: nist-csf-2.0
     title: Suppliers are known and prioritized by criticality
@@ -446,7 +446,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.SC-05
     framework: nist-csf-2.0
     title: >-
@@ -457,7 +457,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.SC-06
     framework: nist-csf-2.0
     title: Planning and due diligence are performed to reduce risks before entering into formal supplier or other third-party relationships
@@ -466,7 +466,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.SC-07
     framework: nist-csf-2.0
     title: >-
@@ -477,7 +477,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.SC-08
     framework: nist-csf-2.0
     title: Relevant suppliers and other third parties are included in incident planning, response, and recovery activities
@@ -486,7 +486,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.SC-09
     framework: nist-csf-2.0
     title: >-
@@ -497,7 +497,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: GV.SC-10
     framework: nist-csf-2.0
     title: >-
@@ -508,7 +508,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.AM-01
     framework: nist-csf-2.0
     title: Inventories of hardware managed by the organization are maintained
@@ -517,7 +517,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.AM-02
     framework: nist-csf-2.0
     title: Inventories of software, services, and systems managed by the organization are maintained
@@ -526,7 +526,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.AM-03
     framework: nist-csf-2.0
     title: Representations of the organization's authorized network communication and internal and external network data flows are maintained
@@ -535,7 +535,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.AM-04
     framework: nist-csf-2.0
     title: Inventories of services provided by suppliers are maintained
@@ -544,7 +544,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.AM-05
     framework: nist-csf-2.0
     title: Assets are prioritized based on classification, criticality, resources, and impact on the mission
@@ -553,7 +553,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.AM-06
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into GV.RR-02, GV.SC-02]'
@@ -562,7 +562,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.AM-07
     framework: nist-csf-2.0
     title: Inventories of data and corresponding metadata for designated data types are maintained
@@ -571,7 +571,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.AM-08
     framework: nist-csf-2.0
     title: Systems, hardware, software, services, and data are managed throughout their life cycles
@@ -580,7 +580,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.BE-01
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into GV.OC-05]'
@@ -589,7 +589,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.BE-02
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into GV.OC-01]'
@@ -598,7 +598,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.BE-03
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into GV.OC-01]'
@@ -607,7 +607,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.BE-04
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into GV.OC-04, GV.OC-05]'
@@ -616,7 +616,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.BE-05
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into GV.OC-04]'
@@ -625,7 +625,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.GV-01
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into GV.PO, GV.PO-01, GV.PO-02]'
@@ -634,7 +634,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.GV-02
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into GV.OC-02, GV.RR, GV.RR-02]'
@@ -643,7 +643,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.GV-03
     framework: nist-csf-2.0
     title: '[Withdrawn: Moved to GV.OC-03]'
@@ -652,7 +652,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.GV-04
     framework: nist-csf-2.0
     title: '[Withdrawn: Moved to GV.RM-04]'
@@ -661,7 +661,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.IM-01
     framework: nist-csf-2.0
     title: Improvements are identified from evaluations
@@ -670,7 +670,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.IM-02
     framework: nist-csf-2.0
     title: >-
@@ -681,7 +681,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.IM-03
     framework: nist-csf-2.0
     title: Improvements are identified from execution of operational processes, procedures, and activities
@@ -690,7 +690,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.IM-04
     framework: nist-csf-2.0
     title: Incident response plans and other cybersecurity plans that affect operations are established, communicated, maintained, and improved
@@ -699,7 +699,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.RA-01
     framework: nist-csf-2.0
     title: Vulnerabilities in assets are identified, validated, and recorded
@@ -708,7 +708,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.RA-02
     framework: nist-csf-2.0
     title: Cyber threat intelligence is received from information sharing forums and sources
@@ -717,7 +717,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.RA-03
     framework: nist-csf-2.0
     title: Internal and external threats to the organization are identified and recorded
@@ -726,7 +726,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.RA-04
     framework: nist-csf-2.0
     title: Potential impacts and likelihoods of threats exploiting vulnerabilities are identified and recorded
@@ -735,7 +735,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.RA-05
     framework: nist-csf-2.0
     title: Threats, vulnerabilities, likelihoods, and impacts are used to understand inherent risk and inform risk response prioritization
@@ -744,7 +744,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.RA-06
     framework: nist-csf-2.0
     title: Risk responses are chosen, prioritized, planned, tracked, and communicated
@@ -753,7 +753,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.RA-07
     framework: nist-csf-2.0
     title: Changes and exceptions are managed, assessed for risk impact, recorded, and tracked
@@ -762,7 +762,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.RA-08
     framework: nist-csf-2.0
     title: Processes for receiving, analyzing, and responding to vulnerability disclosures are established
@@ -771,7 +771,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.RA-09
     framework: nist-csf-2.0
     title: The authenticity and integrity of hardware and software are assessed prior to acquisition and use
@@ -780,7 +780,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.RA-10
     framework: nist-csf-2.0
     title: Critical suppliers are assessed prior to acquisition
@@ -789,7 +789,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.RM-01
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into GV.RM-01, GV.RM-06, GV.RR-03]'
@@ -798,7 +798,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.RM-02
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into GV.RM-02, GV.RM-04]'
@@ -807,7 +807,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.RM-03
     framework: nist-csf-2.0
     title: '[Withdrawn: Moved into GV.RM-02]'
@@ -816,7 +816,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.SC-01
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into GV.RM-05, GV.SC-01, GV.SC-06, GV.SC-09, GV.SC-10]'
@@ -825,7 +825,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.SC-02
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into GV.OC-02, GV.SC-03, GV.SC-04, GV.SC-07, ID.RA-10]'
@@ -834,7 +834,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.SC-03
     framework: nist-csf-2.0
     title: '[Withdrawn: Moved to GV.SC-05]'
@@ -843,7 +843,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.SC-04
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into GV.SC-07, ID.RA-10]'
@@ -852,7 +852,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: ID.SC-05
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into GV.SC-08, ID.IM-02]'
@@ -861,7 +861,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.AA-01
     framework: nist-csf-2.0
     title: Identities and credentials for authorized users, services, and hardware are managed by the organization
@@ -870,7 +870,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.AA-02
     framework: nist-csf-2.0
     title: Identities are proofed and bound to credentials based on the context of interactions
@@ -879,7 +879,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.AA-03
     framework: nist-csf-2.0
     title: Users, services, and hardware are authenticated
@@ -888,7 +888,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.AA-04
     framework: nist-csf-2.0
     title: Identity assertions are protected, conveyed, and verified
@@ -897,7 +897,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.AA-05
     framework: nist-csf-2.0
     title: >-
@@ -908,7 +908,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.AA-06
     framework: nist-csf-2.0
     title: Physical access to assets is managed, monitored, and enforced commensurate with risk
@@ -917,7 +917,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.AC-01
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into PR.AA-01, PR.AA-05]'
@@ -926,7 +926,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.AC-02
     framework: nist-csf-2.0
     title: '[Withdrawn: Moved to PR.AA-06]'
@@ -935,7 +935,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.AC-03
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into PR.AA-03, PR.AA-05, PR.IR-01]'
@@ -944,7 +944,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.AC-04
     framework: nist-csf-2.0
     title: '[Withdrawn: Moved to PR.AA-05]'
@@ -953,7 +953,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.AC-05
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into PR.IR-01]'
@@ -962,7 +962,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.AC-06
     framework: nist-csf-2.0
     title: '[Withdrawn: Moved to PR.AA-02]'
@@ -971,7 +971,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.AC-07
     framework: nist-csf-2.0
     title: '[Withdrawn: Moved to PR.AA-03]'
@@ -980,7 +980,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.AT-01
     framework: nist-csf-2.0
     title: >-
@@ -991,7 +991,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.AT-02
     framework: nist-csf-2.0
     title: >-
@@ -1002,7 +1002,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.AT-03
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into PR.AT-01, PR.AT-02]'
@@ -1011,7 +1011,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.AT-04
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into PR.AT-02]'
@@ -1020,7 +1020,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.AT-05
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into PR.AT-02]'
@@ -1029,7 +1029,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.DS-01
     framework: nist-csf-2.0
     title: The confidentiality, integrity, and availability of data-at-rest are protected
@@ -1038,7 +1038,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.DS-02
     framework: nist-csf-2.0
     title: The confidentiality, integrity, and availability of data-in-transit are protected
@@ -1047,7 +1047,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.DS-03
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into ID.AM-08, PR.PS-03]'
@@ -1056,7 +1056,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.DS-04
     framework: nist-csf-2.0
     title: '[Withdrawn: Moved to PR.IR-04]'
@@ -1065,7 +1065,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.DS-05
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into PR.DS-01, PR.DS-02, PR.DS-10]'
@@ -1074,7 +1074,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.DS-06
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into PR.DS-01, DE.CM-09]'
@@ -1083,7 +1083,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.DS-07
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into PR.IR-01]'
@@ -1092,7 +1092,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.DS-08
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into ID.RA-09, DE.CM-09]'
@@ -1101,7 +1101,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.DS-10
     framework: nist-csf-2.0
     title: The confidentiality, integrity, and availability of data-in-use are protected
@@ -1110,7 +1110,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.DS-11
     framework: nist-csf-2.0
     title: Backups of data are created, protected, maintained, and tested
@@ -1119,7 +1119,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.IP-01
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into PR.PS-01]'
@@ -1128,7 +1128,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.IP-02
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into ID.AM-08, PR.PS-06]'
@@ -1137,7 +1137,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.IP-03
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into PR.PS-01, ID.RA-07]'
@@ -1146,7 +1146,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.IP-04
     framework: nist-csf-2.0
     title: '[Withdrawn: Moved to PR.DS-11]'
@@ -1155,7 +1155,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.IP-05
     framework: nist-csf-2.0
     title: '[Withdrawn: Moved to PR.IR-02]'
@@ -1164,7 +1164,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.IP-06
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into ID.AM-08]'
@@ -1173,7 +1173,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.IP-07
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into ID.IM, ID.IM-03]'
@@ -1182,7 +1182,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.IP-08
     framework: nist-csf-2.0
     title: '[Withdrawn: Moved to ID.IM-03]'
@@ -1191,7 +1191,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.IP-09
     framework: nist-csf-2.0
     title: '[Withdrawn: Moved to ID.IM-04]'
@@ -1200,7 +1200,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.IP-10
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into ID.IM-02, ID.IM-04]'
@@ -1209,7 +1209,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.IP-11
     framework: nist-csf-2.0
     title: '[Withdrawn: Moved to GV.RR-04]'
@@ -1218,7 +1218,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.IP-12
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into ID.RA-01, PR.PS-02]'
@@ -1227,7 +1227,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.IR-01
     framework: nist-csf-2.0
     title: Networks and environments are protected from unauthorized logical access and usage
@@ -1236,7 +1236,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.IR-02
     framework: nist-csf-2.0
     title: The organization's technology assets are protected from environmental threats
@@ -1245,7 +1245,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.IR-03
     framework: nist-csf-2.0
     title: Mechanisms are implemented to achieve resilience requirements in normal and adverse situations
@@ -1254,7 +1254,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.IR-04
     framework: nist-csf-2.0
     title: Adequate resource capacity to ensure availability is maintained
@@ -1263,7 +1263,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.MA-01
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into ID.AM-08, PR.PS-03]'
@@ -1272,7 +1272,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.MA-02
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into ID.AM-08, PR.PS-02]'
@@ -1281,7 +1281,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.PS-01
     framework: nist-csf-2.0
     title: Configuration management practices are established and applied
@@ -1290,7 +1290,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.PS-02
     framework: nist-csf-2.0
     title: Software is maintained, replaced, and removed commensurate with risk
@@ -1299,7 +1299,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.PS-03
     framework: nist-csf-2.0
     title: Hardware is maintained, replaced, and removed commensurate with risk
@@ -1308,7 +1308,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.PS-04
     framework: nist-csf-2.0
     title: Log records are generated and made available for continuous monitoring
@@ -1317,7 +1317,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.PS-05
     framework: nist-csf-2.0
     title: Installation and execution of unauthorized software are prevented
@@ -1326,7 +1326,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.PS-06
     framework: nist-csf-2.0
     title: >-
@@ -1337,7 +1337,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.PT-01
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into PR.PS-04]'
@@ -1346,7 +1346,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.PT-02
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into PR.DS-01, PR.PS-01]'
@@ -1355,7 +1355,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.PT-03
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into PR.PS-01]'
@@ -1364,7 +1364,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.PT-04
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into PR.AA-06, PR.IR-01]'
@@ -1373,7 +1373,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: PR.PT-05
     framework: nist-csf-2.0
     title: '[Withdrawn: Moved to PR.IR-03]'
@@ -1382,7 +1382,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RC.CO-01
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into RC.CO-04]'
@@ -1391,7 +1391,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RC.CO-02
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into RC.CO-04]'
@@ -1400,7 +1400,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RC.CO-03
     framework: nist-csf-2.0
     title: >-
@@ -1411,7 +1411,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RC.CO-04
     framework: nist-csf-2.0
     title: Public updates on incident recovery are shared using approved methods and messaging
@@ -1420,7 +1420,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RC.IM-01
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into ID.IM-03, ID.IM-04]'
@@ -1429,7 +1429,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RC.IM-02
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into ID.IM-03]'
@@ -1438,7 +1438,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RC.RP-01
     framework: nist-csf-2.0
     title: The recovery portion of the incident response plan is executed once initiated from the incident response process
@@ -1447,7 +1447,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RC.RP-02
     framework: nist-csf-2.0
     title: Recovery actions are selected, scoped, prioritized, and performed
@@ -1456,7 +1456,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RC.RP-03
     framework: nist-csf-2.0
     title: The integrity of backups and other restoration assets is verified before using them for restoration
@@ -1465,7 +1465,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RC.RP-04
     framework: nist-csf-2.0
     title: Critical mission functions and cybersecurity risk management are considered to establish post-incident operational norms
@@ -1474,7 +1474,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RC.RP-05
     framework: nist-csf-2.0
     title: The integrity of restored assets is verified, systems and services are restored, and normal operating status is confirmed
@@ -1483,7 +1483,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RC.RP-06
     framework: nist-csf-2.0
     title: The end of incident recovery is declared based on criteria, and incident-related documentation is completed
@@ -1492,7 +1492,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.AN-01
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into RS.MA-02]'
@@ -1501,7 +1501,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.AN-02
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into RS.MA-02, RS.MA-03, RS.MA-04]'
@@ -1510,7 +1510,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.AN-03
     framework: nist-csf-2.0
     title: Analysis is performed to establish what has taken place during an incident and the root cause of the incident
@@ -1519,7 +1519,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.AN-04
     framework: nist-csf-2.0
     title: '[Withdrawn: Moved to RS.MA-03]'
@@ -1528,7 +1528,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.AN-05
     framework: nist-csf-2.0
     title: '[Withdrawn: Moved to ID.RA-08]'
@@ -1537,7 +1537,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.AN-06
     framework: nist-csf-2.0
     title: Actions performed during an investigation are recorded, and the records' integrity and provenance are preserved
@@ -1546,7 +1546,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.AN-07
     framework: nist-csf-2.0
     title: Incident data and metadata are collected, and their integrity and provenance are preserved
@@ -1555,7 +1555,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.AN-08
     framework: nist-csf-2.0
     title: An incident's magnitude is estimated and validated
@@ -1564,7 +1564,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.CO-01
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into PR.AT-01]'
@@ -1573,7 +1573,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.CO-02
     framework: nist-csf-2.0
     title: Internal and external stakeholders are notified of incidents
@@ -1582,7 +1582,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.CO-03
     framework: nist-csf-2.0
     title: Information is shared with designated internal and external stakeholders
@@ -1591,7 +1591,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.CO-04
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into RS.MA-01, RS.MA-04]'
@@ -1600,7 +1600,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.CO-05
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into RS.CO-03]'
@@ -1609,7 +1609,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.IM-01
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into ID.IM-03, ID.IM-04]'
@@ -1618,7 +1618,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.IM-02
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into ID.IM-03]'
@@ -1627,7 +1627,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.MA-01
     framework: nist-csf-2.0
     title: The incident response plan is executed in coordination with relevant third parties once an incident is declared
@@ -1636,7 +1636,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.MA-02
     framework: nist-csf-2.0
     title: Incident reports are triaged and validated
@@ -1645,7 +1645,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.MA-03
     framework: nist-csf-2.0
     title: Incidents are categorized and prioritized
@@ -1654,7 +1654,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.MA-04
     framework: nist-csf-2.0
     title: Incidents are escalated or elevated as needed
@@ -1663,7 +1663,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.MA-05
     framework: nist-csf-2.0
     title: The criteria for initiating incident recovery are applied
@@ -1672,7 +1672,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.MI-01
     framework: nist-csf-2.0
     title: Incidents are contained
@@ -1681,7 +1681,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.MI-02
     framework: nist-csf-2.0
     title: Incidents are eradicated
@@ -1690,7 +1690,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.MI-03
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into ID.RA-06]'
@@ -1699,7 +1699,7 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
   - id: RS.RP-01
     framework: nist-csf-2.0
     title: '[Withdrawn: Incorporated into RS.MA-01]'
@@ -1708,4 +1708,4 @@ controls:
       cia: []
       type: []
     sources:
-      - NIST CSF 2.0 (via NIST CSF Reference Tool export)
+      - NIST CSF 2.0 (NIST CSF Reference Tool export)
