@@ -22,132 +22,209 @@ components:
         instance: { type: string }
         requestId: { type: string }
         errorCode: { type: string }
-    GateResult:
-      type: object
-      required: [gateResultId, gateId, targetRef, status, executedAt]
-      properties:
-        gateResultId: { type: string }
-        gateId: { type: string }
-        targetRef: { type: string }
-        status: { type: string, enum: [pass, fail, warn] }
-        executedAt: { type: string, format: date-time }
-        evidenceRefs: { type: array, items: { type: string } }
-        caseRef: { type: string }
-    Evidence:
-      type: object
-      required: [evidenceId, evidenceType, sourceSystem, collectedAt, hash, storageRef]
-      properties:
-        evidenceId: { type: string }
-        evidenceType: { type: string }
-        sourceSystem: { type: string }
-        collectedAt: { type: string, format: date-time }
-        hash: { type: string }
-        storageRef: { type: string }
-        classification: { type: string, enum: [public, internal, sensitive] }
-        retentionClass: { type: string, enum: [short, standard, long, legal] }
-    Risk:
-      type: object
-      required: [riskId, title, owner, likelihood, impact, score, status, dueDate]
-      properties:
-        riskId: { type: string }
-        title: { type: string }
-        owner: { type: string }
-        likelihood: { type: integer, minimum: 1, maximum: 5 }
-        impact: { type: integer, minimum: 1, maximum: 5 }
-        score: { type: integer, minimum: 1, maximum: 25 }
-        status: { type: string }
-        dueDate: { type: string, format: date }
-        controlRefs: { type: array, items: { type: string } }
-        evidenceRefs: { type: array, items: { type: string } }
-    Decision:
-      type: object
-      required: [decisionId, riskId, decisionType, rationale, approvedBy, approvedAt]
-      properties:
-        decisionId: { type: string }
-        riskId: { type: string }
-        decisionType: { type: string, enum: [treat, avoid, transfer, accept] }
-        rationale: { type: string }
-        approvedBy: { type: string }
-        approvedAt: { type: string, format: date-time }
-        expiryDate: { type: string, format: date }
-    Exception:
-      type: object
-      required: [exceptionId, requirementRef, scope, rationale, approvedBy, approvedAt, expiryDate]
-      properties:
-        exceptionId: { type: string }
-        requirementRef: { type: string }
-        scope: { type: string }
-        rationale: { type: string }
-        approvedBy: { type: string }
-        approvedAt: { type: string, format: date-time }
-        expiryDate: { type: string, format: date }
-    EvidencePackage:
-      type: object
-      required: [packageId, scopeRef, evidenceRefs, manifestHash, exportedAt, exportedBy]
-      properties:
-        packageId: { type: string }
-        scopeRef: { type: string }
-        evidenceRefs: { type: array, items: { type: string } }
-        manifestHash: { type: string }
-        exportedAt: { type: string, format: date-time }
-        exportedBy: { type: string }
-        bundleRef: { type: string }
-    LegalHold:
-      type: object
-      required: [holdId, orgId, scopeRef, reason, status]
-      properties:
-        holdId: { type: string }
-        orgId: { type: string }
-        scopeRef: { type: string }
-        reason: { type: string }
-        status: { type: string, enum: [active, released] }
-    AuditEvent:
-      type: object
-      required: [eventId, orgId, actor, action, objectRef, timestamp, outcome]
-      properties:
-        eventId: { type: string }
-        orgId: { type: string }
-        actor: { type: string }
-        action: { type: string }
-        objectRef: { type: string }
-        timestamp: { type: string, format: date-time }
-        outcome: { type: string, enum: [success, failure] }
 
-    Case:
+    EntityBase:
       type: object
-      required: [caseId, riskId, severity, status, owner]
+      required: [id, version, createdAt, createdBy]
       properties:
-        caseId: { type: string }
-        riskId: { type: string }
-        severity: { type: string, enum: [low, medium, high, critical] }
-        status: { type: string, enum: [triage, in_progress, resolved, closed] }
-        owner: { type: string }
+        id: { type: string }
+        version: { type: integer, minimum: 1 }
         createdAt: { type: string, format: date-time }
         createdBy: { type: string }
         updatedAt: { type: string, format: date-time }
-        updatedBy: { type: string }
+
+    GateResult:
+      allOf:
+        - $ref: '#/components/schemas/EntityBase'
+        - type: object
+          required: [type, gateResultId, gateId, targetRef, status, executedAt]
+          properties:
+            type: { type: string, enum: [gateResult] }
+            gateResultId: { type: string }
+            gateId: { type: string }
+            targetRef: { type: string }
+            status: { type: string, enum: [pass, fail, warn] }
+            executedAt: { type: string, format: date-time }
+            evidenceRefs: { type: array, items: { type: string } }
+            caseRef: { type: string }
+            details: { type: object, additionalProperties: true }
+
+    Evidence:
+      allOf:
+        - $ref: '#/components/schemas/EntityBase'
+        - type: object
+          required: [type, evidenceId, evidenceType, sourceSystem, collectedAt, collectorId, hash, storageRef, retentionClass]
+          properties:
+            type: { type: string, enum: [evidence] }
+            evidenceId: { type: string }
+            evidenceType: { type: string, enum: [logExport, configSnapshot, ticket, report, sbom, vex, attestation, signature, screenshot] }
+            sourceSystem: { type: string }
+            collectedAt: { type: string, format: date-time }
+            collectorId: { type: string }
+            hash: { type: string }
+            hashAlg: { type: string, default: sha256 }
+            storageRef: { type: string }
+            classification: { type: string, enum: [public, internal, sensitive] }
+            retentionClass: { type: string, enum: [short, standard, long, legal] }
+            metadata: { type: object, additionalProperties: true }
+
+    Risk:
+      allOf:
+        - $ref: '#/components/schemas/EntityBase'
+        - type: object
+          required: [type, riskId, title, owner, likelihood, impact, score, status, dueDate]
+          properties:
+            type: { type: string, enum: [risk] }
+            riskId: { type: string }
+            title: { type: string }
+            description: { type: string }
+            owner: { type: string }
+            likelihood: { type: integer, minimum: 1, maximum: 5 }
+            impact: { type: integer, minimum: 1, maximum: 5 }
+            score: { type: integer, minimum: 1, maximum: 25 }
+            status: { type: string, enum: [new, open, accepted, mitigated, closed] }
+            dueDate: { type: string, format: date }
+            controlRefs: { type: array, items: { type: string } }
+            evidenceRefs: { type: array, items: { type: string } }
+            caseRefs: { type: array, items: { type: string } }
+
+    Decision:
+      oneOf:
+        - allOf:
+            - $ref: '#/components/schemas/EntityBase'
+            - type: object
+              required: [type, decisionId, riskId, decisionType, rationale, approvedBy, approvedAt, expiryDate]
+              properties:
+                type: { type: string, enum: [decision] }
+                decisionId: { type: string }
+                riskId: { type: string }
+                decisionType: { type: string, enum: [treat, avoid, transfer, accept] }
+                rationale: { type: string }
+                approvedBy: { type: string }
+                approvedAt: { type: string, format: date-time }
+                expiryDate: { type: string, format: date }
+                evidenceRefs: { type: array, items: { type: string } }
+        - allOf:
+            - $ref: '#/components/schemas/EntityBase'
+            - type: object
+              required: [type, decisionId, riskId, decisionType, rationale, approvedBy, approvedAt]
+              properties:
+                type: { type: string, enum: [decision] }
+                decisionId: { type: string }
+                riskId: { type: string }
+                decisionType: { type: string, enum: [treat, avoid, transfer] }
+                rationale: { type: string }
+                approvedBy: { type: string }
+                approvedAt: { type: string, format: date-time }
+                evidenceRefs: { type: array, items: { type: string } }
+
+    Exception:
+      allOf:
+        - $ref: '#/components/schemas/EntityBase'
+        - type: object
+          required: [type, exceptionId, requirementRef, scope, rationale, approvedBy, approvedAt, expiryDate]
+          properties:
+            type: { type: string, enum: [exception] }
+            exceptionId: { type: string }
+            requirementRef: { type: string }
+            scope: { type: string }
+            rationale: { type: string }
+            approvedBy: { type: string }
+            approvedAt: { type: string, format: date-time }
+            expiryDate: { type: string, format: date }
+
+    EvidencePackage:
+      allOf:
+        - $ref: '#/components/schemas/EntityBase'
+        - type: object
+          required: [type, packageId, scopeRef, evidenceRefs, manifestHash, exportedAt, exportedBy]
+          properties:
+            type: { type: string, enum: [evidencePackage] }
+            packageId: { type: string }
+            scopeRef: { type: string }
+            evidenceRefs: { type: array, items: { type: string } }
+            manifestHash: { type: string }
+            exportedAt: { type: string, format: date-time }
+            exportedBy: { type: string }
+            bundleRef: { type: string }
+
+    LegalHold:
+      allOf:
+        - $ref: '#/components/schemas/EntityBase'
+        - type: object
+          required: [type, holdId, orgId, scopeRef, reason, status]
+          properties:
+            type: { type: string, enum: [legalHold] }
+            holdId: { type: string }
+            orgId: { type: string }
+            scopeRef: { type: string }
+            reason: { type: string }
+            status: { type: string, enum: [active, released] }
+
+    AuditEvent:
+      allOf:
+        - $ref: '#/components/schemas/EntityBase'
+        - type: object
+          required: [type, eventId, orgId, actor, action, objectRef, timestamp, outcome]
+          properties:
+            type: { type: string, enum: [auditEvent] }
+            eventId: { type: string }
+            orgId: { type: string }
+            actor: { type: string }
+            actorType: { type: string, enum: [human, service] }
+            action: { type: string }
+            objectRef: { type: string }
+            timestamp: { type: string, format: date-time }
+            outcome: { type: string, enum: [success, failure] }
+            ip: { type: string }
+            userAgent: { type: string }
+            details: { type: object, additionalProperties: true }
+
+    Case:
+      allOf:
+        - $ref: '#/components/schemas/EntityBase'
+        - type: object
+          required: [type, caseId, severity, status, owner]
+          properties:
+            type: { type: string, enum: [case] }
+            caseId: { type: string }
+            severity: { type: string, enum: [low, medium, high, critical] }
+            status: { type: string, enum: [new, triage, investigate, contain, eradicate, recover, closed] }
+            owner: { type: string }
+            triagedAt: { type: string, format: date-time }
+            containedAt: { type: string, format: date-time }
+            closedAt: { type: string, format: date-time }
+            timelineRefs: { type: array, items: { type: string } }
+            evidenceRefs: { type: array, items: { type: string } }
+            riskRefs: { type: array, items: { type: string } }
 
     ChainOfCustodyEvent:
-      type: object
-      required: [eventId, evidenceId, action, timestamp, actor]
-      properties:
-        eventId: { type: string }
-        evidenceId: { type: string }
-        action: { type: string, enum: [collected, transferred, accessed, sealed, verified] }
-        timestamp: { type: string, format: date-time }
-        actor: { type: string }
-        location: { type: string }
-        details: { type: string }
+      allOf:
+        - $ref: '#/components/schemas/EntityBase'
+        - type: object
+          required: [type, eventId, evidenceId, action, timestamp, actor]
+          properties:
+            type: { type: string, enum: [chainOfCustodyEvent] }
+            eventId: { type: string }
+            evidenceId: { type: string }
+            action: { type: string, enum: [collected, transferred, accessed, sealed, verified] }
+            timestamp: { type: string, format: date-time }
+            actor: { type: string }
+            location: { type: string }
+            details: { type: object, additionalProperties: true }
 
     Gate:
-      type: object
-      required: [gateId, name, status]
-      properties:
-        gateId: { type: string }
-        name: { type: string }
-        description: { type: string }
-        status: { type: string, enum: [active, disabled] }
-        policyRef: { type: string }
+      allOf:
+        - $ref: '#/components/schemas/EntityBase'
+        - type: object
+          required: [type, gateId, name, status]
+          properties:
+            type: { type: string, enum: [gate] }
+            gateId: { type: string }
+            name: { type: string }
+            description: { type: string }
+            status: { type: string, enum: [active, disabled] }
+            policyRef: { type: string }
 
     Manifest:
       type: object
@@ -178,42 +255,48 @@ components:
             value: { type: string }
 
     Playbook:
-      type: object
-      required: [playbookId, name, version]
-      properties:
-        playbookId: { type: string }
-        name: { type: string }
-        version: { type: integer, minimum: 1 }
-        description: { type: string }
-        trigger: { type: string }
-        steps:
-          type: array
-          items:
-            type: object
-            properties:
-              stepId: { type: string }
-              action: { type: string }
-              params: { type: object, additionalProperties: true }
+      allOf:
+        - $ref: '#/components/schemas/EntityBase'
+        - type: object
+          required: [type, playbookId, name, version]
+          properties:
+            type: { type: string, enum: [playbook] }
+            playbookId: { type: string }
+            name: { type: string }
+            version: { type: integer, minimum: 1 }
+            description: { type: string }
+            trigger: { type: string }
+            steps:
+              type: array
+              items:
+                type: object
+                properties:
+                  stepId: { type: string }
+                  action: { type: string }
+                  params: { type: object, additionalProperties: true }
 
     ExecutionTrace:
-      type: object
-      required: [traceId, status, startedAt]
-      properties:
-        traceId: { type: string }
-        status: { type: string, enum: [running, success, failure] }
-        startedAt: { type: string, format: date-time }
-        endedAt: { type: string, format: date-time }
-        requestId: { type: string }
-        steps:
-          type: array
-          items:
-            type: object
-            properties:
-              stepId: { type: string }
-              status: { type: string }
-              startedAt: { type: string, format: date-time }
-              endedAt: { type: string, format: date-time }
-              logsRef: { type: string }
+      allOf:
+        - $ref: '#/components/schemas/EntityBase'
+        - type: object
+          required: [type, traceId, status, startedAt]
+          properties:
+            type: { type: string, enum: [executionTrace] }
+            traceId: { type: string }
+            status: { type: string, enum: [running, success, failure] }
+            startedAt: { type: string, format: date-time }
+            endedAt: { type: string, format: date-time }
+            requestId: { type: string }
+            steps:
+              type: array
+              items:
+                type: object
+                properties:
+                  stepId: { type: string }
+                  status: { type: string }
+                  startedAt: { type: string, format: date-time }
+                  endedAt: { type: string, format: date-time }
+                  logsRef: { type: string }
 
 security:
   - bearerAuth: []

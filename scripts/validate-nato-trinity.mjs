@@ -45,7 +45,7 @@ async function main() {
   }
 
   // 3) Alignment lint (non-fatal): OpenAPI schema coverage
-  const allowNoSchemaFile = new Set(['Problem']);
+  const allowNoSchemaFile = new Set(['Problem', 'EntityBase']);
 
   for (const s of openapiSchemas) {
     if (allowNoSchemaFile.has(s)) continue;
