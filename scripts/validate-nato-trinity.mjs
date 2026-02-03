@@ -53,6 +53,10 @@ async function main() {
     'CreateExceptionRequest',
     'IngestEvidenceRequest',
     'CreateLegalHoldRequest',
+    'CreateCaseRequest',
+    'CreateGateRequest',
+    'CreateChainOfCustodyEventRequest',
+    'CreateManifestRequest',
   ]);
 
   for (const s of openapiSchemas) {

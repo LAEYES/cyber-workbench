@@ -112,6 +112,71 @@ components:
         reason: { type: string }
         status: { type: string, enum: [active] }
 
+    CreateCaseRequest:
+      type: object
+      required: [caseId, severity, status, owner]
+      properties:
+        caseId: { type: string }
+        severity: { type: string, enum: [low, medium, high, critical] }
+        status: { type: string, enum: [new, triage, investigate, contain, eradicate, recover, closed] }
+        owner: { type: string }
+        triagedAt: { type: string, format: date-time }
+        containedAt: { type: string, format: date-time }
+        closedAt: { type: string, format: date-time }
+        timelineRefs: { type: array, items: { type: string } }
+        evidenceRefs: { type: array, items: { type: string } }
+        riskRefs: { type: array, items: { type: string } }
+
+    CreateGateRequest:
+      type: object
+      required: [gateId, name, status]
+      properties:
+        gateId: { type: string }
+        name: { type: string }
+        description: { type: string }
+        status: { type: string, enum: [active, disabled] }
+        policyRef: { type: string }
+
+    CreateChainOfCustodyEventRequest:
+      type: object
+      required: [eventId, evidenceId, action, timestamp, actor]
+      properties:
+        eventId: { type: string }
+        evidenceId: { type: string }
+        action: { type: string, enum: [collected, transferred, accessed, sealed, verified] }
+        timestamp: { type: string, format: date-time }
+        actor: { type: string }
+        location: { type: string }
+        details: { type: object, additionalProperties: true }
+
+    CreateManifestRequest:
+      type: object
+      required: [manifestVersion, packageId, generatedAt, generatedBy, hashAlg, items]
+      properties:
+        manifestVersion: { type: string }
+        packageId: { type: string }
+        generatedAt: { type: string, format: date-time }
+        generatedBy: { type: string }
+        hashAlg: { type: string, enum: [sha256] }
+        items:
+          type: array
+          items:
+            type: object
+            required: [evidenceId, hash, storageRef]
+            properties:
+              evidenceId: { type: string }
+              hash: { type: string }
+              storageRef: { type: string }
+              evidenceType: { type: string }
+              sourceSystem: { type: string }
+              collectedAt: { type: string, format: date-time }
+        signature:
+          type: object
+          properties:
+            keyId: { type: string }
+            alg: { type: string }
+            value: { type: string }
+
     GateResult:
       allOf:
         - $ref: '#/components/schemas/EntityBase'
@@ -769,6 +834,267 @@ paths:
                 $ref: '#/components/schemas/Problem'
         '403':
           description: Forbidden
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+
+  /api/v1/cases:
+    get:
+      summary: List cases
+      parameters:
+        - name: limit
+          in: query
+          schema: { type: integer, minimum: 1, maximum: 500, default: 100 }
+        - name: after
+          in: query
+          schema: { type: string }
+        - name: status
+          in: query
+          schema: { type: string }
+        - name: severity
+          in: query
+          schema: { type: string }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Case'
+        '401':
+          description: Unauthorized
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+    post:
+      summary: Create case
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCaseRequest'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Case'
+        '400':
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+
+  /api/v1/cases/{caseId}:
+    get:
+      summary: Get case
+      parameters:
+        - name: caseId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Case'
+        '404':
+          description: Not Found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+
+  /api/v1/gates:
+    get:
+      summary: List gates
+      parameters:
+        - name: limit
+          in: query
+          schema: { type: integer, minimum: 1, maximum: 500, default: 100 }
+        - name: after
+          in: query
+          schema: { type: string }
+        - name: status
+          in: query
+          schema: { type: string }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Gate'
+    post:
+      summary: Create gate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateGateRequest'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gate'
+
+  /api/v1/gates/{gateId}:
+    get:
+      summary: Get gate
+      parameters:
+        - name: gateId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gate'
+        '404':
+          description: Not Found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+
+  /api/v1/evidence/{evidenceId}/chain-of-custody:
+    get:
+      summary: List chain-of-custody events for evidence
+      parameters:
+        - name: evidenceId
+          in: path
+          required: true
+          schema: { type: string }
+        - name: limit
+          in: query
+          schema: { type: integer, minimum: 1, maximum: 500, default: 100 }
+        - name: after
+          in: query
+          schema: { type: string }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ChainOfCustodyEvent'
+    post:
+      summary: Append chain-of-custody event
+      parameters:
+        - name: evidenceId
+          in: path
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateChainOfCustodyEventRequest'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChainOfCustodyEvent'
+
+  /api/v1/chain-of-custody-events/{eventId}:
+    get:
+      summary: Get chain-of-custody event
+      parameters:
+        - name: eventId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChainOfCustodyEvent'
+        '404':
+          description: Not Found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+
+  /api/v1/manifests:
+    get:
+      summary: List manifests
+      parameters:
+        - name: limit
+          in: query
+          schema: { type: integer, minimum: 1, maximum: 500, default: 100 }
+        - name: after
+          in: query
+          schema: { type: string }
+        - name: packageId
+          in: query
+          schema: { type: string }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Manifest'
+    post:
+      summary: Create manifest
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateManifestRequest'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Manifest'
+
+  /api/v1/manifests/{packageId}:
+    get:
+      summary: Get manifest by packageId
+      parameters:
+        - name: packageId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Manifest'
+        '404':
+          description: Not Found
           content:
             application/problem+json:
               schema:
