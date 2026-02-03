@@ -1,47 +1,61 @@
 # Endpoint Hardening Standard (D05)
 
 **Organization:** {{org}}  
-**Version:** 0.1 (draft)  
+**Version:** 0.2 (hardened)  
 **Date:** {{today}}
 
 ## 1. Purpose
-Define hardened baselines for endpoints to reduce attack surface and improve resilience.
+Define a **prescriptive and auditable** endpoint hardening baseline to reduce attack surface and improve resilience.
 
 ## 2. Baseline requirements
-### 2.1 Security configuration
-- A defined configuration baseline is enforced (GPO/MDM/config management).
-- Automatic screen lock (timeout) and compliant password/PIN.
-- Disable/restrict high-risk features (macros, unsigned scripts, execution from temporary paths).
+### 2.1 Baseline & compliance (mandatory)
+- Baseline enforced via GPO/MDM/config management, version-controlled.
+- Baseline compliance rate: **≥ 95%** (fleet-wide), measured monthly.
 
-### 2.2 Privileges
-- Least privilege: no local admin for daily use.
-- Separate admin accounts for administrative operations.
+### 2.2 Session & identity controls
+- Auto screen lock: **≤ 10 min** inactivity.
+- MFA required for remote access and sensitive operations (per IAM policy).
 
-### 2.3 Browser protections
-- Browser hardening: block unapproved extensions, isolate sites, auto updates.
-- Secure DNS (DoH/filtering) where available.
+### 2.3 Attack surface reduction (minimum)
+- Disable unnecessary services; prohibit unjustified admin services.
+- Host firewall **enabled**; inbound deny-by-default except documented exceptions.
+- Disable/restrict macros; restrict unsigned scripts.
 
-### 2.4 Encryption & boot
-- Full-disk encryption enabled (BitLocker/FileVault/LUKS).
+### 2.4 Privileges
+- No local admin for daily use.
+- Separate admin accounts; JIT elevation where feasible.
+
+### 2.5 Encryption & boot
+- Full-disk encryption: **100%** of laptops and endpoints holding sensitive data.
 - Secure Boot enabled where applicable.
 
-### 2.5 Attack surface
-- Disable unnecessary services (RDP/SMB, etc.) based on needs.
-- Host firewall configured deny-by-default for inbound flows not required.
+### 2.6 Browser
+- Automatic updates.
+- Extensions allow-list at least for sensitive scope.
 
 ## 3. Enhanced requirements (regulated sectors)
-- Application allow-listing on critical scope.
-- Advanced logging (e.g., Sysmon) + centralization and increased retention.
-- Strict disablement of unused scripting engines/languages.
-- Hardened admin workstations (PAW) + restrict unnecessary web browsing.
+- Baseline compliance: **≥ 98%**.
+- Application allow-listing for critical scope.
+- Advanced logging (e.g., Sysmon/equivalent) + centralization; retention **≥ 180 days**.
+- PAWs: restrict unnecessary web browsing; strong separation of admin vs user contexts.
+- Strict disablement of unused scripting engines.
 
 ## 4. Testing & verification
-- Periodic compliance reporting (MDM/GPO).
-- Hardening validation when upgrading OS versions.
+- Monthly compliance checks (MDM/GPO) + remediation plan.
+- Validation on OS upgrades (pilot) + rollback.
 
-## 5. Expected evidence
+## 5. Audit criteria (pass/fail)
+- [ ] Baseline version-controlled and enforced.
+- [ ] Compliance measured and tracked.
+- [ ] Host firewall enabled + exceptions tracked.
+- [ ] Disk encryption proven.
+- [ ] Privilege controls (no daily local admin).
+
+## 6. Expected evidence
 - Baseline export (GPO/MDM) + version.
 - Compliance report.
+- Host firewall policy.
+- Encryption report (BitLocker/FileVault/LUKS).
 
 ---
-*Template standard: adapt per OS (Windows/macOS/Linux) and risk profile.*
+*Template standard: adapt per OS and risk profile.*
