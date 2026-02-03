@@ -1,0 +1,41 @@
+# Checklist Cloud & DevSecOps (D04)
+
+**Organisation :** ACME  
+**Date :** 2026-02-03
+
+## 1. Gouvernance & périmètre
+- [ ] Inventaire des comptes/projets/tenants cloud et des propriétaires.
+- [ ] Catalogue des services autorisés (liste blanche) + processus de revue.
+- [ ] Séparation dev/test/prod (au minimum logique, idéalement comptes distincts).
+
+## 2. IAM Cloud
+- [ ] SSO/fédération activé(e) ; pas d’utilisateurs locaux permanents sur périmètre critique.
+- [ ] MFA obligatoire (admins + accès interactifs).
+- [ ] Rôles RBAC standardisés ; élévation JIT.
+- [ ] Revue d’accès réalisée et tracée.
+
+## 3. Sécurité des configurations (CSPM / guardrails)
+- [ ] Politiques bloquant stockage public non approuvé.
+- [ ] Chiffrement au repos activé pour données sensibles.
+- [ ] Journalisation d’audit activée + centralisée.
+
+## 4. DevSecOps / CI-CD
+- [ ] Protection des branches + PR obligatoires.
+- [ ] Scans IaC (misconfig/secrets) dans CI.
+- [ ] Scans dépendances/containers et seuils de blocage.
+- [ ] Traçabilité PR → build → déploiement.
+
+## 5. Secrets
+- [ ] Coffre de secrets en place + RBAC.
+- [ ] Secrets absents du code ; scans secrets activés.
+- [ ] Rotation documentée ; révocation en cas d’incident.
+
+## 6. Renforcé (régulé)
+- [ ] Séparation stricte des comptes prod/non-prod.
+- [ ] MFA phishing-resistant pour admins.
+- [ ] Logs immuables + intégrité + rétention renforcée.
+- [ ] Deux-person rule sur changements/secret critiques.
+- [ ] Exercices de réponse à incident cloud réalisés.
+
+---
+*Checklist modèle : à compléter avec preuves et liens vers les politiques/standards.*

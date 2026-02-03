@@ -1,0 +1,44 @@
+# Standard Sécurité IaC (Infrastructure as Code)
+
+**Organisation :** {{org}}  
+**Version :** 0.1 (draft)  
+**Date :** {{today}}
+
+## 1. Objet
+Définir les exigences de sécurité pour l’Infrastructure as Code (Terraform, Bicep, CloudFormation, Pulumi, Kubernetes manifests), afin de réduire les erreurs de configuration et sécuriser la chaîne de livraison.
+
+## 2. Exigences minimales (baseline)
+### 2.1 Gestion du code
+- IaC versionnée dans un dépôt (Git) avec branches/protection (PR obligatoires).
+- Revue par un pair (code review) et approbation avant merge.
+
+### 2.2 Modèles & modules
+- Utiliser des modules validés (golden modules) ; limiter les ressources ad-hoc.
+- Paramétrage par variables ; secrets interdits dans le code.
+
+### 2.3 Scanning & policy-as-code
+- Scans IaC dans CI (misconfig + secrets + vulnérabilités images si applicable).
+- Policy-as-code : règles minimales (pas de stockage public, chiffrement requis, logs requis).
+
+### 2.4 Séparation & promotion
+- Environnements séparés (dev/test/prod) et promotion contrôlée.
+- Plans/applies exécutés par une identité d’automatisation dédiée.
+
+### 2.5 État & artefacts
+- Backend d’état chiffré + verrouillage (locking) + contrôle d’accès strict.
+- Artefacts signés si possible (ex. provenance build).
+
+## 3. Exigences renforcées (secteurs régulés)
+- Approvals renforcés (2 personnes) pour changements sur périmètre critique.
+- Traçabilité complète : lien PR → plan → apply → ressources créées.
+- Contrôles de dérive (drift) + remédiation.
+- Exécution en runner durci et isolé ; restrictions réseau.
+
+## 4. Preuves attendues (exemples)
+- Politique de protection de branches.
+- Rapports de scans IaC.
+- Exemple de règles policy-as-code.
+- Configuration backend d’état.
+
+---
+*Document modèle : à adapter à l’outil IaC et au fournisseur cloud.*

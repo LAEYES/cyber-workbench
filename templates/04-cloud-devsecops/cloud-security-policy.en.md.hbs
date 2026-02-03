@@ -1,0 +1,72 @@
+# Cloud Security Policy
+
+**Organization:** {{org}}  
+**Version:** 0.1 (draft)  
+**Date:** {{today}}
+
+## 1. Purpose
+Define baseline and enhanced security requirements for the use of cloud services (IaaS/PaaS/SaaS) and associated DevSecOps practices to protect data, identities, workloads and the software delivery pipeline.
+
+## 2. Scope
+- Cloud providers and managed services (IaaS/PaaS/SaaS).
+- Accounts/projects/tenants, workloads (VMs, containers, serverless), storage, network, keys/secrets.
+- DevSecOps tooling: IaC, CI/CD, registries, scanning, observability.
+- Profiles: SME={{profiles.pme}}, Mid={{profiles.eti}}, Regulated={{profiles.regulated}}.
+
+## 3. Principles
+- **Shared responsibility**: make provider vs {{org}} responsibilities explicit.
+- **Secure-by-default**: hardened configurations and removal of implicit access.
+- **Least privilege** and **Zero Trust**: identity + context + segmentation.
+- **Traceability**: centralized, time-synchronized logs protected against tampering.
+- **Automation**: controls-as-code (policy-as-code), detection and remediation.
+
+## 4. Governance & responsibilities
+- **Cloud Owner / Platform Team**: landing zone design, guardrails, standards and tooling.
+- **Application Owners**: comply with standards, classify data, provide evidence.
+- **CISO/Security**: requirements, assurance, exception decisions.
+- **Ops/SRE**: operations, backups, monitoring, incident response.
+
+## 5. Baseline requirements
+### 5.1 Landing zone & guardrails
+- Separation by **environments** (dev/test/prod) and account/project separation when feasible.
+- **Policies** (SCP/Policies) to block critical misconfigurations (e.g., unapproved public storage).
+- Approved services catalog (allow-list) and shadow IT management.
+
+### 5.2 Data & encryption
+- Data classification (at least: public/internal/confidential).
+- Encryption in transit (TLS) and at rest (KMS) for sensitive data.
+- Lifecycle management: retention, deletion, access control.
+
+### 5.3 Logging & monitoring
+- Enable audit logs (e.g., CloudTrail/Activity Log) and security logs.
+- Centralize into SIEM/dedicated storage; alert on risky events.
+- Retention aligned with needs (e.g., 90 days minimum) and regular review.
+
+### 5.4 Workload security
+- Hardened images + vulnerability scanning.
+- Patch/configuration management.
+- Restrict inbound/outbound access (security groups/NSG) and micro-segmentation where feasible.
+
+### 5.5 Third parties & SaaS
+- Vendor security assessment (TPRM) prior to onboarding.
+- Contractual requirements: incidents, location, subprocessors, exit strategy.
+
+## 6. Enhanced requirements (regulated sectors)
+- Strict prod/non-prod separation (separate accounts), enhanced change control.
+- Encryption with **customer-managed keys** (BYOK/HYOK) for critical scopes.
+- **Immutable** logging (WORM) + integrity (hash/chain) + time synchronization.
+- Continuous monitoring: posture (CSPM), compliance (policy-as-code) and automated remediation.
+- Periodic access reviews (monthly for critical scope) and formal recertification.
+- Tested cloud incident response plan (table-top + technical exercises) and provider escalation procedures.
+
+## 7. Exceptions
+Any exception must be documented, justified, time-bound, compensated (alternative controls) and approved by Security/CISO.
+
+## 8. Expected evidence (examples)
+- Landing zone diagrams + environment separation.
+- Guardrail/policy extracts.
+- Log/alert extracts + proof of centralization.
+- Cloud services inventory + owners.
+
+---
+*Template document: adapt to the cloud provider (AWS/Azure/GCP) and regulatory context.*

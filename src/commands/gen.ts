@@ -66,6 +66,56 @@ function normalizeDoc(doc: string): DocKind {
   if (v === "network-checklist" || v === "chk_d03_network" || v === "chk-d03-network")
     return "network-checklist";
 
+  // Domain D04
+  if (
+    v === "cloud-security-policy" ||
+    v === "pol_d04_cloudsecurity" ||
+    v === "pol-d04-cloudsecurity" ||
+    v === "pol_d04_cloud_security" ||
+    v === "pol-d04-cloud-security" ||
+    v === "pol_d04_cloud" ||
+    v === "pol-d04-cloud"
+  )
+    return "cloud-security-policy";
+
+  if (
+    v === "cloud-iam-standard" ||
+    v === "std_d04_cloudiam" ||
+    v === "std-d04-cloudiam" ||
+    v === "std_d04_cloud_iam" ||
+    v === "std-d04-cloud-iam"
+  )
+    return "cloud-iam-standard";
+
+  if (
+    v === "iac-security-standard" ||
+    v === "std_d04_iac_security" ||
+    v === "std-d04-iac-security" ||
+    v === "std_d04_iac" ||
+    v === "std-d04-iac"
+  )
+    return "iac-security-standard";
+
+  if (
+    v === "secrets-management-standard" ||
+    v === "std_d04_secretsmanagement" ||
+    v === "std-d04-secretsmanagement" ||
+    v === "std_d04_secrets" ||
+    v === "std-d04-secrets" ||
+    v === "std_d04_secrets_management" ||
+    v === "std-d04-secrets-management"
+  )
+    return "secrets-management-standard";
+
+  if (
+    v === "cloud-devsecops-checklist" ||
+    v === "chk_d04_clouddevsecops" ||
+    v === "chk-d04-clouddevsecops" ||
+    v === "chk_d04_cloud_devsecops" ||
+    v === "chk-d04-cloud-devsecops"
+  )
+    return "cloud-devsecops-checklist";
+
   throw new Error(`Doc inconnu: ${raw}`);
 }
 
@@ -284,6 +334,72 @@ export async function genDoc(params: { doc: string; org?: string; lang?: string;
       tasks.push({
         template: tplPath("03-reseau", "network-checklist.en.md.hbs"),
         out: path.join(outDir, "docs", "03-reseau", `CHK_D03_Network_${org}_EN.md`)
+      });
+  }
+
+  // Domain D04
+  if (doc === "cloud-security-policy") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("04-cloud-devsecops", "cloud-security-policy.fr.md.hbs"),
+        out: path.join(outDir, "docs", "04-cloud-devsecops", `POL_D04_CloudSecurity_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("04-cloud-devsecops", "cloud-security-policy.en.md.hbs"),
+        out: path.join(outDir, "docs", "04-cloud-devsecops", `POL_D04_CloudSecurity_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "cloud-iam-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("04-cloud-devsecops", "cloud-iam-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "04-cloud-devsecops", `STD_D04_CloudIAM_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("04-cloud-devsecops", "cloud-iam-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "04-cloud-devsecops", `STD_D04_CloudIAM_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "iac-security-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("04-cloud-devsecops", "iac-security-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "04-cloud-devsecops", `STD_D04_IaC_Security_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("04-cloud-devsecops", "iac-security-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "04-cloud-devsecops", `STD_D04_IaC_Security_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "secrets-management-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("04-cloud-devsecops", "secrets-management-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "04-cloud-devsecops", `STD_D04_SecretsManagement_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("04-cloud-devsecops", "secrets-management-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "04-cloud-devsecops", `STD_D04_SecretsManagement_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "cloud-devsecops-checklist") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("04-cloud-devsecops", "cloud-devsecops-checklist.fr.md.hbs"),
+        out: path.join(outDir, "docs", "04-cloud-devsecops", `CHK_D04_CloudDevSecOps_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("04-cloud-devsecops", "cloud-devsecops-checklist.en.md.hbs"),
+        out: path.join(outDir, "docs", "04-cloud-devsecops", `CHK_D04_CloudDevSecOps_${org}_EN.md`)
       });
   }
 

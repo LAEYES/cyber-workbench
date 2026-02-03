@@ -1,0 +1,41 @@
+# Secrets Management Standard
+
+**Organization:** ACME  
+**Version:** 0.1 (draft)  
+**Date:** 2026-02-03
+
+## 1. Purpose
+Define requirements for secrets management (passwords, API keys, certificates, tokens, KMS keys, application secrets) to reduce leakage, fraud, and unauthorized access.
+
+## 2. Baseline requirements
+### 2.1 Storage
+- Secrets must be stored in a **vault** or managed service (e.g., KMS/Secrets Manager/Key Vault).
+- Do not store secrets in code, tickets, shared documents, or unprotected variables.
+
+### 2.2 Access
+- RBAC and least privilege.
+- Separate read/write/admin privileges.
+
+### 2.3 Rotation & lifecycle
+- Rotate sensitive secrets regularly (frequency based on criticality).
+- Revoke immediately on incidents or offboarding.
+- Maintain a secrets inventory and owners.
+
+### 2.4 Distribution
+- Inject at runtime using workload identities; avoid static secrets.
+- Enable vault access logs.
+
+## 3. Enhanced requirements (regulated sectors)
+- Encrypt secrets with dedicated keys; separate environments.
+- Strict rotation policy (e.g., < 90 days) for critical scope.
+- Secret leak detection (repo/CI scanning) with blocking.
+- Two-person rule for critical production secrets.
+
+## 4. Expected evidence (examples)
+- Vault configuration + RBAC.
+- Rotation/revocation history.
+- Secrets inventory (without secret values).
+- Secret scan reports.
+
+---
+*Template document: adapt to tooling and DevSecOps maturity.*
