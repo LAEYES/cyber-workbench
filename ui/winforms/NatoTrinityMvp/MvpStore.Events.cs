@@ -134,6 +134,13 @@ public sealed partial class MvpStore
         return (r.total + c.total, r.legacy + c.legacy, r.verified + c.verified);
     }
 
+    public (string riskHead, string caseHead) GetEventHeadHashes()
+    {
+        var r = GetLastHashOrGenesis(RiskEventsPath);
+        var c = GetLastHashOrGenesis(CaseEventsPath);
+        return (r, c);
+    }
+
     public (int total, int migrated) MigrateLegacyToChained(string actor)
     {
         var r = MigrateToChained(RiskEventsPath);

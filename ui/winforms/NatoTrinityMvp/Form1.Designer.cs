@@ -48,6 +48,9 @@ partial class Form1
     private TextBox txtLastDecisionReq = null!;
     private TextBox txtLastCaseReq = null!;
 
+    private TextBox txtRiskHeadHash = null!;
+    private TextBox txtCaseHeadHash = null!;
+
     protected override void Dispose(bool disposing)
     {
         if (disposing && (components != null))
@@ -359,6 +362,42 @@ partial class Form1
 
         grpLast.Controls.Add(lastLayout);
 
+        var grpHeads = MakeGroup("Event heads (hash)" );
+        var headsLayout = new TableLayoutPanel { Dock = DockStyle.Top, AutoSize = true, ColumnCount = 3 };
+        headsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        headsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+        headsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+
+        txtRiskHeadHash = MakeTextBox("GENESIS");
+        txtRiskHeadHash.ReadOnly = true;
+        txtCaseHeadHash = MakeTextBox("GENESIS");
+        txtCaseHeadHash.ReadOnly = true;
+
+        var btnCopyRiskHead = new Button { Text = "Copy" };
+        StyleSecondary(btnCopyRiskHead);
+        btnCopyRiskHead.Click += (_, _) => OnCopyText(txtRiskHeadHash);
+
+        var btnCopyCaseHead = new Button { Text = "Copy" };
+        StyleSecondary(btnCopyCaseHead);
+        btnCopyCaseHead.Click += (_, _) => OnCopyText(txtCaseHeadHash);
+
+        var btnRefreshHeads = new Button { Text = "Refresh" };
+        StyleSecondary(btnRefreshHeads);
+        btnRefreshHeads.Click += (_, _) => OnRefreshEventHeads();
+
+        headsLayout.Controls.Add(MakeLabel("Risk"), 0, 0);
+        headsLayout.Controls.Add(txtRiskHeadHash, 1, 0);
+        headsLayout.Controls.Add(btnCopyRiskHead, 2, 0);
+
+        headsLayout.Controls.Add(MakeLabel("Case"), 0, 1);
+        headsLayout.Controls.Add(txtCaseHeadHash, 1, 1);
+        headsLayout.Controls.Add(btnCopyCaseHead, 2, 1);
+
+        headsLayout.Controls.Add(new Label { Text = "", AutoSize = true }, 0, 2);
+        headsLayout.Controls.Add(btnRefreshHeads, 1, 2);
+
+        grpHeads.Controls.Add(headsLayout);
+
         var grpRisk = MakeGroup("Risk");
         var riskLayout = new TableLayoutPanel { Dock = DockStyle.Top, AutoSize = true, ColumnCount = 1 };
         var riskActions = new FlowLayoutPanel
@@ -544,9 +583,10 @@ partial class Form1
         grpCase.Controls.Add(caseLayout);
 
         storeLayout.Controls.Add(grpLast, 0, 0);
-        storeLayout.Controls.Add(grpRisk, 0, 1);
-        storeLayout.Controls.Add(grpDecision, 0, 2);
-        storeLayout.Controls.Add(grpCase, 0, 3);
+        storeLayout.Controls.Add(grpHeads, 0, 1);
+        storeLayout.Controls.Add(grpRisk, 0, 2);
+        storeLayout.Controls.Add(grpDecision, 0, 3);
+        storeLayout.Controls.Add(grpCase, 0, 4);
         tabStore.Controls.Add(storeLayout);
 
         var bundleLayout = new TableLayoutPanel

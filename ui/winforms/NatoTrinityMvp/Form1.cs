@@ -13,6 +13,7 @@ public partial class Form1 : Form
     {
         InitializeComponent();
         UpdateRiskScore();
+        RefreshEventHeads();
 
         txtRiskId.TextChanged += (_, _) =>
         {
@@ -46,6 +47,22 @@ public partial class Form1 : Form
                 break;
         }
     }
+
+    private void RefreshEventHeads()
+    {
+        try
+        {
+            var (riskHead, caseHead) = Store().GetEventHeadHashes();
+            txtRiskHeadHash.Text = riskHead;
+            txtCaseHeadHash.Text = caseHead;
+        }
+        catch (Exception ex)
+        {
+            Log("ERROR " + ex.Message);
+        }
+    }
+
+    private void OnRefreshEventHeads() => RefreshEventHeads();
 
     private void UpdateRiskScore()
     {
@@ -108,6 +125,7 @@ public partial class Form1 : Form
             Require(!string.IsNullOrWhiteSpace(txtActor.Text), "Actor is required");
             var (risks, cases) = Store().RebuildProjectionsFromEvents(txtActor.Text, verifyFirst: true);
             Log($"OK rebuilt projections from events (verified): risks={risks} cases={cases}");
+            RefreshEventHeads();
         }
         catch (Exception ex)
         {
@@ -122,6 +140,7 @@ public partial class Form1 : Form
             Require(!string.IsNullOrWhiteSpace(txtActor.Text), "Actor is required");
             var (total, legacy, verified) = Store().VerifyEntityEvents(txtActor.Text);
             Log($"OK events verification: total={total} verified={verified} legacy={legacy}");
+            RefreshEventHeads();
             if (legacy > 0)
                 Log("WARN legacy events detected (no hash/prevHash) - use Migrate legacy to chain everything");
         }
@@ -152,6 +171,7 @@ public partial class Form1 : Form
             // Verify after migration
             var (t2, legacy2, verified2) = Store().VerifyEntityEvents(txtActor.Text);
             Log($"OK post-migration verify: total={t2} verified={verified2} legacy={legacy2}");
+            RefreshEventHeads();
         }
         catch (Exception ex)
         {
