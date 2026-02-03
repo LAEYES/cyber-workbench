@@ -1,38 +1,72 @@
 # Standard Patch Management Endpoints (D05)
 
 **Organisation :** {{org}}  
-**Version :** 0.1 (draft)  
+**Version :** 0.2 (durci)  
 **Date :** {{today}}
 
 ## 1. Objet
-Définir les règles de mise à jour et de gestion des correctifs (OS, navigateurs, suites bureautiques, outils distants) pour les endpoints.
+Définir des exigences **opérationnelles et mesurables** pour la mise à jour et la gestion des correctifs (OS, navigateurs, suites bureautiques, outils distants, agents sécurité) sur les endpoints.
 
-## 2. Exigences minimales (baseline)
-### 2.1 Cadre & responsabilités
-- Outil de gestion des mises à jour (WSUS/Intune/Jamf/Autre) et reporting.
-- Fenêtres de maintenance définies ; communication aux utilisateurs.
+## 2. Définitions
+- **Endpoint** : poste de travail, laptop, terminal mobile géré, poste admin, VDI.
+- **Conformité patching** : endpoint à jour selon la politique de délais ci-dessous.
+- **Exposition Internet** : service/agent accessible depuis Internet ou permettant un accès distant (VPN, remote mgmt).
 
-### 2.2 Délais (SLA indicatifs)
-- Critique exploité / exposition Internet : **7 jours**.
-- Critique : **14 jours**.
-- Important : **30 jours**.
-- Autres : cycle régulier.
+## 3. Exigences minimales (baseline)
+### 3.1 Gouvernance & outillage (obligatoire)
+- Un outil central de gestion des mises à jour est utilisé (Intune/WSUS/SCCM/Jamf/Autre).
+- Les endpoints non joignables > **14 jours** sont identifiés et traités (remédiation, quarantaine réseau, remplacement).
+- Les exceptions sont **time-boxed** et approuvées (voir §6).
 
-### 2.3 Couverture
-- OS + applications critiques (navigateurs, PDF, VPN, agents sécurité).
-- Inventaire logiciels pour identifier les versions obsolètes.
+### 3.2 Couverture (obligatoire)
+Couvrer au minimum :
+- OS (Windows/macOS/Linux)
+- Navigateurs
+- PDF/Office
+- Agents sécurité (EDR/AV, VPN, MDM)
+- Outils d’accès distant (RDP gateway, remote support agent)
 
-### 2.4 Exceptions
-- Exceptions documentées avec mesure compensatoire (isolement, restriction accès, monitoring).
+### 3.3 Délais de correction (SLA)
+Délais **maximum** à compter de la disponibilité du correctif (ou de l’alerte éditeur/CSIRT), selon contexte :
+- **P0 — Exploité / Wormable / RCE / Internet-exposé** : **≤ 72h**
+- **P1 — Critique** : **≤ 7 jours**
+- **P2 — Élevé / Important** : **≤ 14 jours**
+- **P3 — Moyen** : **≤ 30 jours**
+- **P4 — Faible** : cycle standard (≤ 90 jours)
 
-## 3. Exigences renforcées (secteurs régulés)
-- SLA plus strict sur périmètre critique (ex. 72h/7j selon contexte).
-- Validation pré-déploiement (pilote) + traçabilité complète.
-- Indicateurs et revues régulières (comité) ; escalade en cas de dérive.
+> Note : en PME, on peut tolérer P0=7j si absence de MDM et contraintes fortes, **mais** avec mesure compensatoire obligatoire (restriction réseau, monitoring) et plan de rattrapage.
 
-## 4. Preuves attendues
-- Rapport de conformité patching.
-- Procédure de gestion des vulnérabilités.
+### 3.4 Processus (minimum)
+- **Anneaux de déploiement** : pilote → production, avec rollback documenté.
+- **KPIs** mensuels : taux conformité, endpoints hors ligne, exceptions, temps moyen de correction.
+- **Validation** : patching doit inclure OS + apps, pas seulement OS.
+
+## 4. Exigences renforcées (secteurs régulés)
+- SLA plus strict sur périmètre critique : **P0 ≤ 24h**, **P1 ≤ 72h**.
+- Preuve de validation pré-déploiement (pilote) et traçabilité : ticket → anneau → déploiement → conformité.
+- Intégration vulnérabilités/EDR : priorisation automatique (KEV, exploitation observée).
+- Mesures de quarantaine automatisées : endpoints non conformes sur périmètre critique → réseau restreint.
+
+## 5. Paramètres recommandés (exemples)
+- Anneaux : 1% (pilot) / 20% (early) / 79% (broad)
+- Conformité cible : **≥ 95%** (baseline) ; **≥ 98%** (régulé)
+- Fenêtre de maintenance : au moins hebdomadaire (baseline), bi-hebdo sur périmètre critique (régulé)
+
+## 6. Exceptions
+- Exception = (justification, impact, durée, contrôle compensatoire) + approbation RSSI/CISO.
+- Durée max recommandée : **30 jours** (baseline) ; **14 jours** (régulé).
+
+## 7. Critères d’audit (pass/fail)
+- [ ] Outil de patching central + reporting existants.
+- [ ] SLA formalisés et mesurés ; KPIs disponibles.
+- [ ] Couverture OS + apps critiques prouvée.
+- [ ] Process pilote/rollback documenté.
+- [ ] Exceptions tracées, time-boxed, avec compensations.
+
+## 8. Preuves attendues
+- Rapports conformité patching (par OS et par app critique).
+- Liste endpoints non joignables et plan de remédiation.
+- Exemples d’exceptions approuvées + compensations.
 
 ---
-*Standard modèle : à adapter au parc et aux contraintes de production.*
+*Standard modèle : à adapter au parc, aux contraintes opérationnelles et au niveau de risque.*

@@ -1,38 +1,68 @@
 # Standard Développement Sécurisé (D06)
 
 **Organisation :** {{org}}  
-**Version :** 0.1 (draft)  
+**Version :** 0.2 (durci)  
 **Date :** {{today}}
 
 ## 1. Objet
-Définir les exigences de développement sécurisé (secure coding, revues, CI) applicables aux applications et APIs.
+Définir des exigences **prescriptives et vérifiables** de développement sécurisé (secure coding, revues, CI) applicables aux applications et APIs.
 
 ## 2. Exigences minimales (baseline)
-### 2.1 Revue de code
-- PR obligatoires avec revue par pair.
-- Revue sécurité requise pour composants sensibles (auth, crypto, paiement, accès admin).
+### 2.1 Gestion du code (obligatoire)
+- Dépôt Git avec **branches protégées**.
+- **PR obligatoire** pour toute modification sur branches de livraison.
+- Au moins **1 reviewer** ; **2 reviewers** recommandés pour composants sensibles.
 
-### 2.2 Standards de codage
-- Validation/normalisation des entrées ; encodage sorties.
-- AuthN/AuthZ robustes (RBAC/ABAC), protections anti-CSRF si applicable.
-- Gestion des erreurs sans fuite d’info ; logs pertinents.
+### 2.2 Critères de merge (gates)
+- Build CI **réussi**.
+- Tests unitaires **réussis**.
+- Analyse SAST/SCA exécutée (voir §2.4) ; anomalies critiques traitées ou dérogation approuvée.
 
-### 2.3 Sécurité des APIs
-- Authentification forte (OIDC/OAuth2), scopes et permissions.
-- Limitation de débit (rate limiting) et protection contre abus.
+### 2.3 Règles de codage sécurisé (minimum)
+- **Validation/normalisation des entrées** (formats, tailles, encodage) ; rejet explicite.
+- **Encodage des sorties** (XSS) adapté au contexte (HTML/JS/URL/SQL).
+- **Gestion erreurs** : pas de stacktrace/secret ; messages génériques côté client.
+- **AuthN/AuthZ** : contrôles côté serveur, RBAC/ABAC ; séparation des rôles admin.
+- **CSRF** : protections activées si sessions/cookies.
+- **Sécurité API** : OAuth2/OIDC, scopes, rate limiting, protection brute-force.
 
-### 2.4 CI/CD
-- Pipelines reproductibles ; dépendances figées/contrôlées.
-- Séparation des secrets et variables.
+### 2.4 Tests de sécurité automatisés (minimum)
+- **SCA** (dépendances) : à chaque PR + nightly.
+- **SAST** : à chaque PR (ou au minimum nightly) sur code applicatif.
+- **Secret scanning** : à chaque PR + sur historique.
+- Seuils minimums :
+  - Bloquer sur vulnérabilités **critiques** non dérogées.
+  - Bloquer sur secrets détectés.
+
+### 2.5 Sécurité CI/CD
+- Identités CI dédiées, permissions minimales.
+- Tokens **courte durée** quand possible (OIDC) ; pas de tokens long-lived stockés en clair.
+- Artefacts issus de CI stockés en registry/repo d’artefacts avec contrôle d’accès.
 
 ## 3. Exigences renforcées (secteurs régulés)
-- Revue AppSec formelle pour applications critiques.
-- Tests de sécurité automatisés bloquants sur seuils (SAST/SCA) + exceptions contrôlées.
-- Guidelines cryptographiques (algo approuvés, rotation clés, HSM si besoin).
+- Revue AppSec formelle pour applications critiques et changements majeurs.
+- Seuils bloquants renforcés :
+  - Aucun **critique** en prod ; **high** limité et dérogations tracées.
+- Gouvernance crypto : algorithmes approuvés, rotation clés, HSM/KMS si besoin.
+- Signature des artefacts + vérification en déploiement.
 
-## 4. Preuves attendues
-- Politiques de protection branches et règles PR.
-- Exemples de revues et checklists.
+## 4. Paramètres recommandés (exemples)
+- Branch protection : PR required + status checks required + no direct pushes.
+- Reviewers : min 1 (baseline), min 2 sur répertoires sensibles (régulé).
+- Secrets : vault + injection runtime ; rotation des tokens CI.
+
+## 5. Critères d’audit (pass/fail)
+- [ ] Branches protégées + PR obligatoires.
+- [ ] Gates CI présents (build/tests + SAST/SCA + secret scanning).
+- [ ] Règles secure coding documentées et appliquées.
+- [ ] Identités CI dédiées et least privilege.
+- [ ] Dérogations tracées, approuvées et time-boxed.
+
+## 6. Preuves attendues
+- Capture des règles de protection branches.
+- Exemples de PR avec checks/gates.
+- Rapports SAST/SCA/secret scanning.
+- Matrice rôles/permissions CI/CD.
 
 ---
 *Standard modèle : à adapter aux langages, frameworks et outils CI/CD.*

@@ -1,38 +1,70 @@
 # Endpoint Patch Management Standard (D05)
 
 **Organization:** {{org}}  
-**Version:** 0.1 (draft)  
+**Version:** 0.2 (hardened)  
 **Date:** {{today}}
 
 ## 1. Purpose
-Define rules for endpoint patching and updates (OS, browsers, office suites, remote tools).
+Define **operational and measurable** requirements for endpoint patching and updates (OS, browsers, office suites, remote tools, security agents).
 
-## 2. Baseline requirements
-### 2.1 Governance & responsibilities
-- Use an update management tool (WSUS/Intune/Jamf/other) and reporting.
-- Defined maintenance windows; user communications.
+## 2. Definitions
+- **Endpoint**: workstation, laptop, managed mobile device, admin workstation, VDI.
+- **Patching compliance**: endpoint is up to date per the timelines below.
+- **Internet-exposed**: remotely reachable service/agent or tooling that enables remote access.
 
-### 2.2 Timelines (indicative SLAs)
-- Actively exploited / internet-exposed: **7 days**.
-- Critical: **14 days**.
-- High: **30 days**.
-- Others: regular cycle.
+## 3. Baseline requirements
+### 3.1 Governance & tooling (mandatory)
+- Use a centralized update management tool (Intune/WSUS/SCCM/Jamf/other).
+- Endpoints not checking in for > **14 days** must be identified and handled (remediation, network quarantine, replacement).
+- Exceptions are time-boxed and approved (see §6).
 
-### 2.3 Coverage
-- OS + critical apps (browsers, PDF, VPN, security agents).
-- Software inventory to identify outdated versions.
+### 3.2 Coverage (mandatory)
+At minimum cover:
+- OS (Windows/macOS/Linux)
+- Browsers
+- PDF/Office
+- Security agents (EDR/AV, VPN, MDM)
+- Remote access tooling (remote support agents)
 
-### 2.4 Exceptions
-- Documented exceptions with compensating controls (isolation, access restriction, monitoring).
+### 3.3 Remediation timelines (SLAs)
+Maximum time from patch availability (or vendor/CSIRT alert), based on context:
+- **P0 — Exploited / Wormable / RCE / Internet-exposed**: **≤ 72h**
+- **P1 — Critical**: **≤ 7 days**
+- **P2 — High**: **≤ 14 days**
+- **P3 — Medium**: **≤ 30 days**
+- **P4 — Low**: regular cycle (≤ 90 days)
 
-## 3. Enhanced requirements (regulated sectors)
-- Stricter SLAs for critical scope (e.g., 72h/7d depending on context).
-- Pre-deployment validation (pilot) + full traceability.
-- KPIs and regular reviews; escalation on drift.
+### 3.4 Process (minimum)
+- **Deployment rings**: pilot → production, with documented rollback.
+- Monthly KPIs: compliance rate, offline endpoints, exceptions, mean time to remediate.
+- Patching must include OS + critical applications, not OS only.
 
-## 4. Expected evidence
-- Patch compliance report.
-- Vulnerability management procedure.
+## 4. Enhanced requirements (regulated sectors)
+- Stricter SLAs for critical scope: **P0 ≤ 24h**, **P1 ≤ 72h**.
+- Evidence of pre-deployment validation (pilot) and end-to-end traceability.
+- Risk-based prioritization using KEV/exploitation signals.
+- Automated quarantine for non-compliant endpoints in critical scope.
+
+## 5. Recommended settings (examples)
+- Rings: 1% (pilot) / 20% (early) / 79% (broad)
+- Target compliance: **≥ 95%** (baseline); **≥ 98%** (regulated)
+- Maintenance window: at least weekly (baseline), twice a week for critical scope (regulated)
+
+## 6. Exceptions
+- Exceptions require justification, impact, duration, compensating control + Security/CISO approval.
+- Recommended max duration: **30 days** (baseline); **14 days** (regulated).
+
+## 7. Audit criteria (pass/fail)
+- [ ] Central patching tool + reporting.
+- [ ] SLAs defined and measured; KPIs available.
+- [ ] Proven OS + critical app coverage.
+- [ ] Pilot/rollback process documented.
+- [ ] Exceptions tracked, time-boxed, and compensated.
+
+## 8. Expected evidence
+- Patch compliance reports (by OS and critical apps).
+- Offline endpoints list and remediation plan.
+- Approved exception samples + compensating controls.
 
 ---
-*Template standard: adapt to fleet constraints and production requirements.*
+*Template standard: adapt to fleet constraints and risk level.*
