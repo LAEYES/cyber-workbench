@@ -81,7 +81,12 @@ type DocKind =
   | "software-provenance-slsa-standard"
   | "sbom-vex-management-standard"
   | "artifact-signing-verification-standard"
-  | "supply-chain-security-checklist";
+  | "supply-chain-security-checklist"
+  | "workload-identity-policy"
+  | "workload-identity-standard"
+  | "attestation-runtime-integrity-standard"
+  | "secretless-access-standard"
+  | "workload-identity-checklist";
 
 function normalizeDoc(doc: string): DocKind {
   const raw = doc.trim();
@@ -797,6 +802,64 @@ function normalizeDoc(doc: string): DocKind {
     v === "chk-d16-supplychainsecurity"
   )
     return "supply-chain-security-checklist";
+
+  // Domain D17
+  if (
+    v === "workload-identity-policy" ||
+    v === "pol_d17_workload_identity" ||
+    v === "pol-d17-workload-identity" ||
+    v === "pol_d17_workloadidentity" ||
+    v === "pol-d17-workloadidentity" ||
+    v === "pol_d17_workload" ||
+    v === "pol-d17-workload"
+  )
+    return "workload-identity-policy";
+
+  if (
+    v === "workload-identity-standard" ||
+    v === "std_d17_workload_identity" ||
+    v === "std-d17-workload-identity" ||
+    v === "std_d17_workloadidentity" ||
+    v === "std-d17-workloadidentity" ||
+    v === "std_d17_identity" ||
+    v === "std-d17-identity"
+  )
+    return "workload-identity-standard";
+
+  if (
+    v === "attestation-runtime-integrity-standard" ||
+    v === "std_d17_attestation" ||
+    v === "std-d17-attestation" ||
+    v === "std_d17_attestation_runtimeintegrity" ||
+    v === "std-d17-attestation-runtimeintegrity" ||
+    v === "std_d17_attestation_runtime_integrity" ||
+    v === "std-d17-attestation-runtime-integrity" ||
+    v === "std_d17_runtime_integrity" ||
+    v === "std-d17-runtime-integrity"
+  )
+    return "attestation-runtime-integrity-standard";
+
+  if (
+    v === "secretless-access-standard" ||
+    v === "std_d17_secretless" ||
+    v === "std-d17-secretless" ||
+    v === "std_d17_secretlessaccess" ||
+    v === "std-d17-secretlessaccess" ||
+    v === "std_d17_vault_sts" ||
+    v === "std-d17-vault-sts"
+  )
+    return "secretless-access-standard";
+
+  if (
+    v === "workload-identity-checklist" ||
+    v === "chk_d17_workload_identity" ||
+    v === "chk-d17-workload-identity" ||
+    v === "chk_d17_workloadidentity" ||
+    v === "chk-d17-workloadidentity" ||
+    v === "chk_d17_workload" ||
+    v === "chk-d17-workload"
+  )
+    return "workload-identity-checklist";
 
   throw new Error(`Doc inconnu: ${raw}`);
 }
@@ -1848,6 +1911,72 @@ export async function genDoc(params: { doc: string; org?: string; lang?: string;
       tasks.push({
         template: tplPath("16-supply-chain", "supply-chain-security-checklist.en.md.hbs"),
         out: path.join(outDir, "docs", "16-supply-chain", `CHK_D16_SupplyChainSecurity_${org}_EN.md`)
+      });
+  }
+
+  // Domain D17
+  if (doc === "workload-identity-policy") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("17-workload-identity-attestation", "workload-identity-policy.fr.md.hbs"),
+        out: path.join(outDir, "docs", "17-workload-identity-attestation", `POL_D17_WorkloadIdentity_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("17-workload-identity-attestation", "workload-identity-policy.en.md.hbs"),
+        out: path.join(outDir, "docs", "17-workload-identity-attestation", `POL_D17_WorkloadIdentity_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "workload-identity-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("17-workload-identity-attestation", "workload-identity-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "17-workload-identity-attestation", `STD_D17_WorkloadIdentity_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("17-workload-identity-attestation", "workload-identity-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "17-workload-identity-attestation", `STD_D17_WorkloadIdentity_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "attestation-runtime-integrity-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("17-workload-identity-attestation", "attestation-runtime-integrity-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "17-workload-identity-attestation", `STD_D17_Attestation_RuntimeIntegrity_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("17-workload-identity-attestation", "attestation-runtime-integrity-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "17-workload-identity-attestation", `STD_D17_Attestation_RuntimeIntegrity_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "secretless-access-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("17-workload-identity-attestation", "secretless-access-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "17-workload-identity-attestation", `STD_D17_SecretlessAccess_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("17-workload-identity-attestation", "secretless-access-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "17-workload-identity-attestation", `STD_D17_SecretlessAccess_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "workload-identity-checklist") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("17-workload-identity-attestation", "workload-identity-checklist.fr.md.hbs"),
+        out: path.join(outDir, "docs", "17-workload-identity-attestation", `CHK_D17_WorkloadIdentity_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("17-workload-identity-attestation", "workload-identity-checklist.en.md.hbs"),
+        out: path.join(outDir, "docs", "17-workload-identity-attestation", `CHK_D17_WorkloadIdentity_${org}_EN.md`)
       });
   }
 

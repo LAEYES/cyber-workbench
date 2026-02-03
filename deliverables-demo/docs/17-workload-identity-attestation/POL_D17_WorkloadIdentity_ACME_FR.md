@@ -1,0 +1,26 @@
+# POL — D17 — Identité Machine & Workload (Workload Identity / Attestation)
+
+**Organisation :** ACME  
+**Version :** 0.2 (durci)  
+**Date :** 2026-02-03
+
+## 1. Objectif
+Éliminer les secrets statiques et imposer une **identité vérifiable** pour les workloads (containers, VMs, serverless) avec attestation, accès moindre privilège, et audit complet.
+
+## 2. Exigences minimales (baseline)
+- Toute communication service→service doit utiliser une identité workload (OIDC/SPIFFE ou équivalent).
+- Interdiction des secrets longs (API keys non-rotées, mots de passe partagés) pour workloads prod.
+- Certificats/jetons courts : durée de vie **≤ 24h** (baseline).
+- RBAC/ABAC : permissions par service, par environnement, par scope.
+
+## 3. Exigences renforcées (régulé)
+- Attestation obligatoire (mesures, image digest, posture) avant émission d’identité.
+- Durée de vie jetons/certs **≤ 1h**.
+- Two-person approval pour exceptions.
+
+## 4. SLA / pass-fail
+- 100% workloads prod identifiés (pas d’accès anonyme).
+- 0 secret statique non inventorié dans prod.
+
+## 5. Preuves attendues
+- Config IdP/workload identity, policies, logs d’émission, inventaire secrets, rapports rotation.

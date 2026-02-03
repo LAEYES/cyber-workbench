@@ -1,0 +1,17 @@
+# STD — D17 — Workload Identity Standard (OIDC / SPIFFE)
+
+**Organization:** {{org}}  
+**Version:** 0.2 (hardened)  
+**Date:** {{today}}
+
+## 1. Baseline requirements
+- Unique identity per service (no shared identities).
+- Bound to artifact: immutable image digest/tag.
+- Token/cert issuance via IdP (no self-signed for prod).
+
+## 2. Controls
+- Strict audience/issuer.
+- Minimal scopes.
+
+## 3. Evidence
+- Sample claims, policies, issuance logs.
