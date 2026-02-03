@@ -1,0 +1,50 @@
+# POL — D02 — IAM Policy (Identity & Access Management)
+
+**Organization:** {{org}}  
+**Version:** 0.1 (draft)  
+**Date:** {{today}}
+
+## 1. Purpose
+Define governance and minimum requirements for identities, authentication, and access control across {{org}}.
+
+## 2. Scope
+- Human users, service accounts, privileged accounts.
+- Internal/remote access, cloud/SaaS, APIs.
+
+## 3. Principles
+- Least privilege, segregation of duties, auditability.
+- MFA by default, lifecycle management (JML: Joiner/Mover/Leaver).
+- Zero Trust (target): continuous verification and conditional access.
+
+## 4. Baseline requirements
+### 4.1 Identity lifecycle
+- Unique, accountable identities (no shared accounts except documented service accounts).
+- Provisioning/deprovisioning with SLAs (e.g., leaver < 24h).
+
+### 4.2 Authentication
+- MFA required for remote access, SSO/VPN, cloud consoles, and privileged actions.
+- Password policy: min 14 chars, lockout controls, block weak passwords.
+
+### 4.3 Authorization
+- RBAC with time-bound, approved exceptions.
+- Access reviews: quarterly (critical) / semiannual (others).
+
+### 4.4 Logging
+- Log authentications, privilege elevations, admin access, IAM changes.
+- Protect log integrity and retention.
+
+## 5. Regulated / enhanced requirements
+- IGA with access attestations, SoD, and evidence.
+- PAM mandatory: vaulting, session recording, break-glass, rotation.
+- Third-party access: ZTNA, dedicated accounts, JIT/JEA, no shared accounts.
+
+## 6. Exceptions
+- Formal exceptions: justification, risk assessment, expiration, compensating controls.
+
+## 7. Metrics
+- % privileged accounts under PAM
+- % MFA on sensitive access
+- Mean deprovisioning time
+
+## 8. Review
+- Annual review or after major incident/architecture changes.

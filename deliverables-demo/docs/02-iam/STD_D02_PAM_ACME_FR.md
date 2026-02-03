@@ -1,0 +1,24 @@
+# STD — D02 — Standard PAM (Privileged Access Management)
+
+**Organisation :** ACME  
+**Date :** 2026-02-03
+
+## 1. Objectif
+Réduire le risque lié aux comptes et sessions à privilèges.
+
+## 2. Portée
+- Admin AD/Entra, root, sudoers, admins cloud, DB admins, CI/CD, secrets.
+
+## 3. Exigences (baseline)
+- Comptes admin séparés des comptes bureautiques.
+- Coffre-fort / vault pour secrets et mots de passe admin.
+- Rotation des secrets à intervalle défini.
+- Journalisation et alerte sur actions admin.
+
+## 4. Renforcé (régulé)
+- Session recording (bastion/PAM proxy) + approbation.
+- JIT (Just-in-Time) : élévation temporaire.
+- Break-glass : comptes d’urgence, contrôlés, tests périodiques.
+
+## 5. Preuves attendues
+- Liste comptes privilégiés, politiques de rotation, logs de sessions.

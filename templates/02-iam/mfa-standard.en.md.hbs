@@ -1,0 +1,49 @@
+# MFA Standard (Multi‑Factor Authentication)
+
+**Organization:** {{org}}  
+**Version:** 0.1 (draft)  
+**Date:** {{today}}
+
+## 1. Purpose
+Define {{org}} MFA standard: where, when, and how multi‑factor authentication must be enforced.
+
+## 2. Definitions
+- **MFA**: at least two of *knowledge* (password), *possession* (token), *inherence* (biometrics).
+- **Phishing‑resistant**: key‑based factors (FIDO2/WebAuthn) resilient to phishing/proxy attacks.
+
+## 3. Baseline requirements
+### 3.1 MFA mandatory use cases
+- Remote access (VPN, external web access, VDI).
+- Administrative environments (cloud console, hypervisors, directories).
+- Applications processing sensitive data.
+
+### 3.2 Allowed factors
+- Recommended: authenticator app (TOTP) or push with number matching.
+- Allowed only as last resort: SMS (SIM‑swap risk).
+- Biometrics: acceptable when paired with possession (e.g., passkeys on managed devices).
+
+### 3.3 Enrollment & recovery
+- Controlled enrollment (identity verification, corporate email/phone, managed device when possible).
+- Documented recovery flow with limits on resets.
+- Backup codes stored in a vault (password manager) and rotated.
+
+### 3.4 Exceptions and emergency accounts
+- Break‑glass accounts: very limited, restricted usage, monitored, secrets rotated.
+- Any MFA exception: justified, approved, time‑bound, with compensating controls.
+
+### 3.5 Logging
+- Log: enrollments, factor removal, bypass, MFA failures.
+- Alert on: repeated attempts, bypass usage, factor changes.
+
+## 4. Enhanced requirements (regulated environments)
+- Phishing‑resistant MFA required for privileged accounts and critical environments.
+- Step‑up MFA for sensitive actions (privilege elevation, IAM changes, data export).
+- Block legacy authentication protocols (basic auth, etc.).
+- Device posture controls for critical access.
+
+## 5. Checks (examples)
+- % accounts covered by MFA (overall / admins / third parties).
+- Leaver offboarding: time to remove access and factors.
+
+---
+*Template document: adapt to your IdP (Entra ID/Okta/etc.) and business constraints.*

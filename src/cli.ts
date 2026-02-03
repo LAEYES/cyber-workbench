@@ -40,7 +40,7 @@ program
   .description("Génère un livrable")
   .argument(
     "<doc>",
-    "pssi|risk-register|isms-pack|asset-inventory|tprm-questionnaire|compliance-checklist"
+    "pssi|risk-register|isms-pack|asset-inventory|tprm-questionnaire|compliance-checklist|d02-pol-iam|d02-std-mfa|d02-std-pam|d02-chk-iam-pam"
   )
   .option("--org <name>", "Nom de l'organisation")
   .option("--lang <lang>", "fr|en|both")

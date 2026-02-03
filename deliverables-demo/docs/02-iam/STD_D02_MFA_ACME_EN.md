@@ -1,0 +1,26 @@
+# STD — D02 — MFA Standard
+
+**Organization:** ACME  
+**Date:** 2026-02-03
+
+## 1. Goal
+Require multi-factor authentication for sensitive access.
+
+## 2. Scope
+- SSO/IdP, VPN/ZTNA, cloud consoles, email, admin tools, PAM.
+
+## 3. Requirements
+- MFA required for:
+  - privileged accounts
+  - remote access
+  - sensitive data access
+  - SaaS/Cloud administrative access
+- Accepted factors: FIDO2/WebAuthn, TOTP, push (with anti-fatigue protections).
+- Disallowed (unless exception): SMS (weak).
+
+## 4. Regulated / enhanced
+- Phishing-resistant MFA (FIDO2) for admins.
+- Conditional access policies (device compliance, geo, risk signals, impossible travel).
+
+## 5. Exceptions
+- Time-bound exception + compensating controls.
