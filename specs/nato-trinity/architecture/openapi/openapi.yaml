@@ -1,0 +1,60 @@
+openapi: 3.0.3
+info:
+  title: NATO Trinity API
+  version: 0.1.0
+servers:
+  - url: https://example.local
+paths:
+  /api/v1/risks:
+    get:
+      summary: List risks
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Create risk
+      responses:
+        '201':
+          description: Created
+  /api/v1/risks/{riskId}/decisions:
+    post:
+      summary: Create decision for a risk
+      parameters:
+        - name: riskId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '201':
+          description: Created
+  /api/v1/exceptions:
+    post:
+      summary: Create exception
+      responses:
+        '201':
+          description: Created
+  /api/v1/gates/{gateId}/run:
+    post:
+      summary: Run a gate and produce GateResult
+      parameters:
+        - name: gateId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '202':
+          description: Accepted
+  /api/v1/evidence-packages:
+    post:
+      summary: Export an EvidencePackage
+      responses:
+        '201':
+          description: Created
+  /api/v1/audit-events:
+    get:
+      summary: List audit events
+      responses:
+        '200':
+          description: OK
