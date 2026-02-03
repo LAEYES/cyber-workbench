@@ -1,0 +1,68 @@
+# Application Security & SDLC Policy (D06)
+
+**Organization:** ACME  
+**Version:** 0.1 (draft)  
+**Date:** 2026-02-03
+
+## 1. Purpose
+Define application security and secure SDLC/DevSecOps requirements to reduce vulnerabilities, secure the delivery pipeline, and improve the resilience of applications and APIs.
+
+## 2. Scope
+- Internal and internet-facing applications, APIs, microservices, frontends, batch jobs.
+- In-house, outsourced and configured software.
+- Delivery pipeline: repositories, CI/CD, artifacts, environments.
+- Profiles: SME=true, Mid=true, Regulated=true.
+
+## 3. Principles
+- **Security by design**: requirements from design phase.
+- **Shift-left & automation**: security testing in CI/CD.
+- **Least privilege** for CI/CD and secrets.
+- **Traceability**: PR → build → release → deployment.
+- **Risk-based vulnerability management** (exploited/exposed/critical).
+
+## 4. Governance & responsibilities
+- **Product/App Owner**: prioritization and risk acceptance.
+- **Engineering**: implementation, remediation, evidence.
+- **Security/AppSec**: standards, reviews, coaching, decisions.
+- **Ops/SRE**: runtime configuration, logs, WAF/monitoring, incident response.
+
+## 5. Baseline requirements
+### 5.1 Requirements & threat modeling
+- Security requirements documented for each critical application.
+- Threat modeling at least for internet-facing apps or sensitive data.
+
+### 5.2 Secure coding
+- Secure coding rules (OWASP) and PR-based code reviews.
+- Error handling without information leakage; input validation.
+
+### 5.3 Security testing
+- SAST (code) and SCA (dependencies) in CI.
+- DAST or periodic dynamic testing for internet-facing apps.
+
+### 5.4 Secrets & CI/CD
+- Store secrets in a vault; no secrets in repositories.
+- Dedicated CI/CD identities with least privilege and short-lived tokens.
+
+### 5.5 Vulnerabilities
+- Triage and remediation workflow; track fixes.
+- Compensating controls allowed (WAF, feature disablement, network restrictions).
+
+## 6. Enhanced requirements (regulated sectors)
+- Systematic threat modeling for critical scope and major changes.
+- SBOM for critical apps + supply chain provenance controls.
+- Artifact signing and integrity verification.
+- Pre-production pentest and periodic testing (e.g., yearly) for critical scope.
+- Strict remediation SLAs and formal governance/reporting.
+- Enhanced application logging + SIEM correlation.
+
+## 7. Exceptions
+Any exception must be documented, justified, time-bound, compensated, and approved by Security/CISO.
+
+## 8. Expected evidence (examples)
+- SDLC checklist and CI/CD pipeline evidence.
+- SAST/SCA/DAST reports + remediation plans.
+- Vulnerability register + SLAs.
+- Pentest reports (if applicable).
+
+---
+*Template document: adapt to delivery model (agile/DevOps) and technologies.*

@@ -28,7 +28,11 @@ type DocKind =
   | "hardening-standard"
   | "patch-management-standard"
   | "edr-standard"
-  | "endpoint-checklist";
+  | "endpoint-checklist"
+  | "application-security-policy"
+  | "secure-development-standard"
+  | "vulnerability-management-standard"
+  | "appsec-checklist";
 
 function normalizeDoc(doc: string): DocKind {
   const raw = doc.trim();
@@ -168,6 +172,47 @@ function normalizeDoc(doc: string): DocKind {
     v === "chk-d05-endpoint"
   )
     return "endpoint-checklist";
+
+  // Domain D06
+  if (
+    v === "application-security-policy" ||
+    v === "pol_d06_appsec" ||
+    v === "pol-d06-appsec" ||
+    v === "pol_d06_application_security" ||
+    v === "pol-d06-application-security" ||
+    v === "pol_d06_application" ||
+    v === "pol-d06-application"
+  )
+    return "application-security-policy";
+
+  if (
+    v === "secure-development-standard" ||
+    v === "std_d06_secure_development" ||
+    v === "std-d06-secure-development" ||
+    v === "std_d06_securedevelopment" ||
+    v === "std-d06-securedevelopment" ||
+    v === "std_d06_coding" ||
+    v === "std-d06-coding"
+  )
+    return "secure-development-standard";
+
+  if (
+    v === "vulnerability-management-standard" ||
+    v === "std_d06_vuln_mgmt" ||
+    v === "std-d06-vuln-mgmt" ||
+    v === "std_d06_vulnerability_management" ||
+    v === "std-d06-vulnerability-management" ||
+    v === "std_d06_vulnerabilitymanagement" ||
+    v === "std-d06-vulnerabilitymanagement"
+  )
+    return "vulnerability-management-standard";
+
+  if (
+    v === "appsec-checklist" ||
+    v === "chk_d06_appsec" ||
+    v === "chk-d06-appsec"
+  )
+    return "appsec-checklist";
 
   throw new Error(`Doc inconnu: ${raw}`);
 }
@@ -519,6 +564,59 @@ export async function genDoc(params: { doc: string; org?: string; lang?: string;
       tasks.push({
         template: tplPath("05-endpoints", "endpoint-checklist.en.md.hbs"),
         out: path.join(outDir, "docs", "05-endpoints", `CHK_D05_Endpoints_${org}_EN.md`)
+      });
+  }
+
+  // Domain D06
+  if (doc === "application-security-policy") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("06-appsec", "application-security-policy.fr.md.hbs"),
+        out: path.join(outDir, "docs", "06-appsec", `POL_D06_AppSec_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("06-appsec", "application-security-policy.en.md.hbs"),
+        out: path.join(outDir, "docs", "06-appsec", `POL_D06_AppSec_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "secure-development-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("06-appsec", "secure-development-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "06-appsec", `STD_D06_SecureDevelopment_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("06-appsec", "secure-development-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "06-appsec", `STD_D06_SecureDevelopment_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "vulnerability-management-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("06-appsec", "vulnerability-management-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "06-appsec", `STD_D06_VulnerabilityManagement_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("06-appsec", "vulnerability-management-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "06-appsec", `STD_D06_VulnerabilityManagement_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "appsec-checklist") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("06-appsec", "appsec-checklist.fr.md.hbs"),
+        out: path.join(outDir, "docs", "06-appsec", `CHK_D06_AppSec_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("06-appsec", "appsec-checklist.en.md.hbs"),
+        out: path.join(outDir, "docs", "06-appsec", `CHK_D06_AppSec_${org}_EN.md`)
       });
   }
 
