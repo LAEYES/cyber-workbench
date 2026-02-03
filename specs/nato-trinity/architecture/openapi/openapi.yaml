@@ -112,6 +112,109 @@ components:
         objectRef: { type: string }
         timestamp: { type: string, format: date-time }
         outcome: { type: string, enum: [success, failure] }
+
+    Case:
+      type: object
+      required: [caseId, riskId, severity, status, owner]
+      properties:
+        caseId: { type: string }
+        riskId: { type: string }
+        severity: { type: string, enum: [low, medium, high, critical] }
+        status: { type: string, enum: [triage, in_progress, resolved, closed] }
+        owner: { type: string }
+        createdAt: { type: string, format: date-time }
+        createdBy: { type: string }
+        updatedAt: { type: string, format: date-time }
+        updatedBy: { type: string }
+
+    ChainOfCustodyEvent:
+      type: object
+      required: [eventId, evidenceId, action, timestamp, actor]
+      properties:
+        eventId: { type: string }
+        evidenceId: { type: string }
+        action: { type: string, enum: [collected, transferred, accessed, sealed, verified] }
+        timestamp: { type: string, format: date-time }
+        actor: { type: string }
+        location: { type: string }
+        details: { type: string }
+
+    Gate:
+      type: object
+      required: [gateId, name, status]
+      properties:
+        gateId: { type: string }
+        name: { type: string }
+        description: { type: string }
+        status: { type: string, enum: [active, disabled] }
+        policyRef: { type: string }
+
+    Manifest:
+      type: object
+      required: [manifestVersion, packageId, generatedAt, generatedBy, hashAlg, items]
+      properties:
+        manifestVersion: { type: string }
+        packageId: { type: string }
+        generatedAt: { type: string, format: date-time }
+        generatedBy: { type: string }
+        hashAlg: { type: string, enum: [sha256] }
+        items:
+          type: array
+          items:
+            type: object
+            required: [evidenceId, hash, storageRef]
+            properties:
+              evidenceId: { type: string }
+              hash: { type: string }
+              storageRef: { type: string }
+              evidenceType: { type: string }
+              sourceSystem: { type: string }
+              collectedAt: { type: string, format: date-time }
+        signature:
+          type: object
+          properties:
+            keyId: { type: string }
+            alg: { type: string }
+            value: { type: string }
+
+    Playbook:
+      type: object
+      required: [playbookId, name, version]
+      properties:
+        playbookId: { type: string }
+        name: { type: string }
+        version: { type: integer, minimum: 1 }
+        description: { type: string }
+        trigger: { type: string }
+        steps:
+          type: array
+          items:
+            type: object
+            properties:
+              stepId: { type: string }
+              action: { type: string }
+              params: { type: object, additionalProperties: true }
+
+    ExecutionTrace:
+      type: object
+      required: [traceId, status, startedAt]
+      properties:
+        traceId: { type: string }
+        status: { type: string, enum: [running, success, failure] }
+        startedAt: { type: string, format: date-time }
+        endedAt: { type: string, format: date-time }
+        requestId: { type: string }
+        steps:
+          type: array
+          items:
+            type: object
+            properties:
+              stepId: { type: string }
+              status: { type: string }
+              startedAt: { type: string, format: date-time }
+              endedAt: { type: string, format: date-time }
+              logsRef: { type: string }
+
 security:
   - bearerAuth: []
 paths:
