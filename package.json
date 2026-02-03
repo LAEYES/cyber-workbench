@@ -10,7 +10,8 @@
     "build": "tsc -p tsconfig.json",
     "dev": "tsx src/cli.ts",
     "lint": "eslint .",
-    "format": "prettier -w ."
+    "format": "prettier -w .",
+    "nato:validate": "node scripts/validate-nato-trinity.mjs"
   },
   "dependencies": {
     "commander": "^12.1.0",
@@ -20,11 +21,13 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@apidevtools/swagger-parser": "^12.1.0",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^22.10.5",
     "eslint": "^9.19.0",
     "prettier": "^3.4.2",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "yaml": "^2.8.2"
   }
 }
