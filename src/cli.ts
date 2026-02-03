@@ -10,6 +10,7 @@ import { importCisV8 } from "./commands/import_cis.js";
 import { importNist80053 } from "./commands/import_80053.js";
 import { importMitreAttack } from "./commands/import_attack.js";
 import { mapAttackToCsf } from "./commands/map_attack_csf.js";
+import { mapAttackToCsfVia80053 } from "./commands/map_attack_csf_via80053.js";
 
 const program = new Command();
 
@@ -146,6 +147,40 @@ program
       csfOutcomesFile: opts.csf,
       outFile: opts.out,
       topN: Number(opts.top)
+    });
+  });
+
+program
+  .command("catalog:map-attack-csf-via80053")
+  .description("Génère un mapping ATT&CK→800-53 puis ATT&CK→CSF en chaînant des sources officielles")
+  .option(
+    "--tech2mit <file>",
+    "Mapping technique→mitigation",
+    "./catalog/mappings/mitre-attack.techniques_to_mitigations.yml"
+  )
+  .option(
+    "--mit2ctrl <file>",
+    "Mapping mitigation→800-53",
+    "./catalog/mappings/mitre-attack.mitigations_to_nist-800-53-r5.yml"
+  )
+  .option(
+    "--csf2ctrl <file>",
+    "Mapping CSF→800-53",
+    "./catalog/mappings/nist-csf-2.0_to_nist-800-53-r5.yml"
+  )
+  .option("--out-attack-80053 <file>", "Sortie ATT&CK→800-53", "./catalog/mappings/mitre-attack_to_nist-800-53-r5.yml")
+  .option(
+    "--out-attack-csf <file>",
+    "Sortie ATT&CK→CSF",
+    "./catalog/mappings/mitre-attack_to_nist-csf-2.0_via_800-53.yml"
+  )
+  .action(async (opts) => {
+    await mapAttackToCsfVia80053({
+      techniqueToMitigationFile: opts.tech2mit,
+      mitigationTo80053File: opts.mit2ctrl,
+      csfTo80053File: opts.csf2ctrl,
+      outAttackTo80053File: opts.outAttack80053,
+      outAttackToCsfFile: opts.outAttackCsf
     });
   });
 

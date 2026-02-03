@@ -1,0 +1,4 @@
+id: mitre-attack.mitigations_to_nist-800-53-r5
+fromFramework: mitre-attack
+toFramework: nist-800-53-r5
+items: []

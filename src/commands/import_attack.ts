@@ -28,11 +28,38 @@ function uniq<T>(arr: T[]): T[] {
   return [...new Set(arr)];
 }
 
+function parse80053FromMitigation(obj: any): string[] {
+  const ids = new Set<string>();
+  const extRefs = Array.isArray(obj?.external_references) ? obj.external_references : [];
+
+  for (const r of extRefs) {
+    const src = String(r?.source_name ?? "").toLowerCase();
+    const url = String(r?.url ?? "").toLowerCase();
+    const desc = String(r?.description ?? "");
+    const extId = String(r?.external_id ?? "");
+
+    const looksLike80053 =
+      src.includes("800-53") || url.includes("800-53") || /SP\s*800-53/i.test(desc) || /800-53/i.test(extId);
+
+    if (!looksLike80053) continue;
+
+    const m1 = extId.match(/\b([A-Z]{2}-\d{1,3}(?:\(\d+\))?)\b/);
+    if (m1?.[1]) ids.add(m1[1].toUpperCase());
+
+    const text = `${desc}\n${url}`;
+    for (const m of text.matchAll(/\b([A-Z]{2}-\d{1,3}(?:\(\d+\))?)\b/g)) {
+      if (m?.[1]) ids.add(m[1].toUpperCase());
+    }
+  }
+
+  return [...ids];
+}
+
 function parseBundle(bundle: any, framework: string, sourceName: string) {
   const objects: StixObj[] = Array.isArray(bundle?.objects) ? bundle.objects : [];
 
   const techniqueByStixId = new Map<string, string>(); // stix-id -> Txxxx
-  const mitigationByStixId = new Map<string, { id: string; title: string }>(); // stix-id -> Mxxxx
+  const mitigationByStixId = new Map<string, { id: string; title: string; nist80053: string[] }>(); // stix-id -> Mxxxx
 
   const techniques: any[] = [];
   const mitigations: any[] = [];
@@ -79,7 +106,8 @@ function parseBundle(bundle: any, framework: string, sourceName: string) {
       if (!/^M\d{4}$/.test(externalId)) continue;
 
       const title = String(obj?.name ?? externalId).trim();
-      mitigationByStixId.set(String(obj.id), { id: externalId, title });
+      const nist80053 = parse80053FromMitigation(obj);
+      mitigationByStixId.set(String(obj.id), { id: externalId, title, nist80053 });
 
       mitigations.push({
         id: externalId,
@@ -118,7 +146,22 @@ function parseBundle(bundle: any, framework: string, sourceName: string) {
   techniques.sort((a, b) => String(a.id).localeCompare(String(b.id), "en"));
   mitigations.sort((a, b) => String(a.id).localeCompare(String(b.id), "en"));
 
-  return { techniques, mitigations, mappingItems };
+  // Mitigation -> 800-53 mapping (from mitigation external references)
+  const mitTo80053Items = mitigations
+    .map((m: any) => {
+      const stix = [...mitigationByStixId.values()].find((x) => x.id === m.id);
+      const ctrls = stix?.nist80053 ?? [];
+      if (!ctrls.length) return null;
+      return {
+        from: { framework: "mitre-attack", id: m.id },
+        to: ctrls.sort().map((id: string) => ({ framework: "nist-800-53-r5", id })),
+        confidence: "medium",
+        rationale: "Extracted from MITRE ATT&CK mitigation external references mentioning NIST SP 800-53."
+      };
+    })
+    .filter(Boolean);
+
+  return { techniques, mitigations, mappingItems, mitTo80053Items };
 }
 
 export async function importMitreAttack(params: AttackImportParams) {
@@ -129,6 +172,7 @@ export async function importMitreAttack(params: AttackImportParams) {
   const allTechniques: any[] = [];
   const allMitigations: any[] = [];
   const allMappingItems: any[] = [];
+  const allMitTo80053: any[] = [];
 
   for (const key of params.include) {
     const src = SOURCES[key];
@@ -139,6 +183,7 @@ export async function importMitreAttack(params: AttackImportParams) {
     allTechniques.push(...parsed.techniques);
     allMitigations.push(...parsed.mitigations);
     allMappingItems.push(...parsed.mappingItems);
+    allMitTo80053.push(...(parsed.mitTo80053Items ?? []));
   }
 
   // Dedup techniques/mitigations by id
@@ -189,7 +234,31 @@ export async function importMitreAttack(params: AttackImportParams) {
     items: mappingItems
   });
 
+  // Mitigation -> 800-53
+  const mergedMit = new Map<string, Set<string>>();
+  for (const it of allMitTo80053) {
+    const fromId = it.from.id;
+    if (!mergedMit.has(fromId)) mergedMit.set(fromId, new Set());
+    for (const t of it.to) mergedMit.get(fromId)!.add(t.id);
+  }
+  const mitTo80053Items = [...mergedMit.entries()]
+    .sort((a, b) => a[0].localeCompare(b[0], "en"))
+    .map(([mid, ctrls]) => ({
+      from: { framework: "mitre-attack", id: mid },
+      to: [...ctrls].sort().map((id) => ({ framework: "nist-800-53-r5", id })),
+      confidence: "medium",
+      rationale: "Extracted from MITRE ATT&CK mitigation external references mentioning NIST SP 800-53."
+    }));
+
+  await writeYamlFile(path.join(path.dirname(outTechniqueToMitigationFile), "mitre-attack.mitigations_to_nist-800-53-r5.yml"), {
+    id: "mitre-attack.mitigations_to_nist-800-53-r5",
+    fromFramework: "mitre-attack",
+    toFramework: "nist-800-53-r5",
+    items: mitTo80053Items
+  });
+
   console.log(`Imported ATT&CK techniques: ${techniques.length} -> ${outTechniquesFile}`);
   console.log(`Imported ATT&CK mitigations: ${mitigations.length} -> ${outMitigationsFile}`);
   console.log(`Generated technique→mitigation mappings: ${mappingItems.length} -> ${outTechniqueToMitigationFile}`);
+  console.log(`Generated mitigation→800-53 mappings: ${mitTo80053Items.length} -> ${path.join(path.dirname(outTechniqueToMitigationFile), "mitre-attack.mitigations_to_nist-800-53-r5.yml")}`);
 }
