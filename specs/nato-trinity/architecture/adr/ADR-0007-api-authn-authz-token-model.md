@@ -1,6 +1,6 @@
 # ADR-0007 — API AuthN/AuthZ & token model
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Date:** {{today}}
 
 ## Context

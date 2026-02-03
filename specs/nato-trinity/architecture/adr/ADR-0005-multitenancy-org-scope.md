@@ -1,6 +1,6 @@
 # ADR-0005 — Multi-tenancy & org scoping
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Date:** {{today}}
 
 ## Context

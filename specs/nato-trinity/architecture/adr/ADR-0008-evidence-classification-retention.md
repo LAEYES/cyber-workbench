@@ -1,6 +1,6 @@
 # ADR-0008 — Evidence classification & retention classes
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Date:** {{today}}
 
 ## Context

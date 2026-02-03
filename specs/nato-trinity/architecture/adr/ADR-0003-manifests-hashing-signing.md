@@ -1,6 +1,6 @@
 # ADR-0003 — Manifests, hashing and signing
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Date:** {{today}}
 
 ## Context

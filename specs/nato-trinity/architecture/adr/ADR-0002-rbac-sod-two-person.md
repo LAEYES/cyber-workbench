@@ -1,6 +1,6 @@
 # ADR-0002 — RBAC/SoD and Two-person rule
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Date:** {{today}}
 
 ## Context

@@ -1,6 +1,6 @@
 # ADR-0014 — Pagination & filtering (list endpoints)
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Date:** {{today}}
 
 ## Context

@@ -1,6 +1,6 @@
 # ADR-0011 — Evidence purge, deletion & legal hold
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Date:** {{today}}
 
 ## Context

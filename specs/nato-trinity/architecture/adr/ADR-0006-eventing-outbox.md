@@ -1,6 +1,6 @@
 # ADR-0006 — Eventing & outbox pattern
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Date:** {{today}}
 
 ## Context

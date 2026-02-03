@@ -1,6 +1,6 @@
 # ADR-0013 — API error model (application/problem+json)
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Date:** {{today}}
 
 ## Context

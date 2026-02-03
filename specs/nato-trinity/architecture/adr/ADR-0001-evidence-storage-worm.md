@@ -1,6 +1,6 @@
 # ADR-0001 — Evidence storage & WORM mode
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Date:** {{today}}
 
 ## Context

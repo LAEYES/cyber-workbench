@@ -1,6 +1,6 @@
 # ADR-0012 — Deployment model (prod vs regulated)
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Date:** {{today}}
 
 ## Context

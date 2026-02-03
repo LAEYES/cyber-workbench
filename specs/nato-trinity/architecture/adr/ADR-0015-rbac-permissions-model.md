@@ -1,6 +1,6 @@
 # ADR-0015 — RBAC permissions model (API)
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Date:** {{today}}
 
 ## Context

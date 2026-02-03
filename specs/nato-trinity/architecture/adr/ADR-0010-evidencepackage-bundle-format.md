@@ -1,6 +1,6 @@
 # ADR-0010 — EvidencePackage bundle format
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Date:** {{today}}
 
 ## Context

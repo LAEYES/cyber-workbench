@@ -1,6 +1,6 @@
 # ADR-0004 — Search, indexing & metadata model
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Date:** {{today}}
 
 ## Context

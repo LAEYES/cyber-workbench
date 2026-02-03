@@ -1,6 +1,6 @@
 # ADR-0009 — KMS/HSM and signing keys
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Date:** {{today}}
 
 ## Context
