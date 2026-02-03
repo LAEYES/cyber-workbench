@@ -1,43 +1,62 @@
 # Pack ISMS / SMSI (ISO 27001) — D01
 
 **Organisation :** ACME  
-**Version :** 0.1 (draft)  
+**Version :** 0.2 (durci)  
 **Date :** 2026-02-03
 
-## 1. Périmètre (Scope)
+## 1. Périmètre (Scope) — obligatoire
 - Entités / sites : …
 - Processus : …
 - Actifs / applications : …
 - Interfaces & dépendances (tiers/cloud) : …
+- Exclusions (si applicable) : … (justification)
 
-## 2. Contexte & parties prenantes
+## 2. Contexte & parties prenantes — obligatoire
 - Parties prenantes internes/externes : …
 - Exigences (réglementaires/contractuelles) : …
+- Hypothèses & contraintes majeures : …
 
-## 3. Objectifs sécurité (exemples)
-- Réduire le risque de compromission d’identités à privilèges.
-- Assurer la traçabilité des actions sur systèmes critiques.
-- Améliorer la résilience (RTO/RPO) sur services majeurs.
+## 3. Objectifs sécurité (SMART)
+Définir 3–10 objectifs **mesurables** (avec owner + échéance).
+Exemples :
+- MFA admins **≥ 99%** d’ici 90 jours.
+- Conformité patching endpoints **≥ 95%** (P1 ≤ 7j) d’ici 6 mois.
+- Centralisation logs périmètre critique avec rétention **≥ 180j** d’ici 6 mois.
 
-## 4. Rôles & RACI (exemple)
-| Activité | Direction | RSSI | DSI | DPO | Métiers |
+## 4. Rôles & RACI (minimum)
+| Activité | Direction | RSSI | DSI/IT | DPO | Métiers |
 |---|---|---|---|---|---|
 | Politique sécurité | A | R | C | C | C |
 | Gestion des risques | A | R | C | C | C |
-| Revue accès | A | R | R | C | C |
+| Revues d’accès | A | R | R | C | C |
+| Gestion incidents | A | R | R | C | C |
 
-## 5. Statement of Applicability (SoA) — structure
-- Contrôle ISO 27002
+## 5. SoA (Statement of Applicability) — structure
+Pour chaque contrôle :
+- Contrôle (ID)
 - Applicabilité (Oui/Non)
-- Justification
+- Justification (risque/contrainte)
 - État (Planifié/En cours/En place)
-- Preuves
+- Preuves (liens)
 
-## 6. Indicateurs (KPI/KRI)
-- % comptes à privilèges avec MFA
-- Délai moyen de patch (critique)
-- # incidents sécurité / mois
+## 6. Indicateurs (KPI/KRI) — minimum
+Suivi mensuel :
+- MFA admins, MFA users
+- Patching (endpoints/serveurs) : conformité + MTTR
+- EDR : couverture + agents inactifs
+- Revues d’accès : taux dans les délais
+- Incidents : #, MTTD/MTTR, causes racines
 
 ## 7. Plan de traitement des risques (PTR)
-- Référence risque → actions → responsable → échéance → statut
+- Référence risque → actions → responsable → échéance → statut → preuves
+- Risques score ≥ 16 : suivi hebdomadaire jusqu’à réduction.
 
+## 8. Critères d’audit (pass/fail)
+- [ ] Scope documenté + exclusions justifiées.
+- [ ] Objectifs SMART définis et suivis.
+- [ ] SoA maintenu avec preuves.
+- [ ] KPIs/KRIs suivis.
+- [ ] PTR existant et mis à jour.
+
+---
+*Pack modèle : à compléter par les documents et preuves (liens) et à maintenir en continu.*

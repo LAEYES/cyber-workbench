@@ -1,23 +1,61 @@
 # Questionnaire TPRM (Third Party Risk Management) — D01
 
 **Organisation :** ACME  
+**Version :** 0.2 (durci)  
 **Date :** 2026-02-03
 
-## 1. Informations générales
+## 1. Informations générales (obligatoire)
 - Fournisseur : …
 - Service rendu : …
-- Données traitées : …
+- Owner métier : …
+- Données traitées : … (classification)
 - Localisation(s) : …
+- Sous-traitants (liste) : …
+- Exposition : Internet/Oui-Non ; intégrations (API, SSO) : …
 
-## 2. Sécurité & conformité (questions)
-- MFA obligatoire pour accès admin ? (Oui/Non)
-- Chiffrement au repos et en transit ? (Oui/Non)
-- Journalisation & supervision ? (Oui/Non)
-- Tests d’intrusion / audits récents ? (preuves)
-- Notification incident sous X heures ? (SLA)
+## 2. Contrôles sécurité (questions + preuves)
+Répondre Oui/Non + joindre preuves.
 
-## 3. Score (simple)
+### 2.1 Identité & accès
+- MFA obligatoire pour accès admin ?
+- SSO/SAML/OIDC possible ?
+- Revues d’accès et séparation des rôles ?
+
+### 2.2 Chiffrement & clés
+- Chiffrement en transit (TLS) ?
+- Chiffrement au repos ?
+- Gestion clés (KMS/HSM) et rotation ?
+
+### 2.3 Logs & monitoring
+- Logs d’audit disponibles et exportables ? rétention ≥ 90j ?
+- Détection anomalies / alerting ?
+
+### 2.4 Vulnérabilités & tests
+- Process vulnérabilités avec SLA ?
+- Pentest/attestation récente (sans exiger le rapport complet) ?
+
+### 2.5 Continuité & incidents
+- RPO/RTO définis ?
+- Notification incident ≤ X heures (proposer **≤ 24h** baseline ; **≤ 12h** régulé) ?
+
+### 2.6 Données & conformité
+- RGPD : DPA, clauses, localisation, suppression, export ?
+
+## 3. Scoring (simple et auditable)
 - Criticité métier: 1–5
-- Exposition data: 1–5
-- Maturité sécurité: 1–5
-=> Décision: Accept / Mitigate / Reject
+- Sensibilité données: 1–5
+- Exposition (Internet/integrations): 1–5
+- Maturité sécurité (preuves): 1–5
+
+**Score total** = somme (4–20)
+- **4–8** : Accept
+- **9–14** : Mitigate (plan d’actions)
+- **15–20** : Reject / Direction arbitre
+
+## 4. Décision & conditions
+- Décision : Accept / Mitigate / Reject
+- Conditions (ex : MFA obligatoire, logs exportables, SLA incidents) : …
+- Date de re-évaluation : … (max **12 mois** ; **6 mois** régulé)
+
+---
+*Questionnaire modèle : à adapter selon le type de service (SaaS/IaaS) et le niveau de criticité.*

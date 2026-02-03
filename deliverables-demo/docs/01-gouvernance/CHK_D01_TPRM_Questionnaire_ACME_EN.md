@@ -1,23 +1,61 @@
 # TPRM Questionnaire (Third Party Risk Management) — D01
 
 **Organization:** ACME  
+**Version:** 0.2 (hardened)  
 **Date:** 2026-02-03
 
-## 1. General information
+## 1. General information (mandatory)
 - Vendor: …
 - Service: …
-- Data processed: …
-- Location(s): …
+- Business owner: …
+- Data processed: … (classification)
+- Locations: …
+- Subprocessors (list): …
+- Exposure: Internet Yes/No; integrations (API, SSO): …
 
-## 2. Security & compliance (questions)
-- MFA required for admin access? (Yes/No)
-- Encryption at rest and in transit? (Yes/No)
-- Logging & monitoring? (Yes/No)
-- Recent pentests/audits? (evidence)
-- Incident notification within X hours? (SLA)
+## 2. Security controls (questions + evidence)
+Answer Yes/No and provide evidence.
 
-## 3. Simple scoring
+### 2.1 Identity & access
+- MFA required for admin access?
+- SSO/SAML/OIDC supported?
+- Access reviews and separation of duties?
+
+### 2.2 Encryption & keys
+- TLS in transit?
+- Encryption at rest?
+- Key management (KMS/HSM) and rotation?
+
+### 2.3 Logging & monitoring
+- Audit logs available and exportable? retention ≥ 90d?
+- Anomaly detection / alerting?
+
+### 2.4 Vulnerabilities & testing
+- Vulnerability process with SLAs?
+- Recent assessment/pentest attestation (without requiring full report)?
+
+### 2.5 Continuity & incidents
+- RPO/RTO defined?
+- Incident notification ≤ X hours (recommend **≤ 24h** baseline; **≤ 12h** regulated)?
+
+### 2.6 Data & compliance
+- GDPR: DPA, clauses, location, deletion, export?
+
+## 3. Scoring (simple and auditable)
 - Business criticality: 1–5
-- Data exposure: 1–5
-- Security maturity: 1–5
-=> Decision: Accept / Mitigate / Reject
+- Data sensitivity: 1–5
+- Exposure (internet/integrations): 1–5
+- Security maturity (evidence): 1–5
+
+**Total score** = sum (4–20)
+- **4–8**: Accept
+- **9–14**: Mitigate (action plan)
+- **15–20**: Reject / executive decision
+
+## 4. Decision & conditions
+- Decision: Accept / Mitigate / Reject
+- Conditions (e.g., MFA required, exportable logs, incident SLAs): …
+- Re-assessment date: … (max **12 months**; **6 months** regulated)
+
+---
+*Template questionnaire: adapt to service type (SaaS/IaaS) and criticality.*
