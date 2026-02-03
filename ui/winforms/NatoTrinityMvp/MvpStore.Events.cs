@@ -188,6 +188,70 @@ public sealed partial class MvpStore
         return outPath;
     }
 
+    public (bool ok, string details) VerifyAuditAnchor(string actor, string anchorPath, string? publicKeyPath)
+    {
+        anchorPath = Path.GetFullPath(anchorPath);
+        if (!File.Exists(anchorPath)) throw new FileNotFoundException(anchorPath);
+
+        var node = JsonNode.Parse(File.ReadAllText(anchorPath, Encoding.UTF8)) as JsonObject;
+        if (node is null) throw new InvalidOperationException("Invalid anchor JSON");
+
+        var sigNode = node["signature"] as JsonObject;
+        node.Remove("signature");
+        var anchorHashIn = node["anchorHash"]?.GetValue<string>();
+        node.Remove("anchorHash");
+
+        var canonical = CanonicalJson(node);
+        var computed = Sha256Hex(canonical);
+
+        if (!string.Equals(computed, anchorHashIn, StringComparison.OrdinalIgnoreCase))
+        {
+            EmitAudit(actor, "human", "store.verifyAuditAnchor", $"anchor:{Path.GetFileName(anchorPath)}", "fail");
+            return (false, $"ANCHOR_HASH_MISMATCH expected={anchorHashIn} computed={computed}");
+        }
+
+        // Verify signature if present
+        if (sigNode is not null)
+        {
+            if (string.IsNullOrWhiteSpace(publicKeyPath))
+                return (false, "ANCHOR_SIGNED_BUT_NO_PUBLIC_KEY");
+
+            var alg = sigNode["alg"]?.GetValue<string>();
+            var val = sigNode["value"]?.GetValue<string>();
+            var keyId = sigNode["keyId"]?.GetValue<string>();
+            if (!string.Equals(alg, "ed25519", StringComparison.OrdinalIgnoreCase))
+                return (false, $"UNSUPPORTED_ALG {alg}");
+
+            var pubBytes = Convert.FromBase64String(File.ReadAllText(publicKeyPath, Encoding.UTF8));
+            var algorithm = SignatureAlgorithm.Ed25519;
+            var pk = PublicKey.Import(algorithm, pubBytes, KeyBlobFormat.RawPublicKey);
+            var okSig = algorithm.Verify(pk, Encoding.UTF8.GetBytes(canonical), Convert.FromBase64String(val ?? ""));
+            if (!okSig)
+            {
+                EmitAudit(actor, "human", "store.verifyAuditAnchor", $"anchor:{Path.GetFileName(anchorPath)}", "fail");
+                return (false, $"SIGNATURE_INVALID keyId={keyId}");
+            }
+        }
+
+        // Compare current store hashes to anchor
+        var riskHead = node["riskHeadHash"]?.GetValue<string>() ?? "";
+        var caseHead = node["caseHeadHash"]?.GetValue<string>() ?? "";
+        var auditEventsHash = node["auditEventsHash"]?.GetValue<string>() ?? "";
+
+        var (curRisk, curCase) = GetEventHeadHashes();
+        var auditEventsPath = Path.Combine(RootDir, "auditEvents.jsonl");
+        var curAudit = File.Exists(auditEventsPath) ? Sha256File(auditEventsPath) : "MISSING";
+
+        var drift = new List<string>();
+        if (!string.Equals(curRisk, riskHead, StringComparison.OrdinalIgnoreCase)) drift.Add($"riskHead drift: anchor={riskHead} current={curRisk}");
+        if (!string.Equals(curCase, caseHead, StringComparison.OrdinalIgnoreCase)) drift.Add($"caseHead drift: anchor={caseHead} current={curCase}");
+        if (!string.Equals(curAudit, auditEventsHash, StringComparison.OrdinalIgnoreCase)) drift.Add($"auditEventsHash drift: anchor={auditEventsHash} current={curAudit}");
+
+        var ok = drift.Count == 0;
+        EmitAudit(actor, "human", "store.verifyAuditAnchor", $"anchor:{Path.GetFileName(anchorPath)}", ok ? "success" : "fail");
+        return ok ? (true, "OK") : (false, string.Join("; ", drift));
+    }
+
     public (int total, int migrated) MigrateLegacyToChained(string actor)
     {
         var r = MigrateToChained(RiskEventsPath);

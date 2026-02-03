@@ -200,6 +200,31 @@ public partial class Form1 : Form
         }
     }
 
+    private void OnVerifyAuditAnchor()
+    {
+        try
+        {
+            Require(!string.IsNullOrWhiteSpace(txtActor.Text), "Actor is required");
+
+            using var dlg = new OpenFileDialog();
+            dlg.InitialDirectory = Path.Combine(Path.GetFullPath(txtBaseDir.Text), "nato-mvp-store", txtOrg.Text);
+            dlg.Filter = "Audit anchors (*.json)|*.json|All files (*.*)|*.*";
+            dlg.Title = "Select audit anchor";
+            if (dlg.ShowDialog(this) != DialogResult.OK) return;
+
+            var pub = string.IsNullOrWhiteSpace(txtPubKey.Text) ? null : txtPubKey.Text.Trim();
+            var (ok, details) = Store().VerifyAuditAnchor(txtActor.Text, dlg.FileName, pub);
+            if (ok) Log($"OK anchor verified: {Path.GetFileName(dlg.FileName)}");
+            else Log($"FAIL anchor verify: {details}");
+
+            RefreshEventHeads();
+        }
+        catch (Exception ex)
+        {
+            Log("ERROR " + ex.Message);
+        }
+    }
+
     private void OnPickBaseDir()
     {
         using var dlg = new FolderBrowserDialog();

@@ -764,8 +764,13 @@ partial class Form1
         StyleSecondary(btnVerifyHashes);
         btnVerifyHashes.Click += (_, _) => OnVerifyHashes();
 
+        var btnVerifyAnchor = new Button { Text = "Verify anchor" };
+        StyleSecondary(btnVerifyAnchor);
+        btnVerifyAnchor.Click += (_, _) => OnVerifyAuditAnchor();
+
         verifyActions.Controls.Add(btnVerifyManifest);
         verifyActions.Controls.Add(btnVerifyHashes);
+        verifyActions.Controls.Add(btnVerifyAnchor);
 
         verifyGroupLayout.Controls.Add(bundleRow, 0, 0);
         verifyGroupLayout.Controls.Add(verifyActions, 0, 1);
