@@ -106,8 +106,24 @@ public partial class Form1 : Form
         try
         {
             Require(!string.IsNullOrWhiteSpace(txtActor.Text), "Actor is required");
-            var (risks, cases) = Store().RebuildProjectionsFromEvents(txtActor.Text);
-            Log($"OK rebuilt projections from events: risks={risks} cases={cases}");
+            var (risks, cases) = Store().RebuildProjectionsFromEvents(txtActor.Text, verifyFirst: true);
+            Log($"OK rebuilt projections from events (verified): risks={risks} cases={cases}");
+        }
+        catch (Exception ex)
+        {
+            Log("ERROR " + ex.Message);
+        }
+    }
+
+    private void OnVerifyEvents()
+    {
+        try
+        {
+            Require(!string.IsNullOrWhiteSpace(txtActor.Text), "Actor is required");
+            var (total, legacy, verified) = Store().VerifyEntityEvents(txtActor.Text);
+            Log($"OK events verification: total={total} verified={verified} legacy={legacy}");
+            if (legacy > 0)
+                Log("WARN legacy events detected (no hash/prevHash) - only new lines are cryptographically verified");
         }
         catch (Exception ex)
         {

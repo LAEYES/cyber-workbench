@@ -193,6 +193,10 @@ partial class Form1
         StyleSecondary(btnRebuild);
         btnRebuild.Click += (_, _) => OnRebuildFromEvents();
 
+        var btnVerifyEvents = new Button { Text = "Verify events" };
+        StyleSecondary(btnVerifyEvents);
+        btnVerifyEvents.Click += (_, _) => OnVerifyEvents();
+
         var baseButtons = new FlowLayoutPanel
         {
             Dock = DockStyle.Fill,
@@ -202,6 +206,7 @@ partial class Form1
         };
         baseButtons.Controls.Add(btnPickBase);
         baseButtons.Controls.Add(btnOpenStore);
+        baseButtons.Controls.Add(btnVerifyEvents);
         baseButtons.Controls.Add(btnRebuild);
 
         baseRow.Controls.Add(lblBase, 0, 0);
