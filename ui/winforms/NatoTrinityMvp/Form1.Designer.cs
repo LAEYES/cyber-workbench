@@ -47,191 +47,344 @@ partial class Form1
     private void InitializeComponent()
     {
         this.Text = "NATO Trinity MVP (WinForms)";
-        this.ClientSize = new System.Drawing.Size(1100, 700);
-        this.MinimumSize = new System.Drawing.Size(900, 600);
+        this.ClientSize = new System.Drawing.Size(1150, 760);
+        this.MinimumSize = new System.Drawing.Size(980, 650);
 
+        // Root: vertical split (main content / log)
+        var split = new SplitContainer
+        {
+            Dock = DockStyle.Fill,
+            Orientation = Orientation.Horizontal,
+            SplitterDistance = 520,
+            Panel1MinSize = 420,
+            Panel2MinSize = 140
+        };
+
+        // Top area: top config row + tabs
+        var topLayout = new TableLayoutPanel
+        {
+            Dock = DockStyle.Fill,
+            ColumnCount = 1,
+            RowCount = 2,
+            Padding = new Padding(8)
+        };
+        topLayout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+        topLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
+
+        // Header config row
+        var header = new TableLayoutPanel
+        {
+            Dock = DockStyle.Top,
+            ColumnCount = 7,
+            RowCount = 1,
+            AutoSize = true,
+            AutoSizeMode = AutoSizeMode.GrowAndShrink
+        };
+        header.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize)); // Base label
+        header.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100)); // Base textbox
+        header.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize)); // Browse
+        header.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize)); // Org label
+        header.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 140)); // Org textbox
+        header.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize)); // Actor label
+        header.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160)); // Actor textbox
+
+        var lblBase = new Label { Text = "Base dir", AutoSize = true, Anchor = AnchorStyles.Left, Margin = new Padding(0, 6, 8, 0) };
+        txtBaseDir = new TextBox { Dock = DockStyle.Fill, Text = "..\\..\\..\\..\\deliverables-demo" };
+        var btnPickBase = new Button { Text = "Browse", AutoSize = true, Anchor = AnchorStyles.Left };
+        btnPickBase.Click += (_, _) => OnPickBaseDir();
+
+        var lblOrg = new Label { Text = "OrgId", AutoSize = true, Anchor = AnchorStyles.Left, Margin = new Padding(12, 6, 8, 0) };
+        txtOrg = new TextBox { Dock = DockStyle.Fill, Text = "ACME" };
+
+        var lblActor = new Label { Text = "Actor", AutoSize = true, Anchor = AnchorStyles.Left, Margin = new Padding(12, 6, 8, 0) };
+        txtActor = new TextBox { Dock = DockStyle.Fill, Text = "bob" };
+
+        header.Controls.Add(lblBase, 0, 0);
+        header.Controls.Add(txtBaseDir, 1, 0);
+        header.Controls.Add(btnPickBase, 2, 0);
+        header.Controls.Add(lblOrg, 3, 0);
+        header.Controls.Add(txtOrg, 4, 0);
+        header.Controls.Add(lblActor, 5, 0);
+        header.Controls.Add(txtActor, 6, 0);
+
+        // Tabs
         var tabs = new TabControl { Dock = DockStyle.Fill };
-        var tabStore = new TabPage("Store") { Padding = new Padding(10) };
-        var tabBundle = new TabPage("Bundles") { Padding = new Padding(10) };
-        var tabVerify = new TabPage("Verify") { Padding = new Padding(10) };
-
+        var tabStore = new TabPage("Store") { Padding = new Padding(8) };
+        var tabBundle = new TabPage("Bundles") { Padding = new Padding(8) };
+        var tabVerify = new TabPage("Verify") { Padding = new Padding(8) };
         tabs.TabPages.Add(tabStore);
         tabs.TabPages.Add(tabBundle);
         tabs.TabPages.Add(tabVerify);
 
-        // Common top panel
-        var top = new Panel { Dock = DockStyle.Top, Height = 70 };
-        var lblBase = new Label { Left = 10, Top = 10, Width = 90, Text = "Base dir" };
-        txtBaseDir = new TextBox { Left = 100, Top = 8, Width = 720, Text = "..\\..\\..\\..\\deliverables-demo", Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right };
-        var btnPickBase = new Button { Left = 830, Top = 6, Width = 90, Text = "Browse", Anchor = AnchorStyles.Top | AnchorStyles.Right };
-        btnPickBase.Click += (_, _) => OnPickBaseDir();
+        topLayout.Controls.Add(header, 0, 0);
+        topLayout.Controls.Add(tabs, 0, 1);
 
-        var lblOrg = new Label { Left = 10, Top = 40, Width = 90, Text = "OrgId" };
-        txtOrg = new TextBox { Left = 100, Top = 38, Width = 140, Text = "ACME" };
-        var lblActor = new Label { Left = 260, Top = 40, Width = 90, Text = "Actor" };
-        txtActor = new TextBox { Left = 320, Top = 38, Width = 140, Text = "bob" };
+        split.Panel1.Controls.Add(topLayout);
 
-        top.Controls.AddRange([lblBase, txtBaseDir, btnPickBase, lblOrg, txtOrg, lblActor, txtActor]);
+        // Log
+        txtLog = new TextBox
+        {
+            Dock = DockStyle.Fill,
+            Multiline = true,
+            ScrollBars = ScrollBars.Both,
+            ReadOnly = true,
+            WordWrap = false
+        };
+        split.Panel2.Padding = new Padding(8);
+        split.Panel2.Controls.Add(txtLog);
 
-        // Log panel
-        txtLog = new TextBox { Dock = DockStyle.Bottom, Height = 180, Multiline = true, ScrollBars = ScrollBars.Both, ReadOnly = true, WordWrap = false };
+        // STORE TAB content
+        var storeLayout = new TableLayoutPanel
+        {
+            Dock = DockStyle.Fill,
+            ColumnCount = 1,
+            RowCount = 4,
+            AutoScroll = true
+        };
+        storeLayout.RowStyles.Add(new RowStyle(SizeType.AutoSize)); // buttons
+        storeLayout.RowStyles.Add(new RowStyle(SizeType.AutoSize)); // risk grid
+        storeLayout.RowStyles.Add(new RowStyle(SizeType.AutoSize)); // decision grid
+        storeLayout.RowStyles.Add(new RowStyle(SizeType.AutoSize)); // case grid
+        tabStore.Controls.Add(storeLayout);
 
-        // STORE TAB
-        var y = 10;
-        var btnRiskCreate = new Button { Left = 10, Top = y, Width = 160, Text = "Create Risk" };
+        var pnlRiskButtons = new FlowLayoutPanel { Dock = DockStyle.Fill, AutoSize = true, WrapContents = true };
+        var btnRiskCreate = new Button { Text = "Create Risk", AutoSize = true };
         btnRiskCreate.Click += (_, _) => OnRiskCreate();
-        var btnRiskGet = new Button { Left = 180, Top = y, Width = 160, Text = "Get Risk" };
+        var btnRiskGet = new Button { Text = "Get Risk", AutoSize = true };
         btnRiskGet.Click += (_, _) => OnRiskGet();
-        y += 40;
+        pnlRiskButtons.Controls.Add(btnRiskCreate);
+        pnlRiskButtons.Controls.Add(btnRiskGet);
+        storeLayout.Controls.Add(pnlRiskButtons, 0, 0);
 
-        tabStore.Controls.Add(btnRiskCreate);
-        tabStore.Controls.Add(btnRiskGet);
+        var riskGrid = new TableLayoutPanel
+        {
+            Dock = DockStyle.Top,
+            ColumnCount = 6,
+            RowCount = 2,
+            AutoSize = true,
+            AutoSizeMode = AutoSizeMode.GrowAndShrink
+        };
+        riskGrid.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        riskGrid.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40));
+        riskGrid.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        riskGrid.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60));
+        riskGrid.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        riskGrid.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 180));
 
-        tabStore.Controls.Add(new Label { Left = 10, Top = y, Width = 90, Text = "RiskId" });
-        txtRiskId = new TextBox { Left = 100, Top = y - 2, Width = 160, Text = "R-TEST" };
-        tabStore.Controls.Add(txtRiskId);
+        riskGrid.Controls.Add(new Label { Text = "RiskId", AutoSize = true, Anchor = AnchorStyles.Left }, 0, 0);
+        txtRiskId = new TextBox { Dock = DockStyle.Fill, Text = "R-TEST" };
+        riskGrid.Controls.Add(txtRiskId, 1, 0);
 
-        tabStore.Controls.Add(new Label { Left = 280, Top = y, Width = 90, Text = "Title" });
-        txtRiskTitle = new TextBox { Left = 330, Top = y - 2, Width = 300, Text = "Test risk", Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right };
-        tabStore.Controls.Add(txtRiskTitle);
+        riskGrid.Controls.Add(new Label { Text = "Title", AutoSize = true, Anchor = AnchorStyles.Left, Margin = new Padding(12, 6, 8, 0) }, 2, 0);
+        txtRiskTitle = new TextBox { Dock = DockStyle.Fill, Text = "Test risk" };
+        riskGrid.Controls.Add(txtRiskTitle, 3, 0);
 
-        tabStore.Controls.Add(new Label { Left = 650, Top = y, Width = 90, Text = "Owner" });
-        txtRiskOwner = new TextBox { Left = 710, Top = y - 2, Width = 160, Text = "alice" };
-        tabStore.Controls.Add(txtRiskOwner);
+        riskGrid.Controls.Add(new Label { Text = "Owner", AutoSize = true, Anchor = AnchorStyles.Left, Margin = new Padding(12, 6, 8, 0) }, 4, 0);
+        txtRiskOwner = new TextBox { Dock = DockStyle.Fill, Text = "alice" };
+        riskGrid.Controls.Add(txtRiskOwner, 5, 0);
 
-        y += 35;
-        tabStore.Controls.Add(new Label { Left = 10, Top = y, Width = 90, Text = "Likelihood" });
-        numLikelihood = new NumericUpDown { Left = 100, Top = y - 2, Width = 60, Minimum = 1, Maximum = 5, Value = 3 };
-        tabStore.Controls.Add(numLikelihood);
+        riskGrid.Controls.Add(new Label { Text = "Likelihood", AutoSize = true, Anchor = AnchorStyles.Left }, 0, 1);
+        numLikelihood = new NumericUpDown { Dock = DockStyle.Left, Minimum = 1, Maximum = 5, Value = 3, Width = 80 };
+        riskGrid.Controls.Add(numLikelihood, 1, 1);
 
-        tabStore.Controls.Add(new Label { Left = 180, Top = y, Width = 60, Text = "Impact" });
-        numImpact = new NumericUpDown { Left = 240, Top = y - 2, Width = 60, Minimum = 1, Maximum = 5, Value = 4 };
-        tabStore.Controls.Add(numImpact);
+        riskGrid.Controls.Add(new Label { Text = "Impact", AutoSize = true, Anchor = AnchorStyles.Left, Margin = new Padding(12, 6, 8, 0) }, 2, 1);
+        numImpact = new NumericUpDown { Dock = DockStyle.Left, Minimum = 1, Maximum = 5, Value = 4, Width = 80 };
+        riskGrid.Controls.Add(numImpact, 3, 1);
 
-        tabStore.Controls.Add(new Label { Left = 320, Top = y, Width = 80, Text = "Due" });
-        txtDue = new TextBox { Left = 360, Top = y - 2, Width = 120, Text = "2026-03-01" };
-        tabStore.Controls.Add(txtDue);
+        riskGrid.Controls.Add(new Label { Text = "Due", AutoSize = true, Anchor = AnchorStyles.Left, Margin = new Padding(12, 6, 8, 0) }, 4, 1);
+        txtDue = new TextBox { Dock = DockStyle.Fill, Text = "2026-03-01" };
+        riskGrid.Controls.Add(txtDue, 5, 1);
 
-        y += 45;
-        var btnDecisionCreate = new Button { Left = 10, Top = y, Width = 160, Text = "Create Decision" };
+        storeLayout.Controls.Add(riskGrid, 0, 1);
+
+        var decisionGrid = new TableLayoutPanel
+        {
+            Dock = DockStyle.Top,
+            ColumnCount = 6,
+            RowCount = 2,
+            AutoSize = true,
+            AutoSizeMode = AutoSizeMode.GrowAndShrink,
+            Margin = new Padding(0, 14, 0, 0)
+        };
+        decisionGrid.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        decisionGrid.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        decisionGrid.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        decisionGrid.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160));
+        decisionGrid.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        decisionGrid.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160));
+
+        var btnDecisionCreate = new Button { Text = "Create Decision", AutoSize = true };
         btnDecisionCreate.Click += (_, _) => OnDecisionCreate();
-        tabStore.Controls.Add(btnDecisionCreate);
+        decisionGrid.Controls.Add(btnDecisionCreate, 0, 0);
 
-        tabStore.Controls.Add(new Label { Left = 180, Top = y + 5, Width = 90, Text = "Type" });
-        txtDecisionType = new TextBox { Left = 230, Top = y + 3, Width = 80, Text = "accept" };
-        tabStore.Controls.Add(txtDecisionType);
+        decisionGrid.Controls.Add(new Label { Text = "Type", AutoSize = true, Anchor = AnchorStyles.Left, Margin = new Padding(12, 6, 8, 0) }, 1, 0);
+        txtDecisionType = new TextBox { Dock = DockStyle.Fill, Text = "accept" };
+        decisionGrid.Controls.Add(txtDecisionType, 2, 0);
 
-        tabStore.Controls.Add(new Label { Left = 330, Top = y + 5, Width = 90, Text = "ApprovedBy" });
-        txtDecisionApprovedBy = new TextBox { Left = 410, Top = y + 3, Width = 120, Text = "ciso" };
-        tabStore.Controls.Add(txtDecisionApprovedBy);
+        decisionGrid.Controls.Add(new Label { Text = "ApprovedBy", AutoSize = true, Anchor = AnchorStyles.Left, Margin = new Padding(12, 6, 8, 0) }, 3, 0);
+        txtDecisionApprovedBy = new TextBox { Dock = DockStyle.Fill, Text = "ciso" };
+        decisionGrid.Controls.Add(txtDecisionApprovedBy, 4, 0);
 
-        tabStore.Controls.Add(new Label { Left = 550, Top = y + 5, Width = 90, Text = "Expiry" });
-        txtDecisionExpiry = new TextBox { Left = 600, Top = y + 3, Width = 120, Text = "2026-04-01" };
-        tabStore.Controls.Add(txtDecisionExpiry);
+        decisionGrid.Controls.Add(new Label { Text = "Expiry", AutoSize = true, Anchor = AnchorStyles.Left, Margin = new Padding(12, 6, 8, 0) }, 5, 0);
+        txtDecisionExpiry = new TextBox { Dock = DockStyle.Fill, Text = "2026-04-01" };
+        decisionGrid.Controls.Add(txtDecisionExpiry, 5, 1);
 
-        y += 35;
-        tabStore.Controls.Add(new Label { Left = 180, Top = y + 5, Width = 90, Text = "Rationale" });
-        txtDecisionRationale = new TextBox { Left = 250, Top = y + 3, Width = 620, Text = "Business need", Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right };
-        tabStore.Controls.Add(txtDecisionRationale);
+        // Rationale row
+        var rationaleRow = new TableLayoutPanel
+        {
+            Dock = DockStyle.Top,
+            ColumnCount = 2,
+            RowCount = 1,
+            AutoSize = true,
+            AutoSizeMode = AutoSizeMode.GrowAndShrink,
+            Margin = new Padding(0, 6, 0, 0)
+        };
+        rationaleRow.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        rationaleRow.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+        rationaleRow.Controls.Add(new Label { Text = "Rationale", AutoSize = true, Anchor = AnchorStyles.Left }, 0, 0);
+        txtDecisionRationale = new TextBox { Dock = DockStyle.Fill, Text = "Business need" };
+        rationaleRow.Controls.Add(txtDecisionRationale, 1, 0);
 
-        y += 55;
-        var btnCaseCreate = new Button { Left = 10, Top = y, Width = 160, Text = "Create Case" };
+        var decisionContainer = new Panel { Dock = DockStyle.Top, AutoSize = true, AutoSizeMode = AutoSizeMode.GrowAndShrink };
+        decisionContainer.Controls.Add(rationaleRow);
+        decisionContainer.Controls.Add(decisionGrid);
+        storeLayout.Controls.Add(decisionContainer, 0, 2);
+
+        var caseContainer = new TableLayoutPanel
+        {
+            Dock = DockStyle.Top,
+            ColumnCount = 7,
+            RowCount = 2,
+            AutoSize = true,
+            AutoSizeMode = AutoSizeMode.GrowAndShrink,
+            Margin = new Padding(0, 14, 0, 0)
+        };
+        caseContainer.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        caseContainer.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        caseContainer.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        caseContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160));
+        caseContainer.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        caseContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 180));
+        caseContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+
+        var pnlCaseButtons = new FlowLayoutPanel { Dock = DockStyle.Fill, AutoSize = true, WrapContents = true };
+        var btnCaseCreate = new Button { Text = "Create Case", AutoSize = true };
         btnCaseCreate.Click += (_, _) => OnCaseCreate();
-        var btnCaseGet = new Button { Left = 180, Top = y, Width = 160, Text = "Get Case" };
+        var btnCaseGet = new Button { Text = "Get Case", AutoSize = true };
         btnCaseGet.Click += (_, _) => OnCaseGet();
-        tabStore.Controls.Add(btnCaseCreate);
-        tabStore.Controls.Add(btnCaseGet);
+        pnlCaseButtons.Controls.Add(btnCaseCreate);
+        pnlCaseButtons.Controls.Add(btnCaseGet);
+        caseContainer.Controls.Add(pnlCaseButtons, 0, 0);
+        caseContainer.SetColumnSpan(pnlCaseButtons, 7);
 
-        y += 40;
-        tabStore.Controls.Add(new Label { Left = 10, Top = y, Width = 90, Text = "CaseId" });
-        txtCaseId = new TextBox { Left = 100, Top = y - 2, Width = 160, Text = "C-TEST" };
-        tabStore.Controls.Add(txtCaseId);
+        caseContainer.Controls.Add(new Label { Text = "CaseId", AutoSize = true, Anchor = AnchorStyles.Left }, 0, 1);
+        txtCaseId = new TextBox { Dock = DockStyle.Fill, Text = "C-TEST" };
+        caseContainer.Controls.Add(txtCaseId, 1, 1);
 
-        tabStore.Controls.Add(new Label { Left = 280, Top = y, Width = 90, Text = "Severity" });
-        cmbSeverity = new ComboBox { Left = 340, Top = y - 2, Width = 120, DropDownStyle = ComboBoxStyle.DropDownList };
+        caseContainer.Controls.Add(new Label { Text = "Severity", AutoSize = true, Anchor = AnchorStyles.Left, Margin = new Padding(12, 6, 8, 0) }, 2, 1);
+        cmbSeverity = new ComboBox { Dock = DockStyle.Fill, DropDownStyle = ComboBoxStyle.DropDownList };
         cmbSeverity.Items.AddRange(["low", "medium", "high", "critical"]);
         cmbSeverity.SelectedIndex = 2;
-        tabStore.Controls.Add(cmbSeverity);
+        caseContainer.Controls.Add(cmbSeverity, 3, 1);
 
-        tabStore.Controls.Add(new Label { Left = 480, Top = y, Width = 90, Text = "Status" });
-        cmbCaseStatus = new ComboBox { Left = 530, Top = y - 2, Width = 140, DropDownStyle = ComboBoxStyle.DropDownList };
+        caseContainer.Controls.Add(new Label { Text = "Status", AutoSize = true, Anchor = AnchorStyles.Left, Margin = new Padding(12, 6, 8, 0) }, 4, 1);
+        cmbCaseStatus = new ComboBox { Dock = DockStyle.Fill, DropDownStyle = ComboBoxStyle.DropDownList };
         cmbCaseStatus.Items.AddRange(["new", "triage", "investigate", "contain", "eradicate", "recover", "closed"]);
         cmbCaseStatus.SelectedIndex = 1;
-        tabStore.Controls.Add(cmbCaseStatus);
+        caseContainer.Controls.Add(cmbCaseStatus, 5, 1);
 
-        tabStore.Controls.Add(new Label { Left = 690, Top = y, Width = 90, Text = "Owner" });
-        txtCaseOwner = new TextBox { Left = 740, Top = y - 2, Width = 130, Text = "soclead" };
-        tabStore.Controls.Add(txtCaseOwner);
+        caseContainer.Controls.Add(new Label { Text = "Owner", AutoSize = true, Anchor = AnchorStyles.Left, Margin = new Padding(12, 6, 8, 0) }, 6, 1);
+        txtCaseOwner = new TextBox { Dock = DockStyle.Fill, Text = "soclead" };
+        caseContainer.Controls.Add(txtCaseOwner, 6, 1);
 
-        // BUNDLE TAB
-        var yb = 10;
-        tabBundle.Controls.Add(new Label { Left = 10, Top = yb, Width = 90, Text = "ScopeRef" });
-        txtScopeRef = new TextBox { Left = 100, Top = yb - 2, Width = 400, Text = "risk:R-TEST" };
-        tabBundle.Controls.Add(txtScopeRef);
+        storeLayout.Controls.Add(caseContainer, 0, 3);
 
-        var btnExport = new Button { Left = 520, Top = yb - 4, Width = 160, Text = "Export bundle" };
+        // BUNDLE TAB content
+        var bundleLayout = new TableLayoutPanel
+        {
+            Dock = DockStyle.Fill,
+            ColumnCount = 3,
+            RowCount = 6,
+            AutoScroll = true
+        };
+        bundleLayout.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        bundleLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+        bundleLayout.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+
+        tabBundle.Controls.Add(bundleLayout);
+
+        bundleLayout.Controls.Add(new Label { Text = "ScopeRef", AutoSize = true, Anchor = AnchorStyles.Left }, 0, 0);
+        txtScopeRef = new TextBox { Dock = DockStyle.Fill, Text = "risk:R-TEST" };
+        bundleLayout.Controls.Add(txtScopeRef, 1, 0);
+
+        var btnExport = new Button { Text = "Export bundle", AutoSize = true };
         btnExport.Click += (_, _) => OnBundleExport();
-        tabBundle.Controls.Add(btnExport);
+        bundleLayout.Controls.Add(btnExport, 2, 0);
 
-        yb += 35;
-        tabBundle.Controls.Add(new Label { Left = 10, Top = yb, Width = 90, Text = "Files" });
-        txtEvidenceFiles = new TextBox { Left = 100, Top = yb - 2, Width = 780, Text = "..\\..\\..\\..\\tmp\\evidence1.txt;..\\..\\..\\..\\tmp\\evidence2.txt", Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right };
-        tabBundle.Controls.Add(txtEvidenceFiles);
+        bundleLayout.Controls.Add(new Label { Text = "Files", AutoSize = true, Anchor = AnchorStyles.Left }, 0, 1);
+        txtEvidenceFiles = new TextBox { Dock = DockStyle.Fill, Text = "..\\..\\..\\..\\tmp\\evidence1.txt;..\\..\\..\\..\\tmp\\evidence2.txt" };
+        bundleLayout.Controls.Add(txtEvidenceFiles, 1, 1);
+        bundleLayout.SetColumnSpan(txtEvidenceFiles, 2);
 
-        yb += 35;
-        chkSign = new CheckBox { Left = 100, Top = yb, Width = 100, Text = "Sign" };
-        tabBundle.Controls.Add(chkSign);
+        chkSign = new CheckBox { Text = "Sign", AutoSize = true, Anchor = AnchorStyles.Left };
+        bundleLayout.Controls.Add(chkSign, 1, 2);
 
-        tabBundle.Controls.Add(new Label { Left = 220, Top = yb, Width = 90, Text = "KeyId" });
-        txtKeyId = new TextBox { Left = 260, Top = yb - 2, Width = 140, Text = "demo-signer" };
-        tabBundle.Controls.Add(txtKeyId);
-
-        var btnGenKeys = new Button { Left = 420, Top = yb - 4, Width = 160, Text = "Gen keys" };
+        var keyRow = new FlowLayoutPanel { Dock = DockStyle.Fill, AutoSize = true };
+        keyRow.Controls.Add(new Label { Text = "KeyId", AutoSize = true, Margin = new Padding(0, 6, 8, 0) });
+        txtKeyId = new TextBox { Width = 180, Text = "demo-signer" };
+        keyRow.Controls.Add(txtKeyId);
+        var btnGenKeys = new Button { Text = "Gen keys", AutoSize = true, Margin = new Padding(12, 0, 0, 0) };
         btnGenKeys.Click += (_, _) => OnGenKeys();
-        tabBundle.Controls.Add(btnGenKeys);
+        keyRow.Controls.Add(btnGenKeys);
+        bundleLayout.Controls.Add(keyRow, 1, 3);
+        bundleLayout.SetColumnSpan(keyRow, 2);
 
-        yb += 35;
-        tabBundle.Controls.Add(new Label { Left = 10, Top = yb, Width = 90, Text = "Priv key" });
-        txtPrivKey = new TextBox { Left = 100, Top = yb - 2, Width = 520, Text = "", Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right };
-        tabBundle.Controls.Add(txtPrivKey);
-
-        var btnPickPriv = new Button { Left = 630, Top = yb - 4, Width = 90, Text = "Browse", Anchor = AnchorStyles.Top | AnchorStyles.Right };
+        bundleLayout.Controls.Add(new Label { Text = "Priv key", AutoSize = true, Anchor = AnchorStyles.Left }, 0, 4);
+        txtPrivKey = new TextBox { Dock = DockStyle.Fill, Text = "" };
+        bundleLayout.Controls.Add(txtPrivKey, 1, 4);
+        var btnPickPriv = new Button { Text = "Browse", AutoSize = true };
         btnPickPriv.Click += (_, _) => OnPickFile(txtPrivKey);
-        tabBundle.Controls.Add(btnPickPriv);
+        bundleLayout.Controls.Add(btnPickPriv, 2, 4);
 
-        yb += 35;
-        tabBundle.Controls.Add(new Label { Left = 10, Top = yb, Width = 90, Text = "Pub key" });
-        txtPubKey = new TextBox { Left = 100, Top = yb - 2, Width = 520, Text = "", Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right };
-        tabBundle.Controls.Add(txtPubKey);
-
-        var btnPickPub = new Button { Left = 630, Top = yb - 4, Width = 90, Text = "Browse", Anchor = AnchorStyles.Top | AnchorStyles.Right };
+        bundleLayout.Controls.Add(new Label { Text = "Pub key", AutoSize = true, Anchor = AnchorStyles.Left }, 0, 5);
+        txtPubKey = new TextBox { Dock = DockStyle.Fill, Text = "" };
+        bundleLayout.Controls.Add(txtPubKey, 1, 5);
+        var btnPickPub = new Button { Text = "Browse", AutoSize = true };
         btnPickPub.Click += (_, _) => OnPickFile(txtPubKey);
-        tabBundle.Controls.Add(btnPickPub);
+        bundleLayout.Controls.Add(btnPickPub, 2, 5);
 
-        // VERIFY TAB
-        var yv = 10;
-        tabVerify.Controls.Add(new Label { Left = 10, Top = yv, Width = 120, Text = "Bundle dir" });
-        txtVerifyBundle = new TextBox { Left = 130, Top = yv - 2, Width = 750, Text = "", Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right };
-        tabVerify.Controls.Add(txtVerifyBundle);
+        // VERIFY TAB content
+        var verifyLayout = new TableLayoutPanel
+        {
+            Dock = DockStyle.Fill,
+            ColumnCount = 3,
+            RowCount = 3,
+            AutoScroll = true
+        };
+        verifyLayout.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        verifyLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+        verifyLayout.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
 
-        var btnPickBundle = new Button { Left = 890, Top = yv - 4, Width = 90, Text = "Browse", Anchor = AnchorStyles.Top | AnchorStyles.Right };
+        tabVerify.Controls.Add(verifyLayout);
+
+        verifyLayout.Controls.Add(new Label { Text = "Bundle dir", AutoSize = true, Anchor = AnchorStyles.Left }, 0, 0);
+        txtVerifyBundle = new TextBox { Dock = DockStyle.Fill, Text = "" };
+        verifyLayout.Controls.Add(txtVerifyBundle, 1, 0);
+        var btnPickBundle = new Button { Text = "Browse", AutoSize = true };
         btnPickBundle.Click += (_, _) => OnPickBundleDir();
-        tabVerify.Controls.Add(btnPickBundle);
+        verifyLayout.Controls.Add(btnPickBundle, 2, 0);
 
-        yv += 40;
-        var btnVerifyManifest = new Button { Left = 130, Top = yv, Width = 220, Text = "Verify manifest (+sig)" };
+        var verifyButtons = new FlowLayoutPanel { Dock = DockStyle.Fill, AutoSize = true, WrapContents = true, Margin = new Padding(0, 12, 0, 0) };
+        var btnVerifyManifest = new Button { Text = "Verify manifest (+sig)", AutoSize = true };
         btnVerifyManifest.Click += (_, _) => OnVerifyManifest();
-        tabVerify.Controls.Add(btnVerifyManifest);
-
-        var btnVerifyHashes = new Button { Left = 360, Top = yv, Width = 220, Text = "Verify file hashes" };
+        var btnVerifyHashes = new Button { Text = "Verify file hashes", AutoSize = true };
         btnVerifyHashes.Click += (_, _) => OnVerifyHashes();
-        tabVerify.Controls.Add(btnVerifyHashes);
+        verifyButtons.Controls.Add(btnVerifyManifest);
+        verifyButtons.Controls.Add(btnVerifyHashes);
+        verifyLayout.Controls.Add(verifyButtons, 1, 1);
+        verifyLayout.SetColumnSpan(verifyButtons, 2);
 
-        var root = new Panel { Dock = DockStyle.Fill };
-        root.Controls.Add(tabs);
-        root.Controls.Add(top);
-        root.Controls.Add(txtLog);
-
-        this.Controls.Add(root);
+        // final
+        this.Controls.Add(split);
     }
 }
