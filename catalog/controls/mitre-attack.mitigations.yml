@@ -1,0 +1,444 @@
+id: mitre-attack.mitigations
+framework: mitre-attack
+version: stix
+controls:
+  - id: M1013
+    framework: mitre-attack
+    title: Application Developer Guidance
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1015
+    framework: mitre-attack
+    title: Active Directory Configuration
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1016
+    framework: mitre-attack
+    title: Vulnerability Scanning
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1017
+    framework: mitre-attack
+    title: User Training
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1018
+    framework: mitre-attack
+    title: User Account Management
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1019
+    framework: mitre-attack
+    title: Threat Intelligence Program
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1020
+    framework: mitre-attack
+    title: SSL/TLS Inspection
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1021
+    framework: mitre-attack
+    title: Restrict Web-Based Content
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1022
+    framework: mitre-attack
+    title: Restrict File and Directory Permissions
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1024
+    framework: mitre-attack
+    title: Restrict Registry Permissions
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1025
+    framework: mitre-attack
+    title: Privileged Process Integrity
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1026
+    framework: mitre-attack
+    title: Privileged Account Management
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1027
+    framework: mitre-attack
+    title: Password Policies
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1028
+    framework: mitre-attack
+    title: Operating System Configuration
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1029
+    framework: mitre-attack
+    title: Remote Data Storage
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1030
+    framework: mitre-attack
+    title: Network Segmentation
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1031
+    framework: mitre-attack
+    title: Network Intrusion Prevention
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1032
+    framework: mitre-attack
+    title: Multi-factor Authentication
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1033
+    framework: mitre-attack
+    title: Limit Software Installation
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1034
+    framework: mitre-attack
+    title: Limit Hardware Installation
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1035
+    framework: mitre-attack
+    title: Limit Access to Resource Over Network
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1036
+    framework: mitre-attack
+    title: Account Use Policies
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1037
+    framework: mitre-attack
+    title: Filter Network Traffic
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1038
+    framework: mitre-attack
+    title: Execution Prevention
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1039
+    framework: mitre-attack
+    title: Environment Variable Permissions
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1040
+    framework: mitre-attack
+    title: Behavior Prevention on Endpoint
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1041
+    framework: mitre-attack
+    title: Encrypt Sensitive Information
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1042
+    framework: mitre-attack
+    title: Disable or Remove Feature or Program
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1043
+    framework: mitre-attack
+    title: Credential Access Protection
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1044
+    framework: mitre-attack
+    title: Restrict Library Loading
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1045
+    framework: mitre-attack
+    title: Code Signing
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1046
+    framework: mitre-attack
+    title: Boot Integrity
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1047
+    framework: mitre-attack
+    title: Audit
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1048
+    framework: mitre-attack
+    title: Application Isolation and Sandboxing
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1049
+    framework: mitre-attack
+    title: Antivirus/Antimalware
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1050
+    framework: mitre-attack
+    title: Exploit Protection
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1051
+    framework: mitre-attack
+    title: Update Software
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1052
+    framework: mitre-attack
+    title: User Account Control
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1053
+    framework: mitre-attack
+    title: Data Backup
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1054
+    framework: mitre-attack
+    title: Software Configuration
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1055
+    framework: mitre-attack
+    title: Do Not Mitigate
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1056
+    framework: mitre-attack
+    title: Pre-compromise
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1057
+    framework: mitre-attack
+    title: Data Loss Prevention
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)
+  - id: M1060
+    framework: mitre-attack
+    title: Out-of-Band Communications Channel
+    notes: source=mitre-attack-enterprise
+    tags:
+      domains: []
+      cia: []
+      type: []
+    sources:
+      - MITRE ATT&CK (STIX)

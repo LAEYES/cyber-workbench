@@ -9,6 +9,7 @@ import { importIso27002 } from "./commands/import_iso.js";
 import { importCisV8 } from "./commands/import_cis.js";
 import { importNist80053 } from "./commands/import_80053.js";
 import { importMitreAttack } from "./commands/import_attack.js";
+import { mapAttackToCsf } from "./commands/map_attack_csf.js";
 
 const program = new Command();
 
@@ -108,9 +109,44 @@ program
 program
   .command("catalog:import-attack")
   .description("Importe MITRE ATT&CK (Enterprise + Cloud + ICS) via STIX — public")
-  .option("--out <file>", "Fichier de sortie", "./catalog/controls/mitre-attack.techniques.yml")
+  .option("--out-techniques <file>", "Sortie techniques", "./catalog/controls/mitre-attack.techniques.yml")
+  .option("--out-mitigations <file>", "Sortie mitigations", "./catalog/controls/mitre-attack.mitigations.yml")
+  .option(
+    "--out-tech2mit <file>",
+    "Sortie mapping technique→mitigation",
+    "./catalog/mappings/mitre-attack.techniques_to_mitigations.yml"
+  )
   .action(async (opts) => {
-    await importMitreAttack({ outFile: opts.out, include: ["enterprise", "ics"] });
+    await importMitreAttack({
+      outTechniquesFile: opts.outTechniques,
+      outMitigationsFile: opts.outMitigations,
+      outTechniqueToMitigationFile: opts.outTech2mit,
+      include: ["enterprise", "ics"]
+    });
+  });
+
+program
+  .command("catalog:map-attack-csf")
+  .description("Génère un premier mapping ATT&CK→CSF (heuristique) à partir des mitigations")
+  .option("--attack-techniques <file>", "Techniques", "./catalog/controls/mitre-attack.techniques.yml")
+  .option("--attack-mitigations <file>", "Mitigations", "./catalog/controls/mitre-attack.mitigations.yml")
+  .option(
+    "--attack-tech2mit <file>",
+    "Mapping technique→mitigation",
+    "./catalog/mappings/mitre-attack.techniques_to_mitigations.yml"
+  )
+  .option("--csf <file>", "CSF outcomes", "./catalog/controls/nist-csf-2.0.outcomes.yml")
+  .option("--out <file>", "Fichier de sortie", "./catalog/mappings/mitre-attack_to_nist-csf-2.0.yml")
+  .option("--top <n>", "Nombre de outcomes max par technique", "3")
+  .action(async (opts) => {
+    await mapAttackToCsf({
+      attackTechniquesFile: opts.attackTechniques,
+      attackMitigationsFile: opts.attackMitigations,
+      techniqueToMitigationFile: opts.attackTech2mit,
+      csfOutcomesFile: opts.csf,
+      outFile: opts.out,
+      topN: Number(opts.top)
+    });
   });
 
 program.parseAsync(process.argv);

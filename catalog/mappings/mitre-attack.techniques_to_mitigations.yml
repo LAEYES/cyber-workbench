@@ -1,0 +1,6386 @@
+id: mitre-attack.techniques_to_mitigations
+fromFramework: mitre-attack
+toFramework: mitre-attack
+items:
+  - from:
+      framework: mitre-attack
+      id: T1001
+    to:
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1001.001
+    to:
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1001.002
+    to:
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1001.003
+    to:
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1003
+    to:
+      - framework: mitre-attack
+        id: M1015
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1025
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1041
+      - framework: mitre-attack
+        id: M1043
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1003.001
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1025
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1043
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1003.002
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1028
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1003.003
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1041
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1003.004
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1003.005
+    to:
+      - framework: mitre-attack
+        id: M1015
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1028
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1003.006
+    to:
+      - framework: mitre-attack
+        id: M1015
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1003.007
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1003.008
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1005
+    to:
+      - framework: mitre-attack
+        id: M1057
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1006
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1008
+    to:
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1011
+    to:
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1011.001
+    to:
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1020.001
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1041
+      - framework: mitre-attack
+        id: M1057
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1021
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1035
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1021.001
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1035
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1021.002
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1035
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1021.003
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1048
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1021.004
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1021.005
+    to:
+      - framework: mitre-attack
+        id: M1033
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1021.006
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1021.007
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1032
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1021.008
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1025
+    to:
+      - framework: mitre-attack
+        id: M1057
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1027
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1049
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1027.002
+    to:
+      - framework: mitre-attack
+        id: M1049
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1027.006
+    to:
+      - framework: mitre-attack
+        id: M1048
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1027.009
+    to:
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1049
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1027.010
+    to:
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1049
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1027.011
+    to:
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1027.012
+    to:
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1049
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1027.013
+    to:
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1049
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1027.014
+    to:
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1049
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1027.015
+    to:
+      - framework: mitre-attack
+        id: M1049
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1027.016
+    to:
+      - framework: mitre-attack
+        id: M1049
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1027.017
+    to:
+      - framework: mitre-attack
+        id: M1048
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1029
+    to:
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1030
+    to:
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1036
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1045
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1049
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1036.001
+    to:
+      - framework: mitre-attack
+        id: M1045
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1036.003
+    to:
+      - framework: mitre-attack
+        id: M1022
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1036.005
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1045
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1036.007
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1028
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1036.008
+    to:
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1049
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1036.010
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1036.012
+    to:
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1037
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1024
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1037.001
+    to:
+      - framework: mitre-attack
+        id: M1024
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1037.002
+    to:
+      - framework: mitre-attack
+        id: M1022
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1037.003
+    to:
+      - framework: mitre-attack
+        id: M1022
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1037.004
+    to:
+      - framework: mitre-attack
+        id: M1022
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1037.005
+    to:
+      - framework: mitre-attack
+        id: M1022
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1040
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1041
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1041
+    to:
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1057
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1046
+    to:
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1047
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1048
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1057
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1048.001
+    to:
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1048.002
+    to:
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1057
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1048.003
+    to:
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1057
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1052
+    to:
+      - framework: mitre-attack
+        id: M1034
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1057
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1052.001
+    to:
+      - framework: mitre-attack
+        id: M1034
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1057
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1053
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1053.002
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1053.003
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1053.005
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1053.006
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1026
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1053.007
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1055
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1055.001
+    to:
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1055.002
+    to:
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1055.003
+    to:
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1055.004
+    to:
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1055.005
+    to:
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1055.008
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1055.009
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1055.011
+    to:
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1055.012
+    to:
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1055.013
+    to:
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1055.014
+    to:
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1055.015
+    to:
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1056.002
+    to:
+      - framework: mitre-attack
+        id: M1017
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1056.003
+    to:
+      - framework: mitre-attack
+        id: M1026
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1059
+    to:
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1033
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1045
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1049
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1059.001
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1045
+      - framework: mitre-attack
+        id: M1049
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1059.002
+    to:
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1045
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1059.003
+    to:
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1059.004
+    to:
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1059.005
+    to:
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1049
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1059.006
+    to:
+      - framework: mitre-attack
+        id: M1033
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1049
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1059.007
+    to:
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1059.008
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1059.009
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1059.010
+    to:
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1059.011
+    to:
+      - framework: mitre-attack
+        id: M1033
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1059.013
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1068
+    to:
+      - framework: mitre-attack
+        id: M1019
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1048
+      - framework: mitre-attack
+        id: M1050
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1070
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1029
+      - framework: mitre-attack
+        id: M1041
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1070.001
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1029
+      - framework: mitre-attack
+        id: M1041
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1070.002
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1029
+      - framework: mitre-attack
+        id: M1041
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1070.003
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1029
+      - framework: mitre-attack
+        id: M1039
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1070.007
+    to:
+      - framework: mitre-attack
+        id: M1024
+      - framework: mitre-attack
+        id: M1029
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1070.008
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1029
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1070.009
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1029
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1071
+    to:
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1071.001
+    to:
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1071.002
+    to:
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1071.003
+    to:
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1071.004
+    to:
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1071.005
+    to:
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1072
+    to:
+      - framework: mitre-attack
+        id: M1015
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1029
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1033
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1078
+    to:
+      - framework: mitre-attack
+        id: M1013
+      - framework: mitre-attack
+        id: M1015
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1036
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1078.001
+    to:
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1032
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1078.002
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1032
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1078.003
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1032
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1078.004
+    to:
+      - framework: mitre-attack
+        id: M1015
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1036
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1080
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1049
+      - framework: mitre-attack
+        id: M1050
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1087
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1028
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1087.001
+    to:
+      - framework: mitre-attack
+        id: M1028
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1087.002
+    to:
+      - framework: mitre-attack
+        id: M1028
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1087.004
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1090
+    to:
+      - framework: mitre-attack
+        id: M1020
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1090.001
+    to:
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1090.002
+    to:
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1090.003
+    to:
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1090.004
+    to:
+      - framework: mitre-attack
+        id: M1020
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1091
+    to:
+      - framework: mitre-attack
+        id: M1034
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1092
+    to:
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1095
+    to:
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1098
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1098.001
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1098.002
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1098.003
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1032
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1098.004
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1098.005
+    to:
+      - framework: mitre-attack
+        id: M1032
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1098.006
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1032
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1102
+    to:
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1102.001
+    to:
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1102.002
+    to:
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1102.003
+    to:
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1104
+    to:
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1105
+    to:
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1106
+    to:
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1110
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1036
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1110.001
+    to:
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1036
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1110.002
+    to:
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1032
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1110.003
+    to:
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1036
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1110.004
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1036
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1111
+    to:
+      - framework: mitre-attack
+        id: M1017
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1112
+    to:
+      - framework: mitre-attack
+        id: M1024
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1114
+    to:
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1041
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1060
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1114.001
+    to:
+      - framework: mitre-attack
+        id: M1041
+      - framework: mitre-attack
+        id: M1060
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1114.002
+    to:
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1041
+      - framework: mitre-attack
+        id: M1060
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1114.003
+    to:
+      - framework: mitre-attack
+        id: M1041
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1060
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1119
+    to:
+      - framework: mitre-attack
+        id: M1029
+      - framework: mitre-attack
+        id: M1041
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1127
+    to:
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1127.001
+    to:
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1127.002
+    to:
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1045
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1127.003
+    to:
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1129
+    to:
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1132
+    to:
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1132.001
+    to:
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1132.002
+    to:
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1133
+    to:
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1035
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1134
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1134.001
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1134.002
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1134.003
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1134.005
+    to:
+      - framework: mitre-attack
+        id: M1015
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1135
+    to:
+      - framework: mitre-attack
+        id: M1028
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1136
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1032
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1136.001
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1032
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1136.002
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1032
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1136.003
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1032
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1137
+    to:
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1051
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1137.001
+    to:
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1137.002
+    to:
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1137.003
+    to:
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1137.004
+    to:
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1137.005
+    to:
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1137.006
+    to:
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1176
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1033
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1176.001
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1033
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1176.002
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1033
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1185
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1018
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1187
+    to:
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1189
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1048
+      - framework: mitre-attack
+        id: M1050
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1190
+    to:
+      - framework: mitre-attack
+        id: M1016
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1035
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1048
+      - framework: mitre-attack
+        id: M1050
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1195
+    to:
+      - framework: mitre-attack
+        id: M1013
+      - framework: mitre-attack
+        id: M1016
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1033
+      - framework: mitre-attack
+        id: M1046
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1195.001
+    to:
+      - framework: mitre-attack
+        id: M1013
+      - framework: mitre-attack
+        id: M1016
+      - framework: mitre-attack
+        id: M1033
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1195.002
+    to:
+      - framework: mitre-attack
+        id: M1016
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1195.003
+    to:
+      - framework: mitre-attack
+        id: M1046
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1197
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1199
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1032
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1200
+    to:
+      - framework: mitre-attack
+        id: M1034
+      - framework: mitre-attack
+        id: M1035
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1201
+    to:
+      - framework: mitre-attack
+        id: M1027
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1203
+    to:
+      - framework: mitre-attack
+        id: M1048
+      - framework: mitre-attack
+        id: M1050
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1204
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1033
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1204.001
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1204.002
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1204.003
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1045
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1204.004
+    to:
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1204.005
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1033
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1205
+    to:
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1205.001
+    to:
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1205.002
+    to:
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1210
+    to:
+      - framework: mitre-attack
+        id: M1016
+      - framework: mitre-attack
+        id: M1019
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1048
+      - framework: mitre-attack
+        id: M1050
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1211
+    to:
+      - framework: mitre-attack
+        id: M1019
+      - framework: mitre-attack
+        id: M1048
+      - framework: mitre-attack
+        id: M1050
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1212
+    to:
+      - framework: mitre-attack
+        id: M1013
+      - framework: mitre-attack
+        id: M1019
+      - framework: mitre-attack
+        id: M1048
+      - framework: mitre-attack
+        id: M1050
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1213
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1041
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1054
+      - framework: mitre-attack
+        id: M1060
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1213.001
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1213.002
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1213.003
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1213.004
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1213.005
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1060
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1213.006
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1041
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1216
+    to:
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1216.001
+    to:
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1216.002
+    to:
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1218
+    to:
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1050
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1218.001
+    to:
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1218.002
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1218.003
+    to:
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1218.004
+    to:
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1218.005
+    to:
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1218.007
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1218.008
+    to:
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1218.009
+    to:
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1218.010
+    to:
+      - framework: mitre-attack
+        id: M1050
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1218.011
+    to:
+      - framework: mitre-attack
+        id: M1050
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1218.012
+    to:
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1218.013
+    to:
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1218.014
+    to:
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1218.015
+    to:
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1050
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1219
+    to:
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1034
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1219.001
+    to:
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1219.002
+    to:
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1219.003
+    to:
+      - framework: mitre-attack
+        id: M1034
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1220
+    to:
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1221
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1049
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1222
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1026
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1222.001
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1026
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1222.002
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1026
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1480
+    to:
+      - framework: mitre-attack
+        id: M1055
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1480.001
+    to:
+      - framework: mitre-attack
+        id: M1055
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1480.002
+    to:
+      - framework: mitre-attack
+        id: M1055
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1482
+    to:
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1484
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1484.001
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1484.002
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1485
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1053
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1485.001
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1053
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1486
+    to:
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1053
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1489
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1024
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1060
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1490
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1053
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1491
+    to:
+      - framework: mitre-attack
+        id: M1053
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1491.001
+    to:
+      - framework: mitre-attack
+        id: M1053
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1491.002
+    to:
+      - framework: mitre-attack
+        id: M1053
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1495
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1046
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1496.003
+    to:
+      - framework: mitre-attack
+        id: M1013
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1498
+    to:
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1498.001
+    to:
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1498.002
+    to:
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1499
+    to:
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1499.001
+    to:
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1499.002
+    to:
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1499.003
+    to:
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1499.004
+    to:
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1505
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1024
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1045
+      - framework: mitre-attack
+        id: M1046
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1505.001
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1045
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1505.002
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1045
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1505.003
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1505.004
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1045
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1505.005
+    to:
+      - framework: mitre-attack
+        id: M1024
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1505.006
+    to:
+      - framework: mitre-attack
+        id: M1045
+      - framework: mitre-attack
+        id: M1046
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1525
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1045
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1528
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1530
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1041
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1535
+    to:
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1537
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1054
+      - framework: mitre-attack
+        id: M1057
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1538
+    to:
+      - framework: mitre-attack
+        id: M1018
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1539
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1051
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1542
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1035
+      - framework: mitre-attack
+        id: M1046
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1542.001
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1046
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1542.002
+    to:
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1542.003
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1046
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1542.004
+    to:
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1046
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1542.005
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1035
+      - framework: mitre-attack
+        id: M1046
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1543
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1033
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1045
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1543.001
+    to:
+      - framework: mitre-attack
+        id: M1022
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1543.002
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1033
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1543.003
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1045
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1543.004
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1543.005
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1546
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1546.002
+    to:
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1546.003
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1546.004
+    to:
+      - framework: mitre-attack
+        id: M1022
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1546.006
+    to:
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1045
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1546.008
+    to:
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1035
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1546.009
+    to:
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1546.010
+    to:
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1546.011
+    to:
+      - framework: mitre-attack
+        id: M1051
+      - framework: mitre-attack
+        id: M1052
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1546.013
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1045
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1546.014
+    to:
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1547.002
+    to:
+      - framework: mitre-attack
+        id: M1025
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1547.003
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1024
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1547.004
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1547.005
+    to:
+      - framework: mitre-attack
+        id: M1025
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1547.006
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1049
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1547.007
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1547.008
+    to:
+      - framework: mitre-attack
+        id: M1025
+      - framework: mitre-attack
+        id: M1043
+      - framework: mitre-attack
+        id: M1044
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1547.009
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1547.012
+    to:
+      - framework: mitre-attack
+        id: M1018
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1547.013
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1033
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1548
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1051
+      - framework: mitre-attack
+        id: M1052
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1548.001
+    to:
+      - framework: mitre-attack
+        id: M1028
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1548.002
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1051
+      - framework: mitre-attack
+        id: M1052
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1548.003
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1028
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1548.004
+    to:
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1548.005
+    to:
+      - framework: mitre-attack
+        id: M1018
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1548.006
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1550
+    to:
+      - framework: mitre-attack
+        id: M1013
+      - framework: mitre-attack
+        id: M1015
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1036
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1550.001
+    to:
+      - framework: mitre-attack
+        id: M1013
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1036
+      - framework: mitre-attack
+        id: M1041
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1550.002
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1051
+      - framework: mitre-attack
+        id: M1052
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1550.003
+    to:
+      - framework: mitre-attack
+        id: M1015
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1550.004
+    to:
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1552
+    to:
+      - framework: mitre-attack
+        id: M1015
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1035
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1041
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1552.001
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1552.002
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1552.003
+    to:
+      - framework: mitre-attack
+        id: M1028
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1552.004
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1041
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1552.005
+    to:
+      - framework: mitre-attack
+        id: M1035
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1552.006
+    to:
+      - framework: mitre-attack
+        id: M1015
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1552.007
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1035
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1552.008
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1553
+    to:
+      - framework: mitre-attack
+        id: M1024
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1553.001
+    to:
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1553.003
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1024
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1553.004
+    to:
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1553.005
+    to:
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1553.006
+    to:
+      - framework: mitre-attack
+        id: M1024
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1046
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1554
+    to:
+      - framework: mitre-attack
+        id: M1045
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1555
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1555.001
+    to:
+      - framework: mitre-attack
+        id: M1027
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1555.003
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1555.004
+    to:
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1555.005
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1051
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1555.006
+    to:
+      - framework: mitre-attack
+        id: M1026
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1556
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1024
+      - framework: mitre-attack
+        id: M1025
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1556.001
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1025
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1032
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1556.002
+    to:
+      - framework: mitre-attack
+        id: M1028
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1556.003
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1032
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1556.004
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1032
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1556.005
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1556.006
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1556.007
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1556.008
+    to:
+      - framework: mitre-attack
+        id: M1024
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1556.009
+    to:
+      - framework: mitre-attack
+        id: M1018
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1557
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1035
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1041
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1557.001
+    to:
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1557.002
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1035
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1041
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1557.003
+    to:
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1557.004
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1558
+    to:
+      - framework: mitre-attack
+        id: M1015
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1041
+      - framework: mitre-attack
+        id: M1043
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1558.001
+    to:
+      - framework: mitre-attack
+        id: M1015
+      - framework: mitre-attack
+        id: M1026
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1558.002
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1041
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1558.003
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1041
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1558.004
+    to:
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1041
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1558.005
+    to:
+      - framework: mitre-attack
+        id: M1043
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1559
+    to:
+      - framework: mitre-attack
+        id: M1013
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1048
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1559.001
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1048
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1559.002
+    to:
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1048
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1559.003
+    to:
+      - framework: mitre-attack
+        id: M1013
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1560
+    to:
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1560.001
+    to:
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1561
+    to:
+      - framework: mitre-attack
+        id: M1053
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1561.001
+    to:
+      - framework: mitre-attack
+        id: M1053
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1561.002
+    to:
+      - framework: mitre-attack
+        id: M1053
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1562
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1024
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1562.001
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1024
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1562.002
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1024
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1562.003
+    to:
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1039
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1562.004
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1024
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1562.006
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1562.007
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1562.008
+    to:
+      - framework: mitre-attack
+        id: M1018
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1562.009
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1562.010
+    to:
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1562.011
+    to:
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1562.012
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1562.013
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1563
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1563.001
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1563.002
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1035
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1564
+    to:
+      - framework: mitre-attack
+        id: M1013
+      - framework: mitre-attack
+        id: M1033
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1049
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1564.002
+    to:
+      - framework: mitre-attack
+        id: M1028
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1564.003
+    to:
+      - framework: mitre-attack
+        id: M1033
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1564.004
+    to:
+      - framework: mitre-attack
+        id: M1022
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1564.006
+    to:
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1564.007
+    to:
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1564.008
+    to:
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1564.009
+    to:
+      - framework: mitre-attack
+        id: M1013
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1564.012
+    to:
+      - framework: mitre-attack
+        id: M1013
+      - framework: mitre-attack
+        id: M1049
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1564.014
+    to:
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1565
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1029
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1041
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1565.001
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1029
+      - framework: mitre-attack
+        id: M1041
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1565.002
+    to:
+      - framework: mitre-attack
+        id: M1041
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1565.003
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1030
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1566
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1049
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1566.001
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1049
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1566.002
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1566.003
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1049
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1566.004
+    to:
+      - framework: mitre-attack
+        id: M1017
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1567
+    to:
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1057
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1567.001
+    to:
+      - framework: mitre-attack
+        id: M1021
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1567.002
+    to:
+      - framework: mitre-attack
+        id: M1021
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1567.003
+    to:
+      - framework: mitre-attack
+        id: M1021
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1567.004
+    to:
+      - framework: mitre-attack
+        id: M1057
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1568
+    to:
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1568.002
+    to:
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1569
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1569.001
+    to:
+      - framework: mitre-attack
+        id: M1018
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1569.002
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1569.003
+    to:
+      - framework: mitre-attack
+        id: M1018
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1570
+    to:
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1571
+    to:
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1572
+    to:
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1037
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1573
+    to:
+      - framework: mitre-attack
+        id: M1020
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1573.001
+    to:
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1573.002
+    to:
+      - framework: mitre-attack
+        id: M1020
+      - framework: mitre-attack
+        id: M1031
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1574
+    to:
+      - framework: mitre-attack
+        id: M1013
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1024
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1040
+      - framework: mitre-attack
+        id: M1044
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1051
+      - framework: mitre-attack
+        id: M1052
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1574.001
+    to:
+      - framework: mitre-attack
+        id: M1013
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1044
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1574.004
+    to:
+      - framework: mitre-attack
+        id: M1022
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1574.005
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1052
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1574.006
+    to:
+      - framework: mitre-attack
+        id: M1028
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1574.007
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1574.008
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1574.009
+    to:
+      - framework: mitre-attack
+        id: M1022
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1574.010
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1052
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1574.011
+    to:
+      - framework: mitre-attack
+        id: M1024
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1574.012
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1024
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1574.013
+    to:
+      - framework: mitre-attack
+        id: M1040
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1574.014
+    to:
+      - framework: mitre-attack
+        id: M1022
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1578
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1578.001
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1578.002
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1578.003
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1578.005
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1580
+    to:
+      - framework: mitre-attack
+        id: M1018
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1583
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1583.001
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1583.002
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1583.003
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1583.004
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1583.005
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1583.006
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1583.007
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1583.008
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1584
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1584.001
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1584.002
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1584.003
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1584.004
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1584.005
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1584.006
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1584.007
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1584.008
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1585
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1585.001
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1585.002
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1585.003
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1586
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1586.001
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1586.002
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1586.003
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1587
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1587.001
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1587.002
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1587.003
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1587.004
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1588
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1588.001
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1588.002
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1588.003
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1588.004
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1588.005
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1588.006
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1588.007
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1589
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1589.001
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1589.002
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1589.003
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1590
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1590.001
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1590.002
+    to:
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1590.003
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1590.004
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1590.005
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1590.006
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1591
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1591.001
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1591.002
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1591.003
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1591.004
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1592
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1592.001
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1592.002
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1592.003
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1592.004
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1593
+    to:
+      - framework: mitre-attack
+        id: M1013
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1593.001
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1593.002
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1593.003
+    to:
+      - framework: mitre-attack
+        id: M1013
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1594
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1595
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1595.001
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1595.002
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1595.003
+    to:
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1596
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1596.001
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1596.002
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1596.003
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1596.004
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1596.005
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1597
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1597.001
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1597.002
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1598
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1598.001
+    to:
+      - framework: mitre-attack
+        id: M1017
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1598.002
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1598.003
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1598.004
+    to:
+      - framework: mitre-attack
+        id: M1017
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1599
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1043
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1599.001
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1043
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1601
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1043
+      - framework: mitre-attack
+        id: M1045
+      - framework: mitre-attack
+        id: M1046
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1601.001
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1043
+      - framework: mitre-attack
+        id: M1045
+      - framework: mitre-attack
+        id: M1046
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1601.002
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1027
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1043
+      - framework: mitre-attack
+        id: M1045
+      - framework: mitre-attack
+        id: M1046
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1602
+    to:
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1041
+      - framework: mitre-attack
+        id: M1051
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1602.001
+    to:
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1041
+      - framework: mitre-attack
+        id: M1051
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1602.002
+    to:
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1031
+      - framework: mitre-attack
+        id: M1037
+      - framework: mitre-attack
+        id: M1041
+      - framework: mitre-attack
+        id: M1051
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1606
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1606.001
+    to:
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1606.002
+    to:
+      - framework: mitre-attack
+        id: M1015
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1608
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1608.001
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1608.002
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1608.003
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1608.004
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1608.005
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1608.006
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1609
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1035
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1042
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1610
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1035
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1611
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1038
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1048
+      - framework: mitre-attack
+        id: M1051
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1612
+    to:
+      - framework: mitre-attack
+        id: M1026
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1035
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1613
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1035
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1619
+    to:
+      - framework: mitre-attack
+        id: M1018
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1621
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1036
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1647
+    to:
+      - framework: mitre-attack
+        id: M1013
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1648
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1036
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1649
+    to:
+      - framework: mitre-attack
+        id: M1015
+      - framework: mitre-attack
+        id: M1041
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1650
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1651
+    to:
+      - framework: mitre-attack
+        id: M1026
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1653
+    to:
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1654
+    to:
+      - framework: mitre-attack
+        id: M1018
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1656
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1019
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1657
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1018
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1659
+    to:
+      - framework: mitre-attack
+        id: M1021
+      - framework: mitre-attack
+        id: M1041
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1666
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1047
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1667
+    to:
+      - framework: mitre-attack
+        id: M1017
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1669
+    to:
+      - framework: mitre-attack
+        id: M1030
+      - framework: mitre-attack
+        id: M1032
+      - framework: mitre-attack
+        id: M1041
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1671
+    to:
+      - framework: mitre-attack
+        id: M1042
+      - framework: mitre-attack
+        id: M1047
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1672
+    to:
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1674
+    to:
+      - framework: mitre-attack
+        id: M1034
+      - framework: mitre-attack
+        id: M1038
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1675
+    to:
+      - framework: mitre-attack
+        id: M1018
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1677
+    to:
+      - framework: mitre-attack
+        id: M1018
+      - framework: mitre-attack
+        id: M1054
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
+  - from:
+      framework: mitre-attack
+      id: T1681
+    to:
+      - framework: mitre-attack
+        id: M1056
+    confidence: high
+    rationale: Relationship 'mitigates' extracted from MITRE ATT&CK STIX.
