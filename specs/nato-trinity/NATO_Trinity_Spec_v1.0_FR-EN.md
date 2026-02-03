@@ -1,4 +1,4 @@
-# NASO Trinity Spec v1.0 (FR + EN)
+# NATO Trinity Spec v1.0 (FR + EN)
 
 **Status:** Draft v1.0  
 **Owner:** {{org}} (programme)  
@@ -10,10 +10,10 @@
 
 ## 0. Meta
 ### 0.1 Objet (normatif)
-Ce document définit les exigences **normatives** de “NASO Trinity” : périmètre, définitions, exigences « en dur » (seuils/SLA, pass/fail), artefacts attendus, et règles de preuve (intégrité, rétention, export).
+Ce document définit les exigences **normatives** de “NATO Trinity” : périmètre, définitions, exigences « en dur » (seuils/SLA, pass/fail), artefacts attendus, et règles de preuve (intégrité, rétention, export).
 
 ### 0.2 Périmètre
-NASO Trinity couvre 3 briques (la “Trinity”) :
+NATO Trinity couvre 3 briques (la “Trinity”) :
 1) **Risk Engine** (risques, décisions, exceptions)  
 2) **Policy-as-Code Orchestrator** (gates, playbooks, approvals)  
 3) **Evidence Engine** (collecte, chain-of-custody, intégrité/WORM, rétention, exports)
@@ -21,7 +21,7 @@ NASO Trinity couvre 3 briques (la “Trinity”) :
 Il s’aligne sur un programme cyber plus large (D01→D18) mais ne duplique pas les politiques/standards spécifiques de chaque domaine ; il fournit un cadre commun et des exigences transverses.
 
 ### 0.3 Hors périmètre (v1.0)
-- Remplacement complet d’un SIEM/EDR/IdP/ITSM existant (NASO s’intègre).
+- Remplacement complet d’un SIEM/EDR/IdP/ITSM existant (NATO s’intègre).
 - Fonctionnalités d’investigation avancées type “data lake SOC” (optionnel).
 - Déploiement d’agent endpoint propriétaire (préférer intégrations).
 
@@ -35,11 +35,11 @@ Il s’aligne sur un programme cyber plus large (D01→D18) mais ne duplique pas
 - **Exception** : dérogation time-boxed à une exigence, approuvée et justifiée.
 
 ### 0.6 Référentiels (alignement license-safe)
-NASO Trinity peut s’aligner sur ISO/NIST/CIS via **métadonnées et mappings** (identifiants, titres, relations) sans reproduire des contenus sous licence.
+NATO Trinity peut s’aligner sur ISO/NIST/CIS via **métadonnées et mappings** (identifiants, titres, relations) sans reproduire des contenus sous licence.
 
 ---
 
-## 1. Vision “NASO Trinity”
+## 1. Vision “NATO Trinity”
 ### 1.1 Problème
 - Décisions de sécurité dispersées (risques, exceptions, incidents) et peu auditables.
 - Collecte de preuves manuelle, non homogène, coûteuse.
@@ -226,10 +226,10 @@ Obligatoire pour :
 
 ## 0. Meta
 ### 0.1 Purpose (normative)
-This document defines the **normative** requirements of “NASO Trinity”: scope, definitions, “hard” requirements (thresholds/SLAs, pass/fail), expected artifacts, and evidence rules (integrity, retention, exports).
+This document defines the **normative** requirements of “NATO Trinity”: scope, definitions, “hard” requirements (thresholds/SLAs, pass/fail), expected artifacts, and evidence rules (integrity, retention, exports).
 
 ### 0.2 Scope
-NASO Trinity covers 3 core building blocks (the “Trinity”):
+NATO Trinity covers 3 core building blocks (the “Trinity”):
 1) **Risk Engine** (risks, decisions, exceptions)  
 2) **Policy-as-Code Orchestrator** (gates, playbooks, approvals)  
 3) **Evidence Engine** (collection, chain-of-custody, integrity/WORM, retention, exports)
@@ -237,7 +237,7 @@ NASO Trinity covers 3 core building blocks (the “Trinity”):
 It aligns with a broader cyber program (D01→D18) but does not duplicate per-domain policies/standards; it provides a common framework and cross-cutting requirements.
 
 ### 0.3 Out of scope (v1.0)
-- Full replacement of an existing SIEM/EDR/IdP/ITSM (NASO integrates with them).
+- Full replacement of an existing SIEM/EDR/IdP/ITSM (NATO integrates with them).
 - Advanced SOC data lake / hunting platform (optional).
 - A proprietary endpoint agent (prefer integrations).
 
@@ -251,11 +251,11 @@ It aligns with a broader cyber program (D01→D18) but does not duplicate per-do
 - **Exception**: time-boxed deviation from a requirement, approved and justified.
 
 ### 0.6 Framework alignment (license-safe)
-NASO Trinity can align with ISO/NIST/CIS via **metadata and mappings** (ids, titles, relations) without reproducing licensed text.
+NATO Trinity can align with ISO/NIST/CIS via **metadata and mappings** (ids, titles, relations) without reproducing licensed text.
 
 ---
 
-## 1. “NASO Trinity” vision
+## 1. “NATO Trinity” vision
 ### 1.1 Problem
 - Security decisions spread across tools (risks, exceptions, incidents) and not audit-ready.
 - Manual evidence collection, inconsistent and expensive.
