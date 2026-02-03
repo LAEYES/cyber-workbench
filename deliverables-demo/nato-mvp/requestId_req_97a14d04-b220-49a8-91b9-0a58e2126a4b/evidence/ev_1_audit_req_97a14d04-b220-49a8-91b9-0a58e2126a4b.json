@@ -1,0 +1,18 @@
+[
+  {
+    "eventId": "ae_adf047e0-fb68-4889-ba48-6a96ad272e90",
+    "orgId": "ACME",
+    "actor": "bob",
+    "actorType": "human",
+    "action": "case.create",
+    "objectRef": "case:C-TEST",
+    "timestamp": "2026-02-03T21:51:25.741Z",
+    "outcome": "success",
+    "requestId": "req_97a14d04-b220-49a8-91b9-0a58e2126a4b",
+    "details": {
+      "severity": "high",
+      "status": "triage",
+      "owner": "soclead"
+    }
+  }
+]

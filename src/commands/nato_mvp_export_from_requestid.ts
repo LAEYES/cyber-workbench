@@ -3,6 +3,7 @@ import path from "node:path";
 import { readJson, storeRoot } from "./nato_mvp_store.js";
 import type { Risk } from "./nato_mvp_risk.js";
 import type { Decision } from "./nato_mvp_decision.js";
+import type { Case } from "./nato_mvp_case.js";
 import { natoMvpExport } from "./nato_mvp_export.js";
 
 function safeBasename(p: string) {
@@ -54,6 +55,8 @@ export async function natoMvpExportFromRequestId(opts: {
 
   const risks = readJson<Record<string, Risk>>(risksPath, {});
   const decisions = readJson<Record<string, Decision>>(decisionsPath, {});
+  const casesPath = path.join(root, "cases.json");
+  const cases = readJson<Record<string, Case>>(casesPath, {});
 
   const tmpDir = path.join(path.resolve(opts.outDir), "nato-mvp", ".tmp");
   fs.mkdirSync(tmpDir, { recursive: true });
@@ -83,6 +86,16 @@ export async function natoMvpExportFromRequestId(opts: {
       if (d) {
         const p = path.join(tmpDir, `decision_${safeBasename(did)}.json`);
         fs.writeFileSync(p, JSON.stringify(d, null, 2) + "\n", "utf8");
+        extraMeta.push(p);
+      }
+    }
+
+    if (ref.startsWith("case:")) {
+      const cid = ref.slice("case:".length);
+      const c = cases[cid];
+      if (c) {
+        const p = path.join(tmpDir, `case_${safeBasename(cid)}.json`);
+        fs.writeFileSync(p, JSON.stringify(c, null, 2) + "\n", "utf8");
         extraMeta.push(p);
       }
     }

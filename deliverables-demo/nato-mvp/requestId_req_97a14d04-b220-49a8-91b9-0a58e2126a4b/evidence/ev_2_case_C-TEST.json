@@ -1,0 +1,12 @@
+{
+  "id": "case_c20c2f34-105e-4164-9c90-3424de78e2a0",
+  "type": "case",
+  "version": 1,
+  "createdAt": "2026-02-03T21:51:25.739Z",
+  "createdBy": "bob",
+  "orgId": "ACME",
+  "caseId": "C-TEST",
+  "severity": "high",
+  "status": "triage",
+  "owner": "soclead"
+}

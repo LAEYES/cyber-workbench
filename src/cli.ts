@@ -25,6 +25,7 @@ import { natoMvpRiskCreate, natoMvpRiskGet } from "./commands/nato_mvp_risk.js";
 import { natoMvpDecisionCreate } from "./commands/nato_mvp_decision.js";
 import { natoMvpExportFromStore } from "./commands/nato_mvp_export_from_store.js";
 import { natoMvpExportFromRequestId } from "./commands/nato_mvp_export_from_requestid.js";
+import { natoMvpCaseCreate, natoMvpCaseGet } from "./commands/nato_mvp_case.js";
 
 const program = new Command();
 
@@ -161,6 +162,38 @@ program
   .option("--out <dir>", "Dossier store", "./deliverables")
   .action(async (opts) => {
     await natoMvpRiskGet({ outDir: opts.out, orgId: opts.org, riskId: opts.riskId });
+  });
+
+program
+  .command("nato:mvp-case-create")
+  .description("MVP: crée un Case (store local)")
+  .requiredOption("--severity <s>", "low|medium|high|critical")
+  .requiredOption("--owner <o>", "Owner")
+  .option("--case-id <id>", "CaseId (optionnel)")
+  .option("--status <s>", "new|triage|investigate|contain|eradicate|recover|closed", "new")
+  .option("--org <id>", "OrgId", "ORG")
+  .option("--actor <id>", "Actor", "user")
+  .option("--out <dir>", "Dossier store", "./deliverables")
+  .action(async (opts) => {
+    await natoMvpCaseCreate({
+      outDir: opts.out,
+      orgId: opts.org,
+      actor: opts.actor,
+      caseId: opts.caseId,
+      severity: opts.severity,
+      status: opts.status,
+      owner: opts.owner
+    });
+  });
+
+program
+  .command("nato:mvp-case-get")
+  .description("MVP: affiche un Case depuis le store local")
+  .requiredOption("--case-id <id>", "CaseId")
+  .option("--org <id>", "OrgId", "ORG")
+  .option("--out <dir>", "Dossier store", "./deliverables")
+  .action(async (opts) => {
+    await natoMvpCaseGet({ outDir: opts.out, orgId: opts.org, caseId: opts.caseId });
   });
 
 program
