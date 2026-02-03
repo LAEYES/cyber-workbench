@@ -1,0 +1,25 @@
+# STD — D13 — Playbooks IR/SOAR (minimum viable)
+
+**Organisation :** {{org}}  
+**Version :** 0.2 (durci)  
+**Date :** {{today}}
+
+## 1. Playbooks minimum (baseline)
+- Disable account (IdP)
+- Reset MFA/session revoke
+- Isolate endpoint (EDR)
+- Block IOC (FW/Proxy/DNS)
+- Rotate secret (vault)
+
+## 2. Garde-fous (obligatoire)
+- Conditions d’entrée (signal + criticité + confiance).
+- Actions réversibles quand possible.
+- Dry-run obligatoire en test.
+- Stop conditions (si faux positif).
+
+## 3. Approvals
+- Baseline : approval humain pour actions destructives.
+- Régulé : two-person rule sur actions critiques.
+
+## 4. Preuves
+- Logs d’exécution + ticket IR associé.

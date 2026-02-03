@@ -1,0 +1,48 @@
+# POL — D13 — Orchestrateur & Automation Engine (SOAR / Workflow / Policy-as-Code)
+
+**Organisation :** ACME  
+**Version :** 0.2 (durci)  
+**Date :** 2026-02-03
+
+## 1. Mission
+Industrialiser une plateforme cyber cohérente via un **orchestrateur core** : ingestion d’événements, décisions (règles), exécution de playbooks, preuves/audit trails, et boucles d’amélioration continue.
+
+## 2. Principes (non négociables)
+- **Safety-by-design** : pas d’auto-remédiation sans garde-fous.
+- **Least privilege** : connecteurs avec scopes minimaux.
+- **Four-eyes** sur actions destructives/impactantes (régulé).
+- **Idempotence** : rejouer un playbook ne doit pas aggraver.
+- **Traçabilité** complète : qui/quoi/quand/pourquoi.
+
+## 3. Exigences minimales (baseline)
+### 3.1 Workflow & gouvernance
+- Catalogue des playbooks + owners + version.
+- Environnements : dev/test/prod séparés.
+- PR obligatoire pour modifications playbooks/policies.
+
+### 3.2 Sécurité des exécutions
+- Secrets via vault (pas dans configs).
+- Tokens courts (OIDC) quand possible.
+- Journaliser chaque action exécutée.
+
+### 3.3 SLA & métriques
+- % playbooks testés : **≥ 80%**.
+- Taux d’auto-remédiation (actions sans humain) : mesuré et revu mensuellement.
+- MTTR : suivi par type d’incident.
+
+## 4. Exigences renforcées (régulé)
+- Two-person rule pour actions critiques (disable account admin, wipe device, rotation clés prod).
+- Logs immuables (WORM) pour preuves critiques.
+- Revue trimestrielle des playbooks à fort impact.
+
+## 5. Critères d’audit (pass/fail)
+- [ ] Playbooks/policies versionnés et revus.
+- [ ] Séparation dev/test/prod.
+- [ ] Garde-fous et approvals sur actions critiques.
+- [ ] Traçabilité complète + rétention.
+
+## 6. Preuves
+- Catalogue playbooks, PRs, logs d’exécution, rapports tests.
+
+---
+*Politique modèle : se décline en standards playbooks, policy-as-code, evidence trails.*

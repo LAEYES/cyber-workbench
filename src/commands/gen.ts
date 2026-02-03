@@ -61,7 +61,12 @@ type DocKind =
   | "drp-standard"
   | "bcp-standard"
   | "immutable-backup-standard"
-  | "resilience-checklist";
+  | "resilience-checklist"
+  | "orchestration-automation-policy"
+  | "playbooks-ir-soar-standard"
+  | "policy-as-code-standard"
+  | "evidence-audit-trails-standard"
+  | "orchestration-automation-checklist";
 
 function normalizeDoc(doc: string): DocKind {
   const raw = doc.trim();
@@ -543,6 +548,62 @@ function normalizeDoc(doc: string): DocKind {
     v === "chk-d12-resilience"
   )
     return "resilience-checklist";
+
+  // Domain D13
+  if (
+    v === "orchestration-automation-policy" ||
+    v === "pol_d13_orchestration" ||
+    v === "pol-d13-orchestration" ||
+    v === "pol_d13_orchestration_automation" ||
+    v === "pol-d13-orchestration-automation" ||
+    v === "pol_d13_automation" ||
+    v === "pol-d13-automation"
+  )
+    return "orchestration-automation-policy";
+
+  if (
+    v === "playbooks-ir-soar-standard" ||
+    v === "std_d13_playbooks" ||
+    v === "std-d13-playbooks" ||
+    v === "std_d13_playbooks_ir_soar" ||
+    v === "std-d13-playbooks-ir-soar" ||
+    v === "std_d13_soar" ||
+    v === "std-d13-soar"
+  )
+    return "playbooks-ir-soar-standard";
+
+  if (
+    v === "policy-as-code-standard" ||
+    v === "std_d13_policy_as_code" ||
+    v === "std-d13-policy-as-code" ||
+    v === "std_d13_policyascode" ||
+    v === "std-d13-policyascode" ||
+    v === "std_d13_pac" ||
+    v === "std-d13-pac"
+  )
+    return "policy-as-code-standard";
+
+  if (
+    v === "evidence-audit-trails-standard" ||
+    v === "std_d13_evidence" ||
+    v === "std-d13-evidence" ||
+    v === "std_d13_evidence_audittrails" ||
+    v === "std-d13-evidence-audittrails" ||
+    v === "std_d13_audit_trails" ||
+    v === "std-d13-audit-trails"
+  )
+    return "evidence-audit-trails-standard";
+
+  if (
+    v === "orchestration-automation-checklist" ||
+    v === "chk_d13_orchestration" ||
+    v === "chk-d13-orchestration" ||
+    v === "chk_d13_orchestration_automation" ||
+    v === "chk-d13-orchestration-automation" ||
+    v === "chk_d13_automation" ||
+    v === "chk-d13-automation"
+  )
+    return "orchestration-automation-checklist";
 
   throw new Error(`Doc inconnu: ${raw}`);
 }
@@ -1330,6 +1391,72 @@ export async function genDoc(params: { doc: string; org?: string; lang?: string;
       tasks.push({
         template: tplPath("12-resilience-backup", "resilience-checklist.en.md.hbs"),
         out: path.join(outDir, "docs", "12-resilience-backup", `CHK_D12_Resilience_${org}_EN.md`)
+      });
+  }
+
+  // Domain D13
+  if (doc === "orchestration-automation-policy") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("13-orchestration-automation", "orchestration-automation-policy.fr.md.hbs"),
+        out: path.join(outDir, "docs", "13-orchestration-automation", `POL_D13_Orchestration_Automation_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("13-orchestration-automation", "orchestration-automation-policy.en.md.hbs"),
+        out: path.join(outDir, "docs", "13-orchestration-automation", `POL_D13_Orchestration_Automation_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "playbooks-ir-soar-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("13-orchestration-automation", "playbooks-ir-soar-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "13-orchestration-automation", `STD_D13_Playbooks_IR_SOAR_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("13-orchestration-automation", "playbooks-ir-soar-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "13-orchestration-automation", `STD_D13_Playbooks_IR_SOAR_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "policy-as-code-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("13-orchestration-automation", "policy-as-code-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "13-orchestration-automation", `STD_D13_PolicyAsCode_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("13-orchestration-automation", "policy-as-code-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "13-orchestration-automation", `STD_D13_PolicyAsCode_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "evidence-audit-trails-standard") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("13-orchestration-automation", "evidence-audit-trails-standard.fr.md.hbs"),
+        out: path.join(outDir, "docs", "13-orchestration-automation", `STD_D13_Evidence_AuditTrails_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("13-orchestration-automation", "evidence-audit-trails-standard.en.md.hbs"),
+        out: path.join(outDir, "docs", "13-orchestration-automation", `STD_D13_Evidence_AuditTrails_${org}_EN.md`)
+      });
+  }
+
+  if (doc === "orchestration-automation-checklist") {
+    if (lang === "fr" || lang === "both")
+      tasks.push({
+        template: tplPath("13-orchestration-automation", "orchestration-automation-checklist.fr.md.hbs"),
+        out: path.join(outDir, "docs", "13-orchestration-automation", `CHK_D13_Orchestration_Automation_${org}_FR.md`)
+      });
+    if (lang === "en" || lang === "both")
+      tasks.push({
+        template: tplPath("13-orchestration-automation", "orchestration-automation-checklist.en.md.hbs"),
+        out: path.join(outDir, "docs", "13-orchestration-automation", `CHK_D13_Orchestration_Automation_${org}_EN.md`)
       });
   }
 

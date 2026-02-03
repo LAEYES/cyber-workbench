@@ -1,0 +1,48 @@
+# POL — D13 — Orchestration & Automation Engine (SOAR / Workflow / Policy-as-Code)
+
+**Organization:** ACME  
+**Version:** 0.2 (hardened)  
+**Date:** 2026-02-03
+
+## 1. Mission
+Industrialize a coherent cyber platform via a **core orchestrator**: event ingestion, decisioning, playbook execution, evidence/audit trails, and continuous improvement loops.
+
+## 2. Non-negotiable principles
+- **Safety-by-design**: no auto-remediation without guardrails.
+- **Least privilege** connector scopes.
+- **Four-eyes** for destructive/high-impact actions (regulated).
+- **Idempotence**: replaying a playbook must not worsen outcomes.
+- Full traceability: who/what/when/why.
+
+## 3. Baseline requirements
+### 3.1 Workflow & governance
+- Playbook catalog + owners + versioning.
+- Separate dev/test/prod.
+- PR required for playbook/policy changes.
+
+### 3.2 Execution security
+- Secrets via vault.
+- Prefer short-lived tokens (OIDC).
+- Log every executed action.
+
+### 3.3 SLAs & metrics
+- % playbooks tested: **≥ 80%**.
+- Auto-remediation rate measured and reviewed monthly.
+- Track MTTR by incident type.
+
+## 4. Enhanced requirements (regulated)
+- Two-person rule for critical actions (disable admin account, wipe device, rotate prod keys).
+- Immutable logs (WORM) for critical evidence.
+- Quarterly review of high-impact playbooks.
+
+## 5. Audit criteria (pass/fail)
+- [ ] Versioned and reviewed playbooks/policies.
+- [ ] dev/test/prod separation.
+- [ ] Guardrails and approvals for critical actions.
+- [ ] Full traceability + retention.
+
+## 6. Evidence
+- Playbook catalog, PRs, execution logs, test reports.
+
+---
+*Template policy: complemented by playbook, policy-as-code, and evidence trail standards.*
