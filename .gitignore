@@ -22,3 +22,4 @@ deliverables*/nato-mvp/.tmp/
 # WinForms UI
 ui/**/bin/
 ui/**/obj/
+ui/**/*.csproj.user
