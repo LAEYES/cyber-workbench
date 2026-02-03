@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/nato-trinity/schemas/manifest.schema.json",
+  "title": "EvidencePackageManifest",
+  "type": "object",
+  "required": ["manifestVersion", "packageId", "generatedAt", "generatedBy", "hashAlg", "items"],
+  "properties": {
+    "manifestVersion": { "type": "string", "const": "1.0" },
+    "packageId": { "type": "string" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "generatedBy": { "type": "string" },
+    "hashAlg": { "type": "string", "default": "sha256" },
+    "signature": {
+      "type": "object",
+      "properties": {
+        "keyId": { "type": "string" },
+        "alg": { "type": "string" },
+        "value": { "type": "string" }
+      },
+      "required": ["keyId", "alg", "value"],
+      "additionalProperties": true
+    },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["evidenceId", "hash", "storageRef"],
+        "properties": {
+          "evidenceId": { "type": "string" },
+          "hash": { "type": "string" },
+          "storageRef": { "type": "string" },
+          "evidenceType": { "type": "string" },
+          "sourceSystem": { "type": "string" },
+          "collectedAt": { "type": "string", "format": "date-time" }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}
