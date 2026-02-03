@@ -1,0 +1,14 @@
+{
+  "packageId": "pkg_risk_R-TEST_1770155011426",
+  "scopeRef": "risk:R-TEST",
+  "evidenceRefs": [
+    "ev_1",
+    "ev_2",
+    "ev_3"
+  ],
+  "manifestHash": "22589a59061e8312573a00983bc31aa92a147a134faf299eb2988761934e5ac3",
+  "exportedAt": "2026-02-03T21:43:31.429Z",
+  "exportedBy": "mvp-local",
+  "bundleRef": "C:\\Users\\Aymeric\\.openclaw\\workspace\\cyber-workbench\\deliverables-demo\\nato-mvp\\risk_R-TEST",
+  "orgId": "ACME"
+}
