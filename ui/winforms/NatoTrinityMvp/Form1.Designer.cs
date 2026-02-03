@@ -51,6 +51,9 @@ partial class Form1
     private TextBox txtRiskHeadHash = null!;
     private TextBox txtCaseHeadHash = null!;
 
+    private Label lblToolStatus = null!;
+    private Label lblToolLastVerified = null!;
+
     protected override void Dispose(bool disposing)
     {
         if (disposing && (components != null))
@@ -790,7 +793,9 @@ partial class Form1
         var grpTools = MakeGroup("Cybersecure tools");
         grpTools.Dock = DockStyle.Fill;
 
-        var toolsLayout = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 1, RowCount = 10 };
+        var toolsLayout = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 1, RowCount = 12 };
+        toolsLayout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+        toolsLayout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
         toolsLayout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
         toolsLayout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
         toolsLayout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
@@ -808,6 +813,22 @@ partial class Form1
             AutoSize = true,
             ForeColor = subtleText,
             Margin = new Padding(3, 0, 3, 8)
+        };
+
+        lblToolStatus = new Label
+        {
+            Text = "Status: UNKNOWN",
+            AutoSize = true,
+            ForeColor = subtleText,
+            Margin = new Padding(3, 0, 3, 0)
+        };
+
+        lblToolLastVerified = new Label
+        {
+            Text = "Last verified: —",
+            AutoSize = true,
+            ForeColor = subtleText,
+            Margin = new Padding(3, 0, 3, 10)
         };
 
         var btnTVerify = new Button { Text = "Verify events" };
@@ -843,14 +864,16 @@ partial class Form1
         btnTRefreshHeads.Click += (_, _) => OnRefreshEventHeads();
 
         toolsLayout.Controls.Add(lblToolsHint, 0, 0);
-        toolsLayout.Controls.Add(btnTVerify, 0, 1);
-        toolsLayout.Controls.Add(btnTMigrate, 0, 2);
-        toolsLayout.Controls.Add(btnTRebuild, 0, 3);
-        toolsLayout.Controls.Add(btnTRefreshHeads, 0, 4);
-        toolsLayout.Controls.Add(btnTExportAnchor, 0, 5);
-        toolsLayout.Controls.Add(btnTVerifyAnchor, 0, 6);
-        toolsLayout.Controls.Add(btnTOpenStore, 0, 8);
-        toolsLayout.Controls.Add(btnTOpenBundle, 0, 9);
+        toolsLayout.Controls.Add(lblToolStatus, 0, 1);
+        toolsLayout.Controls.Add(lblToolLastVerified, 0, 2);
+        toolsLayout.Controls.Add(btnTVerify, 0, 3);
+        toolsLayout.Controls.Add(btnTMigrate, 0, 4);
+        toolsLayout.Controls.Add(btnTRebuild, 0, 5);
+        toolsLayout.Controls.Add(btnTRefreshHeads, 0, 6);
+        toolsLayout.Controls.Add(btnTExportAnchor, 0, 7);
+        toolsLayout.Controls.Add(btnTVerifyAnchor, 0, 8);
+        toolsLayout.Controls.Add(btnTOpenStore, 0, 10);
+        toolsLayout.Controls.Add(btnTOpenBundle, 0, 11);
 
         grpTools.Controls.Add(toolsLayout);
         toolsPanel.Controls.Add(grpTools);

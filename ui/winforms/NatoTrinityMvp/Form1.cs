@@ -9,11 +9,16 @@ public partial class Form1 : Form
     private string? _lastDecisionRequestId;
     private string? _lastCaseRequestId;
 
+    private readonly Color _statusOk = Color.FromArgb(20, 120, 60);
+    private readonly Color _statusFail = Color.FromArgb(180, 35, 35);
+    private readonly Color _statusUnknown = Color.FromArgb(88, 96, 105);
+
     public Form1()
     {
         InitializeComponent();
         UpdateRiskScore();
         RefreshEventHeads();
+        SetToolStatus("UNKNOWN", null);
 
         txtRiskId.TextChanged += (_, _) =>
         {
@@ -27,6 +32,23 @@ public partial class Form1 : Form
     private void Log(string msg)
     {
         txtLog.AppendText(msg + Environment.NewLine);
+    }
+
+    private void SetToolStatus(string status, bool? ok = null)
+    {
+        lblToolStatus.Text = $"Status: {status}";
+        lblToolStatus.ForeColor = ok switch
+        {
+            true => _statusOk,
+            false => _statusFail,
+            _ => _statusUnknown
+        };
+    }
+
+    private void MarkVerified(string what, bool ok)
+    {
+        lblToolLastVerified.Text = $"Last verified: {DateTime.Now:yyyy-MM-dd HH:mm:ss} ({what})";
+        SetToolStatus(ok ? "OK" : "FAIL", ok);
     }
 
     private void SetLastRequestId(string kind, string requestId)
@@ -126,6 +148,7 @@ public partial class Form1 : Form
             var (risks, cases) = Store().RebuildProjectionsFromEvents(txtActor.Text, verifyFirst: true);
             Log($"OK rebuilt projections from events (verified): risks={risks} cases={cases}");
             RefreshEventHeads();
+            MarkVerified("events", true);
         }
         catch (Exception ex)
         {
@@ -138,10 +161,12 @@ public partial class Form1 : Form
         try
         {
             Require(!string.IsNullOrWhiteSpace(txtActor.Text), "Actor is required");
-            var (total, legacy, verified) = Store().VerifyEntityEvents(txtActor.Text);
-            Log($"OK events verification: total={total} verified={verified} legacy={legacy}");
+            var v = Store().VerifyEntityEventsDetailed();
+            Log($"{(v.ok ? "OK" : "FAIL")} events verification: total={v.total} verified={v.verified} legacy={v.legacy}");
+            if (!v.ok) Log($"DETAILS {v.details}");
             RefreshEventHeads();
-            if (legacy > 0)
+            MarkVerified("events", v.ok);
+            if (v.legacy > 0)
                 Log("WARN legacy events detected (no hash/prevHash) - use Migrate legacy to chain everything");
         }
         catch (Exception ex)
@@ -169,9 +194,11 @@ public partial class Form1 : Form
             Log($"OK migrated events to chained format: migrated={migrated} total={total}");
 
             // Verify after migration
-            var (t2, legacy2, verified2) = Store().VerifyEntityEvents(txtActor.Text);
-            Log($"OK post-migration verify: total={t2} verified={verified2} legacy={legacy2}");
+            var v2 = Store().VerifyEntityEventsDetailed();
+            Log($"{(v2.ok ? "OK" : "FAIL")} post-migration verify: total={v2.total} verified={v2.verified} legacy={v2.legacy}");
+            if (!v2.ok) Log($"DETAILS {v2.details}");
             RefreshEventHeads();
+            MarkVerified("events", v2.ok);
         }
         catch (Exception ex)
         {
@@ -218,6 +245,7 @@ public partial class Form1 : Form
             else Log($"FAIL anchor verify: {details}");
 
             RefreshEventHeads();
+            MarkVerified("anchor", ok);
         }
         catch (Exception ex)
         {

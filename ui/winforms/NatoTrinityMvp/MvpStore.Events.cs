@@ -135,6 +135,19 @@ public sealed partial class MvpStore
         return (r.total + c.total, r.legacy + c.legacy, r.verified + c.verified);
     }
 
+    public (bool ok, string details, int total, int legacy, int verified) VerifyEntityEventsDetailed()
+    {
+        var r = VerifyChainedEvents(RiskEventsPath);
+        var c = VerifyChainedEvents(CaseEventsPath);
+        var ok = r.ok && c.ok;
+
+        var details = ok
+            ? "OK"
+            : $"riskEvents: {(r.ok ? "OK" : r.error)}; caseEvents: {(c.ok ? "OK" : c.error)}";
+
+        return (ok, details, r.total + c.total, r.legacy + c.legacy, r.verified + c.verified);
+    }
+
     public (string riskHead, string caseHead) GetEventHeadHashes()
     {
         var r = GetLastHashOrGenesis(RiskEventsPath);
