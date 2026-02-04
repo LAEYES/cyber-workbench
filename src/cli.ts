@@ -23,6 +23,8 @@ import { natoMvpVerifyBundle } from "./commands/nato_mvp_verify.js";
 import { natoMvpVerifyManifest } from "./commands/nato_mvp_verify_manifest.js";
 import { natoMvpGenerateSigningKey } from "./commands/nato_mvp_keys.js";
 import { natoMvpVerifyAnchor } from "./commands/nato_mvp_verify_anchor.js";
+import { natoMvpExportAnchor } from "./commands/nato_mvp_export_anchor.js";
+import { natoMvpDemo } from "./commands/nato_mvp_demo.js";
 import { natoMvpRiskCreate, natoMvpRiskGet } from "./commands/nato_mvp_risk.js";
 import { natoMvpDecisionCreate } from "./commands/nato_mvp_decision.js";
 import { natoMvpExportFromStore } from "./commands/nato_mvp_export_from_store.js";
@@ -135,6 +137,30 @@ program
   .option("--name <name>", "Nom de base des fichiers", "nato-mvp-ed25519")
   .action(async (opts) => {
     await natoMvpGenerateSigningKey({ outDir: opts.out, name: opts.name });
+  });
+
+program
+  .command("nato:mvp-export-anchor")
+  .description("MVP: exporte un audit anchor (optionnellement signé) depuis le store")
+  .option("--org <id>", "OrgId", "ORG")
+  .option("--actor <id>", "Actor", "user")
+  .option("--out <dir>", "Dossier store", "./deliverables")
+  .option("--sign", "Signe l'audit anchor (ed25519)", false)
+  .option("--signing-key <pem>", "Chemin vers la clé privée PEM (ed25519)")
+  .option("--key-id <id>", "KeyId à inclure dans signature", "mvp-local-1")
+  .action(async (opts) => {
+    await natoMvpExportAnchor({ outDir: opts.out, orgId: opts.org, actor: opts.actor, sign: Boolean(opts.sign), signingKey: opts.signingKey, keyId: opts.keyId });
+  });
+
+program
+  .command("nato:mvp-demo")
+  .description("MVP: exécute un workflow end-to-end (risk→decision→case→export→verify→anchor)")
+  .option("--org <id>", "OrgId", "ORG")
+  .option("--actor <id>", "Actor", "user")
+  .option("--out <dir>", "Dossier de travail (store + bundles)", "./deliverables")
+  .option("--sign", "Signe manifest+anchor (ed25519)", false)
+  .action(async (opts) => {
+    await natoMvpDemo({ outDir: opts.out, orgId: opts.org, actor: opts.actor, sign: Boolean(opts.sign) });
   });
 
 program
