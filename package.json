@@ -12,6 +12,7 @@
     "lint": "eslint .",
     "test": "node --test",
     "sources:validate": "node scripts/validate-sources.mjs",
+    "sources:pin": "node scripts/pin-sources.mjs",
     "catalog:release": "node scripts/catalog-release.mjs",
     "catalog:release:validate": "node scripts/catalog-release-validate.mjs",
     "format": "prettier -w .",

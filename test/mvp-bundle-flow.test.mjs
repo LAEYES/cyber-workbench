@@ -32,13 +32,17 @@ test('MVP bundle export/verify flow works', () => {
   const producedRoot = path.join(base, 'nato-mvp');
   assert.ok(fs.existsSync(producedRoot));
 
-  const entries = fs.readdirSync(producedRoot, { withFileTypes: true }).filter(d => d.isDirectory());
-  assert.ok(entries.length >= 1);
+  const entries = fs
+    .readdirSync(producedRoot, { withFileTypes: true })
+    .filter(d => d.isDirectory())
+    .map(d => path.join(producedRoot, d.name))
+    .filter(p => fs.existsSync(path.join(p, 'manifest.json')));
 
-  // Pick the most recent directory
+  assert.ok(entries.length >= 1, 'No bundle directory with manifest.json found');
+
+  // Pick the most recent bundle directory
   const bundleDir = entries
-    .map(d => ({ name: d.name, p: path.join(producedRoot, d.name) }))
-    .map(x => ({ ...x, mtime: fs.statSync(x.p).mtimeMs }))
+    .map(p => ({ p, mtime: fs.statSync(p).mtimeMs }))
     .sort((a, b) => b.mtime - a.mtime)[0].p;
 
   // verify manifest and bundle hashes

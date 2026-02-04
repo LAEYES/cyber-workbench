@@ -58,6 +58,7 @@ function main() {
 
     if (!allowDynamic && !pinned) {
       console.warn('WARN source url not pinned:', p, url);
+      ok = false;
     }
 
     if (!allowDynamic) {
