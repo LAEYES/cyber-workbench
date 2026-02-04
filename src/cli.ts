@@ -403,12 +403,19 @@ program
 
 program
   .command("nato:mvp-export-from-store")
-  .description("MVP: export EvidencePackage pour risk:<id> en incluant Risk + Decisions depuis le store")
-  .requiredOption("--scope <ref>", "ScopeRef (risk:<id>)")
+  .description("MVP: export EvidencePackage pour risk:<id> ou case:<id> en incluant metadata + evidenceRefs depuis le store")
+  .requiredOption("--scope <ref>", "ScopeRef (risk:<id> | case:<id>)")
   .option("--org <id>", "OrgId", "ORG")
   .option("--actor <id>", "Actor", "user")
   .option("--store <dir>", "Dossier store (nato-mvp-store)", "./deliverables")
   .option("--out <dir>", "Dossier bundle", "./deliverables")
+  .option("--classification <c>", "public|internal|sensitive", "internal")
+  .option("--retention <r>", "short|standard|long|legal", "standard")
+  .option(
+    "--evidence-type <t>",
+    "logExport|configSnapshot|ticket|report|sbom|vex|attestation|signature|screenshot",
+    "report"
+  )
   .option("--in <file...>", "Fichiers preuves supplémentaires")
   .option("--sign", "Signe le manifest.json (MVP local)", false)
   .option("--signing-key <pem>", "Chemin vers la clé privée PEM (ed25519)")
@@ -421,6 +428,9 @@ program
       storeOutDir: opts.store,
       outDir: opts.out,
       inputs: opts.in || [],
+      classification: opts.classification,
+      retentionClass: opts.retention,
+      evidenceType: opts.evidenceType,
       sign: Boolean(opts.sign),
       signingKey: opts.signingKey,
       keyId: opts.keyId

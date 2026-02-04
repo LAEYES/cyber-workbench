@@ -109,7 +109,13 @@ test("MVP evidence store ingest -> link -> export-from-store includes blobs", ()
       "--actor",
       "ci",
       "--scope",
-      "risk:R-E2E"
+      "risk:R-E2E",
+      "--classification",
+      "internal",
+      "--retention",
+      "short",
+      "--evidence-type",
+      "report"
     ],
     repo
   );

@@ -46,6 +46,18 @@ export async function natoMvpExportFromStore(opts: {
   outDir: string;
   actor: string;
   inputs: string[];
+  classification?: "public" | "internal" | "sensitive";
+  retentionClass?: "short" | "standard" | "long" | "legal";
+  evidenceType?:
+    | "logExport"
+    | "configSnapshot"
+    | "ticket"
+    | "report"
+    | "sbom"
+    | "vex"
+    | "attestation"
+    | "signature"
+    | "screenshot";
   sign?: boolean;
   signingKey?: string;
   keyId?: string;
@@ -148,9 +160,9 @@ export async function natoMvpExportFromStore(opts: {
     inputs: allInputs,
     outDir: opts.outDir,
     orgId: opts.orgId,
-    classification: "internal",
-    retentionClass: "standard",
-    evidenceType: "report",
+    classification: opts.classification || "internal",
+    retentionClass: opts.retentionClass || "standard",
+    evidenceType: opts.evidenceType || "report",
     sign: opts.sign,
     signingKey: opts.signingKey,
     keyId: opts.keyId
