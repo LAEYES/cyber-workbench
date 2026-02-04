@@ -16,6 +16,8 @@
     "catalog:release": "node scripts/catalog-release.mjs",
     "catalog:release:validate": "node scripts/catalog-release-validate.mjs",
     "catalog:release:check": "node scripts/catalog-release-check.mjs",
+    "release:make": "node scripts/release-make.mjs",
+    "release:verify": "node scripts/release-verify.mjs",
     "format": "prettier -w .",
     "nato:validate": "node scripts/validate-nato-trinity.mjs",
     "nato:bundle-check": "node scripts/validate-nato-manifest.mjs",
