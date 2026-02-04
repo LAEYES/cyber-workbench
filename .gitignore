@@ -29,3 +29,6 @@ ui/**/*.csproj.user
 *.sln
 *.suo
 .vs/
+
+# Catalog release snapshots generated locally
+catalog/RELEASES/catalog-release-latest.json

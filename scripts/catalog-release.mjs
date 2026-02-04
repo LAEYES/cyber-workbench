@@ -48,6 +48,7 @@ function main() {
 
   const stamp = nowStamp();
   const outPath = parseOutPath() || path.join(releasesDir, `catalog-release-${stamp}.json`);
+  const latestPath = path.join(releasesDir, 'catalog-release-latest.json');
 
   const commit = tryCmd('git rev-parse HEAD');
   const branch = tryCmd('git rev-parse --abbrev-ref HEAD');
@@ -86,8 +87,12 @@ function main() {
     },
   };
 
-  fs.writeFileSync(outPath, JSON.stringify(payload, null, 2) + '\n', 'utf8');
+  const json = JSON.stringify(payload, null, 2) + '\n';
+  fs.writeFileSync(outPath, json, 'utf8');
+  // also update a stable "latest" snapshot for tooling/CI
+  fs.writeFileSync(latestPath, json, 'utf8');
   console.log('OK catalog release written:', outPath);
+  console.log('OK catalog release latest:', latestPath);
 }
 
 main();
