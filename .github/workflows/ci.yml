@@ -17,6 +17,7 @@ jobs:
       - run: npm run lint
       - run: npm run build
       - run: npm test
+      - run: node dist/cli.js nato:mvp-demo --out ./tmp-ci-demo --org ORG_CI --actor ci --sign
       - run: npm run sources:validate
       - run: npx tsx src/cli.ts catalog:validate --root ./catalog
       - run: npm run nato:validate
