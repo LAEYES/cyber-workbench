@@ -561,6 +561,11 @@ partial class Form1
         caseActions.Controls.Add(btnCaseCreate);
         caseActions.Controls.Add(btnCaseGet);
 
+        var btnCaseLinkRisk = new Button { Text = "Link Risk" };
+        StyleSecondary(btnCaseLinkRisk);
+        btnCaseLinkRisk.Click += (_, _) => OnCaseLinkRisk();
+        caseActions.Controls.Add(btnCaseLinkRisk);
+
         var caseFields = new TableLayoutPanel { Dock = DockStyle.Top, AutoSize = true, ColumnCount = 6 };
         caseFields.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
         caseFields.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 34));

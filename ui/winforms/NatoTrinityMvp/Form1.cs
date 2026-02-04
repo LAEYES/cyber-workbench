@@ -569,6 +569,23 @@ public partial class Form1 : Form
         }
     }
 
+    private void OnCaseLinkRisk()
+    {
+        try
+        {
+            Require(!string.IsNullOrWhiteSpace(txtActor.Text), "Actor is required");
+            Require(IsId(txtCaseId.Text, "C-"), "CaseId must start with C-");
+            Require(IsId(txtCaseRiskId.Text, "R-"), "RiskId must start with R-");
+
+            Store().LinkRiskToCase(txtActor.Text, txtCaseId.Text.Trim(), txtCaseRiskId.Text.Trim());
+            Log($"OK linked risk {txtCaseRiskId.Text.Trim()} to case {txtCaseId.Text.Trim()}");
+        }
+        catch (Exception ex)
+        {
+            Log("ERROR " + ex.Message);
+        }
+    }
+
     private void OnCaseGet()
     {
         try
