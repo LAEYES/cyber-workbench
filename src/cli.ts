@@ -37,6 +37,7 @@ import {
   natoMvpEvidenceIngest
 } from "./commands/nato_mvp_evidence.js";
 import { natoMvpCaseLinkEvidence, natoMvpRiskLinkEvidence } from "./commands/nato_mvp_link.js";
+import { natoMvpChainVerify } from "./commands/nato_mvp_chain_verify.js";
 
 const program = new Command();
 
@@ -315,6 +316,16 @@ program
   .option("--out <dir>", "Dossier store", "./deliverables")
   .action(async (opts) => {
     await natoMvpChainList({ outDir: opts.out, orgId: opts.org, evidenceId: opts.evidenceId });
+  });
+
+program
+  .command("nato:mvp-chain-verify")
+  .description("MVP: vérifie l'intégrité de la chain-of-custody (hash + chaînage)")
+  .requiredOption("--evidence-id <id>", "EvidenceId")
+  .option("--org <id>", "OrgId", "ORG")
+  .option("--out <dir>", "Dossier store", "./deliverables")
+  .action(async (opts) => {
+    await natoMvpChainVerify({ outDir: opts.out, orgId: opts.org, evidenceId: opts.evidenceId });
   });
 
 program
