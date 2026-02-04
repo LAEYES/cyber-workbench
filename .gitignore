@@ -32,3 +32,6 @@ ui/**/*.csproj.user
 
 # Catalog release snapshots generated locally
 catalog/RELEASES/catalog-release-latest.json
+
+# Release bundles generated locally
+releases/
