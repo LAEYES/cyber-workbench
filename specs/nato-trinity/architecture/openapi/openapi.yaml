@@ -469,6 +469,28 @@ components:
                   endedAt: { type: string, format: date-time }
                   logsRef: { type: string }
 
+    AuditAnchor:
+      type: object
+      required: [anchorVersion, orgId, generatedAt, generatedBy, riskHeadHash, caseHeadHash, auditEventsHash, anchorHash]
+      additionalProperties: false
+      properties:
+        anchorVersion: { type: string, enum: ['1.0'] }
+        orgId: { type: string }
+        generatedAt: { type: string, format: date-time }
+        generatedBy: { type: string }
+        riskHeadHash: { type: string }
+        caseHeadHash: { type: string }
+        auditEventsHash: { type: string }
+        anchorHash: { type: string, pattern: '^[0-9a-fA-F]{64}$' }
+        signature:
+          type: object
+          additionalProperties: false
+          required: [keyId, alg, value]
+          properties:
+            keyId: { type: string }
+            alg: { type: string, enum: [ed25519] }
+            value: { type: string }
+
 security:
   - bearerAuth: []
 
