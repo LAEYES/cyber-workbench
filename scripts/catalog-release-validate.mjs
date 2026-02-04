@@ -19,6 +19,13 @@ function main() {
   }
 
   const p = path.resolve(root, file);
+  const rel = path.relative(root, p);
+  if (path.isAbsolute(file) || rel.startsWith('..') || path.isAbsolute(rel)) {
+    throw new Error('INVALID_PATH_OUTSIDE_REPO');
+  }
+  if (!fs.existsSync(p) || !fs.statSync(p).isFile()) {
+    throw new Error('RELEASE_FILE_NOT_FOUND');
+  }
   const payload = JSON.parse(fs.readFileSync(p, 'utf8'));
   if (payload.kind !== 'catalogRelease') throw new Error('Invalid kind');
   if (!Array.isArray(payload.files)) throw new Error('Invalid files array');
@@ -26,6 +33,12 @@ function main() {
   let ok = true;
   for (const entry of payload.files) {
     const fp = path.resolve(root, entry.path);
+    const fpRel = path.relative(root, fp);
+    if (fpRel.startsWith('..') || path.isAbsolute(fpRel)) {
+      console.error('INVALID_ENTRY_PATH_OUTSIDE_REPO', entry.path);
+      ok = false;
+      continue;
+    }
     if (!fs.existsSync(fp)) {
       console.error('MISSING', entry.path);
       ok = false;
