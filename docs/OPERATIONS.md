@@ -9,6 +9,9 @@ npx tsx src/cli.ts catalog:validate --root ./catalog
 ```bash
 npx tsx src/cli.ts catalog:refresh --root ./catalog --sources ./catalog/sources.yml
 ```
+Notes:
+- `--allow-dynamic` is required only if a source is marked `allowDynamic: true`.
+- For fully reproducible refresh, pin the source with `sha256` in `catalog/sources.yml` and remove `allowDynamic`.
 
 ## Stats
 ```bash

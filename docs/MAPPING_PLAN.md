@@ -7,6 +7,7 @@ Command:
 ```bash
 npx tsx src/cli.ts catalog:import-nist-xlsx --out-map-80053 ./catalog/mappings/nist-csf-2.0_to_nist-800-53-r5.yml
 ```
+Note: if the source is marked `allowDynamic: true`, pass `--allow-dynamic`.
 
 ## CSF ↔ MITRE ATT&CK
 There is no universally official 1:1 crosswalk between CSF outcomes and ATT&CK techniques.

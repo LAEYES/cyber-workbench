@@ -1,24 +1,22 @@
 import path from "node:path";
 import { writeYamlFile } from "../catalog/write.js";
+import { fetchBufferVerified } from "../catalog/fetch.js";
 
 // NIST SP 800-53 Rev5 is available in OSCAL content (JSON) from NIST.
 // We'll import controls with IDs (e.g., AC-2) and titles.
 
 type ImportParams = {
   outFile: string;
-  url?: string;
+  url: string;
+  expectedSha256?: string;
 };
 
-const DEFAULT_URL =
-  "https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_catalog.json";
-
 export async function importNist80053(params: ImportParams) {
-  const url = params.url ?? DEFAULT_URL;
+  const url = params.url;
   const outFile = path.resolve(params.outFile);
 
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Download failed ${res.status} ${res.statusText}: ${url}`);
-  const catalog = await res.json();
+  const buf = await fetchBufferVerified(url, params.expectedSha256);
+  const catalog = JSON.parse(buf.toString("utf8"));
 
   const groups = catalog?.catalog?.groups;
   const controls: any[] = [];

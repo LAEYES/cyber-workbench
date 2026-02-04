@@ -1,0 +1,143 @@
+{
+  "kind": "catalogRelease",
+  "version": "1.0",
+  "generatedAt": "2026-02-04T00:41:47.606Z",
+  "repo": {
+    "commit": "5bc03e0e919505cee84ab5a29f700b1a35e5b574",
+    "branch": "master"
+  },
+  "catalogRoot": "catalog",
+  "files": [
+    {
+      "path": "catalog/controls/cis-v8.safeguards.yml",
+      "size": 511,
+      "sha256": "4e6d5124a54302610b50590bc0c66d499735d0bcdfa126864a212a2a2af6bc1e"
+    },
+    {
+      "path": "catalog/controls/iso27002-2022.controls.yml",
+      "size": 580,
+      "sha256": "32ad01169ff334a22c9e03f007d12e6a01157ad159a1b3bff11d0ed921c1c28a"
+    },
+    {
+      "path": "catalog/controls/mitre-attack.mitigations.yml",
+      "size": 9658,
+      "sha256": "41d780e95a256c4088c461b779aaebd80cfb5a5d85b51c9c3e4b3962fb8a4c22"
+    },
+    {
+      "path": "catalog/controls/mitre-attack.techniques.yml",
+      "size": 175648,
+      "sha256": "80c3aa4cc91babb92aa52eddcd4e01bc7987a750e1902096f8eae2f8eb5e7f80"
+    },
+    {
+      "path": "catalog/controls/nist-800-53-r5.controls.yml",
+      "size": 231618,
+      "sha256": "50436e55e1a31b34d90217e8bace65bd86d5f1e9a561bbb688e91096e4605220"
+    },
+    {
+      "path": "catalog/controls/nist-csf-2.0.outcomes.yml",
+      "size": 47889,
+      "sha256": "9a621f347c0ab7de89c9914980cb1eb2b854da124973835070c7da794ac5a9cf"
+    },
+    {
+      "path": "catalog/controls/nist-csf-2.0.subcategories.yml",
+      "size": 562,
+      "sha256": "6f709620320d6b939993189263ad63770c91a0104b025e210617f8784d0a4c3f"
+    },
+    {
+      "path": "catalog/exports/attack_to_csf_scores.csv",
+      "size": 32169,
+      "sha256": "3dc964c198d7c39941cdc911911dd89f78d25fe5ef7e68a085971f24450e1c48"
+    },
+    {
+      "path": "catalog/exports/mitre-attack_to_nist-800-53-r5.long.csv",
+      "size": 692783,
+      "sha256": "9cb1409e8036d75034a0809cf89d38d45b9444a3b3eee624297148d16f37f699"
+    },
+    {
+      "path": "catalog/exports/mitre-attack_to_nist-csf-2.0_via_800-53.long.csv",
+      "size": 1637260,
+      "sha256": "8ffbe48e08095a3b95d648e1e9bd3905af43cb645270433aad1e5a0cf9abcfa0"
+    },
+    {
+      "path": "catalog/exports/nist-csf-2.0_to_nist-800-53-r5.long.csv",
+      "size": 88695,
+      "sha256": "a1e622b8fbf9eb66b00d40178d318c810987d19ef2dfbad43c5d5823acd3fb99"
+    },
+    {
+      "path": "catalog/exports/refresh.marker.yml",
+      "size": 40,
+      "sha256": "ffaa6af8af3c5ee1c416a602659a195221757558be4d91bcff871e32619beb0a"
+    },
+    {
+      "path": "catalog/frameworks/cis_controls_v8.yml",
+      "size": 1181,
+      "sha256": "cd5a6906b1f9ebb2302aaf19fe5b1c3d9f5037e6667324baddb5fb8475f15933"
+    },
+    {
+      "path": "catalog/frameworks/iso_27002_2022.yml",
+      "size": 261,
+      "sha256": "925e2f50ec5a61d6d94180b72bc1830059e459424d110819a60c4d8881132743"
+    },
+    {
+      "path": "catalog/frameworks/nist_csf_2_0.yml",
+      "size": 325,
+      "sha256": "b19c22abd4e20c11d51fe868ae4c02bbc013b969cd7729ed5bcd35f5351e5b17"
+    },
+    {
+      "path": "catalog/mappings/cis_to_iso_nist.yml",
+      "size": 377,
+      "sha256": "da817ac53e656e50dce564a0139c79de42fee467e1d3cb677612d005ae22103f"
+    },
+    {
+      "path": "catalog/mappings/iso27002_to_nist-csf.yml",
+      "size": 505,
+      "sha256": "2c36d553e75ddf13f9f724f26f2e7c1e6aedfa06197daeb77b806d61260bd166"
+    },
+    {
+      "path": "catalog/mappings/mitre-attack_to_nist-800-53-r5.yml",
+      "size": 361618,
+      "sha256": "411df8c7cc5943531746e5a4db3cd07f12da64d5e325d4985e7a61529f74ade0"
+    },
+    {
+      "path": "catalog/mappings/mitre-attack_to_nist-csf-2.0_via_800-53_scored.yml",
+      "size": 478162,
+      "sha256": "9f13324c6cd1544db4e7d826b553b7ae124c749a8e0937dacbe2e8b011aa84a8"
+    },
+    {
+      "path": "catalog/mappings/mitre-attack_to_nist-csf-2.0_via_800-53.yml",
+      "size": 588277,
+      "sha256": "86e3e9d1ce1e9dcff4d9195feb24891b5c461515f89ab964fe91a5925ead5f60"
+    },
+    {
+      "path": "catalog/mappings/mitre-attack_to_nist-csf-2.0.yml",
+      "size": 107478,
+      "sha256": "94dd7ae9b1af16b34af40ff81a1a5b63df7efed5e47f79e829c15421a0b85408"
+    },
+    {
+      "path": "catalog/mappings/mitre-attack.mitigations_to_nist-800-53-r5.yml",
+      "size": 113,
+      "sha256": "4490e8a7904138f79d454b4e53313dd5b327bbba6bc4df0bbb2ed8729c7b1f25"
+    },
+    {
+      "path": "catalog/mappings/mitre-attack.techniques_to_mitigations.yml",
+      "size": 166540,
+      "sha256": "2c6cbb275612fef0c79432eddfe6b9e44a10bbc579895dda6bcaaba500fe43da"
+    },
+    {
+      "path": "catalog/mappings/nist-csf-2.0_to_nist-800-53-r5.yml",
+      "size": 57096,
+      "sha256": "9d552fd3b1cc8febc933d55f233bae3c3f1b103bc38a9d6b55dd99a15c2f3791"
+    },
+    {
+      "path": "catalog/sources.yml",
+      "size": 1559,
+      "sha256": "70bb63afb5beac2af368e1ee8a4698f64af27a95f861de30c5dbef061b213149"
+    }
+  ],
+  "notes": {
+    "guidance": [
+      "This file captures a reproducible snapshot of the catalog inputs (hashes).",
+      "Use scripts/pin-sources.mjs before creating a release if sources.yml changed."
+    ]
+  }
+}

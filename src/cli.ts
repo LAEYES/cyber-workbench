@@ -17,6 +17,7 @@ import { exportMappingCsv } from "./commands/export_mapping_csv.js";
 import { scoreAttackCsf } from "./commands/score_attack_csf.js";
 import { catalogStats } from "./commands/stats.js";
 import { catalogRefresh } from "./commands/refresh.js";
+import { loadSourcesFile, resolveSource } from "./catalog/sources.js";
 import { natoMvpExport } from "./commands/nato_mvp_export.js";
 import { natoMvpVerifyBundle } from "./commands/nato_mvp_verify.js";
 import { natoMvpVerifyManifest } from "./commands/nato_mvp_verify_manifest.js";
@@ -281,8 +282,12 @@ program
 
 program
   .command("catalog:import-nist-xlsx")
-  .description("Importe NIST CSF 2.0 depuis l'export xlsx officiel ET génère le mapping CSF→NIST 800-53 (SP 800-53) depuis les informative references")
-  .option("--url <url>", "URL de l'xlsx NIST")
+  .description(
+    "Importe NIST CSF 2.0 depuis l'export xlsx officiel ET génère le mapping CSF→NIST 800-53 (SP 800-53) depuis les informative references"
+  )
+  .option("--sources <file>", "Fichier sources.yml", "./catalog/sources.yml")
+  .option("--allow-dynamic", "Autorise une source dynamique (non pinnée)", false)
+  .option("--url <url>", "URL de l'xlsx NIST (requires --allow-dynamic)")
   .option("--out-outcomes <file>", "Sortie outcomes", "./catalog/controls/nist-csf-2.0.outcomes.yml")
   .option(
     "--out-map-80053 <file>",
@@ -290,8 +295,21 @@ program
     "./catalog/mappings/nist-csf-2.0_to_nist-800-53-r5.yml"
   )
   .action(async (opts) => {
+    let url = opts.url as string | undefined;
+    let expectedSha256: string | undefined;
+
+    if (url) {
+      if (!opts.allowDynamic) throw new Error("Use --allow-dynamic to pass a custom --url");
+    } else {
+      const sources = await loadSourcesFile(opts.sources);
+      const src = resolveSource(sources, "nist.csf_xlsx", { allowDynamic: opts.allowDynamic });
+      url = src.url;
+      expectedSha256 = src.sha256;
+    }
+
     await importNistCsfFromXlsx({
-      url: opts.url,
+      url,
+      expectedSha256,
       outOutcomesFile: opts.outOutcomes,
       outCsfTo80053MappingFile: opts.outMap80053
     });
@@ -320,28 +338,58 @@ program
 program
   .command("catalog:import-80053")
   .description("Importe NIST SP 800-53 Rev.5 (OSCAL JSON) — public")
-  .option("--url <url>", "URL OSCAL JSON (optionnel)")
+  .option("--sources <file>", "Fichier sources.yml", "./catalog/sources.yml")
+  .option("--allow-dynamic", "Autorise une source dynamique (non pinnée)", false)
+  .option("--url <url>", "URL OSCAL JSON (requires --allow-dynamic)")
   .option("--out <file>", "Fichier de sortie", "./catalog/controls/nist-800-53-r5.controls.yml")
   .action(async (opts) => {
-    await importNist80053({ outFile: opts.out, url: opts.url });
+    let url = opts.url as string | undefined;
+    let expectedSha256: string | undefined;
+
+    if (url) {
+      if (!opts.allowDynamic) throw new Error("Use --allow-dynamic to pass a custom --url");
+    } else {
+      const sources = await loadSourcesFile(opts.sources);
+      const src = resolveSource(sources, "nist.sp800_53_r5_oscal_json", { allowDynamic: opts.allowDynamic });
+      url = src.url;
+      expectedSha256 = src.sha256;
+    }
+
+    await importNist80053({ outFile: opts.out, url, expectedSha256 });
   });
 
 program
   .command("catalog:import-ctid-attack-80053")
   .description("Importe les mappings CTID (ATT&CK → NIST 800-53 rev5) — public")
-  .option("--url <url>", "URL du JSON CTID (optionnel)")
+  .option("--sources <file>", "Fichier sources.yml", "./catalog/sources.yml")
+  .option("--allow-dynamic", "Autorise une source dynamique (non pinnée)", false)
+  .option("--url <url>", "URL du JSON CTID (requires --allow-dynamic)")
   .option(
     "--out <file>",
     "Fichier de sortie",
     "./catalog/mappings/mitre-attack_to_nist-800-53-r5.yml"
   )
   .action(async (opts) => {
-    await importCtidAttackToNist80053({ url: opts.url, outFile: opts.out });
+    let url = opts.url as string | undefined;
+    let expectedSha256: string | undefined;
+
+    if (url) {
+      if (!opts.allowDynamic) throw new Error("Use --allow-dynamic to pass a custom --url");
+    } else {
+      const sources = await loadSourcesFile(opts.sources);
+      const src = resolveSource(sources, "ctid.attack_to_80053_r5", { allowDynamic: opts.allowDynamic });
+      url = src.url;
+      expectedSha256 = src.sha256;
+    }
+
+    await importCtidAttackToNist80053({ url, outFile: opts.out, expectedSha256 });
   });
 
 program
   .command("catalog:import-attack")
   .description("Importe MITRE ATT&CK (Enterprise + Cloud + ICS) via STIX — public")
+  .option("--sources <file>", "Fichier sources.yml", "./catalog/sources.yml")
+  .option("--allow-dynamic", "Autorise une source dynamique (non pinnée)", false)
   .option("--out-techniques <file>", "Sortie techniques", "./catalog/controls/mitre-attack.techniques.yml")
   .option("--out-mitigations <file>", "Sortie mitigations", "./catalog/controls/mitre-attack.mitigations.yml")
   .option(
@@ -350,11 +398,18 @@ program
     "./catalog/mappings/mitre-attack.techniques_to_mitigations.yml"
   )
   .action(async (opts) => {
+    const sources = await loadSourcesFile(opts.sources);
+    const enterprise = resolveSource(sources, "mitre.attack_stix.enterprise_url", { allowDynamic: opts.allowDynamic });
+    const ics = resolveSource(sources, "mitre.attack_stix.ics_url", { allowDynamic: opts.allowDynamic });
+
     await importMitreAttack({
       outTechniquesFile: opts.outTechniques,
       outMitigationsFile: opts.outMitigations,
       outTechniqueToMitigationFile: opts.outTech2mit,
-      include: ["enterprise", "ics"]
+      sources: [
+        { id: "enterprise", url: enterprise.url, expectedSha256: enterprise.sha256 },
+        { id: "ics", url: ics.url, expectedSha256: ics.sha256 }
+      ]
     });
   });
 
@@ -465,8 +520,9 @@ program
   .description("Rafraîchit le catalog depuis catalog/sources.yml (imports reproductibles)")
   .option("--root <dir>", "Racine du catalog", "./catalog")
   .option("--sources <file>", "Fichier sources.yml", "./catalog/sources.yml")
+  .option("--allow-dynamic", "Autorise les sources dynamiques (non pinnées)", false)
   .action(async (opts) => {
-    await catalogRefresh({ rootDir: opts.root, sourcesFile: opts.sources });
+    await catalogRefresh({ rootDir: opts.root, sourcesFile: opts.sources, allowDynamic: opts.allowDynamic });
   });
 
 program

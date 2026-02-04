@@ -1,8 +1,7 @@
 import path from "node:path";
 import { writeYamlFile } from "../catalog/write.js";
+import { fetchBufferVerified } from "../catalog/fetch.js";
 import ExcelJS from "exceljs";
-
-const DEFAULT_URL = "https://csrc.nist.gov/extensions/nudp/services/json/csf/download?olirids=all";
 
 function cellText(v: any): string {
   if (v === null || v === undefined) return "";
@@ -40,18 +39,15 @@ function parse80053Refs(refsCell: string): string[] {
 export async function importNistCsfFromXlsx(params: {
   outOutcomesFile: string;
   outCsfTo80053MappingFile: string;
-  url?: string;
+  url: string;
+  expectedSha256?: string;
 }) {
-  const url = params.url ?? DEFAULT_URL;
+  const url = params.url;
   const outOutcomesFile = path.resolve(params.outOutcomesFile);
   const outMapFile = path.resolve(params.outCsfTo80053MappingFile);
 
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Download failed ${res.status} ${res.statusText}: ${url}`);
-  const ab = await res.arrayBuffer();
-
   const wb = new ExcelJS.Workbook();
-  const buf = Buffer.from(new Uint8Array(ab));
+  const buf = await fetchBufferVerified(url, params.expectedSha256);
   await (wb.xlsx as any).load(buf);
 
   const ws = wb.getWorksheet("CSF 2.0") ?? wb.worksheets[0];

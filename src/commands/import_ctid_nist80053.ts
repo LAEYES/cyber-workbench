@@ -1,20 +1,17 @@
 import path from "node:path";
 import { writeYamlFile } from "../catalog/write.js";
-
-const DEFAULT_URL =
-  "https://raw.githubusercontent.com/center-for-threat-informed-defense/mappings-explorer/main/mappings/nist_800_53/attack-16.1/nist_800_53-rev5/enterprise/nist_800_53-rev5_attack-16.1-enterprise.json";
+import { fetchBufferVerified } from "../catalog/fetch.js";
 
 function norm(s: any) {
   return String(s ?? "").trim();
 }
 
-export async function importCtidAttackToNist80053(params: { url?: string; outFile: string }) {
-  const url = params.url ?? DEFAULT_URL;
+export async function importCtidAttackToNist80053(params: { url: string; outFile: string; expectedSha256?: string }) {
+  const url = params.url;
   const outFile = path.resolve(params.outFile);
 
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Download failed ${res.status} ${res.statusText}: ${url}`);
-  const j = await res.json();
+  const buf = await fetchBufferVerified(url, params.expectedSha256);
+  const j = JSON.parse(buf.toString("utf8"));
 
   const objs = Array.isArray(j?.mapping_objects) ? j.mapping_objects : [];
 

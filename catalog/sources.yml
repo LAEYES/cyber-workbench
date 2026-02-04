@@ -2,7 +2,8 @@ id: sources
 nist:
   csf_xlsx:
     url: https://csrc.nist.gov/extensions/nudp/services/json/csf/download?olirids=all
-    allowDynamic: true
+    sha256: 69c2685e79378f59ce51ef93185e451a4014882e2e851752dca90c61716946ff
+    retrievedAt: 2026-02-04T00:38:06.674Z
   sp800_53_r5_oscal_json:
     url: https://raw.githubusercontent.com/usnistgov/oscal-content/bc8a528770033611df899b3d52703fb3dc91a20d/nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_catalog.json
     sha256: 1645df6a370dcb931db2e2d5d70c2f77bc89c38499a416c23a70eb2c0e595bcc

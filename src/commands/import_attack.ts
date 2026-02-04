@@ -1,5 +1,6 @@
 import path from "node:path";
 import { writeYamlFile } from "../catalog/write.js";
+import { fetchBufferVerified } from "../catalog/fetch.js";
 
 type StixObj = Record<string, any>;
 
@@ -7,18 +8,15 @@ type AttackImportParams = {
   outTechniquesFile: string;
   outMitigationsFile: string;
   outTechniqueToMitigationFile: string;
-  include: Array<"enterprise" | "ics">;
+  sources: Array<{ id: "enterprise" | "ics"; url: string; expectedSha256?: string }>;
 };
 
-const SOURCES: Record<string, { url: string; framework: string; sourceName: string }> = {
+const SOURCE_META: Record<"enterprise" | "ics", { framework: string; sourceName: string }> = {
   enterprise: {
-    // Official MITRE ATT&CK STIX data (GitHub)
-    url: "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/enterprise-attack/enterprise-attack.json",
     framework: "mitre-attack-enterprise",
     sourceName: "mitre-attack"
   },
   ics: {
-    url: "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/ics-attack/ics-attack.json",
     framework: "mitre-attack-ics",
     sourceName: "mitre-ics-attack"
   }
@@ -174,12 +172,12 @@ export async function importMitreAttack(params: AttackImportParams) {
   const allMappingItems: any[] = [];
   const allMitTo80053: any[] = [];
 
-  for (const key of params.include) {
-    const src = SOURCES[key];
-    const res = await fetch(src.url);
-    if (!res.ok) throw new Error(`Download failed ${res.status} ${res.statusText}: ${src.url}`);
-    const json = await res.json();
-    const parsed = parseBundle(json, src.framework, src.sourceName);
+  for (const src of params.sources) {
+    const meta = SOURCE_META[src.id];
+    if (!meta) throw new Error(`Unknown ATT&CK source id: ${src.id}`);
+    const buf = await fetchBufferVerified(src.url, src.expectedSha256);
+    const json = JSON.parse(buf.toString("utf8"));
+    const parsed = parseBundle(json, meta.framework, meta.sourceName);
     allTechniques.push(...parsed.techniques);
     allMitigations.push(...parsed.mitigations);
     allMappingItems.push(...parsed.mappingItems);

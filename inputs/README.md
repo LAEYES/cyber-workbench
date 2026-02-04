@@ -1,9 +1,17 @@
-# inputs/
+# Inputs pour les catalogues
 
-Dossier **non versionné** pour placer vos fichiers sources (CSV/XLSX) utilisés par les commandes d'import.
+Ce dossier contient les fichiers sources (CSV, XLSX) pour l'import des référentiels.
 
-Exemples attendus :
-- `inputs/iso27002-2022.csv` ou `.xlsx`
-- `inputs/cis-v8.csv` ou `.xlsx`
+## NIST CSF 2.0
+Le fichier XLSX original est requis pour la conversion mais ne peut pas être généré par l'IA (format binaire).
 
-Ces fichiers peuvent contenir du contenu sous licence (ISO/CIS). Ne pas committer.
+1. **Télécharger** : Récupérez le fichier "NIST CSF 2.0 Core (Excel)" depuis le site officiel :  
+   [https://www.nist.gov/cyberframework](https://www.nist.gov/cyberframework)
+2. **Placer** : Sauvegardez-le dans ce dossier sous le nom `nist-csf-2.0.xlsx`.
+3. **Convertir** : Ouvrez le fichier Excel, sélectionnez l'onglet **"CSF 2.0"**, et faites "Enregistrer sous" > **CSV (UTF-8)** nommé `nist-csf-2.0.csv`.
+
+## Commande d'import
+Une fois le CSV présent :
+```bash
+npx tsx src/cli.ts catalog:import-nist --in ./inputs/nist-csf-2.0.csv --out ./catalog/controls/nist-csf-2.0.outcomes.yml
+```

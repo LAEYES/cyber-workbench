@@ -1,6 +1,8 @@
 # Catalog imports (reproductibles)
 
 Objectif : importer des référentiels **sans dépendre** de copier/coller manuel.
+Par défaut, les imports distants lisent `catalog/sources.yml` et vérifient `sha256` si disponible.
+Les sources marquées `allowDynamic: true` nécessitent `--allow-dynamic`.
 
 ## NIST CSF 2.0 (public)
 ### Mode le plus sûr : import depuis CSV (export local depuis l’xlsx officiel)
@@ -11,6 +13,15 @@ Objectif : importer des référentiels **sans dépendre** de copier/coller manue
 ```bash
 npx tsx src/cli.ts catalog:import-nist --in ./inputs/nist-csf-2.0.csv --out ./catalog/controls/nist-csf-2.0.outcomes.yml
 ```
+
+### Import direct XLSX (moins reproductible)
+Par défaut, la CLI lit `catalog/sources.yml`. Si la source est `allowDynamic: true`, il faut expliciter :
+
+```bash
+npx tsx src/cli.ts catalog:import-nist-xlsx --allow-dynamic
+```
+
+Pour un import **reproductible**, pinnez l’xlsx dans `catalog/sources.yml` (ajout `sha256` + `retrievedAt`) et retirez `allowDynamic`.
 
 ## ISO/IEC 27002:2022 (copyright)
 On ne stocke pas le texte officiel dans le repo.
