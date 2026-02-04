@@ -59,7 +59,7 @@ export async function importNistCsfFromXlsx(params: {
 
   // Find header row with: Function | Category | Subcategory | Implementation Examples | Informative References
   let headerRowNumber = -1;
-  let colIndex: Record<string, number> = {};
+  const colIndex: Record<string, number> = {};
 
   ws.eachRow({ includeEmpty: false }, (row, rowNumber) => {
     if (headerRowNumber !== -1) return;

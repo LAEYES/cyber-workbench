@@ -10,6 +10,8 @@
     "build": "tsc -p tsconfig.json",
     "dev": "tsx src/cli.ts",
     "lint": "eslint .",
+    "test": "node --test",
+    "sources:validate": "node scripts/validate-sources.mjs",
     "format": "prettier -w .",
     "nato:validate": "node scripts/validate-nato-trinity.mjs",
     "nato:bundle-check": "node scripts/validate-nato-manifest.mjs",
@@ -32,6 +34,8 @@
     "prettier": "^3.4.2",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
+    "typescript-eslint": "^8.26.1",
+    "globals": "^15.15.0",
     "yaml": "^2.8.2"
   }
 }

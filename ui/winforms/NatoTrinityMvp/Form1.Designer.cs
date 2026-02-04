@@ -446,8 +446,8 @@ partial class Form1
         txtDue = MakeTextBox("2026-03-01");
 
         cmbRiskStatus = new ComboBox { DropDownStyle = ComboBoxStyle.DropDownList };
-        cmbRiskStatus.Items.AddRange(new object[] { "open", "mitigating", "accepted", "closed" });
-        cmbRiskStatus.SelectedIndex = 0;
+        cmbRiskStatus.Items.AddRange(new object[] { "new", "open", "accepted", "mitigated", "closed" });
+        cmbRiskStatus.SelectedIndex = 1;
         StyleCombo(cmbRiskStatus);
 
         lblRiskScore = new Label
@@ -566,8 +566,8 @@ partial class Form1
         StyleCombo(cmbSeverity);
 
         cmbCaseStatus = new ComboBox { DropDownStyle = ComboBoxStyle.DropDownList };
-        cmbCaseStatus.Items.AddRange(new object[] { "triage", "in_progress", "resolved", "closed" });
-        cmbCaseStatus.SelectedIndex = 0;
+        cmbCaseStatus.Items.AddRange(new object[] { "new", "triage", "investigate", "contain", "eradicate", "recover", "closed" });
+        cmbCaseStatus.SelectedIndex = 1;
         StyleCombo(cmbCaseStatus);
 
         txtCaseOwner = MakeTextBox("soclead");

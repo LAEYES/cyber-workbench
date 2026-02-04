@@ -417,7 +417,7 @@ public partial class Form1 : Form
             var status = normalized switch
             {
                 "accept" => "accepted",
-                "mitigate" => "mitigating",
+                "mitigate" => "mitigated",
                 "close" => "closed",
                 _ => null
             };

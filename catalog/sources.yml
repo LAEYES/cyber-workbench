@@ -1,19 +1,27 @@
 id: sources
-
 nist:
   csf_xlsx:
-    url: "https://csrc.nist.gov/extensions/nudp/services/json/csf/download?olirids=all"
+    url: https://csrc.nist.gov/extensions/nudp/services/json/csf/download?olirids=all
+    allowDynamic: true
   sp800_53_r5_oscal_json:
-    url: "https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_catalog.json"
-
+    url: https://raw.githubusercontent.com/usnistgov/oscal-content/bc8a528770033611df899b3d52703fb3dc91a20d/nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_catalog.json
+    sha256: 1645df6a370dcb931db2e2d5d70c2f77bc89c38499a416c23a70eb2c0e595bcc
+    retrievedAt: 2026-02-04T00:00:24.619Z
 ctid:
   attack_to_80053_r5:
     attack_version: "16.1"
-    framework_version: "rev5"
-    technology_domain: "enterprise"
-    url: "https://raw.githubusercontent.com/center-for-threat-informed-defense/mappings-explorer/main/mappings/nist_800_53/attack-16.1/nist_800_53-rev5/enterprise/nist_800_53-rev5_attack-16.1-enterprise.json"
-
+    framework_version: rev5
+    technology_domain: enterprise
+    url: https://raw.githubusercontent.com/center-for-threat-informed-defense/mappings-explorer/6bdc3ad33547d5fcb498eede1f07e7db681b00ee/mappings/nist_800_53/attack-16.1/nist_800_53-rev5/enterprise/nist_800_53-rev5_attack-16.1-enterprise.json
+    sha256: 355ae97d309c00eb2428e5af07754ff4ca16cfe63928194081d0e883aed929c8
+    retrievedAt: 2026-02-04T00:00:24.898Z
 mitre:
   attack_stix:
-    enterprise_url: "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/enterprise-attack/enterprise-attack.json"
-    ics_url: "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/ics-attack/ics-attack.json"
+    enterprise_url:
+      url: https://raw.githubusercontent.com/mitre-attack/attack-stix-data/v18.1/enterprise-attack/enterprise-attack.json
+      sha256: f857d8f78f2f0c0b7db321a711a39fba98546c1e3076a657684850c83d0962fb
+      retrievedAt: 2026-02-04T00:00:27.142Z
+    ics_url:
+      url: https://raw.githubusercontent.com/mitre-attack/attack-stix-data/v18.1/ics-attack/ics-attack.json
+      sha256: a7c0106492843485340710be9e841c1584d8fc6da8950e7097db0e7b5bc9f164
+      retrievedAt: 2026-02-04T00:00:27.715Z

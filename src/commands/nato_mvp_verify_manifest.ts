@@ -43,7 +43,7 @@ export async function natoMvpVerifyManifest(opts: {
     if (alg !== "ed25519") throw new Error(`Unsupported signature alg: ${alg}`);
 
     // Verify canonical payload (without signature)
-    const { signature, ...payloadObj } = manifestObj;
+    const { signature: _signature, ...payloadObj } = manifestObj;
     const payload = JSON.stringify(payloadObj);
     const ok = crypto.verify(null, Buffer.from(payload, "utf8"), pubKey, Buffer.from(sigB64, "base64"));
     if (!ok) throw new Error("SIGNATURE_INVALID");

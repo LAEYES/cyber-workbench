@@ -72,9 +72,10 @@ public sealed partial class MvpStore
 
         var allowed = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
         {
+            "new",
             "open",
-            "mitigating",
             "accepted",
+            "mitigated",
             "closed"
         };
         if (!allowed.Contains(status)) throw new InvalidOperationException($"Invalid risk status: {status}");
