@@ -86,7 +86,25 @@ test("MVP case-link-risk adds riskRefs and enables case export without manual ed
   assert.deepEqual(casesDb["C-LINK"].riskRefs, ["R-LINK"]);
 
   const exportOut = run(
-    ["nato:mvp-export-from-store", "--out", tmp, "--store", tmp, "--org", org, "--actor", "ci", "--scope", "case:C-LINK"],
+    [
+      "nato:mvp-export-from-store",
+      "--out",
+      tmp,
+      "--store",
+      tmp,
+      "--org",
+      org,
+      "--actor",
+      "ci",
+      "--scope",
+      "case:C-LINK",
+      "--classification",
+      "internal",
+      "--retention",
+      "standard",
+      "--evidence-type",
+      "report"
+    ],
     repo
   );
   assert.match(exportOut, /OK bundle:/);

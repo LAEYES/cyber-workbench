@@ -172,7 +172,13 @@ test("MVP export-from-store supports case:<id> (case + linked risk/decision + ev
       "--actor",
       "ci",
       "--scope",
-      "case:C-CASE"
+      "case:C-CASE",
+      "--classification",
+      "internal",
+      "--retention",
+      "short",
+      "--evidence-type",
+      "report"
     ],
     repo
   );
