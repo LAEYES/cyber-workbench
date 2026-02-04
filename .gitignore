@@ -24,3 +24,8 @@ deliverables*/nato-mvp/.tmp/
 ui/**/bin/
 ui/**/obj/
 ui/**/*.csproj.user
+
+# Visual Studio
+*.sln
+*.suo
+.vs/
