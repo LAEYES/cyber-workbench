@@ -30,6 +30,13 @@ import { natoMvpDecisionCreate } from "./commands/nato_mvp_decision.js";
 import { natoMvpExportFromStore } from "./commands/nato_mvp_export_from_store.js";
 import { natoMvpExportFromRequestId } from "./commands/nato_mvp_export_from_requestid.js";
 import { natoMvpCaseCreate, natoMvpCaseGet } from "./commands/nato_mvp_case.js";
+import {
+  natoMvpChainAppend,
+  natoMvpChainList,
+  natoMvpEvidenceGet,
+  natoMvpEvidenceIngest
+} from "./commands/nato_mvp_evidence.js";
+import { natoMvpCaseLinkEvidence, natoMvpRiskLinkEvidence } from "./commands/nato_mvp_link.js";
 
 const program = new Command();
 
@@ -233,6 +240,117 @@ program
   .option("--out <dir>", "Dossier store", "./deliverables")
   .action(async (opts) => {
     await natoMvpCaseGet({ outDir: opts.out, orgId: opts.org, caseId: opts.caseId });
+  });
+
+program
+  .command("nato:mvp-evidence-ingest")
+  .description("MVP: ingère une preuve dans le store local (copie + hash + chain-of-custody)")
+  .requiredOption("--in <file>", "Fichier preuve (path local)")
+  .requiredOption(
+    "--evidence-type <t>",
+    "logExport|configSnapshot|ticket|report|sbom|vex|attestation|signature|screenshot"
+  )
+  .requiredOption("--source <id>", "Source system")
+  .option("--evidence-id <id>", "EvidenceId (optionnel)")
+  .option("--collected-at <iso>", "CollectedAt ISO (optionnel)")
+  .option("--collector <id>", "CollectorId (optionnel)")
+  .option("--classification <c>", "public|internal|sensitive", "internal")
+  .option("--retention <r>", "short|standard|long|legal", "standard")
+  .option("--org <id>", "OrgId", "ORG")
+  .option("--actor <id>", "Actor", "user")
+  .option("--out <dir>", "Dossier store", "./deliverables")
+  .action(async (opts) => {
+    await natoMvpEvidenceIngest({
+      outDir: opts.out,
+      orgId: opts.org,
+      actor: opts.actor,
+      collectorId: opts.collector,
+      evidenceId: opts.evidenceId,
+      evidenceType: opts.evidenceType,
+      sourceSystem: opts.source,
+      collectedAt: opts.collectedAt,
+      classification: opts.classification,
+      retentionClass: opts.retention,
+      inFile: opts.in
+    });
+  });
+
+program
+  .command("nato:mvp-evidence-get")
+  .description("MVP: affiche une preuve (metadata) depuis le store")
+  .requiredOption("--evidence-id <id>", "EvidenceId")
+  .option("--org <id>", "OrgId", "ORG")
+  .option("--out <dir>", "Dossier store", "./deliverables")
+  .action(async (opts) => {
+    await natoMvpEvidenceGet({ outDir: opts.out, orgId: opts.org, evidenceId: opts.evidenceId });
+  });
+
+program
+  .command("nato:mvp-chain-append")
+  .description("MVP: ajoute un événement chain-of-custody (hash-chained) à une preuve")
+  .requiredOption("--evidence-id <id>", "EvidenceId")
+  .requiredOption("--action <a>", "collected|transferred|accessed|sealed|verified")
+  .option("--timestamp <iso>", "Timestamp ISO")
+  .option("--location <text>", "Location")
+  .option("--org <id>", "OrgId", "ORG")
+  .option("--actor <id>", "Actor", "user")
+  .option("--out <dir>", "Dossier store", "./deliverables")
+  .action(async (opts) => {
+    await natoMvpChainAppend({
+      outDir: opts.out,
+      orgId: opts.org,
+      actor: opts.actor,
+      evidenceId: opts.evidenceId,
+      action: opts.action,
+      timestamp: opts.timestamp,
+      location: opts.location
+    });
+  });
+
+program
+  .command("nato:mvp-chain-list")
+  .description("MVP: liste les événements chain-of-custody pour une preuve")
+  .requiredOption("--evidence-id <id>", "EvidenceId")
+  .option("--org <id>", "OrgId", "ORG")
+  .option("--out <dir>", "Dossier store", "./deliverables")
+  .action(async (opts) => {
+    await natoMvpChainList({ outDir: opts.out, orgId: opts.org, evidenceId: opts.evidenceId });
+  });
+
+program
+  .command("nato:mvp-risk-link-evidence")
+  .description("MVP: associe une preuve existante à un Risk (risk.evidenceRefs += evidenceId)")
+  .requiredOption("--risk-id <id>", "RiskId")
+  .requiredOption("--evidence-id <id>", "EvidenceId")
+  .option("--org <id>", "OrgId", "ORG")
+  .option("--actor <id>", "Actor", "user")
+  .option("--out <dir>", "Dossier store", "./deliverables")
+  .action(async (opts) => {
+    await natoMvpRiskLinkEvidence({
+      outDir: opts.out,
+      orgId: opts.org,
+      actor: opts.actor,
+      riskId: opts.riskId,
+      evidenceId: opts.evidenceId
+    });
+  });
+
+program
+  .command("nato:mvp-case-link-evidence")
+  .description("MVP: associe une preuve existante à un Case (case.evidenceRefs += evidenceId)")
+  .requiredOption("--case-id <id>", "CaseId")
+  .requiredOption("--evidence-id <id>", "EvidenceId")
+  .option("--org <id>", "OrgId", "ORG")
+  .option("--actor <id>", "Actor", "user")
+  .option("--out <dir>", "Dossier store", "./deliverables")
+  .action(async (opts) => {
+    await natoMvpCaseLinkEvidence({
+      outDir: opts.out,
+      orgId: opts.org,
+      actor: opts.actor,
+      caseId: opts.caseId,
+      evidenceId: opts.evidenceId
+    });
   });
 
 program

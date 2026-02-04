@@ -17,6 +17,7 @@ export type Case = {
   version: number;
   createdAt: string;
   createdBy: string;
+  updatedAt?: string;
 
   orgId: string;
   caseId: string;

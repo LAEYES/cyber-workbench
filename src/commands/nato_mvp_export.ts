@@ -37,9 +37,22 @@ function safeBasename(p: string) {
   return path.basename(p).replace(/[^A-Za-z0-9._-]/g, "_");
 }
 
+export type NatoMvpExportInput =
+  | string
+  | {
+      path: string;
+      evidenceId: string;
+      evidenceType?: EvidenceType;
+      sourceSystem?: string;
+      collectedAt?: string;
+      collectorId?: string;
+      classification?: Classification;
+      retentionClass?: RetentionClass;
+    };
+
 export async function natoMvpExport(opts: {
   scopeRef: string;
-  inputs: string[];
+  inputs: NatoMvpExportInput[];
   outDir: string;
   orgId?: string;
   classification: Classification;
@@ -57,28 +70,48 @@ export async function natoMvpExport(opts: {
   const evidenceDir = path.join(bundleDir, "evidence");
   ensureDir(evidenceDir);
 
-  const evidenceItems = opts.inputs.map((inFile, idx) => {
+  const evidenceItems = opts.inputs.map((input, idx) => {
+    const inFile: string = typeof input === "string" ? input : input.path;
     const abs = path.resolve(inFile);
     if (!fs.existsSync(abs)) throw new Error(`input not found: ${inFile}`);
 
-    const evidenceId = `ev_${idx + 1}`;
+    const evidenceId = typeof input === "string" ? `ev_${idx + 1}` : input.evidenceId;
     const filename = safeBasename(abs);
-    const storageRef = `evidence/${evidenceId}_${filename}`;
+    const storageRef = `evidence/${safeBasename(evidenceId)}_${filename}`;
 
     const hash = sha256File(abs);
 
     // Copy blob into bundle
     fs.copyFileSync(abs, path.join(bundleDir, storageRef));
 
+    const evidenceType = typeof input === "string" ? opts.evidenceType : input.evidenceType || opts.evidenceType;
+    const sourceSystem = typeof input === "string" ? "mvp-local" : input.sourceSystem || "mvp-local";
+    const collectedAt = typeof input === "string" ? nowIso() : input.collectedAt || nowIso();
+    const collectorId = typeof input === "string" ? "mvp-local" : input.collectorId || "mvp-local";
+    const classification = typeof input === "string" ? opts.classification : input.classification || opts.classification;
+    const retentionClass =
+      typeof input === "string" ? opts.retentionClass : input.retentionClass || opts.retentionClass;
+
     return {
+      // EntityBase-compatible envelope (aligns with specs/nato-trinity Evidence)
+      id: `evidence_${crypto.randomUUID()}`,
+      type: "evidence" as const,
+      version: 1,
+      createdAt: nowIso(),
+      createdBy: "cyberwb nato:mvp-export",
+
       evidenceId,
-      evidenceType: opts.evidenceType,
-      sourceSystem: "mvp-local",
-      collectedAt: nowIso(),
+      evidenceType,
+      sourceSystem,
+      collectedAt,
+      collectorId,
+
       hash,
+      hashAlg: "sha256" as const,
       storageRef,
-      classification: opts.classification,
-      retentionClass: opts.retentionClass
+      classification,
+      retentionClass,
+      metadata: {}
     };
   });
 
