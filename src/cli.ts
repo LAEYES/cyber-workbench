@@ -22,6 +22,7 @@ import { natoMvpExport } from "./commands/nato_mvp_export.js";
 import { natoMvpVerifyBundle } from "./commands/nato_mvp_verify.js";
 import { natoMvpVerifyManifest } from "./commands/nato_mvp_verify_manifest.js";
 import { natoMvpGenerateSigningKey } from "./commands/nato_mvp_keys.js";
+import { natoMvpVerifyAnchor } from "./commands/nato_mvp_verify_anchor.js";
 import { natoMvpRiskCreate, natoMvpRiskGet } from "./commands/nato_mvp_risk.js";
 import { natoMvpDecisionCreate } from "./commands/nato_mvp_decision.js";
 import { natoMvpExportFromStore } from "./commands/nato_mvp_export_from_store.js";
@@ -114,6 +115,17 @@ program
   .option("--verify-key <pem>", "Chemin vers clé publique PEM (ed25519)")
   .action(async (opts) => {
     await natoMvpVerifyManifest({ bundleDir: opts.bundle, verifyKey: opts.verifyKey });
+  });
+
+program
+  .command("nato:mvp-verify-anchor")
+  .description("MVP: vérifie un audit anchor (anchorHash + signature optionnelle + drift vs store)")
+  .requiredOption("--anchor <file>", "Chemin vers audit-anchor_*.json")
+  .option("--verify-key <pem>", "Chemin vers clé publique PEM (ed25519)")
+  .option("--org <id>", "OrgId", "ORG")
+  .option("--out <dir>", "Dossier store", "./deliverables")
+  .action(async (opts) => {
+    await natoMvpVerifyAnchor({ outDir: opts.out, orgId: opts.org, anchorPath: opts.anchor, verifyKey: opts.verifyKey });
   });
 
 program
