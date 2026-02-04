@@ -321,6 +321,114 @@ public partial class Form1 : Form
         }
     }
 
+    private void OnEvidenceIngest()
+    {
+        try
+        {
+            Require(!string.IsNullOrWhiteSpace(txtActor.Text), "Actor is required");
+            Require(!string.IsNullOrWhiteSpace(txtEvidenceInFile.Text), "Evidence file is required");
+            Require(!string.IsNullOrWhiteSpace(txtEvidenceId.Text), "EvidenceId is required");
+
+            var (e, ae) = Store().IngestEvidence(
+                actor: txtActor.Text,
+                inFile: txtEvidenceInFile.Text.Trim(),
+                evidenceId: txtEvidenceId.Text.Trim(),
+                evidenceType: cmbEvidenceType.SelectedItem?.ToString() ?? "report",
+                sourceSystem: txtEvidenceSource.Text.Trim(),
+                classification: cmbEvidenceClassification.SelectedItem?.ToString() ?? "internal",
+                retentionClass: cmbEvidenceRetention.SelectedItem?.ToString() ?? "standard",
+                collectorId: string.IsNullOrWhiteSpace(txtEvidenceCollector.Text) ? null : txtEvidenceCollector.Text.Trim()
+            );
+
+            Log($"OK evidence ingested {e.EvidenceId} hash={e.Hash}");
+            Log($"OK auditEvent {ae.EventId} requestId={ae.RequestId}");
+        }
+        catch (Exception ex)
+        {
+            Log("ERROR " + ex.Message);
+        }
+    }
+
+    private void OnEvidenceLinkRisk()
+    {
+        try
+        {
+            Require(!string.IsNullOrWhiteSpace(txtActor.Text), "Actor is required");
+            Require(IsId(txtRiskId.Text, "R-"), "RiskId must start with R-");
+            Require(!string.IsNullOrWhiteSpace(txtEvidenceId.Text), "EvidenceId is required");
+
+            Store().LinkEvidenceToRisk(txtActor.Text, txtRiskId.Text.Trim(), txtEvidenceId.Text.Trim());
+            Log($"OK linked evidence {txtEvidenceId.Text.Trim()} to risk {txtRiskId.Text.Trim()}");
+        }
+        catch (Exception ex)
+        {
+            Log("ERROR " + ex.Message);
+        }
+    }
+
+    private void OnEvidenceLinkCase()
+    {
+        try
+        {
+            Require(!string.IsNullOrWhiteSpace(txtActor.Text), "Actor is required");
+            Require(IsId(txtCaseId.Text, "C-"), "CaseId must start with C-");
+            Require(!string.IsNullOrWhiteSpace(txtEvidenceId.Text), "EvidenceId is required");
+
+            Store().LinkEvidenceToCase(txtActor.Text, txtCaseId.Text.Trim(), txtEvidenceId.Text.Trim());
+            Log($"OK linked evidence {txtEvidenceId.Text.Trim()} to case {txtCaseId.Text.Trim()}");
+        }
+        catch (Exception ex)
+        {
+            Log("ERROR " + ex.Message);
+        }
+    }
+
+    private void OnEvidenceVerifyChain()
+    {
+        try
+        {
+            Require(!string.IsNullOrWhiteSpace(txtEvidenceId.Text), "EvidenceId is required");
+            var (ok, details, head) = Store().VerifyEvidenceChain(txtEvidenceId.Text.Trim());
+            Log($"{(ok ? "OK" : "FAIL")} evidence chain verify: {details} head={head}");
+            MarkVerified("evidence-chain", ok);
+        }
+        catch (Exception ex)
+        {
+            Log("ERROR " + ex.Message);
+        }
+    }
+
+    private void OnExportFromStore()
+    {
+        try
+        {
+            Require(!string.IsNullOrWhiteSpace(txtActor.Text), "Actor is required");
+            Require(!string.IsNullOrWhiteSpace(txtStoreExportScope.Text), "Scope is required");
+
+            var outDir = Path.GetFullPath(txtBaseDir.Text);
+            var sign = chkSign.Checked;
+            var priv = string.IsNullOrWhiteSpace(txtPrivKey.Text) ? null : txtPrivKey.Text.Trim();
+            var keyId = string.IsNullOrWhiteSpace(txtKeyId.Text) ? "ui" : txtKeyId.Text.Trim();
+
+            _lastBundleDir = Store().ExportBundleFromStore(
+                actor: txtActor.Text,
+                scopeRef: txtStoreExportScope.Text.Trim(),
+                outDir: outDir,
+                sign: sign,
+                privateKeyPath: priv,
+                keyId: keyId,
+                log: Log
+            );
+
+            txtVerifyBundle.Text = _lastBundleDir;
+            tabsMain.SelectedTab = tabVerifyPage;
+        }
+        catch (Exception ex)
+        {
+            Log("ERROR " + ex.Message);
+        }
+    }
+
     private void OnRiskCreate()
     {
         try

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace NatoTrinityMvp;
@@ -79,6 +80,50 @@ public sealed record MvpCase(
   // Local convenience field (not in OpenAPI/JSON schema)
   [property: JsonPropertyName("updatedBy")] string UpdatedBy = ""
 );
+
+public sealed record MvpEvidence(
+  [property: JsonPropertyName("id")] string Id = "",
+  [property: JsonPropertyName("type")] string Type = "evidence",
+  [property: JsonPropertyName("version")] int Version = 1,
+  [property: JsonPropertyName("createdAt")] string CreatedAt = "",
+  [property: JsonPropertyName("createdBy")] string CreatedBy = "",
+  [property: JsonPropertyName("updatedAt")] string UpdatedAt = "",
+
+  [property: JsonPropertyName("orgId")] string OrgId = "",
+
+  [property: JsonPropertyName("evidenceId")] string EvidenceId = "",
+  [property: JsonPropertyName("evidenceType")] string EvidenceType = "report",
+  [property: JsonPropertyName("sourceSystem")] string SourceSystem = "winforms-mvp",
+  [property: JsonPropertyName("collectedAt")] string CollectedAt = "",
+  [property: JsonPropertyName("collectorId")] string CollectorId = "",
+
+  [property: JsonPropertyName("hash")] string Hash = "",
+  [property: JsonPropertyName("hashAlg")] string HashAlg = "sha256",
+  [property: JsonPropertyName("storageRef")] string StorageRef = "",
+
+  [property: JsonPropertyName("retentionClass")] string RetentionClass = "standard",
+  [property: JsonPropertyName("classification")] string Classification = "internal",
+  [property: JsonPropertyName("metadata")] Dictionary<string, object?>? Metadata = null
+);
+
+public sealed record MvpChainOfCustodyEventBase(
+  string Id,
+  string Type,
+  int Version,
+  string CreatedAt,
+  string CreatedBy,
+  string EventId,
+  string EvidenceId,
+  string Action,
+  string Actor,
+  string Timestamp,
+  string PrevHash,
+  string HashAlg,
+  string? Location,
+  Dictionary<string, object?>? Details
+);
+
+public sealed record MvpChainOfCustodyEvent(MvpChainOfCustodyEventBase Base, string EventHash);
 
 public sealed record MvpAuditEvent(
   [property: JsonPropertyName("eventId")] string EventId,

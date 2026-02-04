@@ -7,6 +7,17 @@ namespace NatoTrinityMvp;
 
 public static class MvpBundle
 {
+    public sealed record EvidenceInput(
+        string Path,
+        string? EvidenceId = null,
+        string? EvidenceType = null,
+        string? SourceSystem = null,
+        string? CollectedAt = null,
+        string? CollectorId = null,
+        string? Classification = null,
+        string? RetentionClass = null
+    );
+
     private static readonly JsonSerializerOptions JsonOpts = new() { WriteIndented = true };
 
     public static string ExportEvidencePackage(
@@ -20,40 +31,88 @@ public static class MvpBundle
         Action<string> log
     )
     {
+        var inputs = inputFiles.Select(p => new EvidenceInput(Path: p));
+        return ExportEvidencePackageV2(outDir, scopeRef, orgId, inputs, sign, privateKeyPath, keyId, log);
+    }
+
+    public static string ExportEvidencePackageV2(
+        string outDir,
+        string scopeRef,
+        string orgId,
+        IEnumerable<EvidenceInput> inputs,
+        bool sign,
+        string? privateKeyPath,
+        string keyId,
+        Action<string> log
+    )
+    {
         if (string.IsNullOrWhiteSpace(scopeRef)) throw new ArgumentException("scopeRef required");
 
         var bundleDir = Path.Combine(Path.GetFullPath(outDir), "nato-mvp", Sanitize(scopeRef));
         var evidenceDir = Path.Combine(bundleDir, "evidence");
         Directory.CreateDirectory(evidenceDir);
 
-        var inputs = inputFiles.ToList();
-        if (inputs.Count == 0) throw new InvalidOperationException("No evidence input files");
+        var inputList = inputs.ToList();
+        if (inputList.Count == 0) throw new InvalidOperationException("No evidence input files");
 
-        var items = new List<Dictionary<string, object?>>();
+        var evidenceEntities = new List<Dictionary<string, object?>>();
+        var manifestItems = new List<Dictionary<string, object?>>();
 
         var idx = 0;
-        foreach (var inFile in inputs)
+        foreach (var input in inputList)
         {
             idx++;
-            var abs = Path.GetFullPath(inFile);
+            var abs = Path.GetFullPath(input.Path);
             if (!File.Exists(abs)) throw new FileNotFoundException(abs);
 
-            var evidenceId = $"ev_{idx}";
+            var evidenceId = string.IsNullOrWhiteSpace(input.EvidenceId) ? $"ev_{idx}" : input.EvidenceId!;
             var filename = Path.GetFileName(abs);
-            var storageRef = $"evidence/{evidenceId}_{filename}";
+            var storageRef = $"evidence/{Sanitize(evidenceId)}_{filename}";
             var targetPath = Path.Combine(bundleDir, storageRef);
             Directory.CreateDirectory(Path.GetDirectoryName(targetPath)!);
             File.Copy(abs, targetPath, overwrite: true);
 
             var hash = MvpStore.Sha256File(targetPath);
-            items.Add(new()
+
+            var evidenceType = string.IsNullOrWhiteSpace(input.EvidenceType) ? "report" : input.EvidenceType!;
+            var sourceSystem = string.IsNullOrWhiteSpace(input.SourceSystem) ? "winforms-mvp" : input.SourceSystem!;
+            var collectedAt = string.IsNullOrWhiteSpace(input.CollectedAt) ? DateTime.UtcNow.ToString("O") : input.CollectedAt!;
+            var collectorId = string.IsNullOrWhiteSpace(input.CollectorId) ? "winforms-mvp" : input.CollectorId!;
+            var classification = string.IsNullOrWhiteSpace(input.Classification) ? "internal" : input.Classification!;
+            var retentionClass = string.IsNullOrWhiteSpace(input.RetentionClass) ? "standard" : input.RetentionClass!;
+
+            // Evidence entity (schema-shaped; aligns with CLI)
+            evidenceEntities.Add(new()
+            {
+                ["id"] = $"evidence_{Guid.NewGuid():D}",
+                ["type"] = "evidence",
+                ["version"] = 1,
+                ["createdAt"] = DateTime.UtcNow.ToString("O"),
+                ["createdBy"] = "winforms-mvp",
+
+                ["evidenceId"] = evidenceId,
+                ["evidenceType"] = evidenceType,
+                ["sourceSystem"] = sourceSystem,
+                ["collectedAt"] = collectedAt,
+                ["collectorId"] = collectorId,
+
+                ["hash"] = hash,
+                ["hashAlg"] = "sha256",
+                ["storageRef"] = storageRef,
+
+                ["classification"] = classification,
+                ["retentionClass"] = retentionClass,
+                ["metadata"] = new Dictionary<string, object?>()
+            });
+
+            manifestItems.Add(new()
             {
                 ["evidenceId"] = evidenceId,
                 ["hash"] = hash,
                 ["storageRef"] = storageRef,
-                ["evidenceType"] = "report",
-                ["sourceSystem"] = "winforms-mvp",
-                ["collectedAt"] = DateTime.UtcNow.ToString("O")
+                ["evidenceType"] = evidenceType,
+                ["sourceSystem"] = sourceSystem,
+                ["collectedAt"] = collectedAt
             });
         }
 
@@ -65,7 +124,7 @@ public static class MvpBundle
             ["generatedAt"] = DateTime.UtcNow.ToString("O"),
             ["generatedBy"] = "WinForms NATO MVP",
             ["hashAlg"] = "sha256",
-            ["items"] = items
+            ["items"] = manifestItems
         };
 
         if (sign)
@@ -93,10 +152,18 @@ public static class MvpBundle
 
         var evidencePackage = new Dictionary<string, object?>
         {
+            ["id"] = $"evidencePackage_{Guid.NewGuid():D}",
+            ["type"] = "evidencePackage",
+            ["version"] = 1,
+            ["createdAt"] = DateTime.UtcNow.ToString("O"),
+            ["createdBy"] = "winforms-mvp",
+
             ["packageId"] = packageId,
             ["scopeRef"] = scopeRef,
-            ["evidenceRefs"] = items.Select(i => (string)i["evidenceId"]!).ToArray(),
+            ["evidenceRefs"] = evidenceEntities.Select(i => (string)i["evidenceId"]!).ToArray(),
             ["manifestHash"] = manifestHash,
+            ["manifestAlg"] = "sha256",
+            ["classification"] = "internal",
             ["exportedAt"] = DateTime.UtcNow.ToString("O"),
             ["exportedBy"] = "winforms-mvp",
             ["bundleRef"] = bundleDir,
@@ -104,6 +171,7 @@ public static class MvpBundle
         };
 
         File.WriteAllText(Path.Combine(bundleDir, "evidence-package.json"), JsonSerializer.Serialize(evidencePackage, JsonOpts) + "\n", Encoding.UTF8);
+        File.WriteAllText(Path.Combine(bundleDir, "evidence.json"), JsonSerializer.Serialize(evidenceEntities, JsonOpts) + "\n", Encoding.UTF8);
 
         File.WriteAllText(Path.Combine(bundleDir, "README.txt"),
             $"NATO MVP bundle\n\nscopeRef: {scopeRef}\npackageId: {packageId}\n\nVerify: use cyberwb nato:mvp-verify-* or compute sha256 per manifest.json\n",

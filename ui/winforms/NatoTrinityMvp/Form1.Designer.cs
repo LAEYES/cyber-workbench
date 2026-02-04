@@ -32,6 +32,16 @@ partial class Form1
     private ComboBox cmbCaseStatus = null!;
     private TextBox txtCaseOwner = null!;
 
+    // Evidence (store)
+    private TextBox txtEvidenceInFile = null!;
+    private TextBox txtEvidenceId = null!;
+    private ComboBox cmbEvidenceType = null!;
+    private TextBox txtEvidenceSource = null!;
+    private TextBox txtEvidenceCollector = null!;
+    private ComboBox cmbEvidenceClassification = null!;
+    private ComboBox cmbEvidenceRetention = null!;
+    private TextBox txtStoreExportScope = null!;
+
     private TextBox txtScopeRef = null!;
     private TextBox txtEvidenceFiles = null!;
     private CheckBox chkSign = null!;
@@ -591,11 +601,121 @@ partial class Form1
         caseLayout.Controls.Add(caseFields, 0, 1);
         grpCase.Controls.Add(caseLayout);
 
+        // Evidence (store)
+        var grpEvidence = MakeGroup("Evidence (store)");
+        var evidenceLayout = new TableLayoutPanel { Dock = DockStyle.Top, AutoSize = true, ColumnCount = 1 };
+
+        var evidencePickRow = new TableLayoutPanel { Dock = DockStyle.Top, AutoSize = true, ColumnCount = 3 };
+        evidencePickRow.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        evidencePickRow.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+        evidencePickRow.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+
+        txtEvidenceInFile = MakeTextBox("");
+        var btnPickEvidenceIn = new Button { Text = "Browse" };
+        StyleSecondary(btnPickEvidenceIn);
+        btnPickEvidenceIn.Click += (_, _) => OnPickFile(txtEvidenceInFile);
+
+        evidencePickRow.Controls.Add(MakeLabel("File"), 0, 0);
+        evidencePickRow.Controls.Add(txtEvidenceInFile, 1, 0);
+        evidencePickRow.Controls.Add(btnPickEvidenceIn, 2, 0);
+
+        var evidenceFields = new TableLayoutPanel { Dock = DockStyle.Top, AutoSize = true, ColumnCount = 6 };
+        evidenceFields.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        evidenceFields.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 34));
+        evidenceFields.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        evidenceFields.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33));
+        evidenceFields.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        evidenceFields.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33));
+
+        txtEvidenceId = MakeTextBox("EV-1");
+        cmbEvidenceType = new ComboBox { DropDownStyle = ComboBoxStyle.DropDownList };
+        cmbEvidenceType.Items.AddRange(new object[] { "logExport", "configSnapshot", "ticket", "report", "sbom", "vex", "attestation", "signature", "screenshot" });
+        cmbEvidenceType.SelectedIndex = 3;
+        StyleCombo(cmbEvidenceType);
+
+        txtEvidenceSource = MakeTextBox("mvp-local");
+        txtEvidenceCollector = MakeTextBox("");
+
+        cmbEvidenceClassification = new ComboBox { DropDownStyle = ComboBoxStyle.DropDownList };
+        cmbEvidenceClassification.Items.AddRange(new object[] { "public", "internal", "sensitive" });
+        cmbEvidenceClassification.SelectedIndex = 1;
+        StyleCombo(cmbEvidenceClassification);
+
+        cmbEvidenceRetention = new ComboBox { DropDownStyle = ComboBoxStyle.DropDownList };
+        cmbEvidenceRetention.Items.AddRange(new object[] { "short", "standard", "long", "legal" });
+        cmbEvidenceRetention.SelectedIndex = 1;
+        StyleCombo(cmbEvidenceRetention);
+
+        evidenceFields.Controls.Add(MakeLabel("EvidenceId"), 0, 0);
+        evidenceFields.Controls.Add(txtEvidenceId, 1, 0);
+        evidenceFields.Controls.Add(MakeLabel("Type"), 2, 0);
+        evidenceFields.Controls.Add(cmbEvidenceType, 3, 0);
+        evidenceFields.Controls.Add(MakeLabel("Source"), 4, 0);
+        evidenceFields.Controls.Add(txtEvidenceSource, 5, 0);
+
+        evidenceFields.Controls.Add(MakeLabel("Collector"), 0, 1);
+        evidenceFields.Controls.Add(txtEvidenceCollector, 1, 1);
+        evidenceFields.Controls.Add(MakeLabel("Classif"), 2, 1);
+        evidenceFields.Controls.Add(cmbEvidenceClassification, 3, 1);
+        evidenceFields.Controls.Add(MakeLabel("Retention"), 4, 1);
+        evidenceFields.Controls.Add(cmbEvidenceRetention, 5, 1);
+
+        var evidenceActions = new FlowLayoutPanel
+        {
+            Dock = DockStyle.Top,
+            AutoSize = true,
+            FlowDirection = FlowDirection.LeftToRight,
+            WrapContents = true,
+            Margin = new Padding(0, 8, 0, 0)
+        };
+
+        var btnEvidenceIngest = new Button { Text = "Ingest" };
+        StylePrimary(btnEvidenceIngest);
+        btnEvidenceIngest.Click += (_, _) => OnEvidenceIngest();
+
+        var btnEvidenceVerify = new Button { Text = "Verify chain" };
+        StyleSecondary(btnEvidenceVerify);
+        btnEvidenceVerify.Click += (_, _) => OnEvidenceVerifyChain();
+
+        var btnLinkRisk = new Button { Text = "Link to Risk" };
+        StyleSecondary(btnLinkRisk);
+        btnLinkRisk.Click += (_, _) => OnEvidenceLinkRisk();
+
+        var btnLinkCase = new Button { Text = "Link to Case" };
+        StyleSecondary(btnLinkCase);
+        btnLinkCase.Click += (_, _) => OnEvidenceLinkCase();
+
+        evidenceActions.Controls.Add(btnEvidenceIngest);
+        evidenceActions.Controls.Add(btnEvidenceVerify);
+        evidenceActions.Controls.Add(btnLinkRisk);
+        evidenceActions.Controls.Add(btnLinkCase);
+
+        var exportStoreRow = new TableLayoutPanel { Dock = DockStyle.Top, AutoSize = true, ColumnCount = 3, Margin = new Padding(0, 8, 0, 0) };
+        exportStoreRow.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+        exportStoreRow.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+        exportStoreRow.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+
+        txtStoreExportScope = MakeTextBox("risk:R-TEST");
+        var btnExportFromStore = new Button { Text = "Export from store" };
+        StylePrimary(btnExportFromStore);
+        btnExportFromStore.Click += (_, _) => OnExportFromStore();
+
+        exportStoreRow.Controls.Add(MakeLabel("Scope"), 0, 0);
+        exportStoreRow.Controls.Add(txtStoreExportScope, 1, 0);
+        exportStoreRow.Controls.Add(btnExportFromStore, 2, 0);
+
+        evidenceLayout.Controls.Add(evidencePickRow);
+        evidenceLayout.Controls.Add(evidenceFields);
+        evidenceLayout.Controls.Add(evidenceActions);
+        evidenceLayout.Controls.Add(exportStoreRow);
+        grpEvidence.Controls.Add(evidenceLayout);
+
         storeLayout.Controls.Add(grpLast, 0, 0);
         storeLayout.Controls.Add(grpHeads, 0, 1);
         storeLayout.Controls.Add(grpRisk, 0, 2);
         storeLayout.Controls.Add(grpDecision, 0, 3);
         storeLayout.Controls.Add(grpCase, 0, 4);
+        storeLayout.Controls.Add(grpEvidence, 0, 5);
         tabStore.Controls.Add(storeLayout);
 
         var bundleLayout = new TableLayoutPanel
