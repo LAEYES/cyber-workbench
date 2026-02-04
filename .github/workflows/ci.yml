@@ -33,3 +33,4 @@ jobs:
       - run: dotnet --version
       - run: dotnet restore ui/winforms/NatoTrinityMvp/NatoTrinityMvp.csproj
       - run: dotnet build ui/winforms/NatoTrinityMvp/NatoTrinityMvp.csproj -c Release
+      - run: dotnet test ui/winforms/NatoTrinityMvp.Tests/NatoTrinityMvp.Tests.csproj -c Release
