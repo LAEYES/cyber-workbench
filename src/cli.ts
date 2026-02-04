@@ -30,6 +30,7 @@ import { natoMvpDecisionCreate } from "./commands/nato_mvp_decision.js";
 import { natoMvpExportFromStore } from "./commands/nato_mvp_export_from_store.js";
 import { natoMvpExportFromRequestId } from "./commands/nato_mvp_export_from_requestid.js";
 import { natoMvpCaseCreate, natoMvpCaseGet } from "./commands/nato_mvp_case.js";
+import { natoMvpCaseLinkRisk } from "./commands/nato_mvp_case_link_risk.js";
 import {
   natoMvpChainAppend,
   natoMvpChainList,
@@ -241,6 +242,18 @@ program
   .option("--out <dir>", "Dossier store", "./deliverables")
   .action(async (opts) => {
     await natoMvpCaseGet({ outDir: opts.out, orgId: opts.org, caseId: opts.caseId });
+  });
+
+program
+  .command("nato:mvp-case-link-risk")
+  .description("MVP: associe un Risk à un Case (case.riskRefs += riskId)")
+  .requiredOption("--case-id <id>", "CaseId")
+  .requiredOption("--risk-id <id>", "RiskId")
+  .option("--org <id>", "OrgId", "ORG")
+  .option("--actor <id>", "Actor", "user")
+  .option("--out <dir>", "Dossier store", "./deliverables")
+  .action(async (opts) => {
+    await natoMvpCaseLinkRisk({ outDir: opts.out, orgId: opts.org, actor: opts.actor, caseId: opts.caseId, riskId: opts.riskId });
   });
 
 program
