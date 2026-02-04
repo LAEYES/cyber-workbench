@@ -3,6 +3,17 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 
 const root = process.cwd();
+const releasesRoot = path.resolve(root, 'releases');
+
+function ensureWithin(base, target, label) {
+  const b = path.resolve(base);
+  const t = path.resolve(target);
+  const prefix = b.endsWith(path.sep) ? b : b + path.sep;
+  if (t !== b && !t.startsWith(prefix)) {
+    throw new Error(`${label || 'path'} must be within ${b}: ${t}`);
+  }
+  return t;
+}
 
 function sha256File(p) {
   const buf = fs.readFileSync(p);
@@ -12,25 +23,33 @@ function sha256File(p) {
 function main() {
   const args = process.argv.slice(2);
   const dirIdx = args.indexOf('--dir');
-  const releaseDir = dirIdx >= 0 && args[dirIdx + 1] ? path.resolve(root, args[dirIdx + 1]) : null;
+  const rawDir = dirIdx >= 0 && args[dirIdx + 1] ? String(args[dirIdx + 1]) : null;
+  const releaseDir = rawDir ? path.resolve(root, rawDir) : null;
   if (!releaseDir) {
     console.error('USAGE: node scripts/release-verify.mjs --dir <releases/release-...>');
     process.exit(2);
   }
 
   let dir = releaseDir;
+
+  // Hard safety: only allow verifying releases under ./releases/
+  // (prevents reading arbitrary directories when --dir is attacker-controlled)
+  ensureWithin(releasesRoot, dir.replace(/\*.*$/, ''), '--dir');
+
   if (String(dir).includes('*')) {
-    const parent = path.dirname(dir);
+    const parent = ensureWithin(releasesRoot, path.dirname(dir), '--dir parent');
     const pattern = path.basename(dir).replace(/\./g, '\\.').replace(/\*/g, '.*');
     const re = new RegExp(`^${pattern}$`);
     const matches = fs
       .readdirSync(parent, { withFileTypes: true })
       .filter((e) => e.isDirectory() && re.test(e.name))
-      .map((e) => path.join(parent, e.name));
+      .map((e) => ensureWithin(releasesRoot, path.join(parent, e.name), 'release dir match'));
     if (matches.length === 0) throw new Error(`No release dirs match: ${dir}`);
     matches.sort((a, b) => fs.statSync(b).mtimeMs - fs.statSync(a).mtimeMs);
     dir = matches[0];
   }
+
+  dir = ensureWithin(releasesRoot, dir, '--dir resolved');
 
   const mfPath = path.join(dir, 'release-manifest.json');
   if (!fs.existsSync(mfPath)) throw new Error(`release-manifest.json not found in ${dir}`);
@@ -43,7 +62,7 @@ function main() {
   // Verify hashed inputs still match working tree
   const hashes = mf.inputs?.hashes || {};
   for (const rel of Object.keys(hashes)) {
-    const abs = path.join(root, rel);
+    const abs = ensureWithin(root, path.join(root, rel), `input path ${rel}`);
     if (!fs.existsSync(abs)) {
       console.error('MISSING_INPUT', rel);
       ok = false;
@@ -59,7 +78,7 @@ function main() {
   // Verify embedded catalog snapshot hash
   const cr = mf.inputs?.catalogRelease;
   if (cr?.path) {
-    const abs = path.join(dir, cr.path);
+    const abs = ensureWithin(dir, path.join(dir, cr.path), `release file ${cr.path}`);
     if (!fs.existsSync(abs)) {
       console.error('MISSING_RELEASE_FILE', cr.path);
       ok = false;
