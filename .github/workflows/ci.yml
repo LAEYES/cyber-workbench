@@ -20,4 +20,16 @@ jobs:
       - run: npm run sources:validate
       - run: npx tsx src/cli.ts catalog:validate --root ./catalog
       - run: npm run nato:validate
-      - run: npm run catalog:release
+      - run: node scripts/catalog-release.mjs --out ./catalog-release-ci.json
+      - run: node scripts/catalog-release-validate.mjs --file ./catalog-release-ci.json
+
+  winforms:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - run: dotnet --version
+      - run: dotnet restore ui/winforms/NatoTrinityMvp/NatoTrinityMvp.csproj
+      - run: dotnet build ui/winforms/NatoTrinityMvp/NatoTrinityMvp.csproj -c Release

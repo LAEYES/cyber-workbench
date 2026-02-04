@@ -34,13 +34,20 @@ function nowStamp() {
   return `${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}_${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}${pad(d.getUTCSeconds())}Z`;
 }
 
+function parseOutPath() {
+  const args = process.argv.slice(2);
+  const idx = args.indexOf('--out');
+  if (idx >= 0 && args[idx + 1]) return path.resolve(root, args[idx + 1]);
+  return null;
+}
+
 function main() {
   const catalogRoot = path.join(root, 'catalog');
   const releasesDir = path.join(catalogRoot, 'RELEASES');
   fs.mkdirSync(releasesDir, { recursive: true });
 
   const stamp = nowStamp();
-  const outPath = path.join(releasesDir, `catalog-release-${stamp}.json`);
+  const outPath = parseOutPath() || path.join(releasesDir, `catalog-release-${stamp}.json`);
 
   const commit = tryCmd('git rev-parse HEAD');
   const branch = tryCmd('git rev-parse --abbrev-ref HEAD');
