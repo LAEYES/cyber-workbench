@@ -118,7 +118,10 @@ public static class MvpBundle
         Directory.CreateDirectory(outDir);
 
         var algorithm = SignatureAlgorithm.Ed25519;
-        using var key = new Key(algorithm);
+        using var key = new Key(algorithm, new KeyCreationParameters
+        {
+            ExportPolicy = KeyExportPolicies.AllowPlaintextExport
+        });
         var pub = key.Export(KeyBlobFormat.RawPublicKey);
         var priv = key.Export(KeyBlobFormat.RawPrivateKey);
 

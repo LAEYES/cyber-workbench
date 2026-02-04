@@ -159,6 +159,11 @@ public sealed partial class MvpStore
     {
         EnsureDir(RootDir);
 
+        var outPath = Path.Combine(RootDir, $"audit-anchor_{DateTime.UtcNow:yyyyMMdd_HHmmss}.json");
+
+        // Emit audit *before* hashing auditEvents.jsonl so anchor hash includes its own export event.
+        EmitAudit(actor, "human", "store.exportAuditAnchor", $"anchor:{Path.GetFileName(outPath)}", "success");
+
         var (riskHead, caseHead) = GetEventHeadHashes();
         var auditEventsPath = Path.Combine(RootDir, "auditEvents.jsonl");
         var auditEventsHash = File.Exists(auditEventsPath) ? Sha256File(auditEventsPath) : "MISSING";
@@ -194,10 +199,7 @@ public sealed partial class MvpStore
             };
         }
 
-        var outPath = Path.Combine(RootDir, $"audit-anchor_{DateTime.UtcNow:yyyyMMdd_HHmmss}.json");
         File.WriteAllText(outPath, anchor.ToJsonString(new JsonSerializerOptions { WriteIndented = true }) + "\n", Encoding.UTF8);
-
-        EmitAudit(actor, "human", "store.exportAuditAnchor", $"anchor:{Path.GetFileName(outPath)}", "success");
         return outPath;
     }
 
