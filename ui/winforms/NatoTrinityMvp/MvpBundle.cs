@@ -71,7 +71,7 @@ public static class MvpBundle
         if (sign)
         {
             if (string.IsNullOrWhiteSpace(privateKeyPath)) throw new InvalidOperationException("privateKeyPath required for signing");
-            var privBytes = Convert.FromBase64String(File.ReadAllText(privateKeyPath, Encoding.UTF8));
+            var privBytes = Ed25519Pem.ReadPrivateKeyBytes(privateKeyPath);
             var algorithm = SignatureAlgorithm.Ed25519;
             using var key = Key.Import(algorithm, privBytes, KeyBlobFormat.RawPrivateKey);
 
@@ -122,11 +122,11 @@ public static class MvpBundle
         var pub = key.Export(KeyBlobFormat.RawPublicKey);
         var priv = key.Export(KeyBlobFormat.RawPrivateKey);
 
-        var pubPath = Path.Combine(outDir, $"{name}.public.b64");
-        var privPath = Path.Combine(outDir, $"{name}.private.b64");
+        var pubPath = Path.Combine(outDir, $"{name}.public.pem");
+        var privPath = Path.Combine(outDir, $"{name}.private.pem");
 
-        File.WriteAllText(pubPath, Convert.ToBase64String(pub), Encoding.UTF8);
-        File.WriteAllText(privPath, Convert.ToBase64String(priv), Encoding.UTF8);
+        Ed25519Pem.WritePublicKeyPem(pubPath, pub);
+        Ed25519Pem.WritePrivateKeyPem(privPath, priv);
 
         log($"OK public: {pubPath}");
         log($"OK private: {privPath} (DO NOT COMMIT)");
@@ -171,7 +171,7 @@ public static class MvpBundle
         manifestObj.Remove("signature");
         var payloadJson = JsonSerializer.Serialize(manifestObj);
 
-        var pubBytes = Convert.FromBase64String(File.ReadAllText(publicKeyPath, Encoding.UTF8));
+        var pubBytes = Ed25519Pem.ReadPublicKeyBytes(publicKeyPath);
         var algorithm = SignatureAlgorithm.Ed25519;
         var pk = PublicKey.Import(algorithm, pubBytes, KeyBlobFormat.RawPublicKey);
         var ok = algorithm.Verify(pk, Encoding.UTF8.GetBytes(payloadJson), Convert.FromBase64String(value!));

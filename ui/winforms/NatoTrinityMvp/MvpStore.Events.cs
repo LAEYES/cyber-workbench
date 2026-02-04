@@ -181,7 +181,7 @@ public sealed partial class MvpStore
 
         if (!string.IsNullOrWhiteSpace(privateKeyPath))
         {
-            var privBytes = Convert.FromBase64String(File.ReadAllText(privateKeyPath, Encoding.UTF8));
+            var privBytes = Ed25519Pem.ReadPrivateKeyBytes(privateKeyPath);
             var algorithm = SignatureAlgorithm.Ed25519;
             using var key = Key.Import(algorithm, privBytes, KeyBlobFormat.RawPrivateKey);
 
@@ -235,7 +235,7 @@ public sealed partial class MvpStore
             if (!string.Equals(alg, "ed25519", StringComparison.OrdinalIgnoreCase))
                 return (false, $"UNSUPPORTED_ALG {alg}");
 
-            var pubBytes = Convert.FromBase64String(File.ReadAllText(publicKeyPath, Encoding.UTF8));
+            var pubBytes = Ed25519Pem.ReadPublicKeyBytes(publicKeyPath);
             var algorithm = SignatureAlgorithm.Ed25519;
             var pk = PublicKey.Import(algorithm, pubBytes, KeyBlobFormat.RawPublicKey);
             var okSig = algorithm.Verify(pk, Encoding.UTF8.GetBytes(canonical), Convert.FromBase64String(val ?? ""));
