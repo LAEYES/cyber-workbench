@@ -17,7 +17,7 @@ public sealed partial class MvpStore
         var db = ReadDb<MvpRisk>(RisksPath);
         if (!db.TryGetValue(riskId, out var r)) throw new InvalidOperationException($"Risk not found: {riskId}");
 
-        var updated = r with { Status = newStatus, UpdatedAt = NowIso(), UpdatedBy = actor };
+        var updated = r with { Status = newStatus, UpdatedAt = NowIso(), UpdatedBy = actor, Version = Math.Max(1, r.Version) + 1 };
         db[riskId] = updated;
         WriteDb(RisksPath, db);
         AppendRiskSnapshotEvent(actor, "risk.updateStatus", updated);

@@ -82,6 +82,13 @@ public sealed partial class MvpStore
 
         var now = NowIso();
         var r = new MvpRisk(
+            Id: $"risk_{Guid.NewGuid():D}",
+            Type: "risk",
+            Version: 1,
+            CreatedAt: now,
+            CreatedBy: actor,
+            UpdatedAt: now,
+            OrgId: OrgId,
             RiskId: riskId,
             Title: title,
             Owner: owner,
@@ -90,9 +97,6 @@ public sealed partial class MvpStore
             Score: likelihood * impact,
             Status: status,
             DueDate: dueDate,
-            CreatedAt: now,
-            CreatedBy: actor,
-            UpdatedAt: now,
             UpdatedBy: actor
         );
 
@@ -124,15 +128,19 @@ public sealed partial class MvpStore
 
         var now = NowIso();
         var d = new MvpDecision(
+            Id: $"decision_{Guid.NewGuid():D}",
+            Type: "decision",
+            Version: 1,
+            CreatedAt: now,
+            CreatedBy: actor,
+            OrgId: OrgId,
             DecisionId: decisionId,
             RiskId: riskId,
             DecisionType: decisionType,
             Rationale: rationale,
             ApprovedBy: approvedBy,
             ApprovedAt: now,
-            ExpiryDate: expiryDate,
-            CreatedAt: now,
-            CreatedBy: actor
+            ExpiryDate: expiryDate
         );
 
         db[decisionId] = d;
@@ -156,14 +164,18 @@ public sealed partial class MvpStore
 
         var now = NowIso();
         var c = new MvpCase(
-            CaseId: caseId,
-            RiskId: riskId,
-            Severity: severity,
-            Status: status,
-            Owner: owner,
+            Id: $"case_{Guid.NewGuid():D}",
+            Type: "case",
+            Version: 1,
             CreatedAt: now,
             CreatedBy: actor,
             UpdatedAt: now,
+            OrgId: OrgId,
+            CaseId: caseId,
+            Severity: severity,
+            Status: status,
+            Owner: owner,
+            RiskRefs: new[] { riskId },
             UpdatedBy: actor
         );
 
