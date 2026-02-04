@@ -5,7 +5,7 @@ import type { Decision } from "./nato_mvp_decision.js";
 import type { Case } from "./nato_mvp_case.js";
 import type { Evidence } from "./nato_mvp_evidence.js";
 import { readJson, storeRoot } from "./nato_mvp_store.js";
-import { natoMvpExport } from "./nato_mvp_export.js";
+import { natoMvpExport, type NatoMvpExportInput } from "./nato_mvp_export.js";
 import { natoMvpChainAppend } from "./nato_mvp_evidence.js";
 
 function safeBasename(p: string) {
@@ -16,15 +16,25 @@ function resolveEvidenceInputFiles(
   storeRootAbs: string,
   evidences: Record<string, Evidence>,
   evidenceRefs: string[]
-): string[] {
-  const inputs: string[] = [];
+): NatoMvpExportInput[] {
+  const inputs: NatoMvpExportInput[] = [];
   for (const ref of evidenceRefs || []) {
     const e = evidences[ref];
     if (!e) throw new Error(`Evidence ref not found in store: ${ref}`);
     const abs = path.join(storeRootAbs, e.storageRef);
     if (!fs.existsSync(abs)) throw new Error(`Evidence blob not found on disk: ${abs}`);
 
-    inputs.push(abs);
+    // Preserve the original evidenceId (so export doesn't renumber it).
+    inputs.push({
+      path: abs,
+      evidenceId: e.evidenceId,
+      evidenceType: e.evidenceType,
+      sourceSystem: e.sourceSystem,
+      collectedAt: e.collectedAt,
+      collectorId: e.collectorId,
+      classification: e.classification,
+      retentionClass: e.retentionClass
+    });
   }
   return inputs;
 }
@@ -95,10 +105,15 @@ export async function natoMvpExportFromStore(opts: {
       metaFiles.push(risksMetaPath);
     }
 
-    // Include evidenceRefs from case (plus linked risks/decisions if present)
     const riskIds = c.riskRefs || [];
     const relatedDecisions = Object.values(decisions).filter((d) => riskIds.includes(d.riskId));
+    if (relatedDecisions.length) {
+      const decisionsMetaPath = path.join(tmpDir, `decisions_for_case_${safeBasename(caseId)}.json`);
+      fs.writeFileSync(decisionsMetaPath, JSON.stringify(relatedDecisions, null, 2) + "\n", "utf8");
+      metaFiles.push(decisionsMetaPath);
+    }
 
+    // Include evidenceRefs from case (plus linked risks/decisions if present)
     scopeEvidenceRefs = Array.from(
       new Set([
         ...(c.evidenceRefs || []),
@@ -112,7 +127,7 @@ export async function natoMvpExportFromStore(opts: {
     throw new Error("Only risk:<id> or case:<id> scope is supported in MVP export-from-store");
   }
 
-  const storeEvidenceFiles = resolveEvidenceInputFiles(root, evidences, scopeEvidenceRefs);
+  const storeEvidenceInputs = resolveEvidenceInputFiles(root, evidences, scopeEvidenceRefs);
 
   // Append a hash-chained chain-of-custody event for each exported evidence blob
   for (const evidenceId of scopeEvidenceRefs) {
@@ -126,7 +141,7 @@ export async function natoMvpExportFromStore(opts: {
     });
   }
 
-  const allInputs = [...metaFiles, ...storeEvidenceFiles, ...(opts.inputs || [])];
+  const allInputs: NatoMvpExportInput[] = [...metaFiles, ...storeEvidenceInputs, ...(opts.inputs || [])];
 
   await natoMvpExport({
     scopeRef: opts.scopeRef,
