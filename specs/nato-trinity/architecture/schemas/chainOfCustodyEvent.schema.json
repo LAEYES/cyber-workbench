@@ -13,7 +13,10 @@
     "evidenceId",
     "action",
     "actor",
-    "timestamp"
+    "timestamp",
+    "prevHash",
+    "eventHash",
+    "hashAlg"
   ],
   "properties": {
     "id": { "type": "string" },
@@ -26,10 +29,16 @@
     "evidenceId": { "type": "string" },
     "action": {
       "type": "string",
-      "enum": ["create", "access", "export", "legalHold", "purge", "retentionChange"]
+      "enum": ["collected", "transferred", "accessed", "sealed", "verified"]
     },
     "actor": { "type": "string" },
     "timestamp": { "type": "string", "format": "date-time" },
+
+    "prevHash": { "type": "string", "pattern": "^[0-9a-fA-F]{64}$" },
+    "eventHash": { "type": "string", "pattern": "^[0-9a-fA-F]{64}$" },
+    "hashAlg": { "type": "string", "enum": ["sha256"], "default": "sha256" },
+
+    "location": { "type": "string" },
     "details": { "type": "object" }
   },
   "additionalProperties": true

@@ -9,6 +9,7 @@ export type Risk = {
   version: number;
   createdAt: string;
   createdBy: string;
+  updatedAt?: string;
 
   orgId: string;
   riskId: string;

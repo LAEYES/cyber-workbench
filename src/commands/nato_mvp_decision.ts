@@ -19,6 +19,7 @@ export type Decision = {
   approvedBy: string;
   approvedAt: string;
   expiryDate?: string; // required if accept
+  evidenceRefs?: string[];
 };
 
 export async function natoMvpDecisionCreate(opts: {

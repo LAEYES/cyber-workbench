@@ -315,9 +315,11 @@ components:
             scopeRef: { type: string }
             evidenceRefs: { type: array, items: { type: string } }
             manifestHash: { type: string }
+            manifestAlg: { type: string, enum: [sha256], default: sha256 }
             exportedAt: { type: string, format: date-time }
             exportedBy: { type: string }
             bundleRef: { type: string }
+            classification: { type: string, enum: [public, internal, sensitive] }
 
     LegalHold:
       allOf:
@@ -373,7 +375,7 @@ components:
       allOf:
         - $ref: '#/components/schemas/EntityBase'
         - type: object
-          required: [type, eventId, evidenceId, action, timestamp, actor]
+          required: [type, eventId, evidenceId, action, timestamp, actor, prevHash, eventHash, hashAlg]
           properties:
             type: { type: string, enum: [chainOfCustodyEvent] }
             eventId: { type: string }
@@ -381,6 +383,9 @@ components:
             action: { type: string, enum: [collected, transferred, accessed, sealed, verified] }
             timestamp: { type: string, format: date-time }
             actor: { type: string }
+            prevHash: { type: string, pattern: '^[0-9a-fA-F]{64}$' }
+            eventHash: { type: string, pattern: '^[0-9a-fA-F]{64}$' }
+            hashAlg: { type: string, enum: [sha256], default: sha256 }
             location: { type: string }
             details: { type: object, additionalProperties: true }
 
