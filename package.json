@@ -7,8 +7,10 @@
     "cyberwb": "dist/cli.js"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "dev": "tsx src/cli.ts",
+    "build": "npm run build:ui",
+    "build:cli": "tsc -p tsconfig.json",
+    "build:ui": "npm --prefix quantum-chat-ui run build",
+    "dev": "npm --prefix quantum-chat-ui run dev",
     "lint": "eslint .",
     "test": "node --test",
     "sources:validate": "node scripts/validate-sources.mjs",
